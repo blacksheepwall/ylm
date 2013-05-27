@@ -1,5 +1,6 @@
 package com.youlema.sales;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -11,4 +12,9 @@ public class MainController {
 	public String main(){
 		return "main";
 	}
+	@RequestMapping("/main/{pageName}")
+	public String view(@PathVariable("pageName")String path){
+		return path;
+	}
+	
 }
