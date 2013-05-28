@@ -3,14 +3,14 @@
 <!DOCTYPE html>
 <html>
   <@head title="TBDS"
-  keywords="TBDS"
-  description="TBDS" target="${target}">
+  keywords="浙江中山国际旅行社分销系统"
+  description="浙江中山国际旅行社分销系统" target="${target}">
   </@head>
     <#nested>
 </html>
 </#macro>
 
-<#macro head title="TBDS" keywords="TBDS" description="TBDS" target="">
+<#macro head title="" keywords="" description="" target="">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -25,7 +25,7 @@
   <link rel="shortcut icon" href="/img/favicon.png">
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
-  <script src="js/html5shiv.js"></script>
+  <script src="/js/base/html5shiv.js"></script>
   <![endif]-->
   <#include "css.ftl">
   <#nested />

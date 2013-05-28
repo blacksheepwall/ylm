@@ -1,0 +1,12 @@
+.main-page .icon-chevron-right {
+  float: right;
+}
+
+.main-page .nav-list a {
+  margin: 0 0 -1px;
+  border: 1px solid #e5e5e5;
+}
+
+.footer {
+  text-align: center;
+}
