@@ -6,12 +6,12 @@
           <div class="container-fluid">
             <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"><span
               class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
-            <a href="#" class="brand"><strong>TBDS</strong></a>
+            <a href="/main.do" class="brand"><strong>TBDS</strong></a>
 
             <div class="nav-collapse collapse navbar-responsive-collapse">
               <ul class="nav">
                 <li class="active">
-                  <a href="#">首页</a>
+                  <a href="/main.do">首页</a>
                 </li>
                 <li>
                   <a href="#">出境游</a>

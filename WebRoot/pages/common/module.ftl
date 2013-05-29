@@ -1,8 +1,8 @@
 <#include "config.ftl">
-<#macro html target="">
+<#macro html target="" title="">
 <!DOCTYPE html>
 <html>
-  <@head title="TBDS"
+  <@head title="${title!'TBDS'}"
   keywords="浙江中山国际旅行社分销系统"
   description="浙江中山国际旅行社分销系统" target="${target}">
   </@head>
