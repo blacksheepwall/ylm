@@ -27,7 +27,7 @@
       </div>
       <div class="span10">
         <form class="form-search">
-          <select>
+          <select class="top-search">
             <option>跟团游</option>
             <option>自由行</option>
             <option>线路</option>
@@ -42,7 +42,7 @@
       </div>
       <div class="span10">
         <div class="span4">
-          <h5>业务公告<a class="pull-right" href="/main/news.do">更多</a></h5>
+          <h5 class="mod-title">业务公告<a class="pull-right more" href="/main/news.do">更多</a></h5>
           <ol>
             <li>
               这里是系统公告系统公告系统公告系统公告
@@ -71,7 +71,7 @@
           </ol>
         </div>
         <div class="span6">
-          <h5>促销产品</h5>
+          <h5 class="mod-title">促销产品</h5>
           <ol>
             <li>
               这里是系统公告系统公告系统公告系统公告
@@ -104,7 +104,7 @@
     <div class="row-fluid">
       <div class="span2"></div>
       <div class="span10">
-        <h5>最新上架</h5>
+        <h5 class="mod-title">最新上架</h5>
         <table class="table table-hover table-bordered">
           <thead>
           <tr>
@@ -167,7 +167,7 @@
     <div class="row-fluid">
       <div class="span2"></div>
       <div class="span10">
-        <h5>待处理的订单</h5>
+        <h5 class="mod-title">待处理的订单</h5>
         <table class="table table-hover table-bordered">
           <thead>
           <tr>

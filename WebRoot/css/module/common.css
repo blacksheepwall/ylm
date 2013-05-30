@@ -2,6 +2,12 @@ body {
   font-size: 12px;
 }
 
+.navbar-inner {
+  background: url('../../img/nav-bg.jpg') repeat-x 0 bottom !important;
+  border-radius: 0;
+  box-shadow: 0 1px 8px 1px #6d6b6b;
+}
+
 .navbar .nav>li>a {
   padding: 10px;
 }
@@ -19,6 +25,27 @@ body {
   border: 1px solid #e5e5e5;
 }
 
+.main-page .top-search {
+  width: 100px;
+}
+
+.main-page .more {
+  font-size: 12px;
+}
+
+.mod-title {
+  margin-left: 5px;
+  padding-left: 10px;
+  border-left: 3px solid #08c;
+}
+
 .footer {
+  margin-top: 20px;
+  padding: 10px;
   text-align: center;
+  /*background: url('../../img/bg_footer.jpg') repeat-x;*/
+}
+
+.footer p {
+  margin: 0;
 }

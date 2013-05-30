@@ -1,7 +1,7 @@
-<header class="container-fluid">
+<header>
   <div class="row-fluid">
     <div class="span12">
-      <div class="navbar navbar-inverse">
+      <div class="navbar">
         <div class="navbar-inner">
           <div class="container-fluid">
             <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"><span
