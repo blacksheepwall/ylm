@@ -9,3 +9,4 @@
 *.iml
 /target
 /logs
+/.settings
