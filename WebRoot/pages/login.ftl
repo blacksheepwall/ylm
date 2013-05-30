@@ -10,17 +10,17 @@
           <h3 id="myModalLabel" class="text-center">浙江中山国际旅行社分销系统</h3>
           <h4 class="text-center">TBDS-V1.0</h4>
         </div>
-        <div class="modal-body form-horizontal">
+        <form class="modal-body form-horizontal" action="/login.do" method="post">
           <div class="control-group">
             <label class="control-label" for="username">帐号</label>
             <div class="controls">
-              <input type="text" id="username">
+              <input type="text" name="name" id="username">
             </div>
           </div>
           <div class="control-group">
             <label class="control-label" for="password">密码</label>
             <div class="controls">
-              <input type="text" id="password">
+              <input type="text" name="pass" id="password">
             </div>
           </div>
           <div class="control-group">
@@ -38,11 +38,11 @@
             </div>
           </div>
           <p class="muted text-center">建议浏览器：Internet Explorer8.0 、Google Chrome</p>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-primary">登录</button>
-          <button class="btn" data-dismiss="modal" aria-hidden="true">重置</button>
-        </div>
+          <div class="modal-footer">
+            <button id="login" class="btn btn-primary">登录</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">重置</button>
+          </div>
+        </form>
       </div>
     </div>
     </@body>
