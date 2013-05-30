@@ -17,7 +17,7 @@
                   <a href="#">出境游</a>
                 </li>
                 <li>
-                  <a href="#">团内游</a>
+                  <a href="/main/inland-travel.do">团内游</a>
                 </li>
                 <li>
                   <a href="#">自由行</a>
