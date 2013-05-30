@@ -1,5 +1,5 @@
-<#-- 登录页 -->
-<#assign page_name="login"/>
+<#-- 找回密码页 -->
+<#assign page_name="get-password"/>
 <#include "common/module.ftl"/>
 <#escape x as x?html>
   <@html title="登录">
@@ -7,10 +7,10 @@
     <div class="container-fluid">
       <div class="modal fade in">
         <div class="modal-header">
-          <h3 id="myModalLabel" class="text-center">浙江中山国际旅行社分销系统</h3>
-          <h4 class="text-center">TBDS-V1.0</h4>
+          <h3 id="myModalLabel" class="text-center">找回密码</h3>
         </div>
         <div class="modal-body form-horizontal">
+          <h5 class="text-center">第一步：请输入登录账号及手机号码，获取验证码：</h5>
           <div class="control-group">
             <label class="control-label" for="username">帐号</label>
             <div class="controls">
@@ -18,30 +18,21 @@
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label" for="password">密码</label>
+            <label class="control-label" for="password">手机号码</label>
             <div class="controls">
               <input type="text" id="password">
             </div>
           </div>
+          <h5 class="text-center">第二步：请输入收到的6位验证码：</h5>
           <div class="control-group">
             <label class="control-label" for="captcha">验证码</label>
             <div class="controls">
               <input type="text" id="captcha" class="span1">
             </div>
           </div>
-          <div class="control-group">
-            <div class="controls">
-              <label class="checkbox">
-                <input type="checkbox">记住账户
-                <a class="forgot-password" href="./get-password.do">忘记密码</a>
-              </label>
-            </div>
-          </div>
-          <p class="muted text-center">建议浏览器：Internet Explorer8.0 、Google Chrome</p>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-primary">登录</button>
-          <button class="btn" data-dismiss="modal" aria-hidden="true">重置</button>
+          <button class="btn btn-primary">提交</button>
         </div>
       </div>
     </div>

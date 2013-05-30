@@ -34,12 +34,14 @@
 
 <#macro body class="" id="" nohead=false>
 <body class="${class}" <#if id!="">id="${id}"</#if>>
-  <#if !nohead>
+  <#if nohead>
+    <#nested>
+  <#else>
     <#include "header.ftl"/>
+    <#nested>
   <a id="J_page_to_top" class="global-totop" title="回到顶部"></a>
     <#include "footer.ftl"/>
   </#if>
-  <#nested>
   <#include "js.ftl">
 </body>
 </#macro>

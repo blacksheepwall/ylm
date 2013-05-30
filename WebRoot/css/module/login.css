@@ -1,3 +1,7 @@
 .forgot-password {
   margin-left: 10px;
 }
+
+.modal-footer {
+  text-align: center;
+}
