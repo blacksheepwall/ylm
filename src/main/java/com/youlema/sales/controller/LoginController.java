@@ -24,7 +24,7 @@ public class LoginController {
 	@Resource
 	private UserService userService;
 
-	@RequestMapping(value = "/login" ,method=RequestMethod.POST)
+	@RequestMapping(value = "/login")
 	public String login(@RequestParam("name") String name, @RequestParam("pass") String password) {
 		User user = userService.getUser(name, password);
 		if (user != null) {
