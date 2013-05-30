@@ -1,5 +1,5 @@
 <#-- 系统公告页 -->
-<#assign page_name="main"/>
+<#assign page_name="news"/>
 <#include "common/module.ftl"/>
 <#escape x as x?html>
   <@html title="系统公告">

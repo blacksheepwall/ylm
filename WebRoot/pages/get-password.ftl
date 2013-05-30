@@ -21,9 +21,11 @@
             <label class="control-label" for="password">手机号码</label>
             <div class="controls">
               <input type="text" id="password">
+              <a class="send-captha" href="">发送验证码</a>
             </div>
           </div>
           <h5 class="text-center">第二步：请输入收到的6位验证码：</h5>
+          <p class="muted text-center">如果您没有收到验证码，请拨打服务热线4008268100</p>
           <div class="control-group">
             <label class="control-label" for="captcha">验证码</label>
             <div class="controls">
