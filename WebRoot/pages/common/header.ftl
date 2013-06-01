@@ -36,8 +36,8 @@
                 <li>
                   <a href="#">用户中心</a>
                 </li>
-                <li>
-                  <a href="#">管理中心</a>
+                <li <#if "manage"?contains(page_name)>class="active"</#if>>
+                  <a href="/main/manage.do">管理中心</a>
                 </li>
                 <li>
                   <a href="#">常见问题</a>

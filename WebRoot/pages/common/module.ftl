@@ -60,3 +60,49 @@
   </div>
 </div>
 </#macro>
+
+<#macro manage_sidebar>
+<div class="span2">
+  <ul class="nav nav-list">
+    <li class="nav-header">
+      公司信息
+    </li>
+    <li>
+      <a href="#">信息修改<i class="icon-chevron-right"></i></a>
+    </li>
+    <li <#if "manage-add-user"==page_name>class="active"</#if>>
+      <a href="/main/manage-add-user.do">新增系统用户<i class="icon-chevron-right"></i></a>
+    </li>
+    <li <#if "manage-users"==page_name>class="active"</#if>>
+      <a href="/main/manage-users.do">系统用户管理<i class="icon-chevron-right"></i></a>
+    </li>
+    <li>
+      <a href="#">系统设置<i class="icon-chevron-right"></i></a>
+    </li>
+    <li class="nav-header">
+      客户管理
+    </li>
+    <li>
+      <a href="#">游客列表<i class="icon-chevron-right"></i></a>
+    </li>
+    <li>
+      <a href="#">生日提醒<i class="icon-chevron-right"></i></a>
+    </li>
+    <li class="nav-header">
+      短信平台
+    </li>
+    <li>
+      <a href="#">账号设置<i class="icon-chevron-right"></i></a>
+    </li>
+    <li>
+      <a href="#">短信模板<i class="icon-chevron-right"></i></a>
+    </li>
+    <li>
+      <a href="#">发送短信<i class="icon-chevron-right"></i></a>
+    </li>
+    <li>
+      <a href="#">发送记录<i class="icon-chevron-right"></i></a>
+    </li>
+  </ul>
+</div>
+</#macro>

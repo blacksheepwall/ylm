@@ -4,6 +4,17 @@ body {
   /*background: url('../../img/contentbg.png') repeat;*/
 }
 
+.nav-list {
+  box-shadow: 0 1px 2px 2px #ccc;
+  border-radius: 5px;
+  padding: 0;
+}
+
+.nav-list .nav-header {
+  margin-left: 0;
+  color: #333;
+}
+
 .navbar-inner {
   background: url('../../img/nav-bg.jpg') repeat-x 0 bottom !important;
   border-radius: 0;

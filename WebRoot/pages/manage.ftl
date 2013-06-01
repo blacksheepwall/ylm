@@ -16,53 +16,10 @@
         </div>
       </div>
       <div class="row-fluid">
-        <div class="span2">
-          <ul class="nav nav-list">
-            <li class="nav-header">
-              公司信息
-            </li>
-            <li class="active">
-              <a href="#">信息修改<i class="icon-chevron-right"></i></a>
-            </li>
-            <li>
-              <a href="#">新增系统用户<i class="icon-chevron-right"></i></a>
-            </li>
-            <li>
-              <a href="#">系统用户管理<i class="icon-chevron-right"></i></a>
-            </li>
-            <li>
-              <a href="#">系统设置<i class="icon-chevron-right"></i></a>
-            </li>
-            <li class="nav-header">
-              客户管理
-            </li>
-            <li class="active">
-              <a href="#">游客列表<i class="icon-chevron-right"></i></a>
-            </li>
-            <li>
-              <a href="#">生日提醒<i class="icon-chevron-right"></i></a>
-            </li>
-            <li class="nav-header">
-              短信平台
-            </li>
-            <li class="active">
-              <a href="#">账号设置<i class="icon-chevron-right"></i></a>
-            </li>
-            <li>
-              <a href="#">短信模板<i class="icon-chevron-right"></i></a>
-            </li>
-            <li>
-              <a href="#">发送短信<i class="icon-chevron-right"></i></a>
-            </li>
-            <li>
-              <a href="#">发送记录<i class="icon-chevron-right"></i></a>
-            </li>
-          </ul>
-        </div>
+        <@manage_sidebar></@manage_sidebar>
         <div class="span10">
           <div class="clearfix">
             <h5 class="mod-title">单位信息</h5>
-
             <div class="pull-left">
               <label class="control-label">单位名称：</label>
               <label class="control-label">单位简称：</label>
