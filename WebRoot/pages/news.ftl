@@ -10,10 +10,10 @@
           <li><a href="/main.do">首页</a> <span class="divider">/</span></li>
           <li class="active">系统公告列表</li>
         </ul>
-        <form class="form-search pull-right">
-          <input type="text" class="input-xxlarge search-query">
-          <button type="submit" class="btn">搜索</button>
-        </form>
+        <div class="input-append pull-right">
+          <input class="input-xxlarge" type="text">
+          <button class="btn" type="button">搜索</button>
+        </div>
       </div>
       <div class="row-fluid">
         <div class="span12">
@@ -49,36 +49,16 @@
                 <a href="/main/news-detail.do">6月港澳散拼计划</a>
               </td>
               <td>
-                01/04/2012
+                <a href="">附件名称</a>
               </td>
               <td>
-                Default
+                港澳、散拼计划
               </td>
               <td>
-                Default
+                2013-07-01
               </td>
               <td>
-                Default
-              </td>
-            </tr>
-            <tr>
-              <td>
-                1
-              </td>
-              <td>
-                TB - Monthly
-              </td>
-              <td>
-                01/04/2012
-              </td>
-              <td>
-                Default
-              </td>
-              <td>
-                Default
-              </td>
-              <td>
-                Default
+                2013-07-01
               </td>
             </tr>
             </tbody>

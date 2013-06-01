@@ -32,8 +32,10 @@
             <option>自由行</option>
             <option>线路</option>
           </select>
-          <input type="text" class="input-xxlarge search-query">
-          <button type="submit" class="btn">搜索</button>
+          <div class="input-append">
+            <input class="input-xlarge" type="text">
+            <button class="btn" type="button">搜索</button>
+          </div>
         </form>
         <div class="alert alert-info">
           <button type="button" class="close" data-dismiss="alert">×</button>
@@ -41,61 +43,46 @@
         </div>
       </div>
       <div class="span10">
-        <div class="span4">
-          <h5 class="mod-title">业务公告<a class="pull-right more" href="/main/news.do">更多</a></h5>
+        <div class="span5">
+          <h5 class="mod-title">业务公告<a class="pull-right more" href="/main/news.do">更多>></a></h5>
           <ol>
             <li>
-              这里是系统公告系统公告系统公告系统公告
+              <a href="/main/news-detail.do">6月港澳散拼计划</a>
             </li>
             <li>
-              这里是系统公告系统公告系统公告
+              <a href="/main/news-detail.do">7月美加计划</a>
             </li>
             <li>
-              这里是系统公告系统公告
+              <a href="/main/news-detail.do">6月港澳散拼计划</a>
             </li>
             <li>
-              这里是系统公告
+              <a href="/main/news-detail.do">7月美加计划</a>
             </li>
             <li>
-              这里是系统公告
+              <a href="/main/news-detail.do">6月港澳散拼计划</a>
             </li>
             <li>
-              这里是系统公告
-            </li>
-            <li>
-              这里是系统公告
-            </li>
-            <li>
-              这里是系统公告
+              <a href="/main/news-detail.do">7月美加计划</a>
             </li>
           </ol>
         </div>
-        <div class="span6">
+        <div class="span7">
           <h5 class="mod-title">促销产品</h5>
           <ol>
             <li>
-              这里是系统公告系统公告系统公告系统公告
+              【促销标签】<a href="">石家庄-北京双飞六日</a> 杭州出发 2880
             </li>
             <li>
-              这里是系统公告系统公告系统公告
+              【促销标签】<a href="">石家庄-北京双飞六日</a> 杭州出发 2880
             </li>
             <li>
-              这里是系统公告系统公告
+              【促销标签】<a href="">石家庄-北京双飞六日</a> 杭州出发 2880
             </li>
             <li>
-              这里是系统公告
+              【促销标签】<a href="">石家庄-北京双飞六日</a> 杭州出发 2880
             </li>
             <li>
-              这里是系统公告
-            </li>
-            <li>
-              这里是系统公告
-            </li>
-            <li>
-              这里是系统公告
-            </li>
-            <li>
-              这里是系统公告
+              【促销标签】<a href="">石家庄-北京双飞六日</a> 杭州出发 2880
             </li>
           </ol>
         </div>
@@ -126,40 +113,28 @@
           </tr>
           </thead>
           <tbody>
+          <#assign lastest>
           <tr>
             <td>
-              1
+              <a href="">【蜜月游】毛里求斯8天5晚伊甸园之旅</a>
             </td>
             <td>
-              TB - Monthly
+              上海
             </td>
             <td>
-              01/04/2012
+              飞机/飞机
             </td>
             <td>
-              Default
+              4889.00
             </td>
             <td>
-              Default
+              6-18、6-23、6-30
             </td>
           </tr>
-          <tr>
-            <td>
-              1
-            </td>
-            <td>
-              TB - Monthly
-            </td>
-            <td>
-              01/04/2012
-            </td>
-            <td>
-              Default
-            </td>
-            <td>
-              Default
-            </td>
-          </tr>
+          </#assign>
+          <#noescape>
+            ${lastest}${lastest}${lastest}${lastest}${lastest}
+          </#noescape>
           </tbody>
         </table>
       </div>
@@ -172,57 +147,61 @@
           <thead>
           <tr>
             <th>
-              线路名称
+              订单编号
             </th>
             <th>
-              出发港口
+              产品名称
             </th>
             <th>
-              往返交通
+              出团日期
             </th>
             <th>
-              最低价格
+              人数
             </th>
             <th>
-              发团日期
+              状态
+            </th>
+            <th>
+              合同状态
+            </th>
+            <th>
+              出团通知
             </th>
           </tr>
           </thead>
           <tbody>
+          <#assign orderList>
           <tr>
             <td>
-              1
+              <a href="">YSL13042410560353</a>
             </td>
             <td>
-              TB - Monthly
+              <a href="">【双城春色】石家庄-北京双飞六日游</a>
             </td>
             <td>
-              01/04/2012
+              2013-05-07
             </td>
             <td>
-              Default
+              3大1小
             </td>
             <td>
-              Default
+              已确认
+            </td>
+            <td>
+              客户已签订
+            </td>
+            <td>
+              <a href="">下载</a>
             </td>
           </tr>
-          <tr>
-            <td>
-              1
-            </td>
-            <td>
-              TB - Monthly
-            </td>
-            <td>
-              01/04/2012
-            </td>
-            <td>
-              Default
-            </td>
-            <td>
-              Default
-            </td>
-          </tr>
+          </#assign>
+          <#noescape>
+            ${orderList}
+            ${orderList}
+            ${orderList}
+            ${orderList}
+            ${orderList}
+          </#noescape>
           </tbody>
         </table>
       </div>
