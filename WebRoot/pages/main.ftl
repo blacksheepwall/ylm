@@ -44,7 +44,7 @@
       </div>
       <div class="span10">
         <div class="span5">
-          <h5 class="mod-title">业务公告<a class="pull-right more" href="/main/news.do">更多>></a></h5>
+          <h5 class="mod-title">业务公告<a class="pull-right more" href="/main/news.do">查看更多</a></h5>
           <ol>
           	<#list notes as it>
 	          	<li>

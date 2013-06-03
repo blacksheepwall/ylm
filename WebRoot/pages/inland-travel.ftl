@@ -5,7 +5,9 @@
   <@html title="国内线路">
     <@body class="main-page">
     <div class="container-fluid">
-      <div class="span2 pull-left"></div>
+      <div class="span2 pull-left">
+        <@inland_travel_module></@inland_travel_module>
+      </div>
       <div class="span10 pull-left">
         <div class="clearfix">
           <div class="pull-left">
