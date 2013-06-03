@@ -17,12 +17,12 @@ public class AdService {
 	 */
 	public List<ATag> readNote(){
 		ArrayList<ATag> tagList = new ArrayList<ATag>();
-		tagList.add(new ATag("6月港澳散拼计划", "http://localhost:8080/main/news-detail.do?id="+1));
-		tagList.add(new ATag("7月美加计划", "http://localhost:8080/main/news-detail.do?id="+2));
-		tagList.add(new ATag("6月港澳散拼计划", "http://localhost:8080/main/news-detail.do?id="+3));
-		tagList.add(new ATag("7月美加计划", "http://localhost:8080/main/news-detail.do?id="+4));
-		tagList.add(new ATag("6月港澳散拼计划", "http://localhost:8080/main/news-detail.do?id="+5));
-		tagList.add(new ATag("7月美加计划", "http://localhost:8080/main/news-detail.do?id="+6));
+		tagList.add(new ATag("6月港澳散拼计划", "http://localhost:8080/news/content.do?id="+1));
+		tagList.add(new ATag("7月美加计划", "http://localhost:8080/news/content.do?id="+2));
+		tagList.add(new ATag("6月港澳散拼计划", "http://localhost:8080/news/content.do?id="+3));
+		tagList.add(new ATag("7月美加计划", "http://localhost:8080/news/content.do?id="+4));
+		tagList.add(new ATag("6月港澳散拼计划", "http://localhost:8080/news/content.do?id="+5));
+		tagList.add(new ATag("7月美加计划", "http://localhost:8080/news/content.do?id="+6));
 		return tagList;
 	}
 	/**

@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.youlema.sales.meta.User;
@@ -22,7 +23,7 @@ public class LoginController {
 	@Resource
 	private UserService userService;
 
-	@RequestMapping(value = "/login")
+	@RequestMapping(value = "/login",method=RequestMethod.POST)
 	public String login(@RequestParam("name") String name, @RequestParam("pass") String password) {
 		User user = userService.getUser(name, password);
 		if (user != null) {

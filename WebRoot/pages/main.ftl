@@ -93,7 +93,7 @@
           <#list lines as it>
 	          <tr>
 	            <td>
-	              <a href="${it.id}">${it.name}</a>
+	              <a href="/product/line.do?id=${it.id}">${it.name}</a>
 	            </td>
 	            <td>
 	              ${it.startPlace}
@@ -147,10 +147,10 @@
           <#list orders as it>
 	          <tr>
 	            <td>
-	              <a href="#view#${it.orderId}">${it.orderNumber}</a>
+	              <a href="/order/info.do?id=${it.orderId}">${it.orderNumber}</a>
 	            </td>
 	            <td>
-	              <a href="#pdt#${it.productId}">${it.productName}</a>
+	              <a href="/product/detail.do?id=${it.productId}">${it.productName}</a>
 	            </td>
 	            <td>
 	              ${it.beginDate}
@@ -165,7 +165,7 @@
 	              ${it.contractStatus}
 	            </td>
 	            <td>
-	              <a href="#down#${it.orderId}">下载</a>
+	              <a href="/order/download.do?id=${it.orderId}">下载</a>
 	            </td>
 	          </tr>          
           </#list>
