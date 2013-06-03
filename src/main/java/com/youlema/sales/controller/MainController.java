@@ -21,7 +21,6 @@ public class MainController {
 	@Resource
 	private AdService adService;
 	
-	
 	@RequestMapping(value = "/index")
 	public String indexPage() {
 		return "login";
@@ -37,7 +36,6 @@ public class MainController {
 		model.put("lines", lines);
 		model.put("notes", notes);
 		model.put("promotion", promotion);
-		
 		return "main";
 	}
 	@RequestMapping("/main/{pageName}")

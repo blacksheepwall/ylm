@@ -9,12 +9,18 @@
 
 	<context:component-scan base-package="com.youlema.sales" />
 	<bean id="handlerMapping"
-		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="interceptors">
+			<list>
+				<ref bean="userControllerInterceptor" />
+			</list>
+		</property>
+	</bean>
 	<bean id="freemarkerConfiguration"
 		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
 		<property name="location" value="classpath:freemarker.properties" />
 	</bean>
-
+	<bean id="userControllerInterceptor" class="com.youlema.sales.controller.UserHandlerInterceptor"></bean>
 	<bean id="freemarkerConfig"
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
 		<property name="freemarkerSettings" ref="freemarkerConfiguration" />

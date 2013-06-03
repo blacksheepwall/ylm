@@ -9,7 +9,7 @@
       <div class="span2">
         <ul class="nav nav-list">
           <li class="nav-header">
-            我的快捷菜单
+            ${user.userName}的快捷菜单
           </li>
           <li class="active">
             <a href="#">出境跟团游<i class="icon-chevron-right"></i></a>
