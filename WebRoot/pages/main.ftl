@@ -46,44 +46,21 @@
         <div class="span5">
           <h5 class="mod-title">业务公告<a class="pull-right more" href="/main/news.do">更多>></a></h5>
           <ol>
-            <li>
-              <a href="/main/news-detail.do">6月港澳散拼计划</a>
-            </li>
-            <li>
-              <a href="/main/news-detail.do">7月美加计划</a>
-            </li>
-            <li>
-              <a href="/main/news-detail.do">6月港澳散拼计划</a>
-            </li>
-            <li>
-              <a href="/main/news-detail.do">7月美加计划</a>
-            </li>
-            <li>
-              <a href="/main/news-detail.do">6月港澳散拼计划</a>
-            </li>
-            <li>
-              <a href="/main/news-detail.do">7月美加计划</a>
-            </li>
+          	<#list notes as it>
+	          	<li>
+	              <a href="${it.url}">${it.title}</a>
+	            </li>
+          	</#list>
           </ol>
         </div>
         <div class="span7">
           <h5 class="mod-title">促销产品</h5>
           <ol>
-            <li>
-              【促销标签】<a href="">石家庄-北京双飞六日</a> 杭州出发 2880
-            </li>
-            <li>
-              【促销标签】<a href="">石家庄-北京双飞六日</a> 杭州出发 2880
-            </li>
-            <li>
-              【促销标签】<a href="">石家庄-北京双飞六日</a> 杭州出发 2880
-            </li>
-            <li>
-              【促销标签】<a href="">石家庄-北京双飞六日</a> 杭州出发 2880
-            </li>
-            <li>
-              【促销标签】<a href="">石家庄-北京双飞六日</a> 杭州出发 2880
-            </li>
+          	<#list promotion as it>
+	            <li>
+	              【促销标签】<a href="${it.url}">${it.title}</a> 杭州出发 2880
+	            </li>          		
+          	</#list>
           </ol>
         </div>
       </div>
@@ -113,28 +90,25 @@
           </tr>
           </thead>
           <tbody>
-          <#assign lastest>
-          <tr>
-            <td>
-              <a href="">【蜜月游】毛里求斯8天5晚伊甸园之旅</a>
-            </td>
-            <td>
-              上海
-            </td>
-            <td>
-              飞机/飞机
-            </td>
-            <td>
-              4889.00
-            </td>
-            <td>
-              6-18、6-23、6-30
-            </td>
-          </tr>
-          </#assign>
-          <#noescape>
-            ${lastest}${lastest}${lastest}${lastest}${lastest}
-          </#noescape>
+          <#list lines as it>
+	          <tr>
+	            <td>
+	              <a href="${it.id}">${it.name}</a>
+	            </td>
+	            <td>
+	              ${it.startPlace}
+	            </td>
+	            <td>
+	              ${it.traffic}
+	            </td>
+	            <td>
+	              ${it.price}
+	            </td>
+	            <td>
+	              ${it.sendDate}
+	            </td>
+	          </tr>          	
+          </#list>
           </tbody>
         </table>
       </div>
@@ -170,38 +144,32 @@
           </tr>
           </thead>
           <tbody>
-          <#assign orderList>
-          <tr>
-            <td>
-              <a href="">YSL13042410560353</a>
-            </td>
-            <td>
-              <a href="">【双城春色】石家庄-北京双飞六日游</a>
-            </td>
-            <td>
-              2013-05-07
-            </td>
-            <td>
-              3大1小
-            </td>
-            <td>
-              已确认
-            </td>
-            <td>
-              客户已签订
-            </td>
-            <td>
-              <a href="">下载</a>
-            </td>
-          </tr>
-          </#assign>
-          <#noescape>
-            ${orderList}
-            ${orderList}
-            ${orderList}
-            ${orderList}
-            ${orderList}
-          </#noescape>
+          <#list orders as it>
+	          <tr>
+	            <td>
+	              <a href="#view#${it.orderId}">${it.orderNumber}</a>
+	            </td>
+	            <td>
+	              <a href="#pdt#${it.productId}">${it.productName}</a>
+	            </td>
+	            <td>
+	              ${it.beginDate}
+	            </td>
+	            <td>
+	              ${it.travellerCount}
+	            </td>
+	            <td>
+	              ${it.status}
+	            </td>
+	            <td>
+	              ${it.contractStatus}
+	            </td>
+	            <td>
+	              <a href="#down#${it.orderId}">下载</a>
+	            </td>
+	          </tr>          
+          </#list>
+
           </tbody>
         </table>
       </div>
