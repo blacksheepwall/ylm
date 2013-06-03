@@ -147,9 +147,8 @@
 }
 
 .des_sortsep h3 span {
-    background: url(../img/web_icon.png) no-repeat 0 -280px;
-    padding: 8px;
-    *padding: 3px 8px;
+    /*background: url(../img/web_icon.png) no-repeat 0 -280px;*/
+    /*padding: 8px;*/
 }
 
 .destination .current h3 {
@@ -179,8 +178,8 @@
 .des_sortcon {
     border: 1px solid #418800;
     position: absolute;
-    top: 0px;
-    left: 196px;
+    top: -180px;
+    left: 163px;
     width: 730px;
     padding: 0px 15px;
     overflow: hidden;
@@ -195,6 +194,7 @@
     overflow: hidden;
     padding: 3px 0;
     _clear: both;
+    margin-bottom: 0;
 }
 
 .des_sortcon dt {

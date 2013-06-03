@@ -19,11 +19,11 @@
             <button class="btn" type="button">高级查找</button>
           </div>
         </div>
-        <div class="">
-          <div>出发城市：不限 杭州 上海 宁波 南京 温州 台州</div>
-          <div>天数：不限 1天 2天 3天 1-3天 4-7天 7天以上</div>
-          <div>价格：不限 800以下 800-1500 1500-3000 3000-5000 5000以上</div>
-          <div>交通：不限 汽车 火车 轮船 飞机</div>
+        <div class="conditions">
+          <div class="control-group">出发城市： <span class="label label-info">不限</span> 杭州 上海 宁波 南京 温州 台州</div>
+          <div class="control-group">天数：<span class="label label-info">不限</span> 1天 2天 3天 1-3天 4-7天 7天以上</div>
+          <div class="control-group">价格：<span class="label label-info">不限</span> 800以下 800-1500 1500-3000 3000-5000 5000以上</div>
+          <div class="control-group"class="control-group">交通：<span class="label label-info">不限</span> 汽车 火车 轮船 飞机</div>
         </div>
         <div>
           <ul class="nav nav-tabs">

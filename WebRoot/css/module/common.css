@@ -15,6 +15,15 @@ body {
   color: #333;
 }
 
+.nav-tabs>li {
+  font-size: 14px;
+  font-family: "Microsoft YaHei";
+}
+
+.nav-tabs>li.active {
+  font-weight: bold;
+}
+
 .navbar-inner {
   background: url('../../img/nav-bg.jpg') repeat-x 0 bottom !important;
   border-radius: 0;

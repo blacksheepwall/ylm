@@ -14,3 +14,5 @@
 .destination .none{display: none;}
 .destination .des_sortsep:hover .none{display: block;}
 .destination .pr{position: relative;}
+
+.conditions{background-color:#e9eae6;padding:10px 10px 4px;margin:10px 0;}
