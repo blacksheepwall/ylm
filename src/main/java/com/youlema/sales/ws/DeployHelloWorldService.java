@@ -6,23 +6,23 @@ import javax.xml.ws.Endpoint;
 
 public class DeployHelloWorldService {
 	/**
-	 * <b>function:</b>·¢²¼WebService
+	 * <b>function:</b>å‘å¸ƒWebService
 	 * @author hoojo
 	 */
 	public static void deployService() {
-		System.out.println("Server start ¡­¡­");
+		System.out.println("Server start â€¦â€¦");
 		HelloWorldWebService service = new HelloWorldWebService();
 		String address = "http://localhost:8080/helloWorld";
 		Endpoint.publish(address, service);
 	}
 	
 	public static void main(String[] args) throws InterruptedException {
-		//·¢²¼WebService
+		//å‘å¸ƒWebService
 		deployService();
-		System.out.println("server ready ¡­¡­");
+		System.out.println("server ready â€¦â€¦");
 		Thread.sleep(10000 * 60);
 		System.out.println("server exiting");
-		//ĞİÃß60Ãëºó¾ÍÍË³ö
+		//ä¼‘çœ 60ç§’åå°±é€€å‡º
 		System.exit(0);
 	}
 }

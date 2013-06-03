@@ -12,33 +12,33 @@ import com.youlema.sales.meta.OrderVo;
 @Service
 public class AdService {
 	/**
-	 * ¶ÁÈ¡Ê×Ò³ÒµÎñ¹«¸æ
+	 * è¯»å–é¦–é¡µä¸šåŠ¡å…¬å‘Š
 	 * @return
 	 */
 	public List<ATag> readNote(){
 		ArrayList<ATag> tagList = new ArrayList<ATag>();
-		tagList.add(new ATag("6ÔÂ¸Û°ÄÉ¢Æ´¼Æ»®", "http://localhost:8080/main/news-detail.do?id="+1));
-		tagList.add(new ATag("7ÔÂÃÀ¼Ó¼Æ»®", "http://localhost:8080/main/news-detail.do?id="+2));
-		tagList.add(new ATag("6ÔÂ¸Û°ÄÉ¢Æ´¼Æ»®", "http://localhost:8080/main/news-detail.do?id="+3));
-		tagList.add(new ATag("7ÔÂÃÀ¼Ó¼Æ»®", "http://localhost:8080/main/news-detail.do?id="+4));
-		tagList.add(new ATag("6ÔÂ¸Û°ÄÉ¢Æ´¼Æ»®", "http://localhost:8080/main/news-detail.do?id="+5));
-		tagList.add(new ATag("7ÔÂÃÀ¼Ó¼Æ»®", "http://localhost:8080/main/news-detail.do?id="+6));
+		tagList.add(new ATag("6æœˆæ¸¯æ¾³æ•£æ‹¼è®¡åˆ’", "http://localhost:8080/main/news-detail.do?id="+1));
+		tagList.add(new ATag("7æœˆç¾åŠ è®¡åˆ’", "http://localhost:8080/main/news-detail.do?id="+2));
+		tagList.add(new ATag("6æœˆæ¸¯æ¾³æ•£æ‹¼è®¡åˆ’", "http://localhost:8080/main/news-detail.do?id="+3));
+		tagList.add(new ATag("7æœˆç¾åŠ è®¡åˆ’", "http://localhost:8080/main/news-detail.do?id="+4));
+		tagList.add(new ATag("6æœˆæ¸¯æ¾³æ•£æ‹¼è®¡åˆ’", "http://localhost:8080/main/news-detail.do?id="+5));
+		tagList.add(new ATag("7æœˆç¾åŠ è®¡åˆ’", "http://localhost:8080/main/news-detail.do?id="+6));
 		return tagList;
 	}
 	/**
-	 * ¶ÁÈ¡´ÙÏú²úÆ·
+	 * è¯»å–ä¿ƒé”€äº§å“
 	 */
 	public List<ATag> readPromotion(){
 		ArrayList<ATag> tagList = new ArrayList<ATag>();
-		tagList.add(new ATag("Ê¯¼Ò×¯-±±¾©Ë«·ÉÁùÈÕ", "http://localhost:8080/main/news-detail.do?id="+1));
-		tagList.add(new ATag("Ê¯¼Ò×¯-±±¾©Ë«·ÉÆßÈÕ", "http://localhost:8080/main/news-detail.do?id="+2));
-		tagList.add(new ATag("Ê¯¼Ò×¯-±±¾©Ë«·É°ËÈÕ", "http://localhost:8080/main/news-detail.do?id="+3));
-		tagList.add(new ATag("Ê¯¼Ò×¯-±±¾©Ë«·É¾ÅÈÕ", "http://localhost:8080/main/news-detail.do?id="+4));
-		tagList.add(new ATag("Ê¯¼Ò×¯-±±¾©Ë«·ÉÊ°ÈÕ", "http://localhost:8080/main/news-detail.do?id="+5));
+		tagList.add(new ATag("çŸ³å®¶åº„-åŒ—äº¬åŒé£å…­æ—¥", "http://localhost:8080/product/detail.do?id="+1));
+		tagList.add(new ATag("çŸ³å®¶åº„-åŒ—äº¬åŒé£ä¸ƒæ—¥", "http://localhost:8080/product/detail.do?id="+2));
+		tagList.add(new ATag("çŸ³å®¶åº„-åŒ—äº¬åŒé£å…«æ—¥", "http://localhost:8080/product/detail.do?id="+3));
+		tagList.add(new ATag("çŸ³å®¶åº„-åŒ—äº¬åŒé£ä¹æ—¥", "http://localhost:8080/product/detail.do?id="+4));
+		tagList.add(new ATag("çŸ³å®¶åº„-åŒ—äº¬åŒé£æ‹¾æ—¥", "http://localhost:8080/product/detail.do?id="+5));
 		return tagList;
 	}
 	/**
-	 * ×î½üÉÏ¼ÜÏßÂ·
+	 * æœ€è¿‘ä¸Šæ¶çº¿è·¯
 	 * @return
 	 */
 	public List<LineVo> readNewestLines(){
@@ -46,17 +46,17 @@ public class AdService {
 		for (int i = 0; i < 10; i++) {
 			LineVo vo = new LineVo();
 			vo.setId(i);
-			vo.setName("¡¾ÃÛÔÂÓÎ¡¿Ã«ÀïÇóË¹8Ìì5ÍíÒÁµéÔ°Ö®ÂÃ");
+			vo.setName("ã€èœœæœˆæ¸¸ã€‘æ¯›é‡Œæ±‚æ–¯8å¤©5æ™šä¼Šç”¸å›­ä¹‹æ—…");
 			vo.setPrice(new BigDecimal("4889.00"));
-			vo.setSendDate("6-18¡¢6-23¡¢6-30 ");
-			vo.setStartPlace("ÉÏº£");
-			vo.setTraffic("·É»ú/·É»ú ");
+			vo.setSendDate("6-18ã€6-23ã€6-30 ");
+			vo.setStartPlace("ä¸Šæµ·");
+			vo.setTraffic("é£æœº/é£æœº ");
 			tagList.add(vo);
         }
 		return tagList;
 	}
 	/**
-	 * ×î½ü¶©µ¥
+	 * æœ€è¿‘è®¢å•
 	 * @return
 	 */
 	public List<OrderVo> readLastestOrders(){
@@ -65,13 +65,13 @@ public class AdService {
 		for (int i = 0; i < 5; i++) {
 			OrderVo vo = new OrderVo();
 			vo.setBeginDate("2013-05-07");
-			vo.setContractStatus("¿Í»§ÒÑÇ©¶© ");
+			vo.setContractStatus("å®¢æˆ·å·²ç­¾è®¢ ");
 			vo.setOrderId(i);
 			vo.setOrderNumber("YSL13042410560353");
 			vo.setProductId(1000+i);
-			vo.setProductName("¡¾Ë«³Ç´ºÉ«¡¿Ê¯¼Ò×¯-±±¾©Ë«·ÉÁùÈÕÓÎ");
-			vo.setStatus("ÒÑÈ·ÈÏ");
-			vo.setTravellerCount("3´ó1Ğ¡");
+			vo.setProductName("ã€åŒåŸæ˜¥è‰²ã€‘çŸ³å®¶åº„-åŒ—äº¬åŒé£å…­æ—¥æ¸¸");
+			vo.setStatus("å·²ç¡®è®¤");
+			vo.setTravellerCount("3å¤§1å°");
 			list.add(vo);
 		}
 		return list;

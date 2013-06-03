@@ -12,7 +12,6 @@ import com.youlema.sales.security.YlmAuthenticationToken;
 import com.youlema.sales.service.UserService;
 
 /**
- * µÇÂ½Controller
  * 
  * @author zhushijun
  * 

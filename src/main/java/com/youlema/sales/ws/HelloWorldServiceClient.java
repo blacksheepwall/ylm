@@ -1,13 +1,9 @@
 package com.youlema.sales.ws;
-import javax.xml.namespace.QName;
-
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 
 
 public class HelloWorldServiceClient {
     public static void main(String[] args) {
-
-        //µ÷ÓÃWebService
 
         JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
 
