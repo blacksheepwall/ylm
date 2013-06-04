@@ -17,7 +17,7 @@
                   <a href="#">出境游</a>
                 </li>
                 <li <#if "inland-travel"?contains(page_name)>class="active"</#if>>
-                  <a href="/main/inland-travel.do">团内游</a>
+                  <a href="/inland.do">国内游</a>
                 </li>
                 <li>
                   <a href="#">自由行</a>
@@ -37,13 +37,13 @@
                   <a href="#">用户中心</a>
                 </li>
                 <li <#if "manage"?contains(page_name)>class="active"</#if>>
-                  <a href="/main/manage.do">管理中心</a>
+                  <a href="/u/manage.do">管理中心</a>
                 </li>
                 <li>
                   <a href="#">常见问题</a>
                 </li>
                 <li>
-                  <a href="/main/login.do">退出系统</a>
+                  <a href="/logout.do">退出系统</a>
                 </li>
                 <#--<li class="dropdown">-->
                   <#--<a data-toggle="dropdown" class="dropdown-toggle" href="#">个人设置<strong class="caret"></strong></a>-->

@@ -30,12 +30,9 @@
 			</util:map> </property> -->
 		<property name="filterChainDefinitions">
 			<value>
+				/index.do* = anon
 				/login.do* = anon
-				/main.do* = authc
-				/u/** = authc
-				/news/** = authc
-				/product/** = authc
-				/order/** = authc
+				/**/*.do = authc
 			</value>
 		</property>
 	</bean>

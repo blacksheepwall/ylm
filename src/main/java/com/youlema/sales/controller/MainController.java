@@ -3,6 +3,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.shiro.SecurityUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,5 +43,14 @@ public class MainController {
 	public String view(@PathVariable("pageName")String path){
 		return path;
 	}
-	
+
+	@RequestMapping("/inland")
+	public String inlandTravel(){
+	    return "inland-travel";
+	}
+	@RequestMapping("/logout")
+	public String logout(){
+	    SecurityUtils.getSubject().logout();
+	    return "redirect:/index.do";
+	}
 }
