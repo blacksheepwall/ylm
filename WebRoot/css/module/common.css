@@ -1,12 +1,14 @@
 body {
   font-size: 12px;
   overflow-y: scroll;
+  background-color: #f1f0f0;
+  -webkit-font-smoothing: antialiased;
   /*background: url('../../img/contentbg.png') repeat;*/
 }
 
 .nav-list {
-  box-shadow: 0 0 1px 1px #ccc;
-  border-radius: 5px;
+  /*box-shadow: 0 0 1px 1px #ccc;*/
+  /*border-radius: 5px;*/
   padding: 0;
 }
 
@@ -24,10 +26,15 @@ body {
   font-weight: bold;
 }
 
+.navbar {
+  position: fixed;
+  width: 100%;
+}
+
 .navbar-inner {
   background: url('../../img/nav-bg.jpg') repeat-x 0 bottom !important;
   border-radius: 0;
-  box-shadow: 0 1px 8px 1px #6d6b6b;
+  box-shadow: 0 1px 6px 0 #6d6b6b;
 }
 
 .navbar .nav>li>a {
@@ -38,23 +45,28 @@ body {
   font-size: 14px;
 }
 
-.main-page .icon-chevron-right {
+.main-body {
+  width: 970px;
+  margin: 12px auto 0;
+  padding: 10px 5px;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 5px 5px;
+  background-color: #fff;
+}
+
+.icon-chevron-right {
   float: right;
 }
 
-.main-page .nav-list a {
-  margin: 0 0 -1px;
+.nav-list a {
+  margin: 0 0 -1px !important;
   border: 1px solid #e5e5e5;
 }
 
-.main-page .top-search {
-  width: 100px;
-}
-
-.main-page .more {
-  color: #999;
-  font-size: 12px;
-  font-weight: normal;
+.mod-center {
+  width: 970px;
+  margin: 0 auto;
 }
 
 .mod-title {
@@ -67,8 +79,8 @@ body {
 }
 
 .footer {
-  border-top: 1px solid #ccc;
-  margin-top: 20px;
+  /*border-top: 1px solid #ccc;*/
+  margin-top: 10px;
   padding: 10px;
   text-align: center;
   color: #777;

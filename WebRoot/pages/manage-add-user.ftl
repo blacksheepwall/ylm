@@ -3,12 +3,12 @@
 <#include "common/module.ftl"/>
 <#escape x as x?html>
   <@html title="新增系统用户">
-    <@body class="main-page">
-    <div class="container-fluid">
+    <@body>
+    <div class="main-body">
       <div class="row-fluid">
         <ul class="breadcrumb pull-left">
           <li><a href="/main.do">首页</a> <span class="divider">/</span></li>
-          <li><a href="/main/manage.do">管理中心</a> <span class="divider">/</span></li>
+          <li><a href="./manage.do">管理中心</a> <span class="divider">/</span></li>
           <li class="active">新增系统用户</li>
         </ul>
         <div class="input-append pull-right">
@@ -95,6 +95,7 @@
           </div>
         </div>
       </div>
+    </div>
     </@body>
   </@html>
 </#escape>

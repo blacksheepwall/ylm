@@ -3,12 +3,12 @@
 <#include "common/module.ftl"/>
 <#escape x as x?html>
   <@html title="国内线路">
-    <@body class="main-page">
-    <div class="container-fluid">
-      <div class="span2 pull-left">
+    <@body>
+    <div class="main-body clearfix">
+      <div class="sidebar pull-left">
         <@inland_travel_module></@inland_travel_module>
       </div>
-      <div class="span10 pull-left">
+      <div class="center pull-left">
         <div class="clearfix">
           <div class="pull-left">
             出发日期 <input type="text" readonly class="input-small"> 至 <input type="text" readonly class="input-small">
