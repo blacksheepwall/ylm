@@ -9,7 +9,7 @@
         <div class="span2">
           <ul class="nav nav-list">
             <li class="nav-header">
-              ${user.userName}的快捷菜单
+              <i class="icon-list"></i>${user.userName}的快捷菜单
             </li>
             <li class="active">
               <a href="#">出境跟团游<i class="icon-chevron-right"></i></a>
@@ -42,23 +42,23 @@
             系统公告列表：公告标题，超链接方式，滚动方式
           </div>
         </div>
-        <div class="span10">
+        <div class="span10 news">
           <div class="span5">
-            <h5 class="mod-title">业务公告<a class="pull-right more" href="/main/news.do">查看更多</a></h5>
+            <h5 class="mod-title"><i class="icon-bullhorn"></i> 业务公告<a class="pull-right more" href="/main/news.do">查看更多</a></h5>
             <ol>
               <#list notes as it>
                 <li>
-                  <a href="${it.url}">${it.title}</a>
+                  <span class="badge">${it_index+1}</span> <a href="${it.url}">${it.title}</a>
                 </li>
               </#list>
             </ol>
           </div>
           <div class="span7">
-            <h5 class="mod-title">促销产品</h5>
+            <h5 class="mod-title"><i class="icon-hand-right"></i> 促销产品</h5>
             <ol>
               <#list promotion as it>
                 <li>
-                  【促销标签】<a href="${it.url}">${it.title}</a> 杭州出发 2880
+                  <span class="badge">${it_index+1}</span> 【促销标签】<a href="${it.url}">${it.title}</a> 杭州出发 2880
                 </li>
               </#list>
             </ol>
@@ -68,8 +68,8 @@
       <div class="row-fluid">
         <div class="span2"></div>
         <div class="span10">
-          <h5 class="mod-title">最新上架</h5>
-          <table class="table table-hover table-bordered">
+          <h5 class="mod-title"><i class="icon-arrow-up"></i> 最新上架</h5>
+          <table class="table">
             <thead>
             <tr>
               <th>
@@ -116,8 +116,8 @@
       <div class="row-fluid">
         <div class="span2"></div>
         <div class="span10">
-          <h5 class="mod-title">待处理的订单</h5>
-          <table class="table table-hover table-bordered">
+          <h5 class="mod-title"><i class="icon-eye-open"></i> 待处理的订单</h5>
+          <table class="table">
             <thead>
             <tr>
               <th>
@@ -165,7 +165,7 @@
                   ${it.contractStatus}
                 </td>
                 <td>
-                  <a href="/order/download.do?id=${it.orderId}">下载</a>
+                  <a href="/order/download.do?id=${it.orderId}"><i class="icon-download"></i> 下载</a>
                 </td>
               </tr>
             </#list>
