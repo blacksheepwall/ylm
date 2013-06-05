@@ -3,7 +3,7 @@
     <div class="span12">
       <div class="navbar">
         <div class="navbar-inner">
-          <div class="container-fluid">
+          <div class="mod-center">
             <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"><span
               class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
             <a href="/main.do" class="brand"><strong title="浙江中山国际旅行社分销系统">TBDS</strong></a>
@@ -36,7 +36,7 @@
                 <li>
                   <a href="#">用户中心</a>
                 </li>
-                <li <#if "manage"?contains(page_name)>class="active"</#if>>
+                <li <#if page_name?contains("manage")>class="active"</#if>>
                   <a href="/u/manage.do">管理中心</a>
                 </li>
                 <li>

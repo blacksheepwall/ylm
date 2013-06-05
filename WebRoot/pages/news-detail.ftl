@@ -3,8 +3,8 @@
 <#include "common/module.ftl"/>
 <#escape x as x?html>
   <@html title="系统公告">
-    <@body class="main-page">
-    <div class="container-fluid">
+    <@body>
+    <div class="main-body">
       <div class="row-fluid">
         <ul class="breadcrumb">
           <li><a href="/main.do">首页</a> <span class="divider">/</span></li>
@@ -24,6 +24,7 @@
           </div>
         </div>
       </div>
+    </div>
     </@body>
   </@html>
 </#escape>
