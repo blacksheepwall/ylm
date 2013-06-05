@@ -22,13 +22,15 @@
         <div class="conditions">
           <div class="control-group">出发城市： <span class="label label-info">不限</span> 杭州 上海 宁波 南京 温州 台州</div>
           <div class="control-group">天数：<span class="label label-info">不限</span> 1天 2天 3天 1-3天 4-7天 7天以上</div>
-          <div class="control-group">价格：<span class="label label-info">不限</span> 800以下 800-1500 1500-3000 3000-5000 5000以上</div>
-          <div class="control-group"class="control-group">交通：<span class="label label-info">不限</span> 汽车 火车 轮船 飞机</div>
+          <div class="control-group">价格：<span class="label label-info">不限</span> 800以下 800-1500 1500-3000 3000-5000
+            5000以上
+          </div>
+          <div class="control-group" class="control-group">交通：<span class="label label-info">不限</span> 汽车 火车 轮船 飞机</div>
         </div>
         <div>
           <ul class="nav nav-tabs">
             <li class="active">
-              <a href="#">计划首页</a>
+              <a href="#">计划查看</a>
             </li>
             <li><a href="#">团队查看</a></li>
             <li><a href="#">出发日期</a></li>
@@ -36,6 +38,28 @@
           </ul>
         </div>
         <div>
+          <div>
+            <div class="clearfix">
+              <div class="pull-left">
+                <div>
+                  <span class="label label-info">产品标签</span>
+                  <a href="">东航直飞巴厘岛5晚6日至尊逍遥之旅</a>
+                  <span>4晚5天</span>
+                  <span class="label label-warning">国内线路-三亚海南</span>
+                </div>
+                <div class="muted">国航直飞 -------产品副标题</div>
+              </div>
+              <div class="pull-right">
+                <span class="label label-success">蜜月 亲子 度假</span>
+                <div>线路主题</div>
+              </div>
+            </div>
+            <div class="row-fluid">国际5*酒店+国际5*独栋泳池别墅+蓝钻岛 -----产品经理推荐</div>
+            <div>
+              <div class="pull-left">产品日期 2013.06.05 <a href="">2013.06.05</a> 2013.06.05 <a href="">更多</a></div>
+              <div class="pull-right">价格：3998.00起</div>
+            </div>
+          </div>
           <table class="table table-hover table-bordered">
             <thead>
             <tr>
@@ -111,6 +135,17 @@
             </tr>
             </tbody>
           </table>
+          <div class="pagination pagination-centered">
+            <ul>
+              <li><a href="#">«</a></li>
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li><a href="#">»</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

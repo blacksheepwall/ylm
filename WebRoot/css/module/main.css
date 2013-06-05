@@ -11,3 +11,9 @@
 .main-page .news li {
   line-height: 24px;
 }
+
+.nav-list .nav-header {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

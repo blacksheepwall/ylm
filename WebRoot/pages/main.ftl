@@ -8,7 +8,7 @@
       <div class="row-fluid">
         <div class="span2">
           <ul class="nav nav-list">
-            <li class="nav-header">
+            <li class="nav-header" title="${user.userName}的快捷菜单">
               <i class="icon-list"></i>${user.userName}的快捷菜单
             </li>
             <#list shortcuts as it>
