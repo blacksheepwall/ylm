@@ -11,18 +11,11 @@
             <li class="nav-header">
               <i class="icon-list"></i>${user.userName}的快捷菜单
             </li>
-            <li class="active">
-              <a href="#">出境跟团游<i class="icon-chevron-right"></i></a>
+            <#list shortcuts as it>
+            <li<#if it.focus> class="active"</#if>>
+              <a href="${it.url}">${it.title}<i class="icon-chevron-right"></i></a>
             </li>
-            <li>
-              <a href="#">国内跟团游<i class="icon-chevron-right"></i></a>
-            </li>
-            <li>
-              <a href="#">我的订单<i class="icon-chevron-right"></i></a>
-            </li>
-            <li>
-              <a href="#">整团预报<i class="icon-chevron-right"></i></a>
-            </li>
+            </#list>
           </ul>
         </div>
         <div class="span10">

@@ -2,6 +2,7 @@ package com.youlema.sales.service;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -76,4 +77,13 @@ public class AdService {
 		}
 		return list;
 	}
+	
+	public List<ATag> getSystemNoteList(){
+	    ATag a1 = new ATag("欧洲10日游-公告", "#");
+        ATag a2 = new ATag("欧洲9日游-公告", "#");
+        ATag a3 = new ATag("欧洲8日游-公告", "#");
+        ATag a4 = new ATag("欧洲7日游-公告", "#");
+        return Arrays.asList(a1,a2,a3,a4);
+	}
+	
 }
