@@ -11,10 +11,6 @@
           <li><a href="./manage.do">管理中心</a> <span class="divider">/</span></li>
           <li class="active">新增系统用户</li>
         </ul>
-        <div class="input-append pull-right">
-          <input class="input-xxlarge" type="text">
-          <button class="btn" type="button">搜索</button>
-        </div>
       </div>
       <div class="row-fluid">
         <@manage_sidebar></@manage_sidebar>
@@ -23,6 +19,7 @@
             <label class="control-label">登录账户</label>
             <div class="controls">
               <input type="text">
+              <a href="javascript:;">检查账户</a>
             </div>
           </div>
           <div class="control-group">
