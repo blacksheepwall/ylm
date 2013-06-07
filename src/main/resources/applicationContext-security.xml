@@ -33,6 +33,8 @@
 				/**/*.css = anon
 				/**/*.js = anon
 				/**/*.png = anon
+				/**/*.jpg = anon
+				/**/*.jpeg = anon
 				/index* = anon
 				/login/* = anon
 				/** = authc
