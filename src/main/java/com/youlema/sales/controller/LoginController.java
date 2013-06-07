@@ -28,9 +28,9 @@ public class LoginController {
 		User user = userService.getUser(name, password);
 		if (user != null) {
 			SecurityUtils.getSubject().login(new YlmAuthenticationToken(user));
-			return "redirect:/main.do";
+			return "redirect:/main/";
 		}
-		return "redirect:/common/403.do";
+		return "redirect:/common/403/";
 
 	}
 

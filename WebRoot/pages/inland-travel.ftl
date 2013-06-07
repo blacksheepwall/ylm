@@ -43,7 +43,7 @@
               <div class="pull-left">
                 <div>
                   <span class="label label-info">产品标签</span>
-                  <a href="/main/product.do">东航直飞巴厘岛5晚6日至尊逍遥之旅</a>
+                  <a href="/main/product/">东航直飞巴厘岛5晚6日至尊逍遥之旅</a>
                   <span>4晚5天</span>
                   <span class="label label-warning">国内线路-三亚海南</span>
                 </div>

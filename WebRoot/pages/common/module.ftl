@@ -68,16 +68,16 @@
       公司信息
     </li>
     <li <#if "manage-edit-company"==page_name>class="active"</#if>>
-      <a href="/main/manage-edit-company.do">信息修改<i class="icon-chevron-right"></i></a>
+      <a href="/main/manage-edit-company/">信息修改<i class="icon-chevron-right"></i></a>
     </li>
     <li <#if "manage-add-user"==page_name>class="active"</#if>>
-      <a href="/main/manage-add-user.do">新增系统用户<i class="icon-chevron-right"></i></a>
+      <a href="/main/manage-add-user/">新增系统用户<i class="icon-chevron-right"></i></a>
     </li>
     <li <#if "manage-users"==page_name>class="active"</#if>>
-      <a href="/main/manage-users.do">系统用户管理<i class="icon-chevron-right"></i></a>
+      <a href="/main/manage-users/">系统用户管理<i class="icon-chevron-right"></i></a>
     </li>
     <li <#if "manage-system-setup"==page_name>class="active"</#if>>
-      <a href="/main/manage-system-setup.do">系统设置<i class="icon-chevron-right"></i></a>
+      <a href="/main/manage-system-setup/">系统设置<i class="icon-chevron-right"></i></a>
     </li>
     <li class="nav-header">
       客户管理

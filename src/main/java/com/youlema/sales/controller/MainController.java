@@ -57,6 +57,6 @@ public class MainController {
 	@RequestMapping("/logout")
 	public String logout(){
 	    SecurityUtils.getSubject().logout();
-	    return "redirect:/index.do";
+	    return "redirect:/index/";
 	}
 }

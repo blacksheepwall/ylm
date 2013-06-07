@@ -7,7 +7,7 @@
     <div class="main-body">
       <div class="row-fluid">
         <ul class="breadcrumb pull-left">
-          <li><a href="/main.do">首页</a> <span class="divider">/</span></li>
+          <li><a href="/main/">首页</a> <span class="divider">/</span></li>
           <li class="active">管理中心</li>
         </ul>
       </div>

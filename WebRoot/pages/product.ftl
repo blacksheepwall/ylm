@@ -6,9 +6,9 @@
     <@body>
     <div class="main-body clearfix">
       <ul class="breadcrumb">
-        <li><a href="/main.do">首页</a> <span class="divider">/</span></li>
-        <li><a href="/main.do">跟团游</a> <span class="divider">/</span></li>
-        <li><a href="/main.do">出境线路</a> <span class="divider">/</span></li>
+        <li><a href="/main/">首页</a> <span class="divider">/</span></li>
+        <li><a href="/main/">跟团游</a> <span class="divider">/</span></li>
+        <li><a href="/main/">出境线路</a> <span class="divider">/</span></li>
         <li class="active">东航直飞巴厘岛5晚6日至尊逍遥之旅</li>
       </ul>
       <div class="center">

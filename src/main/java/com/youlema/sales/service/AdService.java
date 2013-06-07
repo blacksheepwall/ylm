@@ -18,12 +18,12 @@ public class AdService {
 	 */
 	public List<ATag> readNote(){
 		ArrayList<ATag> tagList = new ArrayList<ATag>();
-		tagList.add(new ATag("6月港澳散拼计划", "http://localhost:8080/news/content.do?id="+1));
-		tagList.add(new ATag("7月美加计划", "http://localhost:8080/news/content.do?id="+2));
-		tagList.add(new ATag("6月港澳散拼计划", "http://localhost:8080/news/content.do?id="+3));
-		tagList.add(new ATag("7月美加计划", "http://localhost:8080/news/content.do?id="+4));
-		tagList.add(new ATag("6月港澳散拼计划", "http://localhost:8080/news/content.do?id="+5));
-		tagList.add(new ATag("7月美加计划", "http://localhost:8080/news/content.do?id="+6));
+		tagList.add(new ATag("6月港澳散拼计划", "http://localhost:8080/news/content/?id="+1));
+		tagList.add(new ATag("7月美加计划", "http://localhost:8080/news/content/?id="+2));
+		tagList.add(new ATag("6月港澳散拼计划", "http://localhost:8080/news/content/?id="+3));
+		tagList.add(new ATag("7月美加计划", "http://localhost:8080/news/content/?id="+4));
+		tagList.add(new ATag("6月港澳散拼计划", "http://localhost:8080/news/content/?id="+5));
+		tagList.add(new ATag("7月美加计划", "http://localhost:8080/news/content/?id="+6));
 		return tagList;
 	}
 	/**
@@ -31,11 +31,11 @@ public class AdService {
 	 */
 	public List<ATag> readPromotion(){
 		ArrayList<ATag> tagList = new ArrayList<ATag>();
-		tagList.add(new ATag("石家庄-北京双飞六日", "http://localhost:8080/product/detail.do?id="+1));
-		tagList.add(new ATag("石家庄-北京双飞七日", "http://localhost:8080/product/detail.do?id="+2));
-		tagList.add(new ATag("石家庄-北京双飞八日", "http://localhost:8080/product/detail.do?id="+3));
-		tagList.add(new ATag("石家庄-北京双飞九日", "http://localhost:8080/product/detail.do?id="+4));
-		tagList.add(new ATag("石家庄-北京双飞拾日", "http://localhost:8080/product/detail.do?id="+5));
+		tagList.add(new ATag("石家庄-北京双飞六日", "http://localhost:8080/product/detail/?id="+1));
+		tagList.add(new ATag("石家庄-北京双飞七日", "http://localhost:8080/product/detail/?id="+2));
+		tagList.add(new ATag("石家庄-北京双飞八日", "http://localhost:8080/product/detail/?id="+3));
+		tagList.add(new ATag("石家庄-北京双飞九日", "http://localhost:8080/product/detail/?id="+4));
+		tagList.add(new ATag("石家庄-北京双飞拾日", "http://localhost:8080/product/detail/?id="+5));
 		return tagList;
 	}
 	/**

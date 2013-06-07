@@ -4,7 +4,7 @@
 <@html>
 <@body>
 <@main_con>
-    <a href="${request.contextPath}/main.do">
+    <a href="${request.contextPath}/main/">
         <img src="${request.contextPath}/static/images/common/500.png" alt="500" title="500"/>
     </a>
 </@main_con>

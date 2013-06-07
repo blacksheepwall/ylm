@@ -18,8 +18,8 @@
 		<property name="securityManager" ref="securityManager" />
 		<!-- override these for application-specific URLs if you like: -->
 		<property name="loginUrl" value="/index/" />
-		<!--<property name="successUrl" value="/home.jsp" />
-		<property name="unauthorizedUrl" value="/unauthorized.jsp" />-->
+		<!--<property name="successUrl" value="/home.jsp" /> <property name="unauthorizedUrl" 
+			value="/unauthorized.jsp" /> -->
 		<!-- The 'filters' property is not necessary since any declared javax.servlet.Filter 
 			bean -->
 		<!-- defined will be automatically acquired and available via its beanName 
@@ -30,8 +30,11 @@
 			</util:map> </property> -->
 		<property name="filterChainDefinitions">
 			<value>
+				/**/*.css = anon
+				/**/*.js = anon
+				/**/*.png = anon
 				/index* = anon
-				/login* = anon
+				/login/* = anon
 				/** = authc
 			</value>
 		</property>

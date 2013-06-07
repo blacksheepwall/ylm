@@ -6,18 +6,18 @@
           <div class="mod-center">
             <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"><span
               class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
-            <a href="/main.do" class="brand"><strong title="浙江中山国际旅行社分销系统">TBDS</strong></a>
+            <a href="/main/" class="brand"><strong title="浙江中山国际旅行社分销系统">TBDS</strong></a>
             <div class="nav-collapse collapse navbar-responsive-collapse">
               <ul class="nav">
                 <li <#if "main,news-detail,news"?contains(page_name)>class="active"</#if>>
                 <#--<li "main,news-detail,news".contains?page_name<#if page_name=="main"||page_name=="news-detail"||page_name=="news">class="active"</#if>>-->
-                  <a href="/main.do">首页</a>
+                  <a href="/main/">首页</a>
                 </li>
                 <li>
                   <a href="#">出境游</a>
                 </li>
                 <li <#if "product,inland-travel"?contains(page_name)>class="active"</#if>>
-                  <a href="/inland.do">国内游</a>
+                  <a href="/inland/">国内游</a>
                 </li>
                 <li>
                   <a href="#">自由行</a>
@@ -37,13 +37,13 @@
                   <a href="#">用户中心</a>
                 </li>
                 <li <#if page_name?contains("manage")>class="active"</#if>>
-                  <a href="/u/manage.do">管理中心</a>
+                  <a href="/u/manage/">管理中心</a>
                 </li>
                 <li>
                   <a href="#">常见问题</a>
                 </li>
                 <li>
-                  <a href="/logout.do">退出系统</a>
+                  <a href="/logout/">退出系统</a>
                 </li>
                 <#--<li class="dropdown">-->
                   <#--<a data-toggle="dropdown" class="dropdown-toggle" href="#">个人设置<strong class="caret"></strong></a>-->

@@ -29,7 +29,7 @@ public class ProductController {
     @RequestMapping("/inland")
     public String inland(HttpServletRequest request) {
         
-        return "redirect:/main.do";
+        return "redirect:/main/";
     }
     /**
      * 国外产品
@@ -37,7 +37,7 @@ public class ProductController {
      */
     @RequestMapping("/outland")
     public String outland(HttpServletRequest request) {
-        return "redirect:/main.do";
+        return "redirect:/main/";
     }
 
 }

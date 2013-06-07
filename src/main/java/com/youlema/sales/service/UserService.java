@@ -27,11 +27,11 @@ public class UserService {
     }
 
     public List<ATag> getShortcuts() {
-        ATag a1 = new ATag("出境跟团游", "/main.do");
+        ATag a1 = new ATag("出境跟团游", "/main/");
         a1.setFocus(true);
-        ATag a2 = new ATag("国内跟团游", "/main.do");
-        ATag a3 = new ATag("我的订单", "/main.do");
-        ATag a4 = new ATag("整团预报", "/main.do");
+        ATag a2 = new ATag("国内跟团游", "/main/");
+        ATag a3 = new ATag("我的订单", "/main/");
+        ATag a4 = new ATag("整团预报", "/main/");
         return Arrays.asList(a1, a2, a3, a4);
     }
 }
