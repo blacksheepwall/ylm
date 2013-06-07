@@ -7,7 +7,7 @@
     <div class="main-body">
       <div class="row-fluid">
         <ul class="breadcrumb">
-          <li><a href="/main.do">首页</a> <span class="divider">/</span></li>
+          <li><a href="/main/">首页</a> <span class="divider">/</span></li>
           <li class="active">系统公告列表</li>
         </ul>
         <div class="clearfix">

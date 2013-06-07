@@ -37,7 +37,7 @@
         </div>
         <div class="span10 news">
           <div class="span5">
-            <h5 class="mod-title"><i class="icon-bullhorn"></i> 业务公告<a class="pull-right more" href="/main/news.do">查看更多</a></h5>
+            <h5 class="mod-title"><i class="icon-bullhorn"></i> 业务公告<a class="pull-right more" href="/main/news/">查看更多</a></h5>
             <ol>
               <#list notes as it>
                 <li>
@@ -86,7 +86,7 @@
             <#list lines as it>
               <tr>
                 <td>
-                  <a href="/product/line.do?id=${it.id}">${it.name}</a>
+                  <a href="/product/line/?id=${it.id}">${it.name}</a>
                 </td>
                 <td>
                   ${it.startPlace}
@@ -140,10 +140,10 @@
             <#list orders as it>
               <tr>
                 <td>
-                  <a href="/order/info.do?id=${it.orderId}">${it.orderNumber}</a>
+                  <a href="/order/info/?id=${it.orderId}">${it.orderNumber}</a>
                 </td>
                 <td>
-                  <a href="/product/detail.do?id=${it.productId}">${it.productName}</a>
+                  <a href="/product/detail/?id=${it.productId}">${it.productName}</a>
                 </td>
                 <td>
                   ${it.beginDate}
@@ -158,7 +158,7 @@
                   ${it.contractStatus}
                 </td>
                 <td>
-                  <a href="/order/download.do?id=${it.orderId}"><i class="icon-download"></i> 下载</a>
+                  <a href="/order/download/?id=${it.orderId}"><i class="icon-download"></i> 下载</a>
                 </td>
               </tr>
             </#list>

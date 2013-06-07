@@ -10,7 +10,7 @@
           <h3 id="myModalLabel" class="text-center">浙江中山国际旅行社分销系统</h3>
           <h4 class="text-center">TBDS-V1.0</h4>
         </div>
-        <form class="modal-body form-horizontal" action="/login.do" method="post">
+        <form class="modal-body form-horizontal" action="/login/" method="post">
           <div class="control-group">
             <label class="control-label" for="username">帐号</label>
             <div class="controls">
@@ -33,7 +33,7 @@
             <div class="controls">
               <label class="checkbox">
                 <input type="checkbox">记住账户
-                <a class="forgot-password" href="./get-password.do">忘记密码</a>
+                <a class="forgot-password" href="./get-password/">忘记密码</a>
               </label>
             </div>
           </div>

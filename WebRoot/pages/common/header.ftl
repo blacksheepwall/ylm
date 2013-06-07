@@ -16,7 +16,7 @@
                 <li>
                   <a href="#">出境游</a>
                 </li>
-                <li <#if "inland-travel"?contains(page_name)>class="active"</#if>>
+                <li <#if "product,inland-travel"?contains(page_name)>class="active"</#if>>
                   <a href="/inland.do">国内游</a>
                 </li>
                 <li>

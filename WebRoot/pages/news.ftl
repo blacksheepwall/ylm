@@ -7,7 +7,7 @@
     <div class="main-body">
       <div class="row-fluid">
         <ul class="breadcrumb pull-left">
-          <li><a href="/main.do">首页</a> <span class="divider">/</span></li>
+          <li><a href="/main/">首页</a> <span class="divider">/</span></li>
           <li class="active">系统公告列表</li>
         </ul>
         <div class="input-append pull-right">
@@ -46,7 +46,7 @@
                 1
               </td>
               <td>
-                <a href="/main/news-detail.do">6月港澳散拼计划</a>
+                <a href="/main/news-detail/">6月港澳散拼计划</a>
               </td>
               <td>
                 <a href="">附件名称</a>

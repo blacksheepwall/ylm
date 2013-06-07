@@ -7,18 +7,18 @@
     <div class="main-body">
       <div class="row-fluid">
         <ul class="breadcrumb pull-left">
-          <li><a href="/main.do">首页</a> <span class="divider">/</span></li>
+          <li><a href="/main/">首页</a> <span class="divider">/</span></li>
           <li class="active">管理中心</li>
         </ul>
-        <div class="input-append pull-right">
-          <input class="input-xxlarge" type="text">
-          <button class="btn" type="button">搜索</button>
-        </div>
+        <#--<div class="input-append pull-right">-->
+          <#--<input class="input-xxlarge" type="text">-->
+          <#--<button class="btn" type="button">搜索</button>-->
+        <#--</div>-->
       </div>
       <div class="row-fluid">
         <@manage_sidebar></@manage_sidebar>
         <div class="span10">
-          <h5 class="mod-title">系统用户列表</h5>
+          <h5 class="mod-title">系统用户列表 <a class="pull-right" href="/main/manage-add-user.do">新增用户</a></h5>
           <table class="table table-hover table-bordered">
             <thead>
             <tr>

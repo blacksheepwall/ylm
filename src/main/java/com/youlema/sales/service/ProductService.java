@@ -1,32 +1,33 @@
 package com.youlema.sales.service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.youlema.sales.meta.City;
+import com.youlema.sales.meta.ProductItem;
 import com.youlema.sales.meta.Region;
 
 @Service
 public class ProductService {
-    
-    public List<City> listStartCitys(City destCity){
-        String[] ss = new String[]{"杭州","上海","宁波","南京","温州","台州"};
+
+    public List<City> listStartCitys(City destCity) {
+        String[] ss = new String[] { "杭州", "上海", "宁波", "南京", "温州", "台州" };
         List<City> list = new ArrayList<City>();
         for (String cityName : ss) {
             list.add(new City(cityName));
         }
         return list;
     }
-    
-    
-    
-    
+
     /**
      * 获取国内区域
+     * 
      * @return
      */
     public List<Region> listInlandRegions() {
@@ -65,6 +66,7 @@ public class ProductService {
         citys.add(new City("兰州"));
         return r;
     }
+
     private Region loadHuazhong() {
         Region r = new Region(true, "华中");
         List<City> citys = r.getCitys();
@@ -135,6 +137,32 @@ public class ProductService {
 
     public List<Region> listOutlandRegions() {
         return Collections.emptyList();
+    }
+
+    public List<ProductItem> queryProducts(City startCity, DateCount dateCount, PriceRange priceRange) {
+        ProductItem item1 = new ProductItem();
+        item1.setDateRange("4晚5天");
+        item1.setDates(Arrays.asList(new Date(), new Date(), new Date()));
+        item1.setPlaceTag("港澳台-香港澳门");
+        item1.setPrice(new BigDecimal("3998.00"));
+        item1.setProductId(1001);
+        item1.setRecommendMessage("国际5*酒店+国际5*独栋泳池别墅+蓝钻岛");
+        item1.setSubTitle("国航直飞");
+        item1.setTags(Arrays.asList("蜜月", "亲子", "度假"));
+        item1.setTitle("港澳港双飞5日");
+
+        ProductItem item2 = new ProductItem();
+        item2.setDateRange("4晚5天");
+        item2.setDates(Arrays.asList(new Date(), new Date(), new Date()));
+        item2.setPlaceTag("美洲-美国");
+        item2.setPrice(new BigDecimal("3998.00"));
+        item2.setProductId(1001);
+        item2.setRecommendMessage("国际5*酒店+国际5*独栋泳池别墅+蓝钻岛");
+        item2.setSubTitle("国航直飞");
+        item2.setTags(Arrays.asList("蜜月", "亲子", "度假"));
+        item2.setTitle("美国东西海岸10天");
+
+        return Arrays.asList(item1, item2);
     }
 
 }
