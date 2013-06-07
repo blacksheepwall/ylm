@@ -15,7 +15,7 @@ public class ProductController {
      */
     @RequestMapping("/detail")
     public String productDetailInfo(@RequestParam("id") long productId) {
-        return "news";
+        return "product";
     }
 
     @RequestMapping("/line")
