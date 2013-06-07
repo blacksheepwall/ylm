@@ -1,4 +1,23 @@
+.product-title {
+  margin: 0;
+  font-size: 20px;
+  font-family: "microsoft yahei";
+}
+
+.product-subtitle {
+  margin: 0;
+  font-size: 14px;
+}
+
 .carousel {
   width: 570px;
   height: 365px;
+}
+
+.sidebar {
+  width: 390px;
+}
+
+.sidebar .book-now {
+  text-align: center;
 }

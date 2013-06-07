@@ -6,6 +6,10 @@ body {
   /*background: url('../../img/contentbg.png') repeat;*/
 }
 
+pre {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 .nav-list {
   /*box-shadow: 0 0 1px 1px #ccc;*/
   /*border-radius: 5px;*/
