@@ -37,7 +37,7 @@
                   <a href="#">用户中心</a>
                 </li>
                 <li <#if page_name?contains("manage")>class="active"</#if>>
-                  <a href="/u/manage/">管理中心</a>
+                  <a href="/manage/">管理中心</a>
                 </li>
                 <li>
                   <a href="#">常见问题</a>

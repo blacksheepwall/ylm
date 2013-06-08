@@ -68,25 +68,25 @@
       公司信息
     </li>
     <li <#if "manage-edit-company"==page_name>class="active"</#if>>
-      <a href="/main/manage-edit-company/">信息修改<i class="icon-chevron-right"></i></a>
+      <a href="/manage/edit/">信息修改<i class="icon-chevron-right"></i></a>
     </li>
     <li <#if "manage-add-user"==page_name>class="active"</#if>>
-      <a href="/main/manage-add-user/">新增系统用户<i class="icon-chevron-right"></i></a>
+      <a href="/manage/adduser/">新增系统用户<i class="icon-chevron-right"></i></a>
     </li>
     <li <#if "manage-users"==page_name>class="active"</#if>>
-      <a href="/main/manage-users/">系统用户管理<i class="icon-chevron-right"></i></a>
+      <a href="/manage/manageusers/">系统用户管理<i class="icon-chevron-right"></i></a>
     </li>
     <li <#if "manage-system-setup"==page_name>class="active"</#if>>
-      <a href="/main/manage-system-setup/">系统设置<i class="icon-chevron-right"></i></a>
+      <a href="/manage/setup/">系统设置<i class="icon-chevron-right"></i></a>
     </li>
     <li class="nav-header">
       客户管理
     </li>
     <li <#if "manage-guest-list"==page_name>class="active"</#if>>
-      <a href="/main/manage-guest-list">游客列表<i class="icon-chevron-right"></i></a>
+      <a href="/manage/guests/">游客列表<i class="icon-chevron-right"></i></a>
     </li>
     <li <#if "manage-birthday-remind"==page_name>class="active"</#if>>
-      <a href="/main/manage-birthday-remind">生日提醒<i class="icon-chevron-right"></i></a>
+      <a href="/manage/birthday/">生日提醒<i class="icon-chevron-right"></i></a>
     </li>
     <li class="nav-header">
       短信平台
