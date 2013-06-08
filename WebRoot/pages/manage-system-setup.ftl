@@ -8,7 +8,8 @@
       <div class="row-fluid">
         <ul class="breadcrumb pull-left">
           <li><a href="/main/">首页</a> <span class="divider">/</span></li>
-          <li class="active">管理中心</li>
+          <li><a href="/u/manage/">管理中心</a> <span class="divider">/</span></li>
+          <li class="active">系统设置</li>
         </ul>
       </div>
       <div class="row-fluid">
@@ -16,6 +17,9 @@
 
         <form class="form-horizontal">
           <fieldset>
+            <div class="control-group">
+              <label class="control-label"><a href="">系统设置说明</a></label>
+            </div>
             <div class="control-group">
               <label class="control-label">行程单打印设置</label>
               <div class="controls">

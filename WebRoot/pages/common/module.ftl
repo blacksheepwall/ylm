@@ -85,8 +85,8 @@
     <li <#if "manage-guest-list"==page_name>class="active"</#if>>
       <a href="/main/manage-guest-list">游客列表<i class="icon-chevron-right"></i></a>
     </li>
-    <li>
-      <a href="#">生日提醒<i class="icon-chevron-right"></i></a>
+    <li <#if "manage-birthday-remind"==page_name>class="active"</#if>>
+      <a href="/main/manage-birthday-remind">生日提醒<i class="icon-chevron-right"></i></a>
     </li>
     <li class="nav-header">
       短信平台

@@ -8,7 +8,8 @@
       <div class="row-fluid">
         <ul class="breadcrumb pull-left">
           <li><a href="/main/">首页</a> <span class="divider">/</span></li>
-          <li class="active">管理中心</li>
+          <li><a href="/u/manage/">管理中心</a> <span class="divider">/</span></li>
+          <li class="active">游客列表</li>
         </ul>
       </div>
       <div class="row-fluid">
@@ -79,8 +80,8 @@
                   <input type="checkbox" value="自由行">
                   自由行
                 </label>
-                <button id="login" class="btn btn-primary btn-small">提交</button>
-                <button class="btn btn-small" data-dismiss="modal" aria-hidden="true">取消</button>
+                <button id="login" class="btn btn-primary btn-small">查找</button>
+                <button class="btn btn-small" data-dismiss="modal" aria-hidden="true">导出名单</button>
               </div>
             </div>
 

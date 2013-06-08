@@ -1,15 +1,15 @@
-<#-- 系统用户列表页 -->
-<#assign page_name="manage-users"/>
+<#-- 生日提醒页 -->
+<#assign page_name="manage-birthday-remind"/>
 <#include "common/module.ftl"/>
 <#escape x as x?html>
-  <@html title="系统用户列表">
+  <@html title="生日提醒">
     <@body>
     <div class="main-body">
       <div class="row-fluid">
         <ul class="breadcrumb pull-left">
           <li><a href="/main/">首页</a> <span class="divider">/</span></li>
           <li><a href="/u/manage/">管理中心</a> <span class="divider">/</span></li>
-          <li class="active">系统用户列表</li>
+          <li class="active">生日提醒</li>
         </ul>
         <#--<div class="input-append pull-right">-->
           <#--<input class="input-xxlarge" type="text">-->
@@ -19,42 +19,35 @@
       <div class="row-fluid">
         <@manage_sidebar></@manage_sidebar>
         <div class="span10">
-          <h5 class="mod-title">系统用户列表 <a class="pull-right" href="/main/manage-add-user/">新增用户</a></h5>
+          <p>
+            <button class="btn btn-primary btn-small">发送生日短信</button>
+          </p>
           <table class="table table-hover table-bordered">
             <thead>
             <tr>
               <th>
+                选择
+              </th>
+              <th>
                 姓名
+              </th>
+              <th>
+                序号
               </th>
               <th>
                 性别
               </th>
               <th>
-                部门
+                出生日期
               </th>
               <th>
                 联系电话
               </th>
               <th>
-                手机号码
+                订单编号
               </th>
               <th>
-                邮箱
-              </th>
-              <th>
-                QQ
-              </th>
-              <th>
-                系统账户
-              </th>
-              <th>
-                角色
-              </th>
-              <th>
-                状态
-              </th>
-              <th>
-                操作
+                预订产品名称
               </th>
             </tr>
             </thead>
@@ -83,15 +76,6 @@
               </td>
               <td>
                 4
-              </td>
-              <td>
-                1
-              </td>
-              <td>
-                2
-              </td>
-              <td>
-                3
               </td>
             </tr>
             </tbody>

@@ -8,7 +8,7 @@
       <div class="row-fluid">
         <ul class="breadcrumb pull-left">
           <li><a href="/main/">首页</a> <span class="divider">/</span></li>
-          <li><a href="./manage/">管理中心</a> <span class="divider">/</span></li>
+          <li><a href="/u/manage/">管理中心</a> <span class="divider">/</span></li>
           <li class="active">新增系统用户</li>
         </ul>
       </div>
