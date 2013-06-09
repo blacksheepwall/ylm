@@ -4,167 +4,192 @@
 <#escape x as x?html>
   <@html title="首页">
     <@body class="main-page">
-    <div class="main-body">
-      <div class="row-fluid">
-        <div class="span2">
-          <ul class="nav nav-list">
-            <li class="nav-header" title="${user.userName}的快捷菜单">
-              <i class="icon-list"></i>${user.userName}的快捷菜单
-            </li>
-            <#list shortcuts as it>
-            <li<#if it.focus> class="active"</#if>>
-              <a href="${it.url}">${it.title}<i class="icon-chevron-right"></i></a>
-            </li>
-            </#list>
+    <div class="main-body clearfix">
+      <div class="search-box">
+        <div class="search-title"><i class="icon-search"></i> 产品搜索</div>
+        <form class="form-search">
+          <select class="top-search">
+            <option>杭州出发</option>
+            <option>杭州出发</option>
+            <option>杭州出发</option>
+            <option>杭州出发</option>
+          </select>
+          <input class="search-input" type="text">
+          <button class="btn btn-success search-btn" type="button">搜索</button>
+        </form>
+        <div class="search-title"><i class="icon-thumbs-up"></i> 当季热门</div>
+        <div class="city-list clearfix">
+          <span class="city-key">国内：</span>
+          <ul class="city-name clearfix">
+            <li>海南</li>
+            <li>三亚</li>
+            <li>海口</li>
+            <li>海南</li>
+            <li>三亚</li>
+            <li>海口</li>
+            <li>海南</li>
+            <li>三亚</li>
+            <li>海口</li>
+            <li>海南</li>
+            <li>三亚</li>
+            <li>海口</li>
+            <li>海南</li>
+            <li>三亚</li>
+            <li>海口</li>
+            <li>海南</li>
+            <li>三亚</li>
+            <li>海口</li>
+            <li>海南</li>
+            <li>三亚</li>
+            <li>海口</li>
           </ul>
         </div>
-        <div class="span10">
-          <form class="form-search">
-            <select class="top-search">
-              <option>跟团游</option>
-              <option>自由行</option>
-              <option>线路</option>
-            </select>
-            <div class="input-append">
-              <input class="input-xlarge" type="text">
-              <button class="btn" type="button">搜索</button>
+        <div class="city-list clearfix">
+          <span class="city-key">国内：</span>
+          <ul class="city-name clearfix">
+            <li>海南</li>
+            <li>三亚</li>
+            <li>海口</li>
+            <li>海南</li>
+            <li>三亚</li>
+            <li>海口</li>
+            <li>海南</li>
+            <li>三亚</li>
+            <li>海口</li>
+            <li>海南</li>
+            <li>三亚</li>
+            <li>海口</li>
+            <li>海南</li>
+            <li>三亚</li>
+            <li>海口</li>
+            <li>海南</li>
+            <li>三亚</li>
+            <li>海口</li>
+            <li>海南</li>
+            <li>三亚</li>
+            <li>海口</li>
+          </ul>
+        </div>
+      </div>
+      <div class="side-box">
+        <h4 class="mod-inner-title"><i class="icon-bullhorn"></i> 系统公告 <a class="more" href="">所有公告</a></h4>
+        <ol>
+          <li>系统开始正式使用，欢迎反应系统问题 <span class="date">6月20日</span></li>
+          <li>6月天猫购物送大礼 <span class="date">6月20日</span></li>
+          <li>暑期毕业季减压游流行 <span class="date">6月20日</span></li>
+          <li>79岁卖画奶奶圆盖房梦 <span class="date">6月20日</span></li>
+        </ol>
+        <h4 class="mod-inner-title"><i class="icon-globe"></i> 业务公告 <a class="more" href="">所有公告</a></h4>
+        <ol>
+          <li>商务部：对欧盟葡萄酒“双反”调查 <span class="date">6月20日</span></li>
+          <li>李克强：中国进入中等收入阶段 <span class="date">6月20日</span></li>
+          <li>全国高考人数连续5年下降 今年仅912万 专题 <span class="date">6月20日</span></li>
+          <li>河南商丘女警探亲疑被郑州警方当卖淫女抓扣 <span class="date">6月20日</span></li>
+        </ol>
+      </div>
+    </div>
+    <div class="main-body clearfix">
+      <h3 class="mod-title title-orange">出境旅游 <a href="" class="more">更多出境产品</a></h3>
+      <div class="promote-product">
+        <h4 class="mod-inner-title">促销产品</h4>
+        <#assign promote_product_item>
+        <ol>
+          <li>
+            <div>
+              <span class="label label-success">特价</span>
+              <a href="" class="product-title">武夷山双卧4日游含九曲溪漂流</a>
+              <span class="price">￥2500</span>
             </div>
-          </form>
-          <div class="alert alert-info">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            系统公告列表：公告标题，超链接方式，滚动方式
-          </div>
-        </div>
-        <div class="span10 news">
-          <div class="span5">
-            <h5 class="mod-title"><i class="icon-bullhorn"></i> 业务公告<a class="pull-right more" href="/main/news/">查看更多</a></h5>
-            <ol>
-              <#list notes as it>
-                <li>
-                  <span class="badge">${it_index+1}</span> <a href="${it.url}">${it.title}</a>
-                </li>
-              </#list>
-            </ol>
-          </div>
-          <div class="span7">
-            <h5 class="mod-title"><i class="icon-hand-right"></i> 促销产品</h5>
-            <ol>
-              <#list promotion as it>
-                <li>
-                  <span class="badge">${it_index+1}</span> 【促销标签】<a href="${it.url}">${it.title}</a> 杭州出发 2880
-                </li>
-              </#list>
-            </ol>
-          </div>
-        </div>
+            <div>
+              <span class="start">出发口岸：杭州</span><span class="date">日期：6-28</span><span
+              class="origin-price">￥2500起</span>
+            </div>
+          </li>
+        </ol>
+        </#assign>
+        <#noescape>${promote_product_item}</#noescape>
+        <#noescape>${promote_product_item}</#noescape>
+        <#noescape>${promote_product_item}</#noescape>
+        <#noescape>${promote_product_item}</#noescape>
+        <#noescape>${promote_product_item}</#noescape>
       </div>
-      <div class="row-fluid">
-        <div class="span2"></div>
-        <div class="span10">
-          <h5 class="mod-title"><i class="icon-arrow-up"></i> 最新上架</h5>
-          <table class="table">
-            <thead>
-            <tr>
-              <th>
-                线路名称
-              </th>
-              <th>
-                出发港口
-              </th>
-              <th>
-                往返交通
-              </th>
-              <th>
-                最低价格
-              </th>
-              <th>
-                发团日期
-              </th>
-            </tr>
-            </thead>
-            <tbody>
-            <#list lines as it>
-              <tr>
-                <td>
-                  <a href="/product/line/?id=${it.id}">${it.name}</a>
-                </td>
-                <td>
-                  ${it.startPlace}
-                </td>
-                <td>
-                  ${it.traffic}
-                </td>
-                <td>
-                  ${it.price}
-                </td>
-                <td>
-                  ${it.sendDate}
-                </td>
-              </tr>
-            </#list>
-            </tbody>
-          </table>
-        </div>
+      <div class="promote-product">
+        <h4 class="mod-inner-title">最新上架</h4>
+        <#assign promote_product_item>
+          <ol>
+            <li>
+              <div>
+                <span class="label label-success">跟团游</span>
+                <a href="" class="product-title">巴厘岛+新加坡5晚6日尊贵游</a>
+                <span class="muted">新加坡航空</span>
+                <span class="price">￥2500</span>
+              </div>
+              <div>
+                <span class="start">出发口岸：杭州</span>
+                <span class="start">往返交通：飞机</span>
+                <span class="date">发团日期：6-28</span><span
+                class="origin-price">￥2500起</span>
+              </div>
+            </li>
+          </ol>
+        </#assign>
+        <#noescape>${promote_product_item}</#noescape>
+        <#noescape>${promote_product_item}</#noescape>
+        <#noescape>${promote_product_item}</#noescape>
+        <#noescape>${promote_product_item}</#noescape>
+        <#noescape>${promote_product_item}</#noescape>
       </div>
-      <div class="row-fluid">
-        <div class="span2"></div>
-        <div class="span10">
-          <h5 class="mod-title"><i class="icon-eye-open"></i> 待处理的订单</h5>
-          <table class="table">
-            <thead>
-            <tr>
-              <th>
-                订单编号
-              </th>
-              <th>
-                产品名称
-              </th>
-              <th>
-                出团日期
-              </th>
-              <th>
-                人数
-              </th>
-              <th>
-                状态
-              </th>
-              <th>
-                合同状态
-              </th>
-              <th>
-                出团通知
-              </th>
-            </tr>
-            </thead>
-            <tbody>
-            <#list orders as it>
-              <tr>
-                <td>
-                  <a href="/order/info/?id=${it.orderId}">${it.orderNumber}</a>
-                </td>
-                <td>
-                  <a href="/product/detail/?id=${it.productId}">${it.productName}</a>
-                </td>
-                <td>
-                  ${it.beginDate}
-                </td>
-                <td>
-                  ${it.travellerCount}
-                </td>
-                <td>
-                  ${it.status}
-                </td>
-                <td>
-                  ${it.contractStatus}
-                </td>
-                <td>
-                  <a href="/order/download/?id=${it.orderId}"><i class="icon-download"></i> 下载</a>
-                </td>
-              </tr>
-            </#list>
-            </tbody>
-          </table>
-        </div>
+    </div>
+    <div class="main-body clearfix">
+      <h3 class="mod-title title-green">国内旅游 <a href="" class="more">更多国内产品</a></h3>
+      <div class="promote-product">
+        <h4 class="mod-inner-title">促销产品</h4>
+        <#assign promote_product_item>
+        <ol>
+          <li>
+            <div>
+              <span class="label label-success">特价</span>
+              <a href="" class="product-title">武夷山双卧4日游含九曲溪漂流</a>
+              <span class="price">￥2500</span>
+            </div>
+            <div>
+              <span class="start">出发口岸：杭州</span><span class="date">日期：6-28</span><span
+              class="origin-price">￥2500起</span>
+            </div>
+          </li>
+        </ol>
+        </#assign>
+        <#noescape>${promote_product_item}</#noescape>
+        <#noescape>${promote_product_item}</#noescape>
+        <#noescape>${promote_product_item}</#noescape>
+        <#noescape>${promote_product_item}</#noescape>
+        <#noescape>${promote_product_item}</#noescape>
+      </div>
+      <div class="promote-product">
+        <h4 class="mod-inner-title">最新上架</h4>
+        <#assign promote_product_item>
+          <ol>
+            <li>
+              <div>
+                <span class="label label-success">跟团游</span>
+                <a href="" class="product-title">巴厘岛+新加坡5晚6日尊贵游</a>
+                <span class="muted">新加坡航空</span>
+                <span class="price">￥2500</span>
+              </div>
+              <div>
+                <span class="start">出发口岸：杭州</span>
+                <span class="start">往返交通：飞机</span>
+                <span class="date">发团日期：6-28</span><span
+                class="origin-price">￥2500起</span>
+              </div>
+            </li>
+          </ol>
+        </#assign>
+        <#noescape>${promote_product_item}</#noescape>
+        <#noescape>${promote_product_item}</#noescape>
+        <#noescape>${promote_product_item}</#noescape>
+        <#noescape>${promote_product_item}</#noescape>
+        <#noescape>${promote_product_item}</#noescape>
       </div>
     </div>
     </@body>

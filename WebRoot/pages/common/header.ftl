@@ -1,3 +1,23 @@
+<nav class="site-nav mod-center">
+  <a href="/main/" class="site-logo">
+    <img src="http://www.youlema.com/default/img/logo_new.png" alt="">
+  </a>
+  <div class="site-meta">
+    <strong class="site-title">浙江中山国际旅行社分销系统</strong>
+    <p class="site-sub-title">TBDS</p>
+  </div>
+  <div class="site-toolkit clearfix">
+    <div class="links">
+      <a href="">用户中心</a>
+      <a href="/manage/">管理中心</a>
+      <a href="">常见问题</a>
+    </div>
+    <div class="hotline">
+      <div class="text">服务热线</div>
+      <div class="number">4008268100</div>
+    </div>
+  </div>
+</nav>
 <header>
   <div class="row-fluid">
     <div class="span12">
@@ -6,7 +26,7 @@
           <div class="mod-center">
             <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"><span
               class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
-            <a href="/main/" class="brand"><strong title="浙江中山国际旅行社分销系统">TBDS</strong></a>
+            <#--<a href="/main/" class="brand"><strong title="浙江中山国际旅行社分销系统">TBDS</strong></a>-->
             <div class="nav-collapse collapse navbar-responsive-collapse">
               <ul class="nav">
                 <li <#if "main,news-detail,news"?contains(page_name)>class="active"</#if>>
@@ -32,18 +52,15 @@
                   <a href="#">财务结算</a>
                 </li>
               </ul>
-              <ul class="nav pull-right">
-                <li>
-                  <a href="#">用户中心</a>
-                </li>
-                <li <#if page_name?contains("manage")>class="active"</#if>>
-                  <a href="/manage/">管理中心</a>
-                </li>
-                <li>
-                  <a href="#">常见问题</a>
-                </li>
-                <li>
-                  <a href="/logout/">退出系统</a>
+              <ul class="nav nav-login pull-right">
+                <li class="clearfix">
+                  <div class="avatar">
+                    <img src="http://www.youlema.com/default/img/logo_new.png" alt="">
+                  </div>
+                  <div class="info">
+                    <div class="clearfix"><span class="pull-left">刘思成(业务操作员) </span><span class="pull-right">退出</span></div>
+                    <div class="clearfix"><span class="pull-left">消息(3)</span><span class="pull-right">快捷菜单</span></div>
+                  </div>
                 </li>
                 <#--<li class="dropdown">-->
                   <#--<a data-toggle="dropdown" class="dropdown-toggle" href="#">个人设置<strong class="caret"></strong></a>-->
@@ -66,10 +83,8 @@
                 <#--</li>-->
               </ul>
             </div>
-
           </div>
         </div>
-
       </div>
     </div>
   </div>

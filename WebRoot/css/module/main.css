@@ -1,19 +1,116 @@
-.main-page .top-search {
+.search-box {
+  float: left;
+  padding: 5px 10px;
+  width: 580px;
+  height: 230px;
+  border: 5px solid #3983e5;
+}
+
+.search-box .search-btn {
+  width: 130px;
+}
+
+.search-box .search-title {
+  padding: 5px 0;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.search-box .top-search {
   width: 100px;
-}
-
-.main-page .more {
-  color: #999;
   font-size: 12px;
-  font-weight: normal;
 }
 
-.main-page .news li {
-  line-height: 24px;
+.search-box .search-input {
+  width: 330px;
 }
 
-.nav-list .nav-header {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.search-box .form-search {
+  margin-bottom: 10px;
 }
+
+.search-box .city-list {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.search-box .city-list li {
+  float: left;
+  margin-right: 10px;
+  color: #666;
+}
+
+.search-box .city-key {
+  position: absolute;
+}
+
+.side-box {
+  float: right;
+  width: 340px;
+  margin-left: 10px;
+  padding: 0 10px 10px;
+}
+
+.side-box .date {
+  float: right;
+  color: #999;
+}
+
+.side-box .mod-inner-title {
+}
+
+.search-box .city-name {
+  float: left;
+  margin-left: 40px;
+}
+
+.promote-product {
+  float: left;
+  width: 470px;
+  margin-right: 10px;
+  padding-right: 10px;
+}
+
+.promote-product .price {
+  float: right;
+  font-size: 20px;
+  color: #f60;
+}
+
+.promote-product .origin-price {
+  text-decoration: line-through;
+  float: right;
+}
+
+.promote-product .product-title {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.promote-product .start {
+  margin-right: 10px;
+}
+
+.promote-product ol {
+  margin-bottom: 10px;
+}
+
+/*.main-page .top-search {*/
+/*width: 100px;*/
+/*}*/
+
+/*.main-page .more {*/
+/*color: #999;*/
+/*font-size: 12px;*/
+/*font-weight: normal;*/
+/*}*/
+
+/*.main-page .news li {*/
+/*line-height: 24px;*/
+/*}*/
+
+/*.nav-list .nav-header {*/
+/*overflow: hidden;*/
+/*text-overflow: ellipsis;*/
+/*white-space: nowrap;*/
+/*}*/

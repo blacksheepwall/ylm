@@ -22,7 +22,7 @@
   </#if>
   <#include "function.ftl"/>
   <!-- Fav and touch icons -->
-  <link rel="shortcut icon" href="/img/favicon.png">
+  <link rel="shortcut icon" href="/img/favicon.ico">
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
   <script src="/js/base/html5shiv.js"></script>
