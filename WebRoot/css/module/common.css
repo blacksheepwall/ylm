@@ -7,6 +7,11 @@ body {
   /*background: url('../../img/contentbg.png') repeat;*/
 }
 
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.5;
+  font-size: 100%;
+}
+
 form {
   margin-bottom: 0;
 }
@@ -18,6 +23,11 @@ ul, ol {
 
 pre {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.breadcrumb {
+  margin-bottom: 5px;
+  padding: 0;
 }
 
 .nav-list {
@@ -44,6 +54,7 @@ pre {
   /*position: fixed;*/
   /*z-index: 9;*/
   width: 100%;
+  margin-bottom: 10px;
 }
 
 .navbar .nav>li>a {

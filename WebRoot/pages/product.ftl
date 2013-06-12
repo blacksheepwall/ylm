@@ -7,22 +7,18 @@
     <div class="main-body clearfix">
       <ul class="breadcrumb">
         <li><a href="/main/">首页</a> <span class="divider">/</span></li>
-        <li><a href="/main/">跟团游</a> <span class="divider">/</span></li>
         <li><a href="/main/">出境线路</a> <span class="divider">/</span></li>
         <li class="active">东航直飞巴厘岛5晚6日至尊逍遥之旅</li>
       </ul>
       <div class="center">
-        <div>
-          <div>
-            <div class="clearfix">
-              <div class="pull-left">
-                <div>
-                  <h2 class="product-title"><span class="label label-info">产品标签</span><a href="">东航直飞巴厘岛5晚6日至尊逍遥之旅</a></h2>
-                  <h3 class="product-subtitle"><span>2晚钻石五星酒店+3晚独栋泳池别墅，宝格丽海景下午茶+龙目岛离岛</span></h3>
-                </div>
-                <div class="muted">产品编号：YCJIS58PA130518B</div>
-              </div>
-            </div>
+        <div class="basic-info">
+          <div class="title-group">
+            <h2>
+              <span class="label label-warning">跟团游</span>
+              <span class="product-title">东航直飞巴厘岛5晚6日至尊逍遥之旅</span>
+              <span class="product-subtitle">（2晚钻石五星酒店+3晚独栋泳池别墅，宝格丽海景下午茶+龙目岛离岛）</span>
+            </h2>
+            <div class="product-num">产品编号：YCJIS58PA130518B</div>
           </div>
           <div class="clearfix">
             <div class="carousel pull-left" id="carousel-373696">
@@ -72,42 +68,43 @@
             </div>
             <div class="sidebar pull-right">
               <div>
-                <span>日期</span>
-                <select class="input-xlarge">
+                <span class="date-title">日期</span>
+                <select class="date-select input-xlarge">
                   <option>2013.06.07</option>
                   <option>2013.06.07</option>
                   <option>2013.06.07</option>
                   <option>2013.06.07!</option>
                 </select>
-                <button class="btn btn-danger" type="button">铁定成团</button>
+                <button class="date-ok btn btn-danger" type="button">铁定成团</button>
               </div>
               <div>
-                <div>悠乐马价：588元起起价说明</div>
-                <div>开票日期： 2013-05-12</div>
-                <div>截至送签日期： 2013-05-12</div>
-                <div>出发港口：杭州</div>
-                <div>旅行证件：护照</div>
-                <div>出发交通：	飞机VN551（21:00 /23:00）</div>
-                <div>返回交通：	飞机VN551（21:00 /23:00）</div>
-                <div>产品经理：<a href="">王伟</a></div>
-                <div>团队协调：<a href="">王伟</a></div>
+                <div><span class="key">悠乐马价：</span> 588元起起价说明</div>
+                <div><span class="key">开票日期：</span> 2013-05-12</div>
+                <div><span class="key">截至送签日期：</span> 2013-05-12</div>
+                <div><span class="key">出发港口：</span> 杭州</div>
+                <div><span class="key">旅行证件：</span> 护照</div>
+                <div><span class="key">出发交通：</span> 	飞机VN551（21:00 /23:00）</div>
+                <div><span class="key">返回交通：</span> 	飞机VN551（21:00 /23:00）</div>
+                <div><span class="key">产品经理：<a href="">王伟</a></div>
+                <div><span class="key">团队协调：<a href="">王伟</a></div>
               </div>
-              <div>
+              <div class="book-body">
                 <div>成人价：588元</div>
                 <div>成人价：588元</div>
                 <div>成人价：588元</div>
                 <div class="book-now">
-                  <button class="btn btn-primary btn-success" type="button">立刻预订</button>
+                  <button class="btn btn-primary btn-success btn-small" type="button">立刻预订</button>
                 </div>
               </div>
-              <div>
-                <span class="label label-info">计划：22人       可预订：12人          预订需审核</span>
+              <div class="plan">
+                <span>计划：22人       可预订：12人          预订需审核</span>
               </div>
-              <div>
+              <div class="recommend">
                 <p><strong>产品经理推荐：</strong></p>
-                自由活动时间充足，漫步沙滩，悠闲踏浪； ★美食：安排品尝越式风味餐； ★推荐：推荐自费体验占婆文化、当地美食探索、历史遗迹等旅游产品项目； ★购物：全程无购物，享受更多的旅游时间
+                <p>自由活动时间充足，漫步沙滩，悠闲踏浪； ★美食：安排品尝越式风味餐； ★推荐：推荐自费体验占婆文化、当地美食探索、历史遗迹等旅游产品项目； ★购物：全程无购物，享受更多的旅游时间</p>
               </div>
             </div>
+            <#-- 日期控件 -->
           </div>
         </div>
         <div>
