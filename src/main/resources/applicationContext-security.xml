@@ -35,6 +35,11 @@
 				/**/*.png = anon
 				/**/*.jpg = anon
 				/**/*.jpeg = anon
+				/**/*.eot = anon
+				/**/*.svg = anon
+				/**/*.ttf = anon
+				/**/*.woff = anon
+				/**/*.otf = anon
 				/index* = anon
 				/login/* = anon
 				/** = authc
