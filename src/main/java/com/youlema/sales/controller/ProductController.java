@@ -22,11 +22,14 @@ public class ProductController {
     public String lineInfo(@RequestParam("id") long lineId) {
         return productDetailInfo(lineId);
     }
+    
+    
+    
     /**
-     * 国内产品
+     * 查询国内产品列表
      * @return
      */
-    @RequestMapping("/inland")
+    @RequestMapping("/queryInland")
     public String inland(HttpServletRequest request) {
         
         return "redirect:/main/";

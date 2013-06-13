@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.youlema.sales.meta.ATag;
+import com.youlema.sales.meta.City;
 import com.youlema.sales.meta.LineVo;
 import com.youlema.sales.meta.OrderVo;
+import com.youlema.sales.meta.Region;
 import com.youlema.sales.service.AdService;
+import com.youlema.sales.service.ProductService;
 import com.youlema.sales.service.UserService;
 
 
@@ -24,6 +27,8 @@ public class MainController {
 	private AdService adService;
 	@Resource
 	private UserService userService;
+	@Resource
+	ProductService productService;
 	
 	@RequestMapping(value = "/index")
 	public String indexPage() {
@@ -51,7 +56,13 @@ public class MainController {
 	}
 
 	@RequestMapping("/inland")
-	public String inlandTravel(){
+	public String inlandTravel(ModelMap modelMap){
+	    List<Region> regions = productService.listInlandRegions();
+	    List<City> startCitys = productService.listStartCitys(null);
+	    
+        modelMap.put("regions", regions);
+	    modelMap.put("startCitys", startCitys);
+	    
 	    return "inland-travel";
 	}
 	@RequestMapping("/logout")

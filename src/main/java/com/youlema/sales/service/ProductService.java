@@ -15,7 +15,11 @@ import com.youlema.sales.meta.Region;
 
 @Service
 public class ProductService {
-
+    /**
+     * 获取出发城市
+     * @param destCity
+     * @return
+     */
     public List<City> listStartCitys(City destCity) {
         String[] ss = new String[] { "杭州", "上海", "宁波", "南京", "温州", "台州" };
         List<City> list = new ArrayList<City>();
