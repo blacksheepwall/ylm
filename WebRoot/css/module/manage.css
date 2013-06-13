@@ -1,5 +1,5 @@
 .control-label {
-  width: 300px;
+  width: 350px;
 }
 
 .mod-title {
@@ -10,6 +10,6 @@
   margin-bottom: 10px;
 }
 
-.manage-body .control-label{
+.manage-body .control-label {
   font-size: 12px;
 }
