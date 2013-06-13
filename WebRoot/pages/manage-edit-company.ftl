@@ -3,7 +3,7 @@
 <#include "common/module.ftl"/>
 <#escape x as x?html>
   <@html title="信息修改">
-    <@body>
+    <@body class="manage-center">
     <div class="main-body">
       <div class="row-fluid">
         <ul class="breadcrumb pull-left">
@@ -14,8 +14,7 @@
       </div>
       <div class="row-fluid">
         <@manage_sidebar></@manage_sidebar>
-
-        <form class="form-horizontal">
+        <form class="span10 form-horizontal">
           <fieldset>
             <div class="control-group">
 

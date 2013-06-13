@@ -3,23 +3,19 @@
 <#include "common/module.ftl"/>
 <#escape x as x?html>
   <@html title="管理中心">
-    <@body>
+    <@body class="manage-center">
     <div class="main-body">
       <div class="row-fluid">
         <ul class="breadcrumb pull-left">
           <li><a href="/main/">首页</a> <span class="divider">/</span></li>
           <li class="active">管理中心</li>
         </ul>
-        <div class="input-append pull-right">
-          <input class="input-xxlarge" type="text">
-          <button class="btn" type="button">搜索</button>
-        </div>
       </div>
       <div class="row-fluid">
         <@manage_sidebar></@manage_sidebar>
-        <div class="span10">
+        <div class="span10 manage-body">
           <div class="clearfix">
-            <h5 class="mod-title">单位信息</h5>
+            <h5 class="mod-title title-black">单位信息</h5>
             <div class="pull-left">
               <label class="control-label">单位名称：</label>
               <label class="control-label">单位简称：</label>
@@ -42,7 +38,7 @@
             </div>
           </div>
           <div class="clearfix">
-            <h5 class="mod-title">代理信息</h5>
+            <h5 class="mod-title title-black">代理信息</h5>
             <div class="pull-left">
               <label class="control-label">代理类型：普通代理</label>
               <label class="control-label">代理协议编号：</label>
@@ -64,7 +60,7 @@
             </div>
           </div>
           <div class="clearfix">
-            <h5 class="mod-title">系统设置信息</h5>
+            <h5 class="mod-title title-black">系统设置信息</h5>
             <label class="control-label">行程单设置：组团抬头</label>
             <label class="control-label">结算价格设置：产品列表显示、产品查看显示</label>
             <label class="control-label">合同默认设置：组团合同</label>

@@ -1,0 +1,15 @@
+.control-label {
+  width: 300px;
+}
+
+.mod-title {
+  margin-top: 0;
+}
+
+.input-append {
+  margin-bottom: 10px;
+}
+
+.manage-body .control-label{
+  font-size: 12px;
+}

@@ -3,7 +3,7 @@
 <#include "common/module.ftl"/>
 <#escape x as x?html>
   <@html title="游客列表">
-    <@body>
+    <@body class="manage-center">
     <div class="main-body">
       <div class="row-fluid">
         <ul class="breadcrumb pull-left">
@@ -85,7 +85,7 @@
               </div>
             </div>
 
-            <table class="table">
+            <table class="table table-bordered">
               <thead>
               <tr>
                 <th>
