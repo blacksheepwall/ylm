@@ -131,14 +131,25 @@ pre {
   /*margin-left: 10px;*/
 }
 
-.manange-center .nav-header {
-  font-family: "microsoft yahei";
-  font-size: 14px;
+.manage-sidebar {
+  border: 2px solid #3983e5;
 }
 
-.manange-center .manage-body {
-  padding: 10px;
-  border: 2px solid #3983e5;
+.manage-sidebar .nav-header {
+  height: 30px;
+  line-height: 30px;
+  font-family: "microsoft yahei";
+  font-size: 16px;
+  color: #666;
+}
+
+.manage-center .manage-body {
+  /*padding: 10px;*/
+  /*border: 1px solid #ccc;*/
+}
+
+.manage-center .mod-title {
+  margin-top: 0;
 }
 
 .icon-chevron-right {
@@ -182,6 +193,11 @@ pre {
 .title-green {
   color: #228b22;
   border-bottom: 3px solid #228b22;
+}
+
+.title-black {
+  color: #333;
+  border-bottom: 3px solid #333;
 }
 
 .mod-inner-title {

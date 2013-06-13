@@ -3,7 +3,7 @@
 <#include "common/module.ftl"/>
 <#escape x as x?html>
   <@html title="系统设置">
-    <@body>
+    <@body class="manage-center">
     <div class="main-body">
       <div class="row-fluid">
         <ul class="breadcrumb pull-left">

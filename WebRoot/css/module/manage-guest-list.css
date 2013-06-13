@@ -1,0 +1,32 @@
+.control-group {
+  font-size: 12px;
+}
+
+.control-label {
+  width: auto !important;
+  margin-left: 0;
+  padding-left: 0;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.form-horizontal .controls {
+  margin-left: 85px;
+  font-size: 12px;
+}
+
+label {
+  font-size: 12px;
+}
+
+.input-small {
+  margin: 0 10px;
+}
+
+input[type="text"] {
+  margin-left: 10px;
+}
+
+.table {
+  margin-top: 10px;
+}
