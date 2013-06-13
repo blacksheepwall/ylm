@@ -1,29 +1,29 @@
 package com.youlema.sales.service;
 
-public enum DateCount {
-    THREE {
-        @Override
-        public String getStringValue() {
-            return "3天";
-        }
-    },
-    FOUR {
-        @Override
-        public String getStringValue() {
-            return "4天";
-        }
-    },
-    FIVE {
-        @Override
-        public String getStringValue() {
+public enum TrafficType {
 
-            return "5天";
-        }
-    },
-    FIVE_ABOVE {
+    CAR {
         @Override
         public String getStringValue() {
-            return "5天以上";
+            return "汽车";
+        }
+    },
+    TRAIN {
+        @Override
+        public String getStringValue() {
+            return "火车";
+        }
+    },
+    SHIP {
+        @Override
+        public String getStringValue() {
+            return "轮船";
+        }
+    },
+    PLANE {
+        @Override
+        public String getStringValue() {
+            return "飞机";
         }
     };
 

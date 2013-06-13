@@ -15,7 +15,10 @@ import com.youlema.sales.meta.LineVo;
 import com.youlema.sales.meta.OrderVo;
 import com.youlema.sales.meta.Region;
 import com.youlema.sales.service.AdService;
+import com.youlema.sales.service.DateCount;
+import com.youlema.sales.service.PriceRange;
 import com.youlema.sales.service.ProductService;
+import com.youlema.sales.service.TrafficType;
 import com.youlema.sales.service.UserService;
 
 
@@ -62,7 +65,9 @@ public class MainController {
 	    
         modelMap.put("regions", regions);
 	    modelMap.put("startCitys", startCitys);
-	    
+	    modelMap.put("dates", DateCount.values());
+	    modelMap.put("prices",PriceRange.values());
+	    modelMap.put("traffics", TrafficType.values());
 	    return "inland-travel";
 	}
 	@RequestMapping("/logout")

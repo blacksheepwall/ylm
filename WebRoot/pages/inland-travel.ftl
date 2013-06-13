@@ -20,12 +20,10 @@
           </div>
         </div>
         <div class="conditions">
-          <div class="control-group">出发城市： <span class="label label-info">不限</span> 杭州 上海 宁波 南京 温州 台州</div>
-          <div class="control-group">天数：<span class="label label-info">不限</span> 1天 2天 3天 1-3天 4-7天 7天以上</div>
-          <div class="control-group">价格：<span class="label label-info">不限</span> 800以下 800-1500 1500-3000 3000-5000
-            5000以上
-          </div>
-          <div class="control-group" class="control-group">交通：<span class="label label-info">不限</span> 汽车 火车 轮船 飞机</div>
+          <div class="control-group">出发城市： <span class="label label-info">不限</span><#list startCitys as st> <a href="#">${st.cityName}</a></#list></div>
+          <div class="control-group">天数：<span class="label label-info">不限</span> <#list dates as dt> <a href="#">${dt.stringValue}</a></#list></div>
+          <div class="control-group">价格：<span class="label label-info">不限</span><#list prices as prc> <a href="#">${prc.stringValue}</a></#list></div>
+          <div class="control-group" class="control-group">交通：<span class="label label-info">不限</span><#list traffics as tr> <a href="#">${tr.stringValue}</a></#list> </div>
         </div>
         <div>
           <ul class="nav nav-tabs">
