@@ -21,70 +21,50 @@
         <div class="city-list clearfix">
           <span class="city-key">国内：</span>
           <ul class="city-name clearfix">
-            <li>海南</li>
-            <li>三亚</li>
-            <li>海口</li>
-            <li>海南</li>
-            <li>三亚</li>
-            <li>海口</li>
-            <li>海南</li>
-            <li>三亚</li>
-            <li>海口</li>
-            <li>海南</li>
-            <li>三亚</li>
-            <li>海口</li>
-            <li>海南</li>
-            <li>三亚</li>
-            <li>海口</li>
-            <li>海南</li>
-            <li>三亚</li>
-            <li>海口</li>
-            <li>海南</li>
-            <li>三亚</li>
-            <li>海口</li>
+            <li><a href="" class="link">海南</a></li>
+            <li><a href="" class="link">海南</a></li>
+            <li><a href="" class="link">海南</a></li>
+            <li><a href="" class="link">海南</a></li>
+            <li><a href="" class="link">海南</a></li>
+            <li><a href="" class="link">海南</a></li>
+            <li><a href="" class="link">海南</a></li>
+            <li><a href="" class="link">海南</a></li>
+            <li><a href="" class="link">海南</a></li>
+            <li><a href="" class="link">海南</a></li>
+            <li><a href="" class="link">海南</a></li>
+            <li><a href="" class="link">海南</a></li>
+            <li><a href="" class="link">海南</a></li>
+            <li><a href="" class="link">海南</a></li>
+            <li><a href="" class="link">海南</a></li>
           </ul>
         </div>
         <div class="city-list clearfix">
           <span class="city-key">国内：</span>
           <ul class="city-name clearfix">
-            <li>海南</li>
-            <li>三亚</li>
-            <li>海口</li>
-            <li>海南</li>
-            <li>三亚</li>
-            <li>海口</li>
-            <li>海南</li>
-            <li>三亚</li>
-            <li>海口</li>
-            <li>海南</li>
-            <li>三亚</li>
-            <li>海口</li>
-            <li>海南</li>
-            <li>三亚</li>
-            <li>海口</li>
-            <li>海南</li>
-            <li>三亚</li>
-            <li>海口</li>
-            <li>海南</li>
-            <li>三亚</li>
-            <li>海口</li>
+            <li><a href="" class="link">海南</a></li>
+            <li><a href="" class="link">海南</a></li>
+            <li><a href="" class="link">海南</a></li>
+            <li><a href="" class="link">海南</a></li>
+            <li><a href="" class="link">海南</a></li>
+            <li><a href="" class="link">海南</a></li>
           </ul>
         </div>
       </div>
       <div class="side-box">
         <h4 class="mod-inner-title"><i class="icon-bullhorn"></i> 系统公告 <a class="more" href="">所有公告</a></h4>
         <ol>
-          <li>系统开始正式使用，欢迎反应系统问题 <span class="date">6月20日</span></li>
-          <li>6月天猫购物送大礼 <span class="date">6月20日</span></li>
-          <li>暑期毕业季减压游流行 <span class="date">6月20日</span></li>
-          <li>79岁卖画奶奶圆盖房梦 <span class="date">6月20日</span></li>
+          <li><a href="" class="link">系统开始正式使用，欢迎反应系统问题</a> <span class="date">6月20日</span></li>
+          <li><a href="" class="link">系统开始正式使用，欢迎反应系统问题</a> <span class="date">6月20日</span></li>
+          <li><a href="" class="link">系统开始正式使用，欢迎反应系统问题</a> <span class="date">6月20日</span></li>
+          <li><a href="" class="link">系统开始正式使用，欢迎反应系统问题</a> <span class="date">6月20日</span></li>
         </ol>
         <h4 class="mod-inner-title"><i class="icon-globe"></i> 业务公告 <a class="more" href="">所有公告</a></h4>
         <ol>
-          <li>商务部：对欧盟葡萄酒“双反”调查 <span class="date">6月20日</span></li>
-          <li>李克强：中国进入中等收入阶段 <span class="date">6月20日</span></li>
-          <li>全国高考人数连续5年下降 今年仅912万 专题 <span class="date">6月20日</span></li>
-          <li>河南商丘女警探亲疑被郑州警方当卖淫女抓扣 <span class="date">6月20日</span></li>
+          <li><a href="" class="link">商务部：对欧盟葡萄酒“双反”调查</a> <span class="date">6月20日</span></li>
+          <li><a href="" class="link">商务部：对欧盟葡萄酒“双反”调查</a> <span class="date">6月20日</span></li>
+          <li><a href="" class="link">商务部：对欧盟葡萄酒“双反”调查</a> <span class="date">6月20日</span></li>
+          <li><a href="" class="link">商务部：对欧盟葡萄酒“双反”调查</a> <span class="date">6月20日</span></li>
+          <li><a href="" class="link">商务部：对欧盟葡萄酒“双反”调查</a> <span class="date">6月20日</span></li>
         </ol>
       </div>
     </div>

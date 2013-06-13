@@ -1,6 +1,6 @@
 <nav class="site-nav mod-center">
   <a href="/main/" class="site-logo">
-    <img src="http://www.youlema.com/default/img/logo_new.png" alt="">
+    <img src="/img/logo.png" alt="">
   </a>
   <div class="site-meta">
     <strong class="site-title">浙江中山国际旅行社分销系统</strong>
@@ -18,7 +18,7 @@
     </div>
   </div>
 </nav>
-<header>
+<header id="J_header">
   <div class="row-fluid">
     <div class="span12">
       <div class="navbar">

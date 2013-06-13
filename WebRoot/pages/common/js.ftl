@@ -14,8 +14,6 @@
       version: '${cfg_version}'
     },
     url: {
-      common: '${cfg_context_path}/common/',
-      static: '${cfg_context_path}/static/'
     },
     fn: {},
     mod: {}
@@ -23,12 +21,14 @@
   requirejs.config({
     baseUrl: '/js/',
     paths: {
+      'jquery': 'base/jquery',
       'cookie': 'base/cookie',
       'store': 'base/store',
       'zclip': 'base/jquery.zclip',
-      'stickyPanel': 'base/jquery.stickypanel'
+      'stickyPanel': 'base/jquery.stickypanel',
+      'scrollMonitor': 'base/scrollMonitor'
     },
-    urlArgs: 'v=' + (+new Date()) + '${cfg_version_js}'
+    urlArgs: 'v=' /*+ (+new Date()) */ + '${cfg_version_js}'
   });
     <#assign jsFileUrl="module/${page_name}" />
   require(['${jsFileUrl!""}']);

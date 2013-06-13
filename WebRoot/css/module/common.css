@@ -109,6 +109,17 @@ pre {
   width: 165px;
 }
 
+.form-horizontal .control-group {
+  margin-bottom: 0;
+}
+
+.header-fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9;
+}
+
 .main-body {
   width: 980px;
   margin: 0 auto;
