@@ -63,9 +63,9 @@
 
 <#macro manage_sidebar>
 <div class="span2">
-  <ul class="nav nav-list manange-center">
+  <ul class="nav nav-list">
     <li class="nav-header">
-      <i class="icon-home"></i>公司信息
+      公司信息
     </li>
     <li <#if "manage-edit-company"==page_name>class="active"</#if>>
       <a href="/manage/edit/">信息修改<i class="icon-chevron-right"></i></a>
@@ -80,7 +80,7 @@
       <a href="/manage/setup/">系统设置<i class="icon-chevron-right"></i></a>
     </li>
     <li class="nav-header">
-      <i class="icon-user-md"></i>客户管理
+      客户管理
     </li>
     <li <#if "manage-guest-list"==page_name>class="active"</#if>>
       <a href="/manage/guests/">游客列表<i class="icon-chevron-right"></i></a>
@@ -89,7 +89,7 @@
       <a href="/manage/birthday/">生日提醒<i class="icon-chevron-right"></i></a>
     </li>
     <li class="nav-header">
-      <i class="icon-envelope"></i>短信平台
+      短信平台
     </li>
     <li>
       <a href="#">账号设置<i class="icon-chevron-right"></i></a>
