@@ -109,10 +109,6 @@ pre {
   width: 165px;
 }
 
-.form-horizontal .control-group {
-  margin-bottom: 0;
-}
-
 .header-fixed {
   position: fixed;
   top: 0;
@@ -133,6 +129,16 @@ pre {
 .main-body ol {
   list-style-type: none;
   /*margin-left: 10px;*/
+}
+
+.manange-center .nav-header {
+  font-family: "microsoft yahei";
+  font-size: 14px;
+}
+
+.manange-center .manage-body {
+  padding: 10px;
+  border: 2px solid #3983e5;
 }
 
 .icon-chevron-right {

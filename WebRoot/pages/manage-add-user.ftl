@@ -3,7 +3,7 @@
 <#include "common/module.ftl"/>
 <#escape x as x?html>
   <@html title="新增系统用户">
-    <@body>
+    <@body class="manange-center">
     <div class="main-body">
       <div class="row-fluid">
         <ul class="breadcrumb pull-left">
@@ -14,7 +14,7 @@
       </div>
       <div class="row-fluid">
         <@manage_sidebar></@manage_sidebar>
-        <div class="span10 form-horizontal">
+        <div class="span10 form-horizontal manage-body">
           <div class="control-group">
             <label class="control-label">登录账户</label>
             <div class="controls">
