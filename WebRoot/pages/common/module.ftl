@@ -63,9 +63,9 @@
 
 <#macro manage_sidebar>
 <div class="span2">
-  <ul class="nav nav-list">
+  <ul class="nav nav-list manange-center">
     <li class="nav-header">
-      公司信息
+      <i class="icon-home"></i>公司信息
     </li>
     <li <#if "manage-edit-company"==page_name>class="active"</#if>>
       <a href="/manage/edit/">信息修改<i class="icon-chevron-right"></i></a>
@@ -80,7 +80,7 @@
       <a href="/manage/setup/">系统设置<i class="icon-chevron-right"></i></a>
     </li>
     <li class="nav-header">
-      客户管理
+      <i class="icon-user-md"></i>客户管理
     </li>
     <li <#if "manage-guest-list"==page_name>class="active"</#if>>
       <a href="/manage/guests/">游客列表<i class="icon-chevron-right"></i></a>
@@ -89,7 +89,7 @@
       <a href="/manage/birthday/">生日提醒<i class="icon-chevron-right"></i></a>
     </li>
     <li class="nav-header">
-      短信平台
+      <i class="icon-envelope"></i>短信平台
     </li>
     <li>
       <a href="#">账号设置<i class="icon-chevron-right"></i></a>
@@ -110,88 +110,16 @@
 <#macro inland_travel_module>
 <div class="destination mt10 bg_lgray">
 <h2 class="fc_white f14">国内旅游</h2>
+<#list regions as rg>
 <div class="des_sort mr5 clearfix ov">
-  <h3>华东</h3>
+  <h3>${rg.name}</h3>
   <p class="lh18 threeline">
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=无锡&amp;searchBeanVo.productMainTypeId=1">无锡</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=苏州&amp;searchBeanVo.productMainTypeId=1">苏州</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=黄山&amp;searchBeanVo.productMainTypeId=1">黄山</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=杭州&amp;searchBeanVo.productMainTypeId=1">杭州</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=厦门&amp;searchBeanVo.productMainTypeId=1">厦门</a>
+  	<#list rg.citys as city>
+    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=${city.cityName}&amp;searchBeanVo.productMainTypeId=1">${city.cityName}</a>
+    </#list>
   </p>
 </div>
-<div class="des_sort mr5 clearfix ov">
-  <h3>西南</h3>
-  <p class="lh18 threeline">
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=昆明&amp;searchBeanVo.productMainTypeId=1">昆明</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=西双版纳傣族自治州&amp;searchBeanVo.productMainTypeId=1">西双版纳傣族自治州</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=丽江&amp;searchBeanVo.productMainTypeId=1">丽江</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=贵阳&amp;searchBeanVo.productMainTypeId=1">贵阳</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=成都&amp;searchBeanVo.productMainTypeId=1">成都</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=九寨沟&amp;searchBeanVo.productMainTypeId=1">九寨沟</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=重庆&amp;searchBeanVo.productMainTypeId=1">重庆</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=拉萨&amp;searchBeanVo.productMainTypeId=1">拉萨</a>
-  </p>
-</div>
-<div class="des_sort mr5 clearfix ov">
-  <h3>华北</h3>
-  <p class="lh18 threeline">
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=石家庄&amp;searchBeanVo.productMainTypeId=1">石家庄</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=大同&amp;searchBeanVo.productMainTypeId=1">大同</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=太原&amp;searchBeanVo.productMainTypeId=1">太原</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=平遥&amp;searchBeanVo.productMainTypeId=1">平遥</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=海拉尔&amp;searchBeanVo.productMainTypeId=1">海拉尔</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=北京&amp;searchBeanVo.productMainTypeId=1">北京</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=天津&amp;searchBeanVo.productMainTypeId=1">天津</a>
-  </p>
-</div>
-<div class="des_sort mr5 clearfix ov">
-  <h3>华南</h3>
-  <p class="lh18 threeline">
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=深圳&amp;searchBeanVo.productMainTypeId=1">深圳</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=广州&amp;searchBeanVo.productMainTypeId=1">广州</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=阳朔&amp;searchBeanVo.productMainTypeId=1">阳朔</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=南宁&amp;searchBeanVo.productMainTypeId=1">南宁</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=北海&amp;searchBeanVo.productMainTypeId=1">北海</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=桂林&amp;searchBeanVo.productMainTypeId=1">桂林</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=海口&amp;searchBeanVo.productMainTypeId=1">海口</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=三亚&amp;searchBeanVo.productMainTypeId=1">三亚</a>
-  </p>
-</div>
-<div class="des_sort mr5 clearfix ov">
-  <h3>华中</h3>
-  <p class="lh18 threeline">
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=洛阳&amp;searchBeanVo.productMainTypeId=1">洛阳</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=湖北&amp;searchBeanVo.productMainTypeId=1">湖北</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=长沙&amp;searchBeanVo.productMainTypeId=1">长沙</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=湘西土家族苗族自治州&amp;searchBeanVo.productMainTypeId=1">湘西土家族苗族自治州</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=凤凰&amp;searchBeanVo.productMainTypeId=1">凤凰</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=张家界&amp;searchBeanVo.productMainTypeId=1">张家界</a>
-  </p>
-</div>
-<div class="des_sort mr5 clearfix ov">
-  <h3>西北</h3>
-  <p class="lh18 threeline">
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=吐鲁番&amp;searchBeanVo.productMainTypeId=1">吐鲁番</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=乌鲁木齐&amp;searchBeanVo.productMainTypeId=1">乌鲁木齐</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=延安&amp;searchBeanVo.productMainTypeId=1">延安</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=西安&amp;searchBeanVo.productMainTypeId=1">西安</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=中卫&amp;searchBeanVo.productMainTypeId=1">中卫</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=西宁&amp;searchBeanVo.productMainTypeId=1">西宁</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=嘉峪关&amp;searchBeanVo.productMainTypeId=1">嘉峪关</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=兰州&amp;searchBeanVo.productMainTypeId=1">兰州</a>
-  </p>
-</div>
-<div class="des_sort mr5 clearfix ov">
-  <h3>东北</h3>
-  <p class="lh18 threeline">
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=沈阳&amp;searchBeanVo.productMainTypeId=1">沈阳</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=大连&amp;searchBeanVo.productMainTypeId=1">大连</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=吉林&amp;searchBeanVo.productMainTypeId=1">吉林</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=齐齐哈尔&amp;searchBeanVo.productMainTypeId=1">齐齐哈尔</a>
-    <a href="http://www.youlema.com/search?type=tourLine&amp;searchBeanVo.isResult=false&amp;searchBeanVo.isHaveProduct=has&amp;keyWords=黑龙江&amp;searchBeanVo.productMainTypeId=1">黑龙江</a>
-  </p>
-</div>
+</#list>
 <div class="des_sortsep pr">
   <h3><span class="fr mr10 mt5 pngFix"></span>周边游</h3>
   <div class="des_sortcon none">
