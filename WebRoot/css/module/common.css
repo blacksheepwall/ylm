@@ -86,6 +86,11 @@ pre {
   border: 0 none;
 }
 
+table.table thead, table.normal thead {
+  background-color: #08c;
+  color: #fff;
+}
+
 .navbar .nav-login {
   width: 200px;
   padding: 0 10px;
@@ -131,21 +136,27 @@ pre {
   /*margin-left: 10px;*/
 }
 
-.manage-sidebar {
-  /*border: 2px solid #3983e5;*/
-}
-
-.manage-sidebar .nav-header {
-  height: 30px;
-  line-height: 30px;
-  font-family: "microsoft yahei";
-  font-size: 16px;
-  color: #666;
-}
-
 .manage-center .manage-body {
   /*padding: 10px;*/
   /*border: 1px solid #ccc;*/
+}
+
+.manage-sidebar a {
+  color: #666;
+}
+
+.manage-sidebar .nav-header {
+  margin-left: -15px;
+  height: 30px;
+  line-height: 30px;
+  font-family: "microsoft yahei";
+  font-size: 14px;
+  color: #333;
+}
+
+.manage-sidebar.nav-list [class^="icon-"],
+.manage-sidebar.nav-list [class*=" icon-"] {
+  margin-top: 5px;
 }
 
 .manage-center .mod-title {
@@ -172,7 +183,7 @@ pre {
   margin-bottom: 0;
   font-size: 16px;
   font-family: "Microsoft YaHei";
-  padding: 0 10px;
+  /*padding: 0 10px;*/
 }
 
 .mod-title > .more {
@@ -198,6 +209,11 @@ pre {
 .title-black {
   color: #333;
   border-bottom: 3px solid #333;
+}
+
+.title-blue {
+  color: #08c;
+  border-bottom: 3px solid #08c;
 }
 
 .mod-inner-title {

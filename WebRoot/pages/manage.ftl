@@ -15,7 +15,7 @@
         <@manage_sidebar></@manage_sidebar>
         <div class="span10 manage-body">
           <div class="clearfix">
-            <h5 class="mod-title title-black">单位信息</h5>
+            <h5 class="mod-title title-blue">单位信息</h5>
             <div class="pull-left">
               <label class="control-label">单位名称：</label>
               <label class="control-label">单位简称：</label>
@@ -38,7 +38,7 @@
             </div>
           </div>
           <div class="clearfix">
-            <h5 class="mod-title title-black">代理信息</h5>
+            <h5 class="mod-title title-blue">代理信息</h5>
             <div class="pull-left">
               <label class="control-label">代理类型：普通代理</label>
               <label class="control-label">代理协议编号：</label>
@@ -60,7 +60,7 @@
             </div>
           </div>
           <div class="clearfix">
-            <h5 class="mod-title title-black">系统设置信息</h5>
+            <h5 class="mod-title title-blue">系统设置信息</h5>
             <label class="control-label">行程单设置：组团抬头</label>
             <label class="control-label">结算价格设置：产品列表显示、产品查看显示</label>
             <label class="control-label">合同默认设置：组团合同</label>
