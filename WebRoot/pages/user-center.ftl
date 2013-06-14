@@ -39,7 +39,7 @@
             </div>
           </div>
           <div class="clearfix">
-            <h5 class="mod-title title-blue">未读消息</h5>
+            <h5 class="mod-title title-black">未读消息</h5>
             <table class="table table-hover table-bordered">
               <thead>
               <tr>
@@ -76,7 +76,7 @@
             </table>
           </div>
           <div class="clearfix">
-            <h5 class="mod-title title-blue">最近订单</h5>
+            <h5 class="mod-title title-black">最近订单</h5>
             <table class="table table-hover table-bordered">
               <thead>
               <tr>
@@ -137,7 +137,7 @@
             </table>
           </div>
           <div class="clearfix">
-            <h5 class="mod-title title-blue">我的收藏</h5>
+            <h5 class="mod-title title-black">我的收藏</h5>
             <table class="table table-hover table-bordered">
               <thead>
               <tr>

@@ -1,0 +1,16 @@
+.control-label, input, label {
+  font-size: 12px;
+}
+
+.form-horizontal .control-label {
+  width: 100px;
+}
+
+.form-horizontal .controls {
+  margin-left: 120px;
+}
+
+textarea {
+  width: 500px;
+  height: 100px;
+}

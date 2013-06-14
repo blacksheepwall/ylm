@@ -131,8 +131,8 @@
     <li <#if "user-center-unread"==page_name>class="active"</#if>>
       <a href="/main/user-center-unread/">未读消息<i class="icon-chevron-right"></i></a>
     </li>
-    <li <#if "user-center-sent"==page_name>class="active"</#if>>
-      <a href="/main/user-center-sent/">发送消息<i class="icon-chevron-right"></i></a>
+    <li <#if "user-center-send-message"==page_name>class="active"</#if>>
+      <a href="/main/user-center-send-message/">发送消息<i class="icon-chevron-right"></i></a>
     </li>
     <li <#if "user-center-message-list"==page_name>class="active"</#if>>
       <a href="/main/user-center-message-list/">消息列表<i class="icon-chevron-right"></i></a>

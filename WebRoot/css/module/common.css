@@ -163,6 +163,11 @@ table.table thead, table.normal thead {
   margin-top: 0;
 }
 
+.manage-center .mod-title,
+.user-center .mod-title {
+  margin: 0 0 10px 0;
+}
+
 .icon-chevron-right {
   float: right;
 }
