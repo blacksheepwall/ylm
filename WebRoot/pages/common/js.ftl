@@ -31,6 +31,7 @@
     urlArgs: 'v=' /*+ (+new Date()) */ + '${cfg_version_js}'
   });
     <#assign jsFileUrl="module/${page_name}" />
+  require(['module/common']);
   require(['${jsFileUrl!""}']);
 </script>
 </#if>

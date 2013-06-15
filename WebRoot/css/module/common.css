@@ -118,7 +118,7 @@ table.table thead, table.normal thead {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 9;
+  z-index: 999;
 }
 
 .main-body {
@@ -145,6 +145,7 @@ table.table thead, table.normal thead {
   border: 1px solid #ccc;
   border-top: 2px #08c solid;
   padding-bottom: 1px;
+  background-color: #fff;
 }
 
 .manage-sidebar.nav>li>a:hover,
@@ -159,9 +160,10 @@ table.table thead, table.normal thead {
 }
 
 .manage-sidebar .nav-header {
-  margin-left: -10px;
   height: 30px;
   line-height: 30px;
+  margin-left: -10px;
+  padding-bottom: 0;
   font-family: "microsoft yahei";
   font-size: 14px;
   color: #333;

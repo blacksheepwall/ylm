@@ -10,7 +10,7 @@
     <div class="links">
       <a href="/u/">用户中心</a>
       <a href="/manage/">管理中心</a>
-      <a href="">常见问题</a>
+      <a href="/main/help">常见问题</a>
     </div>
     <div class="hotline">
       <div class="text">服务热线</div>
