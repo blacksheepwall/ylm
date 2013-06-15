@@ -7,9 +7,18 @@
 }
 
 .form-horizontal .controls {
+  line-height: 30px;
   margin-left: 120px;
 }
 
 .control-label, input, label {
   font-size: 12px;
+}
+
+.default-menu {
+  font-weight: bold;
+}
+
+.checkbox {
+  margin: -6px 0 0 20px;
 }

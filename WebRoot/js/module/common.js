@@ -1,15 +1,17 @@
 define(['scrollMonitor'], function(scrollMonitor) {
   'use strict';
   function _lock() {
-    var $header = $('#J_header'),
-      watcher = scrollMonitor.create($header, -52),
+    var $e = $('#J_header');
+    if (!$e.length)
+      return;
+    var watcher = scrollMonitor.create($e, -52),
       fixed = 'header-fixed';
     watcher.lock();
     watcher.exitViewport(function() {
-      $header.addClass(fixed);
+      $e.addClass(fixed);
     });
     watcher.enterViewport(function() {
-      $header.removeClass(fixed);
+      $e.removeClass(fixed);
     });
   }
 
