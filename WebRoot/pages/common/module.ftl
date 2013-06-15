@@ -114,43 +114,43 @@
       <i class="icon-shopping-cart"></i> 交易信息
     </li>
     <li <#if "user-center-myorder"==page_name>class="active"</#if>>
-      <a href="/main/user-center-myorder/">我的订单<i class="icon-chevron-right"></i></a>
+      <a href="/u/orders/">我的订单<i class="icon-chevron-right"></i></a>
     </li>
     <li <#if "user-center-performance"==page_name>class="active"</#if>>
-      <a href="/main/user-center-performance/">业绩汇总<i class="icon-chevron-right"></i></a>
+      <a href="/u/performance/">业绩汇总<i class="icon-chevron-right"></i></a>
     </li>
     <li <#if "user-center-guest-list"==page_name>class="active"</#if>>
-      <a href="/main/user-center-guest-list/">游客名单<i class="icon-chevron-right"></i></a>
+      <a href="/u/guests/">游客名单<i class="icon-chevron-right"></i></a>
     </li>
     <li <#if "user-center-favorite"==page_name>class="active"</#if>>
-      <a href="/main/user-center-favorite/">我的收藏<i class="icon-chevron-right"></i></a>
+      <a href="/u/myfavorite/">我的收藏<i class="icon-chevron-right"></i></a>
     </li>
     <li class="nav-header">
       <i class="icon-comments"></i> 站内消息
     </li>
     <li <#if "user-center-unread"==page_name>class="active"</#if>>
-      <a href="/main/user-center-unread/">未读消息<i class="icon-chevron-right"></i></a>
+      <a href="/u/unreadmsg/">未读消息<i class="icon-chevron-right"></i></a>
     </li>
     <li <#if "user-center-send-message"==page_name>class="active"</#if>>
-      <a href="/main/user-center-send-message/">发送消息<i class="icon-chevron-right"></i></a>
+      <a href="/u/sendmsg/">发送消息<i class="icon-chevron-right"></i></a>
     </li>
     <li <#if "user-center-message-list"==page_name>class="active"</#if>>
-      <a href="/main/user-center-message-list/">消息列表<i class="icon-chevron-right"></i></a>
+      <a href="/u/msglist/">消息列表<i class="icon-chevron-right"></i></a>
     </li>
     <li class="nav-header">
       <i class="icon-envelope"></i> 个人信息
     </li>
     <li <#if "user-center-setup"==page_name>class="active"</#if>>
-      <a href="/main/user-center-setup/">个人设置<i class="icon-chevron-right"></i></a>
+      <a href="/u/setup/">个人设置<i class="icon-chevron-right"></i></a>
     </li>
     <li <#if "user-center-password"==page_name>class="active"</#if>>
-      <a href="/main/user-center-password/">修改密码<i class="icon-chevron-right"></i></a>
+      <a href="/u/changepass/">修改密码<i class="icon-chevron-right"></i></a>
     </li>
     <li <#if "user-center-shortcut-menu"==page_name>class="active"</#if>>
-      <a href="/main/user-center-shortcut-menu/">快捷菜单<i class="icon-chevron-right"></i></a>
+      <a href="/u/shortcut/">快捷菜单<i class="icon-chevron-right"></i></a>
     </li>
     <li <#if "user-center-log"==page_name>class="active"</#if>>
-      <a href="/main/user-center-log/">登录日志<i class="icon-chevron-right"></i></a>
+      <a href="/u/log/">登录日志<i class="icon-chevron-right"></i></a>
     </li>
     <li>
       <a href="#">短信模板<i class="icon-chevron-right"></i></a>

@@ -8,7 +8,7 @@
       <div class="row-fluid">
         <ul class="breadcrumb pull-left">
           <li><a href="/main/">首页</a> <span class="divider">/</span></li>
-          <li><a href="/main/user-center/">用户中心</a> <span class="divider">/</span></li>
+          <li><a href="/u/">用户中心</a> <span class="divider">/</span></li>
           <li class="active">修改密码</li>
         </ul>
       </div>

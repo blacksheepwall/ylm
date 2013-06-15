@@ -8,7 +8,7 @@
   </div>
   <div class="site-toolkit clearfix">
     <div class="links">
-      <a href="/main/user-center/">用户中心</a>
+      <a href="/u/">用户中心</a>
       <a href="/manage/">管理中心</a>
       <a href="">常见问题</a>
     </div>
