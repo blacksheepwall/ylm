@@ -15,7 +15,7 @@
       <div class="row-fluid">
         <@user_center_sidebar></@user_center_sidebar>
         <div class="span10 manage-body">
-          <div class="clearfix">
+          <div class="mod-body clearfix">
             <div class="pull-left condition">
               游客姓名 <input type="text" class="input-small"> <button class="btn btn-success search-btn" type="button">查找</button>
             </div>

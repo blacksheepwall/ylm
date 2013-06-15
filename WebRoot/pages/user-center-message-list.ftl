@@ -15,7 +15,7 @@
       <div class="row-fluid">
         <@user_center_sidebar></@user_center_sidebar>
         <div class="span10 manage-body">
-          <div class="clearfix">
+          <div class="mod-body clearfix">
             <ul class="nav nav-tabs">
               <li class="active">
                 <a href="#">已接收</a>

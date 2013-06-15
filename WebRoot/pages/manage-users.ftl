@@ -18,8 +18,8 @@
       </div>
       <div class="row-fluid">
         <@manage_sidebar></@manage_sidebar>
-        <div class="span10">
-          <h5 class="mod-title title-black">系统用户列表 <a class="pull-right" href="/main/manage-add-user/">新增用户</a></h5>
+        <div class="span10 mod-body">
+          <h5 class="mod-title">系统用户列表 <a class="pull-right" href="/main/manage-add-user/">新增用户</a></h5>
           <table class="table table-hover table-bordered">
             <thead>
             <tr>

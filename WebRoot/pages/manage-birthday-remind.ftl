@@ -18,7 +18,7 @@
       </div>
       <div class="row-fluid">
         <@manage_sidebar></@manage_sidebar>
-        <div class="span10">
+        <div class="span10 mod-body">
           <p>
             <button class="btn btn-success btn-small">发送生日短信</button>
           </p>

@@ -141,12 +141,25 @@ table.table thead, table.normal thead {
   /*border: 1px solid #ccc;*/
 }
 
+.manage-sidebar {
+  border: 1px solid #ccc;
+  border-top: 2px #08c solid;
+  padding-bottom: 1px;
+}
+
+.manage-sidebar.nav>li>a:hover,
+.manage-sidebar.nav>li>a:focus {
+  background-color: #08c;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
 .manage-sidebar a {
   color: #666;
 }
 
 .manage-sidebar .nav-header {
-  margin-left: -15px;
+  margin-left: -10px;
   height: 30px;
   line-height: 30px;
   font-family: "microsoft yahei";
@@ -168,13 +181,29 @@ table.table thead, table.normal thead {
   margin: 0 0 10px 0;
 }
 
+.manage-center .mod-body,
+.user-center .mod-body {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-top: 2px #08c solid;
+}
+
+.manage-center .mod-body .mod-title,
+.user-center .mod-body .mod-title {
+  height: 24px;
+  line-height: 20px;
+  margin: 0;
+  font-size: 14px;
+}
+
 .icon-chevron-right {
   float: right;
 }
 
 .nav-list a {
   margin: 0 0 -1px !important;
-  border: 1px solid #e5e5e5;
+  /*border: 1px solid #e5e5e5;*/
 }
 
 .mod-center {

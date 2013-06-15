@@ -14,8 +14,7 @@
       </div>
       <div class="row-fluid">
         <@manage_sidebar></@manage_sidebar>
-
-        <form class="form-horizontal">
+        <form class="span10 form-horizontal mod-body">
           <fieldset>
             <div class="control-group">
               <label class="control-label"><a href="">系统设置说明</a></label>

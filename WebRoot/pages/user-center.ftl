@@ -14,7 +14,7 @@
       <div class="row-fluid">
         <@user_center_sidebar></@user_center_sidebar>
         <div class="span10 manage-body">
-          <div class="user-info clearfix">
+          <div class="user-info mod-body clearfix">
             <div class="user-avatar pull-left">
               <a href="#">
                 <img data-src="holder.js/80x80"
@@ -22,15 +22,15 @@
               </a>
             </div>
             <div class="user-detail clearfix">
-              <label class="control-label">姓名：王伟</label>
-              <label class="control-label">固定电话：13913913911</label>
-              <label class="control-label">手机号码：13913913911</label>
-              <label class="control-label">传真号码：13913913911</label>
-              <label class="control-label">电子邮箱：13913913911</label>
-              <label class="control-label">QQ号码：13913913911</label>
-              <label class="control-label">登录账户：wangwei</label>
-              <label class="control-label">系统角色：系统管理员</label>
-              <label class="control-label">最近登录：2013年6月14日 22:18:27</label>
+              <label class="control-label"><strong>姓名</strong>：王伟</label>
+              <label class="control-label"><strong>固定电话</strong>：13913913911</label>
+              <label class="control-label"><strong>手机号码</strong>：13913913911</label>
+              <label class="control-label"><strong>传真号码</strong>：13913913911</label>
+              <label class="control-label"><strong>电子邮箱</strong>：13913913911</label>
+              <label class="control-label"><strong>QQ号码</strong>：13913913911</label>
+              <label class="control-label"><strong>登录账户</strong>：wangwei</label>
+              <label class="control-label"><strong>系统角色</strong>：系统管理员</label>
+              <label class="control-label"><strong>最近登录</strong>：2013年6月14日 22:18:27</label>
             </div>
             <div class="user-panel">
               <a href="javascript:;">设置头像</a>
@@ -38,8 +38,8 @@
               <a href="javascript:;">修改个人信息</a>
             </div>
           </div>
-          <div class="clearfix">
-            <h5 class="mod-title title-black">未读消息</h5>
+          <div class="mod-body clearfix">
+            <h5 class="mod-title">未读消息</h5>
             <table class="table table-hover table-bordered">
               <thead>
               <tr>
@@ -75,8 +75,8 @@
               </tbody>
             </table>
           </div>
-          <div class="clearfix">
-            <h5 class="mod-title title-black">最近订单</h5>
+          <div class="mod-body clearfix">
+            <h5 class="mod-title">最近订单</h5>
             <table class="table table-hover table-bordered">
               <thead>
               <tr>
@@ -136,8 +136,8 @@
               </tbody>
             </table>
           </div>
-          <div class="clearfix">
-            <h5 class="mod-title title-black">我的收藏</h5>
+          <div class="mod-body clearfix">
+            <h5 class="mod-title">我的收藏</h5>
             <table class="table table-hover table-bordered">
               <thead>
               <tr>

@@ -14,7 +14,7 @@
       </div>
       <div class="row-fluid">
         <@manage_sidebar></@manage_sidebar>
-        <form class="span10 form-horizontal">
+        <form class="span10 form-horizontal mod-body">
           <fieldset>
             <div class="control-group">
               <span>年份</span>

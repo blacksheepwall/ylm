@@ -15,8 +15,8 @@
       <div class="row-fluid">
         <@user_center_sidebar></@user_center_sidebar>
         <div class="span10 manage-body">
-          <div class="clearfix">
-            <h3 class="mod-title title-black">未读消息列表</h3>
+          <div class="mod-body clearfix">
+            <h3 class="mod-title">未读消息列表</h3>
             <table class="table table-hover table-bordered">
               <thead>
               <tr>
