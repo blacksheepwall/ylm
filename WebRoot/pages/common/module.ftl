@@ -165,6 +165,46 @@
 </div>
 </#macro>
 
+<#macro finance_sidebar>
+<div class="span2">
+  <ul class="nav nav-list manage-sidebar">
+    <li class="nav-header">
+      <i class="icon-shopping-cart"></i> 交易信息
+    </li>
+    <li <#if "user-center-myorder"==page_name>class="active"</#if>>
+      <a href="/u/orders/">应付款统计<i class="icon-chevron-right"></i></a>
+    </li>
+    <li <#if "user-center-performance"==page_name>class="active"</#if>>
+      <a href="/u/performance/">应付款明细<i class="icon-chevron-right"></i></a>
+    </li>
+    <li class="nav-header">
+      <i class="icon-money"></i> 付款管理
+    </li>
+    <li <#if "user-center-unread"==page_name>class="active"</#if>>
+      <a href="/u/unreadmsg/">新增汇款<i class="icon-chevron-right"></i></a>
+    </li>
+    <li <#if "user-center-send-message"==page_name>class="active"</#if>>
+      <a href="/u/sendmsg/">汇款列表<i class="icon-chevron-right"></i></a>
+    </li>
+    <li <#if "user-center-message-list"==page_name>class="active"</#if>>
+      <a href="/u/msglist/">退款列表<i class="icon-chevron-right"></i></a>
+    </li>
+    <li class="nav-header">
+      <i class="icon-bar-chart"></i> 业务报表
+    </li>
+    <li <#if "user-center-setup"==page_name>class="active"</#if>>
+      <a href="/u/setup/">总报表<i class="icon-chevron-right"></i></a>
+    </li>
+    <li <#if "user-center-password"==page_name>class="active"</#if>>
+      <a href="/u/changepass/">月报表<i class="icon-chevron-right"></i></a>
+    </li>
+    <li <#if "user-center-shortcut-menu"==page_name>class="active"</#if>>
+      <a href="/u/shortcut/">年报表<i class="icon-chevron-right"></i></a>
+    </li>
+  </ul>
+</div>
+</#macro>
+
 <#macro inland_travel_module>
 <div class="destination mt10 bg_lgray">
 <h2 class="fc_white f14">国内旅游</h2>
