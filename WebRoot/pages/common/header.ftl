@@ -48,8 +48,8 @@
                 <li>
                   <a href="#">订单管理</a>
                 </li>
-                <li <#if "finance"?contains(page_name)>class="active"</#if>>
-                  <a href="/main/finance">财务结算</a>
+                <li <#if page_name?contains("finance")>class="active"</#if>>
+                  <a href="/main/finance/">财务结算</a>
                 </li>
               </ul>
               <ul class="nav nav-login pull-right">
