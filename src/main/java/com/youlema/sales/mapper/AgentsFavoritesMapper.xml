@@ -20,7 +20,7 @@
   </select>
   
   <select id="getFavoriteList" resultMap="BaseResultMap">
-  	select <include refid="Base_Column_List" /> from Agents_Favorites where agents_Account_Id=#{accountId}
+  	select <include refid="Base_Column_List" /> from Agents_Favorites where agents_Account_Id=#{accountId} order by gmt_Of_Favorites desc
   </select>
   
   
