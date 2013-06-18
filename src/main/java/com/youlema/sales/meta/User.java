@@ -2,6 +2,8 @@ package com.youlema.sales.meta;
 
 import java.io.Serializable;
 
+import com.youlema.sales.mapper.meta.AgentsAccount;
+
 public class User implements Serializable {
 	/**
 	 * 
@@ -11,8 +13,18 @@ public class User implements Serializable {
 	private String userName;
 
 	private UserRole role;
+	
+	private AgentsAccount account;
 
-	public String getUserName() {
+	public AgentsAccount getAccount() {
+        return account;
+    }
+
+    public void setAccount(AgentsAccount account) {
+        this.account = account;
+    }
+
+    public String getUserName() {
 		return userName;
 	}
 
@@ -28,4 +40,7 @@ public class User implements Serializable {
 		return role;
 	}
 
+	public long getAccountId(){
+	    return this.account == null ? -1 : account.getAgentsAccountId();
+	}
 }
