@@ -1,0 +1,20 @@
+form .controls-row {
+  margin-bottom: 10px;
+}
+
+form input[type="text"] {
+  margin-left: 10px;
+  width: 160px;
+}
+
+form.form-horizontal .name {
+  width: 48px;
+}
+
+form.form-horizontal .value {
+  margin-left: 60px;
+}
+
+form.form-horizontal .value textarea {
+  width: 500px;
+}

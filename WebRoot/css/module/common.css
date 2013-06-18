@@ -203,7 +203,13 @@ table.table thead, table.normal thead {
 
 .manage-center .mod-body .control-label,
 .user-center .mod-body .control-label,
-.finance-center .mod-body .control-label {
+.finance-center .mod-body .control-label,
+.manage-center .mod-body .controls label,
+.user-center .mod-body .controls label,
+.finance-center .mod-body .controls label,
+.manage-center .mod-body select,
+.user-center .mod-body select,
+.finance-center .mod-body select {
   font-size: 12px;
   cursor: default;
 }
