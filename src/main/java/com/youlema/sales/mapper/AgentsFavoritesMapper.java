@@ -78,4 +78,7 @@ public interface AgentsFavoritesMapper {
      */
     int updateByPrimaryKey(AgentsFavorites record);
 
+    int getFavoritesCount(@Param("accountId")long accountId);
+    
+    List<AgentsFavorites> getFavoriteList(@Param("accountId")long accountId);
 }

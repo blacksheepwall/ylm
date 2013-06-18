@@ -14,6 +14,17 @@
     <result column="business_Id" property="businessId" jdbcType="BIGINT" />
     <result column="business_Type" property="businessType" jdbcType="VARCHAR" />
   </resultMap>
+  
+  <select id="getFavoritesCount" resultType="int">
+  	select count(*) from Agents_Favorites where agents_Account_Id=#{accountId}
+  </select>
+  
+  <select id="getFavoriteList" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" /> from Agents_Favorites where agents_Account_Id=#{accountId}
+  </select>
+  
+  
+  
   <sql id="Example_Where_Clause" >
     <!--
       WARNING - @mbggenerated

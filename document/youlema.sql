@@ -389,5 +389,6 @@ create table Tour_Line
    tour_Purpose         varchar(256) comment '出行目的，多个逗号分隔',
    is_Deleted           numeric(1,0),
    PV                   numeric(11,0),
-   applicable_Type      varchar(64) comment '适用产品类型，多个逗号分隔'
+   applicable_Type      varchar(64) comment '适用产品类型，多个逗号分隔',
+   primary key (tour_Line_Id)
 );
