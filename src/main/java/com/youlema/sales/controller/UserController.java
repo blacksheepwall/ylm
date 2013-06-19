@@ -11,6 +11,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.youlema.sales.mapper.meta.AgentsAccount;
 import com.youlema.sales.mapper.meta.AgentsFavorites;
 import com.youlema.sales.meta.BusinessType;
 import com.youlema.sales.meta.User;
@@ -158,7 +159,10 @@ public class UserController {
      * @return
      */
     @RequestMapping("/setup")
-    public String setup() {
+    public String setup(ModelMap modelMap) {
+        User currentUser = userService.getCurrentUser();
+        AgentsAccount account = currentUser.getAccount();
+        modelMap.put("account", account);
         return "user-center-setup";
     }
 

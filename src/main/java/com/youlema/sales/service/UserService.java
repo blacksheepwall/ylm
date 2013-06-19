@@ -1,5 +1,6 @@
 package com.youlema.sales.service;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
@@ -32,6 +33,17 @@ public class UserService {
         User user = new User();
         if (accounts.size() > 0) {
             user.setAccount(accounts.get(0));
+        }else{
+            AgentsAccount account = new AgentsAccount();
+            account.setName("mockUser");
+            account.setAccountLoginName(name);
+            account.setSex((short) 1);
+            account.setDepart("有关部门");
+            account.setEmail("xxxx@xxxx.com");
+            account.setQq("123456");
+            account.setTelphone("0571-22222222");
+            account.setMobile("13888888888");
+            user.setAccount(account);
         }
 
         user.setUserName(name);

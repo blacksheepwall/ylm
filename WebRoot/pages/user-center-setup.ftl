@@ -30,48 +30,48 @@
           <div class="control-group">
             <label class="control-label">姓名</label>
             <div class="controls">
-              <input type="text">
+              <input type="text" value="${account.name}">
             </div>
           </div>
           <div class="control-group">
             <label class="control-label">性别</label>
             <div class="controls">
               <label class="radio inline">
-                <input type="radio" name="optionsRadios" checked>男
+                <input type="radio" name="optionsRadios" <#if account.sex == 0>checked</#if>>男
               </label>
               <label class="radio inline">
-                <input type="radio" name="optionsRadios">女
+                <input type="radio" name="optionsRadios" <#if account.sex != 0>checked</#if>>女
               </label>
             </div>
           </div>
           <div class="control-group">
             <label class="control-label">所在部门</label>
             <div class="controls">
-              <input type="text">
+              <input type="text"  value="${(account.depart)!}">
             </div>
           </div>
           <div class="control-group">
             <label class="control-label">联系电话</label>
             <div class="controls">
-              <input type="text">
+              <input type="text" value="${(account.telphone)!}">
             </div>
           </div>
           <div class="control-group">
             <label class="control-label">手机号码</label>
             <div class="controls">
-              <input type="text">
+              <input type="text" value="${(account.mobile)!}">
             </div>
           </div>
           <div class="control-group">
             <label class="control-label">电子邮箱</label>
             <div class="controls">
-              <input type="text">
+              <input type="text" value="${(account.email)!}">
             </div>
           </div>
           <div class="control-group">
             <label class="control-label">QQ号码</label>
             <div class="controls">
-              <input type="text">
+              <input type="text" value="${(account.qq)!}">
             </div>
           </div>
           <div class="control-group">
