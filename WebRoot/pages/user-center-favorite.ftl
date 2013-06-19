@@ -41,15 +41,16 @@
               </tr>
               </thead>
               <tbody>
+              <#list favoriteList as it>
               <tr>
                 <td>
-                  <a href="/main/product/">【双城春色】石家庄-北京双飞六日游</a>
+                  <a href="/main/product/">${it.tourLine.lineName}</a>
                 </td>
                 <td>
-                  跟团游
+                  ${it.tourLine.lineType}
                 </td>
                 <td>
-                  5晚4天
+                  ${it.tourLine.daysNight}晚${it.tourLine.daysDuring}天
                 </td>
                 <td>
                   3888.00起
@@ -61,6 +62,7 @@
                   <a href="">取消收藏</a>
                 </td>
               </tr>
+              </#list>
               </tbody>
             </table>
           </div>

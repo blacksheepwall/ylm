@@ -109,6 +109,18 @@ public class UserController {
             }
         }
     }
+    /**
+     * 取消收藏
+     * @param favId
+     * @param response
+     * @throws IOException 
+     */
+    @RequestMapping("/removeFavorite")
+    public void removeFavorite(@RequestParam("fid")long favId , HttpServletResponse response) throws IOException{
+    	this.favoriteService.removeFavorite(favId);
+    	JsonUtils.writeToJson("SUCCESS", response);
+    }
+    
 
     /**
      * 未读消息
