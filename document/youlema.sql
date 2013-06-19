@@ -2,8 +2,6 @@ drop table if exists Agents;
 
 drop table if exists Agents_Account;
 
-drop table if exists Agents_Account_Admin;
-
 drop table if exists Agents_Favorites;
 
 drop table if exists Agents_Menu;
@@ -39,9 +37,7 @@ drop table if exists Tour_Line;
 /*==============================================================*/
 create table Agents
 (
-   agents_Id            bigint not null,
-   smsc_Config_Id       bigint,
-   agents_Account_Id    bigint,
+   agents_Id            bigint not null auto_increment,
    agents_Name          varchar(64),
    agents_Type          varchar(32),
    agents_Code          varchar(32),
@@ -80,39 +76,9 @@ create table Agents
 /*==============================================================*/
 create table Agents_Account
 (
-   agents_Account_Id    bigint not null,
+   agents_Account_Id    bigint not null auto_increment,
    agents_Id            bigint,
-   account_Status       varchar(32),
-   memo                 varchar(512),
-   creator              varchar(64),
-   gmt_Create           datetime,
-   modifier             varchar(64),
-   gmt_Modify           datetime,
-   account_Login_Name   varchar(64),
-   account_Password     varchar(64),
-   email                varchar(64),
-   nick_Name            varchar(64),
-   last_Login_Time      datetime,
-   name                 char(1),
-   sex                  numeric(1,0),
-   depart               varchar(32),
-   duty                 varchar(32),
-   employee_Code        varchar(32),
-   telphone             varchar(16),
-   mobile               varchar(16),
-   QQ                   varchar(32),
-   user_Addr            varchar(64),
-   primary key (agents_Account_Id)
-);
-
-/*==============================================================*/
-/* Table: Agents_Account_Admin                                  */
-/*==============================================================*/
-create table Agents_Account_Admin
-(
-   agents_Account_Id    bigint not null,
-   agents_Id            bigint,
-   Age_agents_Id        bigint,
+   agents_parent_Id     bigint,
    account_Status       varchar(32),
    memo                 varchar(512),
    creator              varchar(64),
@@ -141,7 +107,7 @@ create table Agents_Account_Admin
 /*==============================================================*/
 create table Agents_Favorites
 (
-   agents_Favorites_Id  bigint not null,
+   agents_Favorites_Id  bigint not null auto_increment,
    agents_Account_Id    bigint,
    gmt_Of_Favorites     datetime,
    memo                 varchar(1024),
@@ -155,8 +121,8 @@ create table Agents_Favorites
 /*==============================================================*/
 create table Agents_Menu
 (
-   agents_Menu_Id       bigint not null,
-   Age_agents_Menu_Id   bigint,
+   agents_Menu_Id       bigint not null auto_increment,
+   parent_Id            bigint,
    agents_Menu_Name     varchar(64),
    agents_Menu_Code     varchar(32) not null,
    memo                 varchar(512),
@@ -178,8 +144,8 @@ create table Agents_Menu
 /*==============================================================*/
 create table Agents_Privilege
 (
-   agents_Privilege_Id  bigint not null,
-   Age_agents_Privilege_Id bigint,
+   agents_Privilege_Id  bigint not null auto_increment,
+   parent_Id            bigint,
    agents_Privilege_Name varchar(64),
    agents_Privilege_Code varchar(32),
    agents_Privilege_Type varchar(32),
@@ -196,7 +162,7 @@ create table Agents_Privilege
 /*==============================================================*/
 create table Agents_Role
 (
-   agents_Role_Id       bigint not null,
+   agents_Role_Id       bigint not null auto_increment,
    agents_Role_Name     varchar(64),
    agents_Role_Code     varchar(32),
    agents_Role_Type     varchar(32),
@@ -225,9 +191,10 @@ create table Agents_Statistics
 /*==============================================================*/
 create table Ass_Agents_Account_Privilege
 (
+   ass_Agents_Account_Privilege_Id bigint not null auto_increment,
    agents_Account_Id    bigint not null,
    agents_Privilege_Id  bigint not null,
-   primary key (agents_Account_Id, agents_Privilege_Id)
+   primary key (ass_Agents_Account_Privilege_Id, agents_Account_Id, agents_Privilege_Id)
 );
 
 /*==============================================================*/
@@ -235,9 +202,10 @@ create table Ass_Agents_Account_Privilege
 /*==============================================================*/
 create table Ass_Agents_Account_Role
 (
+   ass_Agents_Account_Role_Id bigint not null auto_increment,
    agents_Role_Id       bigint not null,
    agents_Account_Id    bigint not null,
-   primary key (agents_Role_Id, agents_Account_Id)
+   primary key (ass_Agents_Account_Role_Id, agents_Role_Id, agents_Account_Id)
 );
 
 /*==============================================================*/
@@ -245,9 +213,10 @@ create table Ass_Agents_Account_Role
 /*==============================================================*/
 create table Ass_Role_Privilege
 (
+   ass_Role_Privilege_Id bigint not null auto_increment,
    agents_Privilege_Id  bigint not null,
    agents_Role_Id       bigint not null,
-   primary key (agents_Privilege_Id, agents_Role_Id)
+   primary key (ass_Role_Privilege_Id,agents_Privilege_Id, agents_Role_Id )
 );
 
 /*==============================================================*/
@@ -263,8 +232,8 @@ create table Order_Tour_Product
 /*==============================================================*/
 create table Product_Type
 (
-   product_Type_Id      bigint not null,
-   Pro_product_Type_Id  bigint,
+   product_Type_Id      bigint not null auto_increment,
+   parent_Id            bigint,
    product_Type_Name    varchar(64),
    product_Type_Ord     int,
    creator              varchar(64),
@@ -281,7 +250,7 @@ create table Product_Type
 /*==============================================================*/
 create table Report_Achievements
 (
-   achievements_Report_Id bigint not null,
+   achievements_Report_Id bigint not null auto_increment,
    product_Id           bigint,
    product_Type         varchar(32),
    main_Type_Code       varchar(32),
@@ -305,7 +274,7 @@ create table Report_Achievements
 /*==============================================================*/
 create table Reprot_Store_Sale
 (
-   sale_Report_Id       bigint not null,
+   sale_Report_Id       bigint not null auto_increment,
    gmt_Order            date,
    product_Id           bigint,
    product_Type         varchar(32),
@@ -330,7 +299,7 @@ create table Reprot_Store_Sale
 /*==============================================================*/
 create table Shortcut_Menu
 (
-   shortcut_Menu_Id     bigint not null,
+   shortcut_Menu_Id     bigint not null auto_increment,
    agents_Account_Id    bigint,
    agents_Menu_Id       bigint,
    is_Enable            numeric(1,0),
@@ -342,7 +311,7 @@ create table Shortcut_Menu
 /*==============================================================*/
 create table Smsc_Config
 (
-   smsc_Config_Id       bigint not null,
+   smsc_Config_Id       bigint not null auto_increment,
    agents_Id            bigint,
    短信帐号                 varchar(64),
    短信帐号密码               varchar(64),
@@ -355,9 +324,9 @@ create table Smsc_Config
 /*==============================================================*/
 create table Tour_Line
 (
-   product_Type_Id      bigint,
-   Pro_product_Type_Id  bigint,
-   tour_Line_Id         bigint,
+   tour_Line_Id         bigint not null auto_increment,
+   product_Main_Type_Id bigint,
+   product_Minor_Type_Id bigint,
    line_Code            varchar(64) comment '线路编号',
    line_Name            varchar(256) comment '线路名称',
    line_Topic           varchar(256) comment '线路主题',
