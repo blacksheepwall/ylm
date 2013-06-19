@@ -19,6 +19,9 @@
               <span class="product-subtitle">（2晚钻石五星酒店+3晚独栋泳池别墅，宝格丽海景下午茶+龙目岛离岛）</span>
             </h2>
             <div class="product-num">产品编号：YCJIS58PA130518B</div>
+            <div class="action-bar">
+              <a id="J_favorite" href="javascript:;">收藏</a>
+            </div>
           </div>
           <div class="clearfix">
             <div class="carousel pull-left" id="carousel-373696">
