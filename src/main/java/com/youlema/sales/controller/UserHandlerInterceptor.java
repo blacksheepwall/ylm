@@ -24,7 +24,9 @@ public class UserHandlerInterceptor implements HandlerInterceptor {
     public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, ModelAndView arg3)
             throws Exception {
         User user = userService.getCurrentUser();
-        arg3.addObject("user", user);
+        if(arg3 != null){
+        	arg3.addObject("user", user);
+        }
     }
 
     @Override
