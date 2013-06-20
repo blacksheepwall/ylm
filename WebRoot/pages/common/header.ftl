@@ -45,8 +45,8 @@
                 <li>
                   <a href="#">整团业务</a>
                 </li>
-                <li>
-                  <a href="#">订单管理</a>
+                <li <#if page_name?contains("order-manage")>class="active"</#if>>
+                  <a href="/main/order-manage">订单管理</a>
                 </li>
                 <li <#if page_name?contains("finance")>class="active"</#if>>
                   <a href="/main/finance/">财务结算</a>

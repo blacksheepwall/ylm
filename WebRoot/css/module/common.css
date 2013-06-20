@@ -185,7 +185,8 @@ table.table thead, table.normal thead {
 
 .manage-center .mod-body,
 .user-center .mod-body,
-.finance-center .mod-body {
+.finance-center .mod-body,
+.order-manage .mod-body {
   margin-bottom: 10px;
   padding: 10px;
   border: 1px solid #ccc;
@@ -194,7 +195,8 @@ table.table thead, table.normal thead {
 
 .manage-center .mod-body .mod-title,
 .user-center .mod-body .mod-title,
-.finance-center .mod-body .mod-title {
+.finance-center .mod-body .mod-title,
+.order-manage .mod-body .mod-title {
   height: 24px;
   line-height: 20px;
   margin: 0;
