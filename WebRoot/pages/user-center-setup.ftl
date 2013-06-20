@@ -38,10 +38,10 @@
             <label class="control-label">性别</label>
             <div class="controls">
               <label class="radio inline">
-                <input type="radio" name="optionsRadios" <#if account.sex == 0>checked</#if>>男
+                <input type="radio" name="sex" value="0" <#if account.sex == 0>checked</#if>>男
               </label>
               <label class="radio inline">
-                <input type="radio" name="optionsRadios" <#if account.sex != 0>checked</#if>>女
+                <input type="radio" name="sex" value="1" <#if account.sex != 0>checked</#if>>女
               </label>
             </div>
           </div>
@@ -83,8 +83,8 @@
           </div>
           <div class="control-group">
             <div class="controls">
-              <button id="login" class="btn btn-primary" onclick="submit">提交</button>
-              <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+              <button id="J_save" class="btn btn-primary" type="submit">保存</button>
+              <button id="J_reset" class="btn">重置</button>
             </div>
           </div>
           </form>

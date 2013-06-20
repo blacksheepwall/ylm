@@ -20,7 +20,8 @@
             </h2>
             <div class="product-num">产品编号：YCJIS58PA130518B</div>
             <div class="action-bar">
-              <a id="J_favorite" href="/u/addFavorite/?id=${productId}&type=${type}">收藏</a>
+              <#--<a id="J_favorite" href="/u/addFavorite/?id=${productId}&type=${type}">收藏</a>-->
+              <a id="J_favorite" href="javascript:;">收藏</a>
             </div>
           </div>
           <div class="clearfix">
