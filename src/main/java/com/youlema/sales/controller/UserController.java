@@ -1,13 +1,17 @@
 package com.youlema.sales.controller;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.ServletRequestBindingException;
+import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -110,18 +114,19 @@ public class UserController {
             }
         }
     }
+
     /**
      * 取消收藏
+     * 
      * @param favId
      * @param response
-     * @throws IOException 
+     * @throws IOException
      */
     @RequestMapping("/removeFavorite")
-    public void removeFavorite(@RequestParam("fid")long favId , HttpServletResponse response) throws IOException{
-    	this.favoriteService.removeFavorite(favId);
-    	JsonUtils.writeToJson("SUCCESS", response);
+    public void removeFavorite(@RequestParam("fid") long favId, HttpServletResponse response) throws IOException {
+        this.favoriteService.removeFavorite(favId);
+        JsonUtils.writeToJson("SUCCESS", response);
     }
-    
 
     /**
      * 未读消息
@@ -154,7 +159,7 @@ public class UserController {
     }
 
     /**
-     * 设置
+     * 个人设置
      * 
      * @return
      */
@@ -164,6 +169,36 @@ public class UserController {
         AgentsAccount account = currentUser.getAccount();
         modelMap.put("account", account);
         return "user-center-setup";
+    }
+
+    /**
+     * 更新个人设置
+     * 
+     * @param request
+     * @return
+     * @throws ServletRequestBindingException
+     */
+    @RequestMapping("/updateSetup")
+    public String updateSetup(HttpServletRequest request) throws ServletRequestBindingException {
+        AgentsAccount account = userService.getCurrentAccount();
+        String userName = ServletRequestUtils.getStringParameter(request, "userName");
+        String depart = ServletRequestUtils.getStringParameter(request, "depart");
+        String telphone = ServletRequestUtils.getStringParameter(request, "telphone");
+        String mobile = ServletRequestUtils.getStringParameter(request, "mobile");
+        String email = ServletRequestUtils.getStringParameter(request, "email");
+        String qq = ServletRequestUtils.getStringParameter(request, "qq");
+        int sex = ServletRequestUtils.getIntParameter(request, "sex",0);
+        // String fax = ServletRequestUtils.getStringParameter(request, "fax");
+        account.setSex((short) sex);
+        account.setName(userName);
+        account.setDepart(depart);
+        account.setTelphone(telphone);
+        account.setMobile(mobile);
+        account.setEmail(email);
+        account.setQq(qq);
+        account.setGmtModify(new Date());
+        userService.updateAccount(account);
+        return "redirect:/u/setup/";
     }
 
     /**

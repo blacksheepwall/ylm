@@ -27,10 +27,11 @@
               <input type="text" value="业务操作" readonly="">
             </div>
           </div>
+          <form action="/u/updateSetup" method="POST">
           <div class="control-group">
             <label class="control-label">姓名</label>
             <div class="controls">
-              <input type="text" value="${account.name}">
+              <input name="userName" type="text" value="${account.name}">
             </div>
           </div>
           <div class="control-group">
@@ -47,45 +48,46 @@
           <div class="control-group">
             <label class="control-label">所在部门</label>
             <div class="controls">
-              <input type="text"  value="${(account.depart)!}">
+              <input type="text" name="depart" value="${(account.depart)!}">
             </div>
           </div>
           <div class="control-group">
             <label class="control-label">联系电话</label>
             <div class="controls">
-              <input type="text" value="${(account.telphone)!}">
+              <input type="text" name="telphone" value="${(account.telphone)!}">
             </div>
           </div>
           <div class="control-group">
             <label class="control-label">手机号码</label>
             <div class="controls">
-              <input type="text" value="${(account.mobile)!}">
+              <input type="text" name="mobile" value="${(account.mobile)!}">
             </div>
           </div>
           <div class="control-group">
             <label class="control-label">电子邮箱</label>
             <div class="controls">
-              <input type="text" value="${(account.email)!}">
+              <input type="text" name="email" value="${(account.email)!}">
             </div>
           </div>
           <div class="control-group">
             <label class="control-label">QQ号码</label>
             <div class="controls">
-              <input type="text" value="${(account.qq)!}">
+              <input type="text" name="qq" value="${(account.qq)!}">
             </div>
           </div>
           <div class="control-group">
             <label class="control-label">传真</label>
             <div class="controls">
-              <input type="text">
+              <input type="text" name="fax">
             </div>
           </div>
           <div class="control-group">
             <div class="controls">
-              <button id="login" class="btn btn-primary">提交</button>
+              <button id="login" class="btn btn-primary" onclick="submit">提交</button>
               <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
             </div>
           </div>
+          </form>
         </div>
       </div>
     </div>

@@ -1,6 +1,5 @@
 package com.youlema.sales.service;
 
-import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
@@ -33,7 +32,7 @@ public class UserService {
         User user = new User();
         if (accounts.size() > 0) {
             user.setAccount(accounts.get(0));
-        }else{
+        } else {
             AgentsAccount account = new AgentsAccount();
             account.setName("mockUser");
             account.setAccountLoginName(name);
@@ -57,6 +56,10 @@ public class UserService {
         return (User) subject.getPrincipal();
     }
 
+    public AgentsAccount getCurrentAccount() {
+        return getCurrentUser().getAccount();
+    }
+
     public List<ATag> getShortcuts() {
         ATag a1 = new ATag("出境跟团游", "/main/");
         a1.setFocus(true);
@@ -64,5 +67,12 @@ public class UserService {
         ATag a3 = new ATag("我的订单", "/main/");
         ATag a4 = new ATag("整团预报", "/main/");
         return Arrays.asList(a1, a2, a3, a4);
+    }
+    /**
+     * 更新Account数据
+     * @param account
+     */
+    public void updateAccount(AgentsAccount account) {
+        this.accountMapper.updateByPrimaryKey(account);
     }
 }
