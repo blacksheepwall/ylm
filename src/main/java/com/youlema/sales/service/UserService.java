@@ -43,6 +43,7 @@ public class UserService {
             account.setQq("123456");
             account.setTelphone("0571-22222222");
             account.setMobile("13888888888");
+            account.setAgentsAccountId(0L);
             user.setAccount(account);
         }
 

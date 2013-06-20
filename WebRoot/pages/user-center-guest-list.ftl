@@ -68,7 +68,7 @@
                   <a href="">YSL13042410560353</a>
                 </td>
                 <td>
-                  <a href="/main/product/">【双城春色】石家庄-北京双飞六日游</a>
+                  <a href="/product/detail/">【双城春色】石家庄-北京双飞六日游</a>
                 </td>
                 <td>
                   有效

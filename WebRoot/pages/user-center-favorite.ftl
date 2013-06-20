@@ -44,7 +44,7 @@
               <#list favoriteList as it>
               <tr>
                 <td>
-                  <a href="/main/product/">${it.tourLine.lineName}</a>
+                  <a href="/product/detail/">${it.tourLine.lineName}</a>
                 </td>
                 <td>
                   ${it.tourLine.lineType}
