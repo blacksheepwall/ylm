@@ -102,7 +102,7 @@ public class UserController {
     public void addFavorite(@RequestParam("type") String type, @RequestParam("id") long id, HttpServletResponse response)
             throws IOException {
         User currentUser = userService.getCurrentUser();
-        BusinessType businessType = BusinessType.valueOf(type);
+        BusinessType businessType = BusinessType.valueOf(type.toUpperCase());
         if (businessType == null) {
             JsonUtils.writeToErrJson(null, "business type is error", response);
         } else {
@@ -187,7 +187,7 @@ public class UserController {
         String mobile = ServletRequestUtils.getStringParameter(request, "mobile");
         String email = ServletRequestUtils.getStringParameter(request, "email");
         String qq = ServletRequestUtils.getStringParameter(request, "qq");
-        int sex = ServletRequestUtils.getIntParameter(request, "sex",0);
+        int sex = ServletRequestUtils.getIntParameter(request, "sex", 0);
         // String fax = ServletRequestUtils.getStringParameter(request, "fax");
         account.setSex((short) sex);
         account.setName(userName);
@@ -209,6 +209,27 @@ public class UserController {
     @RequestMapping("/changepass")
     public String changePassword() {
         return "user-center-password";
+    }
+
+    /**
+     * 执行更新密码
+     * 
+     * @param oldPass
+     * @param newPass
+     * @param modelMap
+     * @return
+     */
+    @RequestMapping("/updatePass")
+    public String updatePassword(@RequestParam("oldPass") String oldPass, @RequestParam("newPass") String newPass,
+            ModelMap modelMap) {
+        AgentsAccount account = userService.getCurrentAccount();
+        if (account.getAccountPassword().equals(oldPass)) {
+            boolean success = this.userService.updatePassword(account.getAgentsAccountId(), newPass);
+            modelMap.put("updateSuccess", success);
+        } else {
+            modelMap.put("updateSuccess", false);
+        }
+        return "redirect:/u/changepass";
     }
 
     /**
