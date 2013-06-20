@@ -177,9 +177,10 @@ public class UserController {
      * @param request
      * @return
      * @throws ServletRequestBindingException
+     * @throws IOException 
      */
     @RequestMapping("/updateSetup")
-    public String updateSetup(HttpServletRequest request) throws ServletRequestBindingException {
+    public void updateSetup(HttpServletRequest request,HttpServletResponse response) throws ServletRequestBindingException, IOException {
         AgentsAccount account = userService.getCurrentAccount();
         String userName = ServletRequestUtils.getStringParameter(request, "userName");
         String depart = ServletRequestUtils.getStringParameter(request, "depart");
@@ -198,7 +199,7 @@ public class UserController {
         account.setQq(qq);
         account.setGmtModify(new Date());
         userService.updateAccount(account);
-        return "redirect:/u/setup/";
+        JsonUtils.writeToJson("SUCCESS", response);
     }
 
     /**
