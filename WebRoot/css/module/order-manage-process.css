@@ -12,7 +12,8 @@
   margin-top: 10px;
 }
 
-.order-info li {
+.order-info li,
+.process-info li {
   float: left;
   width: 300px;
   line-height: 24px;
