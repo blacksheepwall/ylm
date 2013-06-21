@@ -69,7 +69,9 @@ create table Agents
    is_Limit_Booking     numeric(1,0),
    legal_Representative varchar(64),
    primary key (agents_Id)
-);
+)
+engine = InnoDB;
+
 
 /*==============================================================*/
 /* Table: Agents_Account                                        */
@@ -100,7 +102,9 @@ create table Agents_Account
    QQ                   varchar(32),
    user_Addr            varchar(64),
    primary key (agents_Account_Id)
-);
+)
+engine = InnoDB;
+
 
 /*==============================================================*/
 /* Table: Agents_Favorites                                      */
@@ -114,7 +118,9 @@ create table Agents_Favorites
    business_Id          bigint,
    business_Type        varchar(32),
    primary key (agents_Favorites_Id)
-);
+)
+engine = InnoDB;
+
 
 /*==============================================================*/
 /* Table: Agents_Menu                                           */
@@ -137,7 +143,9 @@ create table Agents_Menu
    gmt_Modify           datetime,
    bind_Privilege       varchar(512),
    primary key (agents_Menu_Id)
-);
+)
+engine = InnoDB;
+
 
 /*==============================================================*/
 /* Table: Agents_Privilege                                      */
@@ -155,7 +163,9 @@ create table Agents_Privilege
    modifier             varchar(64),
    gmt_Modify           datetime,
    primary key (agents_Privilege_Id)
-);
+)
+engine = InnoDB;
+
 
 /*==============================================================*/
 /* Table: Agents_Role                                           */
@@ -172,7 +182,9 @@ create table Agents_Role
    modifier             varchar(64),
    gmt_Modify           datetime,
    primary key (agents_Role_Id)
-);
+)
+engine = InnoDB;
+
 
 /*==============================================================*/
 /* Table: Agents_Statistics                                     */
@@ -184,7 +196,9 @@ create table Agents_Statistics
    total_Transactions   decimal(10,2),
    number_Of_Adults     int,
    number_Of_Children   int
-);
+)
+engine = InnoDB;
+
 
 /*==============================================================*/
 /* Table: Ass_Agents_Account_Privilege                          */
@@ -206,7 +220,9 @@ create table Ass_Agents_Account_Role
    agents_Role_Id       bigint not null,
    agents_Account_Id    bigint not null,
    primary key (ass_Agents_Account_Role_Id, agents_Role_Id, agents_Account_Id)
-);
+)
+engine = InnoDB;
+
 
 /*==============================================================*/
 /* Table: Ass_Role_Privilege                                    */
@@ -217,7 +233,9 @@ create table Ass_Role_Privilege
    agents_Privilege_Id  bigint not null,
    agents_Role_Id       bigint not null,
    primary key (ass_Role_Privilege_Id,agents_Privilege_Id, agents_Role_Id )
-);
+)
+engine = InnoDB;
+
 
 /*==============================================================*/
 /* Table: Order_Tour_Product                                    */
@@ -225,7 +243,9 @@ create table Ass_Role_Privilege
 create table Order_Tour_Product
 (
    Column_1             char(10)
-);
+)
+engine = InnoDB;
+
 
 /*==============================================================*/
 /* Table: Product_Type                                          */
@@ -243,7 +263,9 @@ create table Product_Type
    product_Type_City    varchar(256),
    product_Code         varchar(32),
    primary key (product_Type_Id)
-);
+)
+engine = InnoDB;
+
 
 /*==============================================================*/
 /* Table: Report_Achievements                                   */
@@ -267,7 +289,9 @@ create table Report_Achievements
    dept_Store           varchar(32),
    gmt_Last_product_Modify date,
    primary key (achievements_Report_Id)
-);
+)
+engine = InnoDB;
+
 
 /*==============================================================*/
 /* Table: Reprot_Store_Sale                                     */
@@ -292,7 +316,9 @@ create table Reprot_Store_Sale
    dept_Store           varchar(32),
    gmt_Last_product_Modify date,
    primary key (sale_Report_Id)
-);
+)
+engine = InnoDB;
+
 
 /*==============================================================*/
 /* Table: Shortcut_Menu                                         */
@@ -304,7 +330,9 @@ create table Shortcut_Menu
    agents_Menu_Id       bigint,
    is_Enable            numeric(1,0),
    primary key (shortcut_Menu_Id)
-);
+)
+engine = InnoDB;
+
 
 /*==============================================================*/
 /* Table: Smsc_Config                                           */
@@ -360,4 +388,6 @@ create table Tour_Line
    PV                   numeric(11,0),
    applicable_Type      varchar(64) comment '适用产品类型，多个逗号分隔',
    primary key (tour_Line_Id)
-);
+)
+engine = InnoDB;
+
