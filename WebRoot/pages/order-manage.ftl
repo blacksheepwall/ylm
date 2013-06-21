@@ -19,7 +19,7 @@
               <input class="date-box" type="text">
               <span>至</span>
               <input class="date-box" type="text">
-              <input type="text"> <button class="btn btn-success search-btn" type="button">搜索</button>
+              <input type="text"> <button class="btn btn-success search-btn" type="button"><i class="icon-search"></i> 搜索</button>
             </div>
             <div>
               <div class="con-row">

@@ -15,5 +15,14 @@ define(['scrollMonitor'], function(scrollMonitor) {
     });
   }
 
+  function _initNav() {
+    $('.dropdown').hover(function() {
+      $('.dropdown-menu', this).show();
+    }, function() {
+      $('.dropdown-menu', this).hide();
+    });
+  }
+
   _lock();
+  _initNav();
 });

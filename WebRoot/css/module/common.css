@@ -86,6 +86,14 @@ pre {
   border: 0 none;
 }
 
+.dropdown .dropdown-menu {
+  top: 35px;
+}
+
+.dropdown .dropdown-toggle {
+  outline: none;
+}
+
 table.table thead, table.normal thead {
   background-color: #08c;
   color: #fff;
