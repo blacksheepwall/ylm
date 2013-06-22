@@ -5,61 +5,60 @@
   <@html title="首页">
     <@body class="main-page">
     <div class="main-body clearfix">
-      <div class="search-box">
-        <div class="search-title"><i class="icon-search"></i> 产品搜索</div>
-        <form class="form-search">
-          <select class="top-search">
-            <option>杭州出发</option>
-            <option>杭州出发</option>
-            <option>杭州出发</option>
-            <option>杭州出发</option>
-          </select>
-          <input class="search-input" type="text">
-          <button class="btn btn-success search-btn" type="button">搜索</button>
-        </form>
-        <#--<div class="search-title"><i class="icon-thumbs-up"></i> 当季热门</div>-->
-        <#--<div class="city-list clearfix">-->
-          <#--<span class="city-key">国内：</span>-->
-          <#--<ul class="city-name clearfix">-->
-            <#--<li><a href="" class="link">海南</a></li>-->
-            <#--<li><a href="" class="link">海南</a></li>-->
-            <#--<li><a href="" class="link">海南</a></li>-->
-            <#--<li><a href="" class="link">海南</a></li>-->
-            <#--<li><a href="" class="link">海南</a></li>-->
-            <#--<li><a href="" class="link">海南</a></li>-->
-            <#--<li><a href="" class="link">海南</a></li>-->
-            <#--<li><a href="" class="link">海南</a></li>-->
-            <#--<li><a href="" class="link">海南</a></li>-->
-            <#--<li><a href="" class="link">海南</a></li>-->
-            <#--<li><a href="" class="link">海南</a></li>-->
-            <#--<li><a href="" class="link">海南</a></li>-->
-            <#--<li><a href="" class="link">海南</a></li>-->
-            <#--<li><a href="" class="link">海南</a></li>-->
-            <#--<li><a href="" class="link">海南</a></li>-->
-          <#--</ul>-->
-        <#--</div>-->
-        <#--<div class="city-list clearfix">-->
-          <#--<span class="city-key">国内：</span>-->
-          <#--<ul class="city-name clearfix">-->
-            <#--<li><a href="" class="link">海南</a></li>-->
-            <#--<li><a href="" class="link">海南</a></li>-->
-            <#--<li><a href="" class="link">海南</a></li>-->
-            <#--<li><a href="" class="link">海南</a></li>-->
-            <#--<li><a href="" class="link">海南</a></li>-->
-            <#--<li><a href="" class="link">海南</a></li>-->
-          <#--</ul>-->
-        <#--</div>-->
+      <div class="clearfix">
+        <div class="search-box">
+          <#--<div class="search-title"><i class="icon-search"></i> 产品搜索</div>-->
+          <form class="form-search">
+            <select class="top-search">
+              <option>杭州出发</option>
+              <option>杭州出发</option>
+              <option>杭州出发</option>
+              <option>杭州出发</option>
+            </select>
+            <input class="search-input" type="text">
+            <button class="btn search-btn" type="button">搜索</button>
+          </form>
+          <#--<div class="search-title"><i class="icon-thumbs-up"></i> 当季热门</div>-->
+          <#--<div class="city-list clearfix">-->
+            <#--<span class="city-key">国内：</span>-->
+            <#--<ul class="city-name clearfix">-->
+              <#--<li><a href="" class="link">海南</a></li>-->
+              <#--<li><a href="" class="link">海南</a></li>-->
+              <#--<li><a href="" class="link">海南</a></li>-->
+              <#--<li><a href="" class="link">海南</a></li>-->
+              <#--<li><a href="" class="link">海南</a></li>-->
+              <#--<li><a href="" class="link">海南</a></li>-->
+              <#--<li><a href="" class="link">海南</a></li>-->
+              <#--<li><a href="" class="link">海南</a></li>-->
+              <#--<li><a href="" class="link">海南</a></li>-->
+              <#--<li><a href="" class="link">海南</a></li>-->
+              <#--<li><a href="" class="link">海南</a></li>-->
+              <#--<li><a href="" class="link">海南</a></li>-->
+              <#--<li><a href="" class="link">海南</a></li>-->
+              <#--<li><a href="" class="link">海南</a></li>-->
+              <#--<li><a href="" class="link">海南</a></li>-->
+            <#--</ul>-->
+          <#--</div>-->
+          <#--<div class="city-list clearfix">-->
+            <#--<span class="city-key">国内：</span>-->
+            <#--<ul class="city-name clearfix">-->
+              <#--<li><a href="" class="link">海南</a></li>-->
+              <#--<li><a href="" class="link">海南</a></li>-->
+              <#--<li><a href="" class="link">海南</a></li>-->
+              <#--<li><a href="" class="link">海南</a></li>-->
+              <#--<li><a href="" class="link">海南</a></li>-->
+              <#--<li><a href="" class="link">海南</a></li>-->
+            <#--</ul>-->
+          <#--</div>-->
+        </div>
+        <div class="system-news">
+          <h4 class="news-title"><i class="icon-bullhorn"></i> 系统公告</h4>
+          <ol class="news-list">
+            <li><a href="" class="link">系统开始正式使用，欢迎反应系统问题</a> <span class="date">6月20日</span></li>
+          </ol>
+        </div>
       </div>
-      <div class="side-box">
-        <#--<div class="system-news">-->
-        <h4 class="mod-inner-title"><i class="icon-bullhorn"></i> 系统公告 <a class="more" href="">所有公告</a></h4>
-        <ol>
-          <li><a href="" class="link">系统开始正式使用，欢迎反应系统问题</a> <span class="date">6月20日</span></li>
-          <li><a href="" class="link">系统开始正式使用，欢迎反应系统问题</a> <span class="date">6月20日</span></li>
-          <li><a href="" class="link">系统开始正式使用，欢迎反应系统问题</a> <span class="date">6月20日</span></li>
-          <li><a href="" class="link">系统开始正式使用，欢迎反应系统问题</a> <span class="date">6月20日</span></li>
-        </ol>
-        <#--</div>-->
+      <#--<div class="side-box">-->
         <#--<div class="business-news">-->
           <h4 class="mod-inner-title"><i class="icon-globe"></i> 业务公告 <a class="more" href="">所有公告</a></h4>
           <ol>
@@ -70,7 +69,7 @@
             <li><a href="" class="link">商务部：对欧盟葡萄酒“双反”调查</a> <span class="date">6月20日</span></li>
           </ol>
         <#--</div>-->
-      </div>
+      <#--</div>-->
     </div>
     <div class="main-body clearfix">
       <h3 class="mod-title title-green">热卖产品列表 <#--<a href="" class="more">更多国内产品</a>--></h3>

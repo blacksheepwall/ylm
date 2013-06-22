@@ -1,24 +1,23 @@
 .search-box {
   float: left;
-  padding: 5px 10px;
-  width: 580px;
+  /*padding: 5px 10px;*/
+  /*width: 580px;*/
   /*height: 230px;*/
-  border: 5px solid #08c;
+  /*border: 5px solid #08c;*/
 }
 
 .search-box .search-btn {
-  width: 130px;
+  width: 100px;
 }
 
-.search-box .search-title {
-  padding: 5px 0;
-  font-weight: bold;
-  font-size: 14px;
-}
+/*.search-box .search-title {*/
+/*padding: 5px 0;*/
+/*font-weight: bold;*/
+/*font-size: 14px;*/
+/*}*/
 
 .search-box .top-search {
-  width: 100px;
-  font-size: 12px;
+  width: auto;
 }
 
 .search-box .search-input {
@@ -51,15 +50,43 @@
   padding: 0 10px 10px;
 }
 
-/*.side-box .system-news {*/
-  /*float: left;*/
-  /*width: 470px;*/
-  /*margin-right: 10px;*/
-/*}*/
+.system-news {
+  float: right;
+  width: 400px;
+}
+
+.system-news .news-title {
+  float: left;
+  margin: 0;
+  font-size: 12px;
+  line-height: 30px;
+  color: #666;
+}
+
+.system-news .news-list {
+  float: left;
+  width: 310px;
+  line-height: 30px;
+  margin-left: 10px;
+}
+
+.system-news .news-list li {
+  line-height: 30px;
+}
+
+.system-news .news-list .link {
+  float: left;
+  color: #333;
+}
+
+.system-news .news-list .date {
+  float: right;
+  color: #999;
+}
 
 /*.side-box .business-news {*/
-  /*float: left;*/
-  /*width: 470px;*/
+/*float: left;*/
+/*width: 470px;*/
 /*}*/
 
 .side-box .link {
