@@ -53,6 +53,9 @@ public class UserService {
 
     public User getCurrentUser() {
         Subject subject = SecurityUtils.getSubject();
+        if(subject.getPrincipal() == null){
+        	return getUser("", "");
+        }
         return (User) subject.getPrincipal();
     }
 
