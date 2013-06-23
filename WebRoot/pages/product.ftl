@@ -71,7 +71,7 @@
               </div> <a data-slide="prev" href="#carousel-373696" class="left carousel-control">‹</a> <a data-slide="next" href="#carousel-373696" class="right carousel-control">›</a>
             </div>
             <div class="sidebar pull-right">
-              <div>
+              <div class="product-date">
                 <span class="date-title">日期</span>
                 <select class="date-select input-xlarge">
                   <option>2013.06.07</option>
@@ -79,7 +79,7 @@
                   <option>2013.06.07</option>
                   <option>2013.06.07!</option>
                 </select>
-                <button class="date-ok btn btn-danger" type="button">铁定成团</button>
+                <button class="date-ok btn btn-danger btn-small" type="button">铁定成团</button>
               </div>
               <div>
                 <div><span class="key">悠乐马价：</span> 588元起起价说明</div>
@@ -114,13 +114,13 @@
         <div>
           <ul id="J_nav_tabs" class="nav nav-tabs">
             <li class="active">
-              <a href="#route">产品行程</a>
+              <a href="#route"><i class="icon-plane"></i> 产品行程</a>
             </li>
-            <li><a href="#description">产品说明</a></li>
-            <li><a href="#notice">签证须知</a></li>
-            <li><a href="#prepare">出行准备</a></li>
-            <li><a href="#order">预订订单</a></li>
-            <li><a href="#relate">相关线路</a></li>
+            <li><a href="#description"><i class="icon-check"></i> 产品说明</a></li>
+            <li><a href="#notice"><i class="icon-eye-open"></i> 签证须知</a></li>
+            <li><a href="#prepare"><i class="icon-briefcase"></i> 出行准备</a></li>
+            <li><a href="#order"><i class="icon-edit"></i> 预订订单</a></li>
+            <li><a href="#relate"><i class="icon-random"></i> 相关线路</a></li>
           </ul>
           <div data-spy="scroll" data-target="#J_nav_tabs" data-offset="0">
             <h5 id="route">产品行程</h5>

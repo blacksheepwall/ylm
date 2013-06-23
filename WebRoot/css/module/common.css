@@ -182,6 +182,10 @@ table.table thead, table.normal thead {
   margin-top: 5px;
 }
 
+.manage-sidebar .nav-header i {
+  font-size: 16px;
+}
+
 .manage-center .mod-title {
   margin-top: 0;
 }
@@ -191,35 +195,23 @@ table.table thead, table.normal thead {
   margin: 0 0 10px 0;
 }
 
-.manage-center .mod-body,
-.user-center .mod-body,
-.finance-center .mod-body,
-.order-manage .mod-body {
+.mod-body {
   margin-bottom: 10px;
   padding: 10px;
   border: 1px solid #ccc;
   border-top: 2px #08c solid;
 }
 
-.manage-center .mod-body .mod-title,
-.user-center .mod-body .mod-title,
-.finance-center .mod-body .mod-title,
-.order-manage .mod-body .mod-title {
+.mod-body .mod-title {
   height: 24px;
   line-height: 20px;
   margin: 0;
   font-size: 14px;
 }
 
-.manage-center .mod-body .control-label,
-.user-center .mod-body .control-label,
-.finance-center .mod-body .control-label,
-.manage-center .mod-body .controls label,
-.user-center .mod-body .controls label,
-.finance-center .mod-body .controls label,
-.manage-center .mod-body select,
-.user-center .mod-body select,
-.finance-center .mod-body select {
+.mod-body .control-label,
+.mod-body .controls label,
+.mod-body select {
   font-size: 12px;
   cursor: default;
 }

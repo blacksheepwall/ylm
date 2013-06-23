@@ -73,6 +73,7 @@
           </tr>
           </thead>
           <tbody>
+          <#assign grid>
           <tr>
             <td>
               <a href="/main/order-manage-process">YSL13050310010390</a>
@@ -105,8 +106,14 @@
               <a href="/main/order-manage-confirm">确认单</a> <a href="">出团通知</a>
             </td>
           </tr>
+          </#assign>
+          <#noescape>${grid}</#noescape>
+          <#noescape>${grid}</#noescape>
+          <#noescape>${grid}</#noescape>
+          <#noescape>${grid}</#noescape>
           </tbody>
         </table>
+        <@mock_pagination></@mock_pagination>
       </div>
     </div>
     </@body>

@@ -49,14 +49,14 @@
                   <a href="/main/order-manage">订单管理</a>
                 </li>
                 <li class="dropdown <#if page_name?contains("finance")>active</#if>">
-                  <a class="dropdown-toggle" href="/main/finance/">财务结算 <i class="icon-caret-down"></i></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li <#if page_name=="finance-payable-amount">class="active"</#if>><a href="/main/finance-payable-amount/">应付款统计</a></li>
-                    <li <#if page_name=="finance-payable-detail">class="active"</#if>><a href="/main/finance-payable-detail/">应付款明细</a></li>
-                    <li <#if page_name=="finance-add-remittance">class="active"</#if>><a href="/main/finance-add-remittance/">新增汇款</a></li>
-                    <li <#if page_name=="finance-remittance-list">class="active"</#if>><a href="/main/finance-remittance-list/">汇款列表</a></li>
-                    <li <#if page_name=="finance-refund-list">class="active"</#if>><a href="/main/finance-refund-list/">退款列表</a></li>
-                  </ul>
+                  <a class="dropdown-toggle" href="/main/finance/">财务结算<#-- <i class="icon-caret-down"></i>--></a>
+                  <#--<ul class="dropdown-menu" role="menu">-->
+                    <#--<li <#if page_name=="finance-payable-amount">class="active"</#if>><a href="/main/finance-payable-amount/">应付款统计</a></li>-->
+                    <#--<li <#if page_name=="finance-payable-detail">class="active"</#if>><a href="/main/finance-payable-detail/">应付款明细</a></li>-->
+                    <#--<li <#if page_name=="finance-add-remittance">class="active"</#if>><a href="/main/finance-add-remittance/">新增汇款</a></li>-->
+                    <#--<li <#if page_name=="finance-remittance-list">class="active"</#if>><a href="/main/finance-remittance-list/">汇款列表</a></li>-->
+                    <#--<li <#if page_name=="finance-refund-list">class="active"</#if>><a href="/main/finance-refund-list/">退款列表</a></li>-->
+                  <#--</ul>-->
                 </li>
               </ul>
               <ul class="nav nav-login pull-right">

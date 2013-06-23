@@ -21,3 +21,7 @@ input[type="text"] {
 .table {
   margin-top: 10px;
 }
+
+.control-group {
+  margin-bottom: 10px !important;
+}

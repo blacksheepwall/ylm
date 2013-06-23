@@ -5,21 +5,21 @@
   <@html title="国内线路">
     <@body>
     <div class="main-body clearfix">
-      <div class="sidebar pull-left">
-        <@inland_travel_module></@inland_travel_module>
-      </div>
-      <div class="center pull-left">
+      <#--<div class="sidebar pull-left">-->
+        <#--<@inland_travel_module></@inland_travel_module>-->
+      <#--</div>-->
+      <div>
         <div class="clearfix">
-          <div class="pull-left">
+          <div class="top-search pull-left">
             出发日期 <input type="text" readonly class="input-small"> 至 <input type="text" readonly class="input-small">
           </div>
           <div class="input-append pull-left">
-            <input class="span2" type="text">
+            <input class="search-input" type="text">
             <button class="btn" type="button">搜索</button>
             <button class="btn" type="button">高级查找</button>
           </div>
         </div>
-        <div class="conditions">
+        <div class="mod-body conditions">
           <div class="control-group">出发城市： <span class="label label-info">不限</span><#list startCitys as st> <a href="#">${st.cityName}</a></#list></div>
           <div class="control-group">天数：<span class="label label-info">不限</span> <#list dates as dt> <a href="#">${dt.stringValue}</a></#list></div>
           <div class="control-group">价格：<span class="label label-info">不限</span><#list prices as prc> <a href="#">${prc.stringValue}</a></#list></div>
@@ -133,17 +133,7 @@
             </tr>
             </tbody>
           </table>
-          <div class="pagination pagination-centered">
-            <ul>
-              <li><a href="#">«</a></li>
-              <li><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li><a href="#">»</a></li>
-            </ul>
-          </div>
+          <@mock_pagination></@mock_pagination>
         </div>
       </div>
     </div>

@@ -59,24 +59,23 @@
         </div>
       </div>
       <#--<div class="side-box">-->
-        <#--<div class="business-news">-->
-          <h4 class="mod-inner-title"><i class="icon-globe"></i> 业务公告 <a class="more" href="">所有公告</a></h4>
-          <ol>
-            <li><a href="" class="link">商务部：对欧盟葡萄酒“双反”调查</a> <span class="date">6月20日</span></li>
-            <li><a href="" class="link">商务部：对欧盟葡萄酒“双反”调查</a> <span class="date">6月20日</span></li>
-            <li><a href="" class="link">商务部：对欧盟葡萄酒“双反”调查</a> <span class="date">6月20日</span></li>
-            <li><a href="" class="link">商务部：对欧盟葡萄酒“双反”调查</a> <span class="date">6月20日</span></li>
-            <li><a href="" class="link">商务部：对欧盟葡萄酒“双反”调查</a> <span class="date">6月20日</span></li>
-          </ol>
-        <#--</div>-->
+      <div class="business-news mod-body">
+        <h3 class="mod-title"><i class="icon-star-empty"></i> 业务公告 <#--<a href="" class="more">更多国内产品</a>--></h3>
+        <ol>
+          <li><a href="" class="link">“美丽杭州，环保骑行”杭城市民为环保呐喊</a> <span class="date">6月21日</span></li>
+          <li><a href="" class="link">吃喝玩乐吹拉弹唱 杭州运河庙会一样都不少</a> <span class="date">6月22日</span></li>
+          <li><a href="" class="link">暑假旅游大推荐(1)：大家都去哪里玩？</a> <span class="date">6月23日</span></li>
+          <li><a href="" class="link">腾讯专访中山国旅董事长蒋慧明：让旅游走进生活</a> <span class="date">6月24日</span></li>
+          <li><a href="" class="link">悠乐马寻找小马族——我的旅行我代言</a> <span class="date">6月25日</span></li>
+        </ol>
+      </div>
       <#--</div>-->
     </div>
     <div class="main-body clearfix">
-      <h3 class="mod-title title-green">热卖产品列表 <#--<a href="" class="more">更多国内产品</a>--></h3>
-      <div class="promote-product">
-        <h4 class="mod-inner-title">跟团游</h4>
-        <#assign promote_product_item>
-          <ol>
+      <div class="mod-product">
+        <h3 class="mod-title title-green">热卖产品列表 <#--<a href="" class="more">更多国内产品</a>--></h3>
+        <ol>
+          <#assign promote_product_item>
             <li>
               <div>
                 <span class="label label-success">特价</span>
@@ -88,21 +87,15 @@
                 class="origin-price">￥2500起</span>
               </div>
             </li>
-          </ol>
-        </#assign>
-        <#noescape>${promote_product_item}</#noescape>
-        <#noescape>${promote_product_item}</#noescape>
-        <#noescape>${promote_product_item}</#noescape>
-        <#noescape>${promote_product_item}</#noescape>
-        <#noescape>${promote_product_item}</#noescape>
-      </div>
-      <div class="promote-product">
-        <h4 class="mod-inner-title">自由行</h4>
-        <#assign promote_product_item>
-          <ol>
+          </#assign>
+          <#noescape>${promote_product_item}</#noescape>
+          <#noescape>${promote_product_item}</#noescape>
+          <#noescape>${promote_product_item}</#noescape>
+          <#noescape>${promote_product_item}</#noescape>
+          <#noescape>${promote_product_item}</#noescape>
+          <#assign promote_product_item>
             <li>
               <div>
-                <span class="label label-success">跟团游</span>
                 <a href="" class="product-title">巴厘岛+新加坡5晚6日尊贵游</a>
                 <span class="muted">新加坡航空</span>
                 <span class="price">￥2500</span>
@@ -114,47 +107,38 @@
                 class="origin-price">￥2500起</span>
               </div>
             </li>
-          </ol>
-        </#assign>
-        <#noescape>${promote_product_item}</#noescape>
-        <#noescape>${promote_product_item}</#noescape>
-        <#noescape>${promote_product_item}</#noescape>
-        <#noescape>${promote_product_item}</#noescape>
-        <#noescape>${promote_product_item}</#noescape>
-      </div>
-    </div>
-    <div class="main-body clearfix">
-      <h3 class="mod-title title-orange">特价产品列表<#-- <a href="" class="more">更多出境产品</a>--></h3>
-      <div class="promote-product">
-        <h4 class="mod-inner-title">跟团游</h4>
-        <#assign promote_product_item>
-        <ol>
-          <li>
-            <div>
-              <span class="label label-success">特价</span>
-              <a href="" class="product-title">武夷山双卧4日游含九曲溪漂流</a>
-              <span class="price">￥2500</span>
-            </div>
-            <div>
-              <span class="start">出发口岸：杭州</span><span class="date">日期：6-28</span><span
-              class="origin-price">￥2500起</span>
-            </div>
-          </li>
+          </#assign>
+          <#noescape>${promote_product_item}</#noescape>
+          <#noescape>${promote_product_item}</#noescape>
+          <#noescape>${promote_product_item}</#noescape>
+          <#noescape>${promote_product_item}</#noescape>
+          <#noescape>${promote_product_item}</#noescape>
         </ol>
-        </#assign>
-        <#noescape>${promote_product_item}</#noescape>
-        <#noescape>${promote_product_item}</#noescape>
-        <#noescape>${promote_product_item}</#noescape>
-        <#noescape>${promote_product_item}</#noescape>
-        <#noescape>${promote_product_item}</#noescape>
       </div>
-      <div class="promote-product">
-        <h4 class="mod-inner-title">自由行</h4>
-        <#assign promote_product_item>
-          <ol>
+      <div class="mod-product">
+        <h3 class="mod-title title-orange">特价产品列表 <#--<a href="" class="more">更多国内产品</a>--></h3>
+        <ol>
+          <#assign promote_product_item>
             <li>
               <div>
-                <span class="label label-success">跟团游</span>
+                <span class="label label-success">特价</span>
+                <a href="" class="product-title">武夷山双卧4日游含九曲溪漂流</a>
+                <span class="price">￥2500</span>
+              </div>
+              <div>
+                <span class="start">出发口岸：杭州</span><span class="date">日期：6-28</span><span
+                class="origin-price">￥2500起</span>
+              </div>
+            </li>
+          </#assign>
+          <#noescape>${promote_product_item}</#noescape>
+          <#noescape>${promote_product_item}</#noescape>
+          <#noescape>${promote_product_item}</#noescape>
+          <#noescape>${promote_product_item}</#noescape>
+          <#noescape>${promote_product_item}</#noescape>
+          <#assign promote_product_item>
+            <li>
+              <div>
                 <a href="" class="product-title">巴厘岛+新加坡5晚6日尊贵游</a>
                 <span class="muted">新加坡航空</span>
                 <span class="price">￥2500</span>
@@ -166,21 +150,20 @@
                 class="origin-price">￥2500起</span>
               </div>
             </li>
-          </ol>
-        </#assign>
-        <#noescape>${promote_product_item}</#noescape>
-        <#noescape>${promote_product_item}</#noescape>
-        <#noescape>${promote_product_item}</#noescape>
-        <#noescape>${promote_product_item}</#noescape>
-        <#noescape>${promote_product_item}</#noescape>
+          </#assign>
+          <#noescape>${promote_product_item}</#noescape>
+          <#noescape>${promote_product_item}</#noescape>
+          <#noescape>${promote_product_item}</#noescape>
+          <#noescape>${promote_product_item}</#noescape>
+          <#noescape>${promote_product_item}</#noescape>
+        </ol>
       </div>
     </div>
     <div class="main-body clearfix">
       <h3 class="mod-title title-blue">尾单产品列表 <#--<a href="" class="more">更多国内产品</a>--></h3>
-      <div class="promote-product">
-        <h4 class="mod-inner-title">跟团游</h4>
-        <#assign promote_product_item>
-          <ol>
+      <div class="mod-product">
+        <ol>
+          <#assign promote_product_item>
             <li>
               <div>
                 <span class="label label-success">特价</span>
@@ -192,13 +175,13 @@
                 class="origin-price">￥2500起</span>
               </div>
             </li>
-          </ol>
-        </#assign>
-        <#noescape>${promote_product_item}</#noescape>
-        <#noescape>${promote_product_item}</#noescape>
-        <#noescape>${promote_product_item}</#noescape>
-        <#noescape>${promote_product_item}</#noescape>
-        <#noescape>${promote_product_item}</#noescape>
+          </#assign>
+          <#noescape>${promote_product_item}</#noescape>
+          <#noescape>${promote_product_item}</#noescape>
+          <#noescape>${promote_product_item}</#noescape>
+          <#noescape>${promote_product_item}</#noescape>
+          <#noescape>${promote_product_item}</#noescape>
+        </ol>
       </div>
     </div>
     </@body>
