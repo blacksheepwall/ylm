@@ -8,7 +8,7 @@
       <div class="row-fluid">
         <ul class="breadcrumb pull-left">
           <li><a href="/main/">首页</a> <span class="divider">/</span></li>
-          <li><a href="/main/order-manage">订单管理</a> <span class="divider">/</span></li>
+          <li><a href="/order/">订单管理</a> <span class="divider">/</span></li>
           <li class="active">订单操作</li>
         </ul>
       </div>

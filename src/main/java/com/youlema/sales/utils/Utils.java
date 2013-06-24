@@ -18,4 +18,12 @@ public class Utils {
 			return null;
 		}
 	}
+
+    public static String formatDate(Date gmtCreate , String pattern) {
+        if(gmtCreate == null){
+            gmtCreate = new Date(0);
+        }
+        SimpleDateFormat format = new SimpleDateFormat(pattern);
+        return format.format(gmtCreate);
+    }
 }

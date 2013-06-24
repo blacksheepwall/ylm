@@ -2,12 +2,18 @@ package com.youlema.sales.service;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.yolema.tbss.ext.facade.fdo.OrderBillFdo;
+import com.yolema.tbss.ext.facade.result.OrderBillResult;
 import com.youlema.sales.meta.OrderType;
 import com.youlema.sales.meta.OrderVo;
 import com.youlema.sales.meta.SearchResult;
+import com.youlema.sales.ws.OrderFacade;
 
 /**
  * 订单相关服务
@@ -17,6 +23,8 @@ import com.youlema.sales.meta.SearchResult;
  */
 @Service
 public class OrderService {
+    @Resource
+    private OrderFacade orderFacade;
 	/**
 	 * 根据订单状态，合同状态，出发状态，订单类型四个条件查询
 	 * 
@@ -27,7 +35,13 @@ public class OrderService {
 	 * @return
 	 */
 	public SearchResult<OrderVo> queryOrders(OrderQueryCondition condition) {
-		return new SearchResult<OrderVo>(0, new ArrayList<OrderVo>(0));
+	    OrderBillResult billResult = orderFacade.queryOrderBillResult(condition);
+	    List<OrderBillFdo> list = billResult.getList();
+	    List<OrderVo> vos = new ArrayList<OrderVo>();
+	    for (OrderBillFdo orderBillFdo : list) {
+	        vos.add(OrderVo.fromFdo(orderBillFdo));
+        }
+		return new SearchResult<OrderVo>(list.size(), vos);
 	}
 
 	/**

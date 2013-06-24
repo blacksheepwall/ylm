@@ -9,18 +9,25 @@ package com.youlema.sales.meta;
 public enum OrderType {
 	NONE {
 		@Override
-		int intValue() {
-			return 1;
+		String stringValue() {
+			return "1";
 		}
+
+        @Override
+        public String showValue() {
+            return "测试订单类型";
+        }
 	};
 
-	abstract int intValue();
+	abstract String stringValue();
+	
+	public abstract String showValue();
 
-	public static OrderType fromIntValue(int intValue) {
+	public static OrderType fromStringValue(String stringValue) {
 		OrderType[] values = values();
 		for (int i = 0; i < values.length; i++) {
 			OrderType orderType = values[i];
-			if (intValue == orderType.intValue()) {
+			if (orderType.stringValue().equals(stringValue)) {
 				return orderType;
 			}
 		}

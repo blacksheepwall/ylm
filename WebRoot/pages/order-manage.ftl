@@ -73,44 +73,40 @@
           </tr>
           </thead>
           <tbody>
-          <#assign grid>
+          <#list orders.resultList as it>
           <tr>
             <td>
-              <a href="/main/order-manage-process">YSL13050310010390</a>
+              <a href="/main/order-manage-process">${it.orderNumber}</a>
             </td>
             <td>
-              跟团游
+              ${it.orderType.showValue()}
             </td>
             <td>
-              <a href="/product/detail/">【双城春色】石家庄-北京双飞六日游</a>
+              <a href="/product/detail/">${it.productName}</a>
             </td>
             <td>
-              2013-05-07
+              ${it.beginDate}
             </td>
             <td>
-              3大1小
+              ${it.travellerCount}
             </td>
             <td>
-              林展科
+              ${it.contact}
             </td>
             <td>
-              2013-05-03
+              ${it.scheduledTime}
             </td>
             <td>
-              已确认
+              ${it.status!}
             </td>
             <td>
-              客户已签订
+              ${it.contractStatus}
             </td>
             <td>
               <a href="/main/order-manage-confirm">确认单</a> <a href="">出团通知</a>
             </td>
           </tr>
-          </#assign>
-          <#noescape>${grid}</#noescape>
-          <#noescape>${grid}</#noescape>
-          <#noescape>${grid}</#noescape>
-          <#noescape>${grid}</#noescape>
+          </#list>
           </tbody>
         </table>
         <@mock_pagination></@mock_pagination>
