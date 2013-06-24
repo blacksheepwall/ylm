@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,13 +32,20 @@ public class OrderController {
         return "news";
     }
 
+
+    @RequestMapping("")
+    public String orderView(){
+        return "order-manage";
+    }
+    
     /**
-     * 
+     * 查询订单列表
      * @return
      * @throws ServletRequestBindingException
+     * @throws IOException 
      */
-    @RequestMapping("")
-    public String queryOrders(HttpServletRequest request, ModelMap modelMap) throws ServletRequestBindingException {
+    @RequestMapping("/queryOrders")
+    public void queryOrders(HttpServletRequest request,HttpServletResponse response) throws ServletRequestBindingException, IOException {
         Date beginScheduledTime = Utils.parseDate(ServletRequestUtils.getStringParameter(request, "beginTime"),
                 "yyyy-MM-dd");
         Date endScheduledTime = Utils.parseDate(ServletRequestUtils.getStringParameter(request, "endTime"),
@@ -59,8 +65,7 @@ public class OrderController {
         condition.setOrderType(orderType);
 
         SearchResult<OrderVo> orders = orderService.queryOrders(condition);
-        modelMap.put("orders", orders);
-        return "order-manage";
+        JsonUtils.writeToJson(orders, response);
     }
 
     @RequestMapping("download")
