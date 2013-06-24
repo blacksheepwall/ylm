@@ -15,24 +15,43 @@
         <div class="condition">
           <form class="form-horizontal mod-body">
             <div class="control-group search-box">
-              <span>预定日期</span>
-              <input class="date-box" type="text">
-              <span>至</span>
-              <input class="date-box" type="text">
-              <input type="text"> <button class="btn btn-success search-btn" type="button"><i class="icon-search"></i> 搜索</button>
+              <strong>预定日期：</strong>
+              <input id="J_start_date" class="date-box" type="text" readonly>
+              <strong>至</strong>
+              <input id="J_end_date" class="date-box" type="text" readonly>
+              <input class="search-input" type="text"> <button class="btn btn-success search-btn" type="button"><i class="icon-search"></i> 搜索</button>
             </div>
             <div>
               <div class="con-row">
-                订单状态：不限   待确认   候补    已确认    已取消
+                <strong>订单状态</strong>：
+                <span class="item label label-info">不限</span>
+                <span class="item">待确认</span>
+                <span class="item">候补</span>
+                <span class="item">已确认</span>
+                <span class="item">已取消</span>
               </div>
               <div class="con-row">
-                合同状态：不限   组团已寄   代理已签收   客户已签订   代理已回寄   组团已签收
+                <strong>合同状态</strong>：
+                <span class="item label label-info">不限</span>
+                <span class="item">组团已寄</span>
+                <span class="item">代理已签收</span>
+                <span class="item">客户已签订</span>
+                <span class="item">代理已回寄</span>
+                <span class="item">组团已签收</span>
               </div>
               <div class="con-row">
-                出发状态：所有   三天内出发   已出发   已走完
+                <strong>出发状态</strong>：
+                <span class="item label label-info">所有</span>
+                <span class="item">三天内出发</span>
+                <span class="item">已出发</span>
+                <span class="item">已走完</span>
               </div>
               <div class="con-row">
-                订单类型：所有   跟团游   整团   自由行
+                <strong>订单类型</strong>：
+                <span class="item label label-info">所有</span>
+                <span class="item">跟团游</span>
+                <span class="item">整团</span>
+                <span class="item">自由行</span>
               </div>
             </div>
           </form>

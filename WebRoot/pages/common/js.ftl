@@ -26,7 +26,8 @@
       'cookie': 'base/cookie',
       'store': 'base/store',
       'zclip': 'base/jquery.zclip',
-      'scrollMonitor': 'base/scrollMonitor'
+      'scrollMonitor': 'base/scrollMonitor',
+      'dateTimePicker':'base/dateTimePicker/bootstrap-datetimepicker'
     },
     urlArgs: 'v=' /*+ (+new Date()) */ + '${cfg_version_js}'
   });
