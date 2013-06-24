@@ -39,7 +39,6 @@ public class MainController {
 	}
 	@RequestMapping("/main")
 	public String main(ModelMap model){
-		List<OrderVo> orders = adService.readLastestOrders();
 		List<LineVo> lines = adService.readNewestLines();
 		List<ATag> notes = adService.readNote();
 		List<ATag> promotion = adService.readPromotion();
@@ -47,7 +46,6 @@ public class MainController {
 		List<ATag> noteList = adService.getSystemNoteList();
 		model.put("systemNoteList", noteList);
 		model.put("shortcuts", shortcuts);
-		model.put("orders", orders);
 		model.put("lines", lines);
 		model.put("notes", notes);
 		model.put("promotion", promotion);
