@@ -27,6 +27,7 @@
       'store': 'base/store',
       'zclip': 'base/jquery.zclip',
       'scrollMonitor': 'base/scrollMonitor',
+      'pagination': 'base/jqpagination/jqpagination',
       'dateTimePicker':'base/dateTimePicker/bootstrap-datetimepicker'
     },
     urlArgs: 'v=' /*+ (+new Date()) */ + '${cfg_version_js}'

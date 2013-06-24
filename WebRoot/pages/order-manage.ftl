@@ -128,7 +128,7 @@
           </#list>
           </tbody>
         </table>
-        <@mock_pagination></@mock_pagination>
+        <@mock_pagination count="${orders.count}"></@mock_pagination>
       </div>
     </div>
     </@body>

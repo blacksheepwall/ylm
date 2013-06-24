@@ -330,6 +330,20 @@ table.table thead, table.normal thead {
   margin-right: 10px;
 }
 
+.pagination {
+  text-align: right;
+}
+.pagination a {
+  font-size: 20px;
+  color: #999;
+  padding: 0 3px;
+}
+
+.pagination-input {
+  width: 60px;
+  text-align: center;
+}
+
 .footer {
   /*border-top: 1px solid #ccc;*/
   margin-top: 10px;

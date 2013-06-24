@@ -68,11 +68,11 @@
 }
 .datetimepicker-dropdown-bottom-right:before {
   top: -7px;
-  right: 6px;
+  left: 6px;
 }
 .datetimepicker-dropdown-bottom-right:after {
   top: -6px;
-  right: 7px;
+  left: 7px;
 }
 .datetimepicker-dropdown-bottom-left:before {
   top: -7px;

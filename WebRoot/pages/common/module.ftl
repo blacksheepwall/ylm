@@ -409,16 +409,12 @@
 </div>
 </#macro>
 
-<#macro mock_pagination>
-<div class="pagination pagination-centered">
-  <ul>
-    <li><a href="#">«</a></li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li><a href="#">»</a></li>
-  </ul>
+<#macro mock_pagination count="1">
+<div class="pagination">
+  <a href="javascript:;" class="first" data-action="first" title="第一页">&laquo;</a>
+  <a href="javascript:;" class="previous" data-action="previous" title="上一页">&lsaquo;</a>
+  <input class="pagination-input" type="text" readonly="readonly" data-max-page="12${count}" />
+  <a href="javascript:;" class="next" data-action="next" title="下一页">&rsaquo;</a>
+  <a href="javascript:;" class="last" data-action="last" title="最后一页">&raquo;</a>
 </div>
 </#macro>
