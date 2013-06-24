@@ -3,6 +3,8 @@ package com.youlema.sales.service;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.springframework.stereotype.Service;
+
 import com.youlema.sales.meta.OrderType;
 import com.youlema.sales.meta.OrderVo;
 import com.youlema.sales.meta.SearchResult;
@@ -13,6 +15,7 @@ import com.youlema.sales.meta.SearchResult;
  * @author user
  * 
  */
+@Service
 public class OrderService {
 	/**
 	 * 根据订单状态，合同状态，出发状态，订单类型四个条件查询
