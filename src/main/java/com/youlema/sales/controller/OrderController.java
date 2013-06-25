@@ -29,10 +29,13 @@ public class OrderController {
 
     @RequestMapping("info")
     public String orderInfo(@RequestParam("id") long orderId) {
-        return "news";
+        return "order-manage-process";
     }
 
-
+    /**
+     * 订单列表主页
+     * @return
+     */
     @RequestMapping("")
     public String orderView(){
         return "order-manage";

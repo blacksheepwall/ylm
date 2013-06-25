@@ -104,7 +104,7 @@
       {{#resultList}}
       <tr>
         <td>
-          <a href="/main/order-manage-process">{{orderNumber}}</a>
+          <a href="/order/info/?id={{orderId}}">{{orderNumber}}</a>
         </td>
         <td>
           {{orderType}}
