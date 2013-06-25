@@ -13,7 +13,7 @@
 <#macro head title="" keywords="" description="" target="">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1">
   <title>${title}</title>
   <meta name="keywords" content="${keywords}"/>
   <meta name="description" content="${description}"/>
@@ -413,7 +413,7 @@
 <div class="pagination">
   <a href="javascript:;" class="first" data-action="first" title="第一页">&laquo;</a>
   <a href="javascript:;" class="previous" data-action="previous" title="上一页">&lsaquo;</a>
-  <input class="pagination-input" type="text" readonly="readonly" data-max-page="12${count}" />
+  <input class="pagination-input" type="text" readonly="readonly" data-max-page="${count}" />
   <a href="javascript:;" class="next" data-action="next" title="下一页">&rsaquo;</a>
   <a href="javascript:;" class="last" data-action="last" title="最后一页">&raquo;</a>
 </div>

@@ -91,46 +91,54 @@
             </th>
           </tr>
           </thead>
-          <tbody>
-          <#list orders.resultList as it>
+          <tbody id="J_order_container">
           <tr>
-            <td>
-              <a href="/main/order-manage-process">${it.orderNumber}</a>
-            </td>
-            <td>
-              ${it.orderType.showValue()}
-            </td>
-            <td>
-              <a href="/product/detail/">${it.productName}</a>
-            </td>
-            <td>
-              ${it.beginDate}
-            </td>
-            <td>
-              ${it.travellerCount}
-            </td>
-            <td>
-              ${it.contact}
-            </td>
-            <td>
-              ${it.scheduledTime}
-            </td>
-            <td>
-              ${it.status!}
-            </td>
-            <td>
-              ${it.contractStatus}
-            </td>
-            <td>
-              <a href="/main/order-manage-confirm">确认单</a> <a href="">出团通知</a>
-            </td>
+            <td colspan="10">订单加载中...</td>
           </tr>
-          </#list>
           </tbody>
         </table>
-        <@mock_pagination count="${orders.count}"></@mock_pagination>
+        <@mock_pagination></@mock_pagination>
       </div>
     </div>
+    <script id="J_order_row" type="text/tpl">
+      {{#resultList}}
+      <tr>
+        <td>
+          <a href="/main/order-manage-process">{{orderNumber}}</a>
+        </td>
+        <td>
+          {{orderType}}
+        </td>
+        <td>
+          <a href="/product/detail/">{{productName}}</a>
+        </td>
+        <td>
+          {{beginDate}}
+        </td>
+        <td>
+          {{travellerCount}}
+        </td>
+        <td>
+          {{contact}}
+        </td>
+        <td>
+          {{scheduledTime}}
+        </td>
+        <td>
+          {{status}}
+        </td>
+        <td>
+          {{contractStatus}}
+        </td>
+        <td>
+          <a href="/main/order-manage-confirm">确认单</a> <a href="">出团通知</a>
+        </td>
+      </tr>
+      {{/resultList}}
+      {{^resultList}}
+      <tr><td colspan="10">没有订单</td></tr>
+      {{/resultList}}
+    </script>
     </@body>
   </@html>
 </#escape>
