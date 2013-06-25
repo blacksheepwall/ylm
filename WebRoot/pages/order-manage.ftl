@@ -12,46 +12,63 @@
         </ul>
       </div>
       <div class="row-fluid">
-        <div class="condition">
+        <div id="J_condition" class="condition">
           <form class="form-horizontal mod-body">
             <div class="control-group search-box">
               <strong>预定日期：</strong>
               <input id="J_start_date" class="date-box" type="text" readonly>
               <strong>至</strong>
               <input id="J_end_date" class="date-box" type="text" readonly>
-              <input class="search-input" type="text"> <button class="btn btn-success search-btn" type="button"><i class="icon-search"></i> 搜索</button>
+              <input id="J_search_text" class="search-input" type="text"> <button id="J_search_btn" class="btn btn-success search-btn" type="button"><i class="icon-search"></i> 搜索</button>
             </div>
             <div>
-              <div class="con-row">
-                <strong>订单状态</strong>：
-                <span class="item label label-info">不限</span>
-                <span class="item">待确认</span>
-                <span class="item">候补</span>
-                <span class="item">已确认</span>
-                <span class="item">已取消</span>
+              <div class="con-row clearfix">
+                <strong class="pull-left">订单状态：</strong>
+                <ul class="nav nav-pills">
+                  <li class="active">
+                    <a href="#">不限</a>
+                  </li>
+                  <li><a href="#">待确认</a></li>
+                  <li><a href="#">候补</a></li>
+                  <li><a href="#">已确认</a></li>
+                  <li><a href="#">已取消</a></li>
+                </ul>
+                <#--<span class="item label label-info"></span>-->
               </div>
-              <div class="con-row">
-                <strong>合同状态</strong>：
-                <span class="item label label-info">不限</span>
-                <span class="item">组团已寄</span>
-                <span class="item">代理已签收</span>
-                <span class="item">客户已签订</span>
-                <span class="item">代理已回寄</span>
-                <span class="item">组团已签收</span>
+              <div class="con-row clearfix">
+                <strong class="pull-left">合同状态：</strong>
+                <ul class="nav nav-pills">
+                  <li class="active">
+                    <a href="#">不限</a>
+                  </li>
+                  <li><a href="#">组团已寄</a></li>
+                  <li><a href="#">代理已签收</a></li>
+                  <li><a href="#">客户已签订</a></li>
+                  <li><a href="#">代理已回寄</a></li>
+                  <li><a href="#">组团已签收</a></li>
+                </ul>
               </div>
-              <div class="con-row">
-                <strong>出发状态</strong>：
-                <span class="item label label-info">所有</span>
-                <span class="item">三天内出发</span>
-                <span class="item">已出发</span>
-                <span class="item">已走完</span>
+              <div class="con-row clearfix">
+                <strong class="pull-left">出发状态：</strong>
+                <ul class="nav nav-pills">
+                  <li class="active">
+                    <a href="#">所有</a>
+                  </li>
+                  <li><a href="#">三天内出发</a></li>
+                  <li><a href="#">已出发</a></li>
+                  <li><a href="#">已走完</a></li>
+                </ul>
               </div>
-              <div class="con-row">
-                <strong>订单类型</strong>：
-                <span class="item label label-info">所有</span>
-                <span class="item">跟团游</span>
-                <span class="item">整团</span>
-                <span class="item">自由行</span>
+              <div class="con-row clearfix">
+                <strong class="pull-left">订单类型：</strong>
+                <ul class="nav nav-pills">
+                  <li class="active">
+                    <a href="#">所有</a>
+                  </li>
+                  <li><a href="#">跟团游</a></li>
+                  <li><a href="#">整团</a></li>
+                  <li><a href="#">自由行</a></li>
+                </ul>
               </div>
             </div>
           </form>

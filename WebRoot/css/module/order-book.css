@@ -1,0 +1,24 @@
+.order-info li {
+  margin-bottom: 10px;
+}
+
+.order-info .people-num {
+  margin-left: 200px;
+}
+
+.order-info .people-num input {
+  width: 30px;
+}
+
+.order-info .desc-name {
+  vertical-align: top;
+}
+
+.order-info .desc-value {
+  width: 600px;
+  height: 100px;
+}
+
+.order-action {
+  text-align: center;
+}
