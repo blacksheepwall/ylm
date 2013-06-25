@@ -110,7 +110,7 @@
           {{orderType}}
         </td>
         <td>
-          <a href="/product/detail/">{{productName}}</a>
+          <a href="/product/detail/?id={{productId}}">{{productName}}</a>
         </td>
         <td>
           {{beginDate}}
@@ -131,7 +131,7 @@
           {{contractStatus}}
         </td>
         <td>
-          <a href="/main/order-manage-confirm">确认单</a> <a href="">出团通知</a>
+          <a href="/order/confirm/?id={{orderId}}">确认单</a> <a href="/order/download/?id={{orderId}}">出团通知</a>
         </td>
       </tr>
       {{/resultList}}

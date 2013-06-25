@@ -19,7 +19,7 @@ public class ProductController {
 	 */
 	@RequestMapping("/detail")
 	public String productDetailInfo(
-			@RequestParam(value = "id", required = false, defaultValue = "0") long productId,
+			@RequestParam(value = "id") long productId,
 			ModelMap modelMap) {
 		modelMap.put("productId", productId);
 		modelMap.put("type", BusinessType.LINE.name());

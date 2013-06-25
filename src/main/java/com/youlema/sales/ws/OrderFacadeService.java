@@ -11,7 +11,9 @@ import com.yolema.tbss.ext.facade.result.OrderBillResult;
 import com.youlema.sales.service.OrderService.OrderQueryCondition;
 
 @Service
-public class OrderFacade {
+public class OrderFacadeService {
+    
+//    private OrderBillFacade orderBillFacade;
     
 	public OrderBillResult queryOrderBillResult(OrderQueryCondition condition){
 	    OrderBillResult result = new OrderBillResult();
@@ -20,6 +22,7 @@ public class OrderFacade {
 	    List<OrderBillFdo> foBillFdos = new ArrayList<OrderBillFdo>();
 	    OrderBillFdo fdo = new OrderBillFdo();
 	    fdo.setBizOrderId("YSL13050310010390");
+	    fdo.setProductId(1001L);
 	    fdo.setContactPerson("金鹿");
 	    fdo.setGmtCreate(new Date());
 	    fdo.setOrderId(12345678L);

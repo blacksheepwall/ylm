@@ -1,6 +1,9 @@
 package com.youlema.sales.meta;
 
+import java.util.Date;
+
 import com.yolema.tbss.ext.facade.fdo.OrderBillFdo;
+import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
 import com.youlema.sales.utils.Utils;
 
 public class OrderVo {
@@ -104,25 +107,25 @@ public class OrderVo {
         this.contractStatus = contractStatus;
     }
 
-    public static OrderVo fromFdo(OrderBillFdo fdo) {
+    public static OrderVo fromFdo(OrderBillFdo fdo, TourProductFdo product) {
         OrderVo vo = new OrderVo();
-        // TODO 出团日期未知
-         vo.setBeginDate("不知道日期");
+        Date leave = product.getGmtLeave();
+        vo.setBeginDate(Utils.formatDate(leave, "yyyy-MM-dd"));
         vo.setContact(fdo.getContactPerson());
         // TODO 合同状态未知
-         vo.setContractStatus("不知道合同状态");
-
+        vo.setContractStatus("不知道合同状态");
         vo.setOrderId(fdo.getOrderId());
         vo.setOrderNumber(fdo.getBizOrderId());
         vo.setOrderType(OrderType.fromStringValue(fdo.getOrderType()));
-        // TODO 产品相关信息未知
-        // vo.setProductId(productId)
-         vo.setProductName("不知道什么产品");
-        
+        vo.setProductId(fdo.getProductId());
+        if (product != null) {
+            vo.setProductName(product.getLineName());
+        }
         vo.setScheduledTime(Utils.formatDate(fdo.getGmtCreate(), "yyyy-MM-dd"));
         vo.setStatus(fdo.getOrderStatus());
-        // TODO 订单游客数量未知
-         vo.setTravellerCount("三大三小");
+        // TODO 订单游客数量待确定
+        int numOfOrder = product.getNumOfOrder();
+        vo.setTravellerCount(String.valueOf(numOfOrder));
         return vo;
     }
 
