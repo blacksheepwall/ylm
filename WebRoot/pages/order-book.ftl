@@ -36,40 +36,65 @@
             </li>
             <li><strong>联系人：</strong> <input type="text"></li>
             <li><strong class="desc-name">订单备注：</strong> <textarea class="desc-value"></textarea></li>
+            <li>
+              <strong>游客名单：</strong>
+              <table class="table table-bordered">
+                <thead>
+                <tr>
+                  <th>
+                    类型
+                  </th>
+                  <th>
+                    姓名
+                  </th>
+                  <th>
+                    性别
+                  </th>
+                  <th>
+                    证件号码
+                  </th>
+                  <th>
+                    手机号码
+                  </th>
+                  <th>
+                    门市价格
+                  </th>
+                  <th>
+                    可选项目
+                  </th>
+                </tr>
+                </thead>
+                <tbody id="J_order_container">
+                <tr>
+                  <td>
+                    成人
+                  </td>
+                  <td>
+                    <input type="text" class="name">
+                  </td>
+                  <td>
+                    <select><option>男</option><option>女</option></select>
+                  </td>
+                  <td>
+                    <select><option>身份证</option><option>护照</option><option>港澳通行证</option><option>台湾通行证</option></select>
+                    <input type="text" class="idcard">
+                  </td>
+                  <td>
+                    <input type="text" class="phone">
+                  </td>
+                  <td>
+                    <input type="text" value="1000" class="price">
+                  </td>
+                  <td>
+                    <div><strong>单房差：</strong><select><option>1</option></select></div>
+                    <div><strong>保险：</strong><select><option>1</option></select></div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </li>
           </ul>
         </div>
-        <table class="table table-bordered">
-          <thead>
-          <tr>
-            <th>
-              类型
-            </th>
-            <th>
-              姓名
-            </th>
-            <th>
-              性别
-            </th>
-            <th>
-              证件号码
-            </th>
-            <th>
-              手机号码
-            </th>
-            <th>
-              门市价格
-            </th>
-            <th>
-              可选项目
-            </th>
-          </tr>
-          </thead>
-          <tbody id="J_order_container">
-          <tr>
-            <td colspan="7">游客加载中...</td>
-          </tr>
-          </tbody>
-        </table>
         <div class="order-action">
           <button id="login" class="btn btn-primary">提交</button>
           <button class="btn" data-dismiss="modal" aria-hidden="true">取消预订</button>

@@ -22,3 +22,23 @@
 .order-action {
   text-align: center;
 }
+
+.order-info select {
+  width: auto !important;
+}
+
+.order-info .name {
+  width: 100px;
+}
+
+.order-info .idcard {
+  width: 150px;
+}
+
+.order-info .phone {
+  width: 100px;
+}
+
+.order-info .price {
+  width: 100px;
+}
