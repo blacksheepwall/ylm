@@ -3,7 +3,7 @@
 <#include "common/module.ftl"/>
 <#escape x as x?html>
   <@html title="预订信息核对">
-    <@body class="manage-center">
+    <@body>
     <div class="main-body">
       <div class="row-fluid">
         <ul class="breadcrumb pull-left">

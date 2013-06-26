@@ -1,8 +1,8 @@
-<#-- 产品预订页 -->
+<#-- 订单确认页 -->
 <#assign page_name="order-book"/>
 <#include "common/module.ftl"/>
 <#escape x as x?html>
-  <@html title="产品预订">
+  <@html title="订单确认">
     <@body>
     <div class="main-body">
       <div class="row-fluid">
