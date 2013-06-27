@@ -3,7 +3,9 @@ package com.youlema.sales.ws.mock;
 import org.springframework.stereotype.Service;
 
 import com.yolema.tbss.ext.facade.TourProductFacade;
+import com.yolema.tbss.ext.facade.fdo.SearchProductFdo;
 import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
+import com.yolema.tbss.ext.facade.result.ShowProductResult;
 import com.yolema.tbss.ext.facade.result.TourProductResult;
 
 
@@ -33,13 +35,19 @@ public class MockTourProductFacade implements TourProductFacade {
     }
 
     @Override
-    public TourProductResult getTourProduct(Long id, boolean isPublish, String user) {
+    public ShowProductResult getShowProductById(Long arg0) {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public TourProductResult getByIdForCover(Long id, boolean isPublish, String user) {
+    public TourProductResult queryIndexProduct(String arg0, Integer arg1) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public ShowProductResult queryProductList(SearchProductFdo arg0, String arg1) {
         // TODO Auto-generated method stub
         return null;
     }

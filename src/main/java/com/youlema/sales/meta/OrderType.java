@@ -9,7 +9,7 @@ package com.youlema.sales.meta;
 public enum OrderType {
 	NONE {
 		@Override
-		String stringValue() {
+		public String stringValue() {
 			return "1";
 		}
 
@@ -19,7 +19,7 @@ public enum OrderType {
         }
 	};
 
-	abstract String stringValue();
+	public abstract String stringValue();
 	
 	public abstract String showValue();
 

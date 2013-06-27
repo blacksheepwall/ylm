@@ -42,22 +42,20 @@ public class OrderController {
     public String orderView() {
         return "order-manage";
     }
+
     /**
      * 确认订单
+     * 
      * @param orderId
      * @param response
      * @throws IOException
      */
     @RequestMapping("/confirm")
-    public void confirm(@RequestParam("id")long orderId , HttpServletResponse response) throws IOException{
-        boolean success  = orderService.confirmOrder(orderId);
-        if(success){
-            JsonUtils.writeToJson("SUCCESS", response);
-        }else{
-            JsonUtils.writeToErrJson("FAIL", "", response);
-        }
+    public String confirm(@RequestParam("id") long orderId, HttpServletResponse response) throws IOException {
+        OrderVo vo = orderService.getOrderById(orderId);
+        return "order-confirm";
     }
-    
+
     /**
      * 查询订单列表
      * 
@@ -83,7 +81,7 @@ public class OrderController {
         condition.setQueryText(queryText);
         condition.setOrderStatus(orderStatus);
         condition.setContractStatus(contractStatus);
-        condition.setStartStatus(LeaveStatus.fromIntValue(startStatus));
+        condition.setLeaveStatus(LeaveStatus.fromIntValue(startStatus));
         condition.setOrderType(orderType);
 
         SearchResult<OrderVo> orders = orderService.queryOrders(condition);
