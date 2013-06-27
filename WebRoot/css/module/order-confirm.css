@@ -1,0 +1,71 @@
+body {
+  font-family: "microsoft yahei";
+  font-size: 14px;
+}
+
+.top-title {
+  padding-bottom: 10px;
+  font-size: 24px;
+  text-align: center;
+  border-bottom: 1px solid #000;
+}
+
+.sub-title {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.order-info li {
+  float: left;
+  width: 470px;
+  margin: 4px 10px 4px 0;
+  text-indent: 2em;
+}
+
+.order-info .whole-row {
+  width: 100%;
+}
+
+.order-confirm {
+  margin: 20px 0;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.confirm-body .party {
+  float: left;
+  width: 490px;
+  font-weight: bold;
+}
+
+.order-cost .cost-body {
+  font-weight: bold;
+  text-indent: 2em;
+}
+
+.cost-body .normal {
+  font-weight: normal;
+}
+
+.cost-body .money,
+.cost-body .date {
+  display: inline-block;
+  margin: 0 5px;
+  border-bottom: 1px solid #000;
+}
+
+.cost-body .date {
+  width: 60px;
+}
+
+.cost-body .money {
+  display: inline-block;
+  margin: 0 5px;
+  width: 250px;
+  border-bottom: 1px solid #000;
+}
+
+thead {
+  background-color: #fff !important;
+  color: #333 !important;
+}
