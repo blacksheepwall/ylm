@@ -1,0 +1,34 @@
+.order-info li {
+  float: left;
+  width: 300px;
+  line-height: 24px;
+  margin-right: 10px;
+}
+
+.order-info .whole-row {
+  width: 100%;
+}
+
+.order-info .desc-name {
+  vertical-align: top;
+}
+
+.order-info .desc-value {
+  width: 600px;
+  height: 100px;
+}
+
+.action {
+  text-align: center;
+}
+
+.user-list th label {
+  margin-bottom: 0;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.user-list th label input {
+  margin-right: 4px;
+  vertical-align: -2px;
+}

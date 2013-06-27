@@ -17,10 +17,10 @@
           <h5 class="mod-title">订单基本信息</h5>
           <div class="action-list">
             <button class="btn btn btn-small" type="button"><i class="icon-reorder"></i> 预订单</button>
-            <button class="btn btn btn-small" type="button"><i class="icon-ok"></i> 确认单</button>
+            <a class="btn btn btn-small" href="/main/order-confirm" target="_blank"><i class="icon-ok"></i> 确认单</a>
             <button class="btn btn btn-small" type="button"><i class="icon-info"></i> 出团通知</button>
             <button class="btn btn-warning btn-small" type="button"><i class="icon-pencil"></i> 修改联系人</button>
-            <button class="btn btn-danger btn-small" type="button"><i class="icon-remove"></i> 取消游客</button>
+            <a class="btn btn-danger btn-small" href="/main/order-cancel-tourist"><i class="icon-remove"></i> 取消游客</a>
           </div>
           <div>
             <ul class="order-info clearfix">
