@@ -88,7 +88,7 @@ public class OrderService {
             return contractStatus;
         }
 
-        public LeaveStatus getStartStatus() {
+        public LeaveStatus getLeaveStatus() {
             return startStatus;
         }
 
@@ -116,7 +116,7 @@ public class OrderService {
             this.contractStatus = contractStatus;
         }
 
-        public void setStartStatus(LeaveStatus startStatus) {
+        public void setLeaveStatus(LeaveStatus startStatus) {
             this.startStatus = startStatus;
         }
 
@@ -126,8 +126,17 @@ public class OrderService {
     }
 
     public boolean confirmOrder(long orderId) {
-        // TODO Auto-generated method stub
-        return false;
+        return orderFacadeService.confirm(orderId);
+    }
+
+    public OrderVo getOrderById(long orderId) {
+        OrderBillFdo fdo = orderFacadeService.getOrderFdo(orderId);
+        if (fdo == null) {
+            return null;
+        }
+        Long productId = fdo.getProductId();
+        TourProductFdo product = productFacadeService.getProduct(productId);
+        return OrderVo.fromFdo(fdo, product);
     }
 
 }

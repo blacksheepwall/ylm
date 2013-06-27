@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.youlema.sales.meta.ATag;
 import com.youlema.sales.meta.City;
 import com.youlema.sales.meta.LineVo;
-import com.youlema.sales.meta.OrderVo;
 import com.youlema.sales.meta.Region;
 import com.youlema.sales.service.AdService;
 import com.youlema.sales.service.DateCount;
