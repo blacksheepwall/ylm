@@ -14,6 +14,7 @@
 
 .order-info li,
 .process-info li {
+  position: relative;
   float: left;
   width: 300px;
   line-height: 24px;
@@ -22,4 +23,29 @@
 
 .user-list p {
   margin-bottom: 5px;
+}
+
+.popover {
+  top: -160px;
+  left: -70px;
+}
+
+.popover-content {
+  width: 280px;
+}
+
+.popover-content img {
+  float: left;
+  margin-top: 10px;
+  width: 70px;
+  height: 70px;
+}
+
+.popover-content p {
+  margin-bottom: 0;
+}
+
+.popover-action {
+  padding: 10px;
+  text-align: center;
 }

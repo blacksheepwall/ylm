@@ -23,24 +23,42 @@
             <a class="btn btn-danger btn-small" href="/main/order-cancel-tourist"><i class="icon-remove"></i> 取消游客</a>
           </div>
           <div>
-            <ul class="order-info clearfix">
+            <#assign user_card_popover>
+              <div class="popover top">
+                <div class="arrow"></div>
+                <div class="popover-content">
+                  <img src="/img/logo.png" alt="">
+                  <p>部门：国内部门</p>
+                  <p>姓名：虞碧辉</p>
+                  <p>电话：0571-87025678</p>
+                  <p>手机：13588761571</p>
+                </div>
+                <div class="popover-action">
+                  <a href="" class="btn btn-small">站内短信</a>
+                  <a href="" class="btn btn-small">手机短信</a>
+                </div>
+              </div>
+            </#assign>
+            <ul id="J_order_info" class="order-info clearfix">
               <li><strong>订单编号：</strong> YSL13042410560353</li>
-              <li><strong>联系人：</strong> 张三</li>
-              <li><strong>联系电话：</strong> YSL13042410560353</li>
+              <li><strong>联系人：</strong> <a href="javascript:;">张三</a><#noescape >${user_card_popover}</#noescape></li>
+              <li><strong>联系电话：</strong> 139166668666</li>
               <li><strong>线路名称：</strong> 杭州直飞越南岘港风情五日之旅</li>
               <li><strong>团队编号：</strong> YGTGT001PA130513B</li>
-              <li><strong>出发日期：</strong> YSL13042410560353</li>
-              <li><strong>产品经理：</strong> YSL13042410560353</li>
-              <li><strong>团队协调：</strong> YSL13042410560353</li>
-              <li><strong>预订人数：</strong> YSL13042410560353</li>
-              <li><strong>订单状态：</strong> YSL13042410560353</li>
-              <li><strong>锁定状态：</strong> YSL13042410560353</li>
-              <li><strong>订单费用：</strong> YSL13042410560353</li>
-              <li><strong>已付金额：</strong> YSL13042410560353</li>
-              <li><strong>余款金额：</strong> YSL13042410560353</li>
-              <li><strong>截至付款：</strong> YSL13042410560353</li>
-              <li><strong>创建时间：</strong> YSL13042410560353</li>
-              <li><strong>创建人：</strong> YSL13042410560353</li>
+              <li><strong>出发日期：</strong> </li>
+              <li>
+                <strong>产品经理：</strong> <a href="javascript:;">张三</a><#noescape >${user_card_popover}</#noescape>
+              </li>
+              <li><strong>团队协调：</strong> <a href="javascript:;">张三</a><#noescape >${user_card_popover}</#noescape></li>
+              <li><strong>预订人数：</strong> 10</li>
+              <li><strong>订单状态：</strong> </li>
+              <li><strong>锁定状态：</strong> </li>
+              <li><strong>订单费用：</strong> 1000.00</li>
+              <li><strong>已付金额：</strong> 1000.00</li>
+              <li><strong>余款金额：</strong> 1000.00</li>
+              <li><strong>截至付款：</strong> </li>
+              <li><strong>创建时间：</strong> 2013.06.28</li>
+              <li><strong>创建人：</strong> <a href="javascript:;">张三</a><#noescape >${user_card_popover}</#noescape></li>
               <li><strong>订单备注：</strong> YSL13042410560353</li>
             </ul>
           </div>
