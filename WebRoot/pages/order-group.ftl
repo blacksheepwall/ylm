@@ -1,8 +1,8 @@
-<#-- 出团确认单 -->
-<#assign page_name="order-hotel-list"/>
+<#-- 团队预订单 -->
+<#assign page_name="order-group"/>
 <#include "common/module.ftl"/>
 <#escape x as x?html>
-  <@html title="出团确认单">
+  <@html title="团队预订单">
     <@body nohead=true>
     <div class="main-body">
       <div class="top">
