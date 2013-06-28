@@ -1,0 +1,24 @@
+@import "order-confirm.css";
+
+.top img {
+  float: left;
+  width: 70px;
+  height: 70px;
+}
+
+.top .name {
+  font-size: 20px;
+  padding-top: 10px;
+}
+
+.top li {
+  float: left;
+  margin-right: 40px;
+  font-weight: bold;
+}
+
+.top-title {
+  padding-top: 10px;
+  border-top: 1px solid #000;
+  border-bottom: 0 none;
+}
