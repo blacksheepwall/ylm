@@ -26,6 +26,7 @@
             <#assign user_card_popover>
               <div class="popover top">
                 <div class="arrow"></div>
+                <i class="icon icon-remove" title="关闭"></i>
                 <div class="popover-content">
                   <img src="/img/logo.png" alt="">
                   <p>部门：国内部门</p>
@@ -123,7 +124,81 @@
                   男
                 </td>
                 <td>
-                  <a href="">1000</a>
+                  <div class="price">
+                    <a class="j-price" href="javascript:;">1000</a>
+                    <div class="popover bottom">
+                      <div class="arrow"></div>
+                      <div class="popover-content">
+                        <p class="price-detail"><strong>费用明细：</strong>林展科</p>
+                        <table class="table table-striped table-condensed">
+                          <thead>
+                          <tr>
+                            <th>
+                              类型
+                            </th>
+                            <th>
+                              项目
+                            </th>
+                            <th>
+                              单价
+                            </th>
+                            <th>
+                              数量
+                            </th>
+                            <th>
+                              小计
+                            </th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td>预订项目</td>
+                            <td>成人价</td>
+                            <td>5888.00</td>
+                            <td>1</td>
+                            <td>5888.00</td>
+                          </tr>
+                          <tr>
+                            <td>可选项目</td>
+                            <td>单房差</td>
+                            <td>5888.00</td>
+                            <td>1</td>
+                            <td>5888.00</td>
+                          </tr>
+                          <tr>
+                            <td>可选项目</td>
+                            <td>保险</td>
+                            <td>5888.00</td>
+                            <td>1</td>
+                            <td>5888.00</td>
+                          </tr>
+                          <tr>
+                            <td>优惠</td>
+                            <td>促销优惠</td>
+                            <td>5888.00</td>
+                            <td>1</td>
+                            <td>5888.00</td>
+                          </tr>
+                          <tr>
+                            <td>损失</td>
+                            <td>退订门票</td>
+                            <td>5888.00</td>
+                            <td>1</td>
+                            <td>5888.00</td>
+                          </tr>
+                          <tr>
+                            <td colspan="3"></td>
+                            <td><strong>合计</strong></td>
+                            <td><strong>5888.00</strong></td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="popover-action">
+                        <a href="javascript:;" class="btn btn-small j-close">关闭</a>
+                      </div>
+                    </div>
+                  </div>
                 </td>
                 <td>
                   <p>身份证：330103195304060410</p>
