@@ -18,3 +18,44 @@ form.form-horizontal .value {
 form.form-horizontal .value textarea {
   width: 500px;
 }
+
+.remit-body {
+  clear: both;
+}
+
+.remit-body .cbox {
+  width: 30px;
+}
+
+.remit-body .number {
+  width: 120px;
+}
+
+.remit-body .product-name {
+  width: 100px;
+}
+
+.remit-body .date {
+  width: 80px;
+}
+
+.remit-body .people-num {
+  width: 60px;
+}
+
+.remit-body .status {
+  width: 50px;
+}
+
+.remit-body .money {
+  width: 50px;
+}
+
+.remit-body .pay-now {
+  width: 80px;
+}
+
+.remit-body .pay-now input {
+  width: 70px;
+  margin-left: 0;
+}

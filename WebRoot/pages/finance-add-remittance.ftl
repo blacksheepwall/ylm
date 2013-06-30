@@ -63,7 +63,7 @@
             </div>
             <div class="control-group">
               <label class="control-label name">付款内容</label>
-              <div class="controls value">
+              <div class="remit-body">
                 <table class="table table-hover table-bordered">
                   <thead>
                   <tr>
@@ -99,31 +99,49 @@
                   <tbody>
                   <tr>
                     <td>
-                      <input type="checkbox" checked="">
+                      <div class="cbox">
+                        <input type="checkbox">
+                      </div>
                     </td>
                     <td>
-                      <a href="">YSL13050310010390</a>
+                      <div class="number">
+                        <a href="">YSL13050310010390</a>
+                      </div>
                     </td>
                     <td>
-                      <a href="">【双城春色】石家庄-北京双飞六日游</a>
+                      <div class="product-name">
+                        <a href="">【双城春色】石家庄-北京双飞六日游</a>
+                      </div>
                     </td>
                     <td>
-                      2013-05-07
+                      <div class="date">
+                        2013-05-07
+                      </div>
                     </td>
                     <td>
-                      3大1小
+                      <div class="people-num">
+                        3大1小
+                      </div>
                     </td>
                     <td>
-                      已确认
+                      <div class="status">
+                        已确认
+                      </div>
                     </td>
                     <td>
-                      8000.00
+                      <div class="money">
+                        8000.00
+                      </div>
                     </td>
                     <td>
-                      8000.00
+                      <div class="money">
+                        8000.00
+                      </div>
                     </td>
                     <td>
-                      <input type="text" value="8000.00">
+                      <div class="pay-now">
+                        <input type="text" value="8000.00">
+                      </div>
                     </td>
                   </tr>
                   </tbody>
