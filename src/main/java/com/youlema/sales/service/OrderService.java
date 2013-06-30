@@ -66,7 +66,7 @@ public class OrderService {
         String orderStatus;
         String contractStatus;
         LeaveStatus startStatus;
-        OrderType orderType;
+        OrderType orderType = OrderType.NONE;
 
         public Date getBeginScheduledTime() {
             return beginScheduledTime;
@@ -123,10 +123,6 @@ public class OrderService {
         public void setOrderType(OrderType orderType) {
             this.orderType = orderType;
         }
-    }
-
-    public boolean confirmOrder(long orderId) {
-        return orderFacadeService.confirm(orderId);
     }
 
     public OrderVo getOrderById(long orderId) {

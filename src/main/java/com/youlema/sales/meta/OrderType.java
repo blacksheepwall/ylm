@@ -31,6 +31,6 @@ public enum OrderType {
 				return orderType;
 			}
 		}
-		return null;
+		return NONE;
 	}
 }

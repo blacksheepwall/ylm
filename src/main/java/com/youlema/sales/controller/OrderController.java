@@ -30,6 +30,8 @@ public class OrderController {
 
     @RequestMapping("info")
     public String orderInfo(@RequestParam("id") long orderId) {
+    	OrderVo orderVo = orderService.getOrderById(orderId);
+    	
         return "order-manage-process";
     }
 

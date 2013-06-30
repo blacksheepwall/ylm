@@ -34,22 +34,23 @@ public class MockTourProductFacade implements TourProductFacade {
         return null;
     }
 
-    @Override
-    public ShowProductResult getShowProductById(Long arg0) {
-        // TODO Auto-generated method stub
-        return null;
-    }
 
-    @Override
-    public TourProductResult queryIndexProduct(String arg0, Integer arg1) {
-        // TODO Auto-generated method stub
-        return null;
-    }
+	@Override
+	public ShowProductResult getShowProductById(Long arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-    @Override
-    public ShowProductResult queryProductList(SearchProductFdo arg0, String arg1) {
-        // TODO Auto-generated method stub
-        return null;
-    }
+	@Override
+	public TourProductResult queryIndexProduct(String arg0, Integer arg1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ShowProductResult queryProductList(SearchProductFdo arg0, String arg1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

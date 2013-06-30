@@ -1,9 +1,5 @@
 package com.youlema.sales.ws;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -11,45 +7,49 @@ import org.springframework.stereotype.Service;
 import com.yolema.tbss.ext.facade.OrderBillFacade;
 import com.yolema.tbss.ext.facade.fdo.OrderBillFdo;
 import com.yolema.tbss.ext.facade.result.OrderBillResult;
-import com.youlema.sales.meta.LeaveStatus;
 import com.youlema.sales.meta.OrderType;
 import com.youlema.sales.service.OrderService.OrderQueryCondition;
 
 @Service
 public class OrderFacadeService {
-    @Resource
-    private OrderBillFacade orderBillFacade;
-    
-//    private OrderCustomFacade orderCustomFacade;
+	@Resource
+	private OrderBillFacade orderBillFacade;
 
-    public OrderBillResult queryOrderBillResult(OrderQueryCondition condition) {
-        //TODO condition 和OrderBillFdo之间转换
+	// private OrderCustomFacade orderCustomFacade;
 
-        
-        OrderBillResult result = new OrderBillResult();
-        List<OrderBillFdo> foBillFdos = new ArrayList<OrderBillFdo>();
-        OrderBillFdo fdo = new OrderBillFdo();
-        fdo.setBizOrderId("YSL13050310010390");
-        fdo.setProductId(1001L);
-        fdo.setContactPerson("金鹿");
-        fdo.setGmtCreate(new Date());
-        fdo.setOrderId(12345678L);
-        fdo.setOrderType("1");
-        fdo.setOrderStatus("完成");
-        foBillFdos.add(fdo);
-        result.setList(foBillFdos);
-        return result;
-    }
+	public OrderBillResult queryOrderBillResult(OrderQueryCondition condition) {
+		OrderBillFdo queryFdo = toQueryOrderBillFdo(condition);
+		return orderBillFacade.queryPageList(queryFdo);
+	}
 
-    public boolean confirm(long orderId) {
-        return false;
-    }
+	public OrderBillFdo getOrderFdo(long orderId) {
+		OrderBillResult result = orderBillFacade.getById(orderId);
+		if (result.isSuccess() && result.getList().size() > 0) {
+			return result.getList().get(0);
+		}
+		return null;
+	}
+	
 
-    public OrderBillFdo getOrderFdo(long orderId) {
-        OrderBillResult result = orderBillFacade.getById(orderId);
-        if (result.isSuccess() && result.getList().size() > 0) {
-            return result.getList().get(0);
-        }
-        return null;
-    }
+	/**
+	 * 从前端的OrderQueryCondition转化为查询FDO对象
+	 * @param condition
+	 * @return
+	 */
+	private static OrderBillFdo toQueryOrderBillFdo(OrderQueryCondition condition) {
+		OrderBillFdo queryFdo = new OrderBillFdo();
+		queryFdo.setGmtSearchStart(condition.getBeginScheduledTime());
+		queryFdo.setGmtSearchEnd(condition.getEndScheduledTime());
+		String orderStatus = condition.getOrderStatus();
+		queryFdo.setOrderStatus(orderStatus);
+
+		// TODO 出发状态未知
+		// LeaveStatus leaveStatus = condition.getLeaveStatus();
+		queryFdo.setSearchKeyWords(condition.getQueryText());
+		// TODO 合同状态未知
+		// String contractStatus = condition.getContractStatus();
+		OrderType type = condition.getOrderType();
+		queryFdo.setOrderType(type.stringValue());
+		return queryFdo;
+	}
 }
