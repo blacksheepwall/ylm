@@ -34,66 +34,56 @@ public class MockOrderBillFacade implements OrderBillFacade {
 
 	@Override
 	public OrderBillResult getByTourProductId(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public BaseResult orderReceiveReturn(String freezeCode, Long orderId,
 			String opeartor) {
-		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public BaseResult refundReturnSuccess(Long orderId, BigDecimal refundMoney,
 			String operator) {
-		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public BaseResult updateCreateRefundFormReturn(Long orderId,
 			BigDecimal refundMoney, String operator) {
-		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public OrderBillResult getOrderDetailById(Long bizId) {
-		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public OrderBillResult getOrderAndProductById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public OrderBillResult getOrderReceiveForm(Long orderId, Long noticeId) {
-		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public OrderBillResult saveOrderCancel(OrderBillFdo orderBillFdo,
 			String operator) {
-		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public OrderBillResult search(String queryStr) {
-		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public OrderBillResult queryPendingList(OrderBillFdo orderBillFdo) {
-		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException();
 	}
 
 	@Override

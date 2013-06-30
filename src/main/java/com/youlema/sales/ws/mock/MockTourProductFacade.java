@@ -24,33 +24,28 @@ public class MockTourProductFacade implements TourProductFacade {
 
     @Override
     public TourProductResult queryPageList(TourProductFdo tourProductBean) {
-        // TODO Auto-generated method stub
-        return null;
+    	throw new UnsupportedOperationException();
     }
 
     @Override
     public TourProductResult getSimpleById(Long id) {
-        // TODO Auto-generated method stub
-        return null;
+    	throw new UnsupportedOperationException();
     }
 
 
 	@Override
 	public ShowProductResult getShowProductById(Long arg0) {
-		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public TourProductResult queryIndexProduct(String arg0, Integer arg1) {
-		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public ShowProductResult queryProductList(SearchProductFdo arg0, String arg1) {
-		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException();
 	}
 
 }

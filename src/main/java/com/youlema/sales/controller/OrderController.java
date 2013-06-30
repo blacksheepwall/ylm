@@ -54,7 +54,6 @@ public class OrderController {
      */
     @RequestMapping("/confirm")
     public String confirm(@RequestParam("id") long orderId, HttpServletResponse response) throws IOException {
-        OrderVo vo = orderService.getOrderById(orderId);
         return "order-confirm";
     }
 

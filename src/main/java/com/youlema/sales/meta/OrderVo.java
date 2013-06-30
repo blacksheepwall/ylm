@@ -109,7 +109,13 @@ public class OrderVo {
 
     public static OrderVo fromFdo(OrderBillFdo fdo, TourProductFdo product) {
         OrderVo vo = new OrderVo();
-        Date leave = product.getGmtLeave();
+        fromFdo(fdo, product, vo);
+        return vo;
+    }
+
+	public static void fromFdo(OrderBillFdo fdo, TourProductFdo product,
+			OrderVo vo) {
+		Date leave = product.getGmtLeave();
         vo.setBeginDate(Utils.formatDate(leave, "yyyy-MM-dd"));
         vo.setContact(fdo.getContactPerson());
         // TODO 合同状态未知
@@ -126,7 +132,6 @@ public class OrderVo {
         // TODO 订单游客数量待确定
         int numOfOrder = product.getNumOfOrder();
         vo.setTravellerCount(String.valueOf(numOfOrder));
-        return vo;
-    }
+	}
 
 }
