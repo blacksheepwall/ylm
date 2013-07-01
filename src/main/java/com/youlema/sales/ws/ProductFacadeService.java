@@ -5,7 +5,9 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.yolema.tbss.ext.facade.TourProductFacade;
+import com.yolema.tbss.ext.facade.fdo.ShowProductFdo;
 import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
+import com.yolema.tbss.ext.facade.result.ShowProductResult;
 import com.yolema.tbss.ext.facade.result.TourProductResult;
 
 @Service
@@ -18,4 +20,8 @@ public class ProductFacadeService {
         return result.getTourProductBean();
     }
     
+    public ShowProductFdo getShowProductFdo(long productId){
+        ShowProductResult result = tourProductFacade.getShowProductById(productId);
+        return result.getShowProductFdo();
+    }
 }

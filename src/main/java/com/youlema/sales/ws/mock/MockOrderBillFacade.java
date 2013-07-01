@@ -14,7 +14,7 @@ import com.yolema.tbss.ext.facade.result.OrderBillResult;
 
 @Service
 public class MockOrderBillFacade implements OrderBillFacade {
-
+    private static final org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger(MockOrderBillFacade.class);
 	@Override
 	public OrderBillResult getById(Long id) {
 		OrderBillResult result = new OrderBillResult();
@@ -73,7 +73,8 @@ public class MockOrderBillFacade implements OrderBillFacade {
 	@Override
 	public OrderBillResult saveOrderCancel(OrderBillFdo orderBillFdo,
 			String operator) {
-		throw new UnsupportedOperationException();
+	    LOGGER.info("取消订单 , user={}",operator);
+	    return null;
 	}
 
 	@Override

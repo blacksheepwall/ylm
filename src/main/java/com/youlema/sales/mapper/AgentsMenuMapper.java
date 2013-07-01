@@ -1,9 +1,11 @@
 package com.youlema.sales.mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.youlema.sales.mapper.meta.AgentsMenu;
 import com.youlema.sales.mapper.meta.AgentsMenuExample;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 /**
  * 代理商菜单Mapper
  * @author zhushijun

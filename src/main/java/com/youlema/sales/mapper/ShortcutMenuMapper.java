@@ -1,9 +1,11 @@
 package com.youlema.sales.mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.youlema.sales.mapper.meta.ShortcutMenu;
 import com.youlema.sales.mapper.meta.ShortcutMenuExample;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 /**
  * 快捷菜单Mapper
  * @author zhushijun
