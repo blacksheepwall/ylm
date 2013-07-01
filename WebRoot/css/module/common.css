@@ -25,6 +25,35 @@ pre {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  /*padding: 2px 4px;*/
+  border-radius: 0;
+}
+
+th {
+  border-radius: 0 !important;
+}
+
+.btn {
+  border-radius: 0;
+}
+
 .breadcrumb {
   margin-bottom: 5px;
   padding: 0;
@@ -335,6 +364,7 @@ table.table thead, table.normal thead {
 .pagination {
   text-align: right;
 }
+
 .pagination a {
   font-size: 20px;
   color: #999;

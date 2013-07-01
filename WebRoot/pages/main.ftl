@@ -16,7 +16,7 @@
               <option>杭州出发</option>
             </select>
             <input class="search-input" type="text">
-            <button class="btn search-btn" type="button">搜索</button>
+            <button class="btn search-btn btn-success" type="button"><i class="icon-search"></i>搜索</button>
           </form>
           <#--<div class="search-title"><i class="icon-thumbs-up"></i> 当季热门</div>-->
           <#--<div class="city-list clearfix">-->
@@ -60,7 +60,7 @@
       </div>
       <#--<div class="side-box">-->
       <div class="business-news mod-body">
-        <h3 class="mod-title"><i class="icon-star-empty"></i> 业务公告 <#--<a href="" class="more">更多国内产品</a>--></h3>
+        <h3 class="mod-title"><i class="icon-volume-up"></i> 业务公告 <#--<a href="" class="more">更多国内产品</a>--></h3>
         <ol>
           <li><a href="" class="link">“美丽杭州，环保骑行”杭城市民为环保呐喊</a> <span class="date">6月21日</span></li>
           <li><a href="" class="link">吃喝玩乐吹拉弹唱 杭州运河庙会一样都不少</a> <span class="date">6月22日</span></li>

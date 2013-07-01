@@ -178,7 +178,7 @@
       <a href="/main/finance-payable-detail/">应付款明细<i class="icon-chevron-right"></i></a>
     </li>
     <li class="nav-header">
-      <i class="icon-money"></i> 付款管理
+      <i class="icon-credit-card"></i> 付款管理
     </li>
     <li <#if "finance-add-remittance"==page_name>class="active"</#if>>
       <a href="/main/finance-add-remittance/">新增汇款<i class="icon-chevron-right"></i></a>
