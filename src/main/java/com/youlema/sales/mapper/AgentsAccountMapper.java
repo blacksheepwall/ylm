@@ -1,9 +1,11 @@
 package com.youlema.sales.mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.youlema.sales.mapper.meta.AgentsAccount;
 import com.youlema.sales.mapper.meta.AgentsAccountExample;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 /**
  * 代理商账号表Mapper
  * @author zhushijun

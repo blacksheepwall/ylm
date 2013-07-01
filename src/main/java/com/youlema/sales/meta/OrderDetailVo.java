@@ -10,134 +10,144 @@ import java.util.Date;
  * 
  */
 public class OrderDetailVo extends OrderVo {
-	// 联系人电话
-	private String contactMobile;
-	// 团队编号
-	private String teamNumber;
-	// 产品经理
-	private String productManager;
-	// 团队协调人
-	private String coordinator;
-	// 预定人数
-	private int subscribeCount;
-	// 锁定状态
-	private String lockStatus;
-	// 订单费用
-	private BigDecimal orderPrice;
-	// 已付金额
-	private BigDecimal paidPrice;
-	// 截至付款日期
-	private Date finalPayDate;
-	// 创建时间
-	private Date createTime;
-	// 创建人
-	private String createOperator;
-	// 订单备注
-	private String orderMemo;
-	// 游客列表
-	private SearchResult<CustomerVo> customers;
+    // 联系人电话
+    private String contactMobile;
+    // 团队编号
+    private String teamNumber;
+    // 产品经理
+    private String productManager;
+    // 团队协调人 TODO 未找到
+    private String coordinator;
+    // 预定人数
+    private int subscribeCount;
+    // 锁定状态
+    private String lockStatus;
+    // 订单费用
+    private BigDecimal orderPrice;
+    // 已付金额 TODO 未找到
+    private BigDecimal paidPrice;
+    // 截至付款日期 TODO 未找到
+    private Date finalPayDate;
+    // 创建时间
+    private Date createTime;
+    // 创建人
+    private String createOperator;
+    // 订单备注
+    private String orderMemo;
+    // 出发日期
+    private Date leaveDate;
+    public Date getLeaveDate() {
+        return leaveDate;
+    }
 
-	public SearchResult<CustomerVo> getCustomers() {
-		return customers;
-	}
+    public void setLeaveDate(Date leaveDate) {
+        this.leaveDate = leaveDate;
+    }
 
-	public void setCustomers(SearchResult<CustomerVo> customers) {
-		this.customers = customers;
-	}
+    // 游客列表
+    private SearchResult<CustomerVo> customers;
 
-	public String getTeamNumber() {
-		return teamNumber;
-	}
+    public SearchResult<CustomerVo> getCustomers() {
+        return customers;
+    }
 
-	public void setTeamNumber(String teamNumber) {
-		this.teamNumber = teamNumber;
-	}
+    public void setCustomers(SearchResult<CustomerVo> customers) {
+        this.customers = customers;
+    }
 
-	public String getProductManager() {
-		return productManager;
-	}
+    public String getTeamNumber() {
+        return teamNumber;
+    }
 
-	public void setProductManager(String productManager) {
-		this.productManager = productManager;
-	}
+    public void setTeamNumber(String teamNumber) {
+        this.teamNumber = teamNumber;
+    }
 
-	public String getCoordinator() {
-		return coordinator;
-	}
+    public String getProductManager() {
+        return productManager;
+    }
 
-	public void setCoordinator(String coordinator) {
-		this.coordinator = coordinator;
-	}
+    public void setProductManager(String productManager) {
+        this.productManager = productManager;
+    }
 
-	public int getSubscribeCount() {
-		return subscribeCount;
-	}
+    public String getCoordinator() {
+        return coordinator;
+    }
 
-	public void setSubscribeCount(int subscribeCount) {
-		this.subscribeCount = subscribeCount;
-	}
+    public void setCoordinator(String coordinator) {
+        this.coordinator = coordinator;
+    }
 
-	public String getLockStatus() {
-		return lockStatus;
-	}
+    public int getSubscribeCount() {
+        return subscribeCount;
+    }
 
-	public void setLockStatus(String lockStatus) {
-		this.lockStatus = lockStatus;
-	}
+    public void setSubscribeCount(int subscribeCount) {
+        this.subscribeCount = subscribeCount;
+    }
 
-	public BigDecimal getOrderPrice() {
-		return orderPrice;
-	}
+    public String getLockStatus() {
+        return lockStatus;
+    }
 
-	public void setOrderPrice(BigDecimal orderPrice) {
-		this.orderPrice = orderPrice;
-	}
+    public void setLockStatus(String lockStatus) {
+        this.lockStatus = lockStatus;
+    }
 
-	public BigDecimal getPaidPrice() {
-		return paidPrice;
-	}
+    public BigDecimal getOrderPrice() {
+        return orderPrice;
+    }
 
-	public void setPaidPrice(BigDecimal paidPrice) {
-		this.paidPrice = paidPrice;
-	}
+    public void setOrderPrice(BigDecimal orderPrice) {
+        this.orderPrice = orderPrice;
+    }
 
-	public Date getFinalPayDate() {
-		return finalPayDate;
-	}
+    public BigDecimal getPaidPrice() {
+        return paidPrice;
+    }
 
-	public void setFinalPayDate(Date finalPayDate) {
-		this.finalPayDate = finalPayDate;
-	}
+    public void setPaidPrice(BigDecimal paidPrice) {
+        this.paidPrice = paidPrice;
+    }
 
-	public Date getCreateTime() {
-		return createTime;
-	}
+    public Date getFinalPayDate() {
+        return finalPayDate;
+    }
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
+    public void setFinalPayDate(Date finalPayDate) {
+        this.finalPayDate = finalPayDate;
+    }
 
-	public String getCreateOperator() {
-		return createOperator;
-	}
+    public Date getCreateTime() {
+        return createTime;
+    }
 
-	public void setCreateOperator(String createOperator) {
-		this.createOperator = createOperator;
-	}
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 
-	public String getOrderMemo() {
-		return orderMemo;
-	}
+    public String getCreateOperator() {
+        return createOperator;
+    }
 
-	public void setOrderMemo(String orderMemo) {
-		this.orderMemo = orderMemo;
-	}
+    public void setCreateOperator(String createOperator) {
+        this.createOperator = createOperator;
+    }
 
-	public String getContactMobile() {
-		return contactMobile;
-	}
+    public String getOrderMemo() {
+        return orderMemo;
+    }
 
-	public void setContactMobile(String contactMobile) {
-		this.contactMobile = contactMobile;
-	}
+    public void setOrderMemo(String orderMemo) {
+        this.orderMemo = orderMemo;
+    }
+
+    public String getContactMobile() {
+        return contactMobile;
+    }
+
+    public void setContactMobile(String contactMobile) {
+        this.contactMobile = contactMobile;
+    }
 }
