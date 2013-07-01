@@ -1,0 +1,11 @@
+.con-row .nav a {
+  margin: 0;
+  padding: 3px 6px;
+  color: #666;
+}
+
+.con-row .nav .active a {
+
+  color: #fff;
+  background-color: #999;
+}

@@ -1,0 +1,14 @@
+.year {
+  width: 40px;
+  background-color: #08c;
+  color: #fff;
+}
+
+.input-small {
+  margin: 0 10px;
+  width: auto;
+}
+
+.table {
+  margin-top: 10px;
+}

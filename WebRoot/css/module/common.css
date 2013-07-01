@@ -46,7 +46,7 @@ input[type="color"],
   border-radius: 0;
 }
 
-th {
+th, tr, td, .table-bordered {
   border-radius: 0 !important;
 }
 
