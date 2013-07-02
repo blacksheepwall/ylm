@@ -9,11 +9,7 @@
   width: 100%;
 }
 
-.order-info .desc-name {
-  vertical-align: top;
-}
-
-.order-info .desc-value {
+.desc-value {
   width: 600px;
   height: 100px;
 }

@@ -28,6 +28,7 @@ define(function() {
       });
     $userList.on('click', '.j-price', function(e) {
       e.stopPropagation();
+      $body.click();
       $(this).next().show();
     }).on('click', '.j-close', function(e) {
       $body.click();

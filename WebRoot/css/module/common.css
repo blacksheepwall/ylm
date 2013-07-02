@@ -124,8 +124,9 @@ th, tr, td, .table-bordered {
 }
 
 table.table thead, table.normal thead {
-  background-color: #08c;
-  color: #fff;
+  /*background-color: #08c;*/
+  /*color: #fff;*/
+  background: url("../../img/nav-bg.jpg") repeat-x top;
 }
 
 .navbar .nav-login {

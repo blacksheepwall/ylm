@@ -1,7 +1,6 @@
 .year {
   width: 40px;
-  background-color: #08c;
-  color: #fff;
+  background: url("../../img/nav-bg.jpg") repeat-x top;
 }
 
 .input-small {

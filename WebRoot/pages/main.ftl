@@ -16,7 +16,7 @@
               <option>杭州出发</option>
             </select>
             <input class="search-input" type="text">
-            <button class="btn search-btn btn-success" type="button"><i class="icon-search"></i>搜索</button>
+            <button class="btn search-btn btn-success" type="button"><i class="icon-search"></i> 搜索</button>
           </form>
           <#--<div class="search-title"><i class="icon-thumbs-up"></i> 当季热门</div>-->
           <#--<div class="city-list clearfix">-->
