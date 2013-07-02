@@ -72,9 +72,10 @@ public class OrderFacadeService {
      * 
      * @param orderId
      */
-    public void cancelOrder(long orderId, AgentsAccount account) {
+    public void cancelOrder(long orderId, String cancelMemo, AgentsAccount account) {
         OrderBillFdo orderFdo = getOrderFdo(orderId);
         if (orderFdo != null) {
+            orderFdo.setCancelMemo(cancelMemo);
             orderBillFacade.saveOrderCancel(orderFdo, account.getName());
         }
     }

@@ -16,7 +16,7 @@ public class OrderDetailVo extends OrderVo {
     private String teamNumber;
     // 产品经理
     private String productManager;
-    // 团队协调人 TODO 未找到
+    // 团队计调
     private String coordinator;
     // 预定人数
     private int subscribeCount;

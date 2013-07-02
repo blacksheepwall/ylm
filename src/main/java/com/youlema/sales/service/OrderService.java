@@ -14,7 +14,6 @@ import com.yolema.tbss.ext.facade.fdo.OrderCustomFdo;
 import com.yolema.tbss.ext.facade.fdo.ShowProductFdo;
 import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
 import com.yolema.tbss.ext.facade.result.OrderBillResult;
-import com.yolema.tbss.ext.facade.result.OrderCustomResult;
 import com.youlema.sales.meta.CustomerVo;
 import com.youlema.sales.meta.LeaveStatus;
 import com.youlema.sales.meta.OrderDetailVo;
@@ -177,42 +176,31 @@ public class OrderService {
         vo.setLockStatus(fdo.getIsLocked() ? "锁定" : "未锁定");
         vo.setOrderMemo(fdo.getMemo());
         vo.setContactMobile(fdo.getMobile());
-
+        vo.setCoordinator(product.getProductClaimPersion());
         // vo.setFinalPayDate(finalPayDate)//最后支付日期
         vo.setOrderPrice(showProduct.getPrice());// 价格
         // vo.setPaidPrice(paidPrice)//已付金额
         vo.setProductManager(product.getProductManager());
         vo.setTeamNumber(showProduct.getProductNo());
         vo.setLeaveDate(showProduct.getStartDate());
-
-        List<CustomerVo> vos = getCustsByOrderId(orderId);
+        List<OrderCustomFdo> customerList = fdo.getOrderCustomBeanList();
+        List<CustomerVo> vos = new ArrayList<CustomerVo>(customerList.size());
+        for (OrderCustomFdo orderCustomFdo : customerList) {
+            CustomerVo customerVo = CustomerVo.fromFdo(orderCustomFdo);
+            vos.add(customerVo);
+        }
         vo.setSubscribeCount(vos.size());
         vo.setCustomers(new SearchResult<CustomerVo>(vos.size(), vos));
         return vo;
     }
 
     /**
-     * 根据订单ID获取客户列表
+     * 取消整个订单
      * 
-     * @param orderId
-     * @return
-     */
-    private List<CustomerVo> getCustsByOrderId(long orderId) {
-        OrderCustomResult result = orderFacadeService.queryCustomerByOrderId(orderId);
-        List<OrderCustomFdo> customerList = result.getList();
-        List<CustomerVo> vos = new ArrayList<CustomerVo>(customerList.size());
-        for (OrderCustomFdo orderCustomFdo : customerList) {
-            CustomerVo customerVo = CustomerVo.fromFdo(orderCustomFdo);
-            vos.add(customerVo);
-        }
-        return vos;
-    }
-    /**
-     * 取消订单
      * @param orderId
      * @param user
      */
-    public void cancelOrder(long orderId , User user) {
-        orderFacadeService.cancelOrder(orderId , user.getAccount());
+    public void cancelOrder(long orderId, String cancelMemo, User user) {
+        orderFacadeService.cancelOrder(orderId, cancelMemo, user.getAccount());
     }
 }
