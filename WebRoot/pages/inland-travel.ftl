@@ -11,7 +11,7 @@
       <div>
         <div class="clearfix">
           <div class="top-search pull-left">
-            出发日期 <input type="text" readonly class="input-small"> 至 <input type="text" readonly class="input-small">
+            出发日期 <input type="text" readonly class="input-small date-box"> 至 <input type="text" readonly class="input-small date-box">
           </div>
           <div class="input-append pull-left">
             <input class="search-input" type="text">
@@ -19,11 +19,43 @@
             <button class="btn" type="button">高级查找</button>
           </div>
         </div>
-        <div class="mod-body conditions">
-          <div class="control-group">出发城市： <span class="label label-info">不限</span><#list startCitys as st> <a href="#">${st.cityName}</a></#list></div>
-          <div class="control-group">天数：<span class="label label-info">不限</span> <#list dates as dt> <a href="#">${dt.stringValue}</a></#list></div>
-          <div class="control-group">价格：<span class="label label-info">不限</span><#list prices as prc> <a href="#">${prc.stringValue}</a></#list></div>
-          <div class="control-group" class="control-group">交通：<span class="label label-info">不限</span><#list traffics as tr> <a href="#">${tr.stringValue}</a></#list> </div>
+        <div id="J_condition" class="mod-body conditions mod-condition">
+          <div class="con-row clearfix">
+            <strong class="pull-left">出发城市：</strong>
+            <ul class="nav nav-pills">
+              <li class="active">
+                <a href="#">不限</a>
+              </li>
+              <#list startCitys as st><li><a href="#">${st.cityName}</a></li></#list>
+            </ul>
+          </div>
+          <div class="con-row clearfix">
+            <strong class="pull-left">天数：</strong>
+            <ul class="nav nav-pills">
+              <li class="active">
+                <a href="#">不限</a>
+              </li>
+              <#list dates as dt><li><a href="#">${dt.stringValue}</a></li></#list>
+            </ul>
+          </div>
+          <div class="con-row clearfix">
+            <strong class="pull-left">价格：</strong>
+            <ul class="nav nav-pills">
+              <li class="active">
+                <a href="#">不限</a>
+              </li>
+              <#list prices as prc><li><a href="#">${prc.stringValue}</a></li></#list>
+            </ul>
+          </div>
+          <div class="con-row clearfix">
+            <strong class="pull-left">交通：</strong>
+            <ul class="nav nav-pills">
+              <li class="active">
+                <a href="#">不限</a>
+              </li>
+              <#list traffics as tr><li><a href="#">${tr.stringValue}</a></li></#list>
+            </ul>
+          </div>
         </div>
         <div>
           <ul class="nav nav-tabs">

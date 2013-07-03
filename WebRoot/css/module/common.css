@@ -362,6 +362,27 @@ table.table thead, table.normal thead {
   margin-right: 10px;
 }
 
+.mod-condition .con-row {
+  margin-bottom: 10px;
+}
+
+.mod-condition .con-row .nav {
+  float: left;
+  margin-bottom: 0;
+  width: 800px;
+}
+
+.mod-condition .con-row .nav a {
+  margin: 0;
+  padding: 3px 6px;
+  color: #666;
+}
+
+.mod-condition .con-row .nav .active a {
+  color: #fff;
+  background-color: #3a87ad;
+}
+
 .pagination {
   text-align: right;
 }

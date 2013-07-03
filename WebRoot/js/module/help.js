@@ -1,13 +1,13 @@
 define(['scrollMonitor'], function(scrollMonitor) {
   'use strict';
   var $e = $('#J_sidebar'),
-    watcher = scrollMonitor.create($e, -42 * 2),
+    watcher = scrollMonitor.create($e),
     fixed = 'sidebar-fixed';
   watcher.lock();
-  watcher.exitViewport(function() {
+  watcher.partiallyExitViewport(function() {
     $e.addClass(fixed);
   });
-  watcher.enterViewport(function() {
+  watcher.fullyEnterViewport(function() {
     $e.removeClass(fixed);
   });
 });

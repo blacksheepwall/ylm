@@ -10,25 +10,3 @@
 .condition .search-box .search-input {
   width: 300px;
 }
-
-.condition .con-row {
-  margin-bottom: 10px;
-}
-
-.condition .con-row .nav {
-  float: left;
-  margin-bottom: 0;
-  width: 800px;
-}
-
-.condition .con-row .nav a {
-  margin: 0;
-  padding: 3px 6px;
-  color: #666;
-}
-
-.condition .con-row .nav .active a {
-  color: #fff;
-  background-color: #999;
-}
-

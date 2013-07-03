@@ -12,7 +12,7 @@
         </ul>
       </div>
       <div class="row-fluid">
-        <div id="J_condition" class="condition">
+        <div id="J_condition" class="condition mod-condition">
           <form class="form-horizontal mod-body">
             <div class="control-group search-box">
               <strong>预定日期：</strong>
@@ -33,7 +33,6 @@
                   <li><a href="#">已确认</a></li>
                   <li><a href="#">已取消</a></li>
                 </ul>
-                <#--<span class="item label label-info"></span>-->
               </div>
               <div class="con-row clearfix">
                 <strong class="pull-left">合同状态：</strong>
