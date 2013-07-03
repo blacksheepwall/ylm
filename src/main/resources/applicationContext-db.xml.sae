@@ -36,13 +36,13 @@
 			<value>com.mysql.jdbc.Driver</value>
 		</property>
 		<property name="jdbcUrl">
-			<value>jdbc:mysql://localhost:3306/app_youlema?useUnicode=true</value>
+			<value>jdbc:mysql://w.rdc.sae.sina.com.cn:3307/app_youlema?useUnicode=true</value>
 		</property>
 		<property name="user">
-			<value>root</value>
+			<value>l1yz0no22z</value>
 		</property>
 		<property name="password">
-			<value>123456</value>
+			<value>l5wjyh3mh5kk0xw5z5izhj2k3jhh3lzhw4iji14y</value>
 		</property>
 
 		<!--连接池中保留的最小连接数。 -->
