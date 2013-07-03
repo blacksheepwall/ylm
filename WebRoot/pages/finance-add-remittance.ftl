@@ -18,18 +18,18 @@
           <form class="form-horizontal mod-body" action="">
             <div class="controls-row">
               <div class="span4">
-                汇款单号 <input type="text">
+                汇款单号 <input type="text" placeholder="必填项">
               </div>
               <div class="span4">
-                汇款日期 <input type="text">
+                汇款日期 <input id="J_date" type="text" readonly="" placeholder="必填项">
               </div>
               <div class="span4">
-                汇款金额 <input type="text">
+                汇款金额 <input type="text" placeholder="必填项">
               </div>
             </div>
             <div class="controls-row">
               <div class="span4">
-                汇出账号 <input type="text">
+                汇出账号 <input type="text" placeholder="必填项">
               </div>
               <div class="span4">
                 开户行 <input type="text">
@@ -57,8 +57,12 @@
             </div>
             <div class="control-group">
               <label class="control-label name">附件</label>
-              <div class="controls value">
-                <a href="">上传附件</a>
+              <div class="controls value file-list">
+                <input type="file">
+                <input type="file">
+                <input type="file">
+                <input type="file">
+                <input type="file">
               </div>
             </div>
             <div class="control-group">
@@ -68,7 +72,7 @@
                   <thead>
                   <tr>
                     <th>
-                      选择
+                      <label><input type="checkbox"> 选择</label>
                     </th>
                     <th>
                       订单编号

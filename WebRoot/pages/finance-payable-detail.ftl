@@ -41,7 +41,7 @@
                 <option value="11月">11月</option>
                 <option value="12月">12月</option>
               </select>
-              <button class="btn btn-primary btn-small">下载明细</button>
+              <button class="btn btn-success btn-small">下载明细</button>
             </div>
             <table class="table table-bordered">
               <thead>
@@ -75,13 +75,13 @@
               <tbody>
               <tr>
                 <td>
-                  <a href="">YSL13042410560353</a>
+                  <a href="/order/info/?id=12345678" target="_blank">YSL13042410560353</a>
                 </td>
                 <td>
                   3大1小
                 </td>
                 <td>
-                  <a href="">东航直飞巴厘岛5晚6日至尊逍遥之旅</a>
+                  <a href="/product/detail?id=1" target="_blank">东航直飞巴厘岛5晚6日至尊逍遥之旅</a>
                 </td>
                 <td>
                   2013-03-11

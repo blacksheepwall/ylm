@@ -18,7 +18,7 @@
           <div class="mod-body">
             <div class="con-row clearfix">
               <strong class="pull-left">状态：</strong>
-              <ul class="nav nav-pills">
+              <ul id="J_nav" class="nav nav-pills">
                 <li class="active">
                   <a href="#">所有</a>
                 </li>
@@ -58,7 +58,7 @@
               <tr>
                 <td>
                   <div class="number">
-                    <a href="">YSL13050310010390</a>
+                    <a href="/main/finance-refund" target="_blank">YSL13050310010390</a>
                   </div>
                 </td>
                 <td>

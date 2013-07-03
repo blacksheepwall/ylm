@@ -1,16 +1,16 @@
-define(['scrollMonitor'], function(scrollMonitor) {
+define(['scrollMonitor', 'placeholder'], function(scrollMonitor) {
   'use strict';
   function _lock() {
     var $e = $('#J_header');
     if (!$e.length)
       return;
-    var watcher = scrollMonitor.create($e, -52),
+    var watcher = scrollMonitor.create($e),
       fixed = 'header-fixed';
     watcher.lock();
-    watcher.exitViewport(function() {
+    watcher.partiallyExitViewport(function() {
       $e.addClass(fixed);
     });
-    watcher.enterViewport(function() {
+    watcher.fullyEnterViewport(function() {
       $e.removeClass(fixed);
     });
   }
@@ -23,6 +23,11 @@ define(['scrollMonitor'], function(scrollMonitor) {
     });
   }
 
+  function _initPlaceholder() {
+    $('input, textarea').placeholder();
+  }
+
   _lock();
   _initNav();
+  _initPlaceholder();
 });

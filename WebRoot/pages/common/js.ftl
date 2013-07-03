@@ -28,7 +28,8 @@
       'zclip': 'base/jquery.zclip',
       'scrollMonitor': 'base/scrollMonitor',
       'pagination': 'base/jqpagination/jqpagination',
-      'dateTimePicker':'base/dateTimePicker/bootstrap-datetimepicker'
+      'dateTimePicker':'base/dateTimePicker/bootstrap-datetimepicker',
+      'placeholder':'base/jquery.placeholder'
     },
     urlArgs: 'v=' /*+ (+new Date()) */ + '${cfg_version_js}'
   });

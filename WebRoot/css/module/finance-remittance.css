@@ -1,0 +1,7 @@
+.remittance-info li {
+  position: relative;
+  float: left;
+  width: 350px;
+  line-height: 24px;
+  margin-right: 10px;
+}

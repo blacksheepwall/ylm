@@ -17,7 +17,7 @@
         <div class="span10">
           <div class="form-horizontal mod-body">
             <div class="condition">
-              汇款日期 <input type="text" class="input-small"> 至 <input type="text" class="input-small">
+              汇款日期 <input type="text" class="date-box input-small" readonly=""> 至 <input type="text" class="date-box input-small" readonly="">
             </div>
             <div class="condition">
               汇款单号 <input type="text" class="input-small"> 状态
@@ -31,52 +31,52 @@
             <div class="condition">
               <button class="btn btn-success search-btn" type="button"><i class="icon-search"></i> 查找</button>
             </div>
-          </div>
-          <div class="mod-body">
-            <h4 class="mod-title">汇款列表</h4>
-            <table class="table table-bordered">
-              <thead>
-              <tr>
-                <th>
-                  汇款单号
-                </th>
-                <th>
-                  金额
-                </th>
-                <th>
-                  汇款日期
-                </th>
-                <th>
-                  登记日期
-                </th>
-                <th>
-                  状态
-                </th>
-                <th>
-                  操作
-                </th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <td>
-                  <a href="">YSL13042410560353</a>
-                </td>
-                <td></td>
-                <td>
-                  2013-05-03
-                </td>
-                <td>
-                  2013-03-11
-                </td>
-                <td>
-                </td>
-                <td>
-                  修改  删除
-                </td>
-              </tr>
-              </tbody>
-            </table>
+            <div class="mod-body">
+              <h4 class="mod-title">汇款列表</h4>
+              <table class="table table-bordered">
+                <thead>
+                <tr>
+                  <th>
+                    汇款单号
+                  </th>
+                  <th>
+                    金额
+                  </th>
+                  <th>
+                    汇款日期
+                  </th>
+                  <th>
+                    登记日期
+                  </th>
+                  <th>
+                    状态
+                  </th>
+                  <th>
+                    操作
+                  </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>
+                    <a href="/main/finance-remittance" target="_blank">YSL13042410560353</a>
+                  </td>
+                  <td></td>
+                  <td>
+                    2013-05-03
+                  </td>
+                  <td>
+                    2013-03-11
+                  </td>
+                  <td>
+                  </td>
+                  <td>
+                    修改  删除
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>

@@ -23,6 +23,12 @@ form.form-horizontal .value textarea {
   clear: both;
 }
 
+.remit-body th label {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
 .remit-body .cbox {
   width: 30px;
 }
@@ -58,4 +64,11 @@ form.form-horizontal .value textarea {
 .remit-body .pay-now input {
   width: 70px;
   margin-left: 0;
+}
+
+.file-list input {
+  display: block;
+  width: 500px;
+  margin-top: 5px;
+  font-size: 12px;
 }
