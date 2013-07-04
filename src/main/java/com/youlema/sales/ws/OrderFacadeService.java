@@ -6,12 +6,9 @@ import org.springframework.stereotype.Service;
 
 import com.yolema.tbss.ext.facade.OrderBillFacade;
 import com.yolema.tbss.ext.facade.agents.OrderCustomFacade;
-import com.yolema.tbss.ext.facade.fdo.OrderBillFdo;
-import com.yolema.tbss.ext.facade.fdo.OrderCustomFdo;
+import com.yolema.tbss.ext.facade.fdo.order.OrderBillFdo;
 import com.yolema.tbss.ext.facade.result.OrderBillResult;
-import com.yolema.tbss.ext.facade.result.OrderCustomResult;
 import com.youlema.sales.mapper.meta.AgentsAccount;
-import com.youlema.sales.meta.OrderType;
 import com.youlema.sales.service.OrderService.OrderQueryCondition;
 
 @Service
@@ -27,17 +24,6 @@ public class OrderFacadeService {
         return orderBillFacade.queryPageList(queryFdo);
     }
 
-    /**
-     * 根据订单号查询游客列表
-     * 
-     * @param orderId
-     * @return
-     */
-    public OrderCustomResult queryCustomerByOrderId(long orderId) {
-        OrderCustomFdo fdo = new OrderCustomFdo();
-        fdo.setOrderId(orderId);
-        return orderCustomFacade.queryPageList(fdo);
-    }
 
     public OrderBillFdo getOrderFdo(long orderId) {
         OrderBillResult result = orderBillFacade.getById(orderId);
@@ -62,8 +48,7 @@ public class OrderFacadeService {
         queryFdo.setSearchKeyWords(condition.getQueryText());
         // TODO 合同状态未知
         // String contractStatus = condition.getContractStatus();
-        OrderType type = condition.getOrderType();
-        queryFdo.setOrderType(type.stringValue());
+        queryFdo.setOrderType(condition.getOrderType());
         return queryFdo;
     }
 

@@ -24,10 +24,14 @@ public class OrderDetailVo extends OrderVo {
     private String lockStatus;
     // 订单费用
     private BigDecimal orderPrice;
-    // 已付金额 TODO 未找到
+    // 已付金额
     private BigDecimal paidPrice;
-    // 截至付款日期 TODO 未找到
+    // 未付金额
+    private BigDecimal notPaid;
+
+    // 截至付款日期
     private Date finalPayDate;
+
     // 创建时间
     private Date createTime;
     // 创建人
@@ -36,6 +40,15 @@ public class OrderDetailVo extends OrderVo {
     private String orderMemo;
     // 出发日期
     private Date leaveDate;
+
+    public BigDecimal getNotPaid() {
+        return notPaid;
+    }
+
+    public void setNotPaid(BigDecimal notPaid) {
+        this.notPaid = notPaid;
+    }
+
     public Date getLeaveDate() {
         return leaveDate;
     }

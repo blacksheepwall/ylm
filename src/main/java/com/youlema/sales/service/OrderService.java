@@ -9,18 +9,24 @@ import javax.annotation.Resource;
 import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.stereotype.Service;
 
-import com.yolema.tbss.ext.facade.fdo.OrderBillFdo;
-import com.yolema.tbss.ext.facade.fdo.OrderCustomFdo;
-import com.yolema.tbss.ext.facade.fdo.ShowProductFdo;
 import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
+import com.yolema.tbss.ext.facade.fdo.order.OrderBillFdo;
+import com.yolema.tbss.ext.facade.fdo.order.OrderCustomFdo;
+import com.yolema.tbss.ext.facade.fdo.product.ShowProductFdo;
+import com.yolema.tbss.ext.facade.fdo.sys.DictionaryFdo;
 import com.yolema.tbss.ext.facade.result.OrderBillResult;
 import com.youlema.sales.meta.CustomerVo;
 import com.youlema.sales.meta.LeaveStatus;
 import com.youlema.sales.meta.OrderDetailVo;
-import com.youlema.sales.meta.OrderType;
 import com.youlema.sales.meta.OrderVo;
 import com.youlema.sales.meta.SearchResult;
+import com.youlema.sales.meta.StatusCode;
+import com.youlema.sales.meta.StatusObject;
+import com.youlema.sales.meta.TypeCode;
+import com.youlema.sales.meta.TypeObject;
 import com.youlema.sales.meta.User;
+import com.youlema.sales.utils.Utils;
+import com.youlema.sales.ws.DictionaryFacadeService;
 import com.youlema.sales.ws.OrderFacadeService;
 import com.youlema.sales.ws.ProductFacadeService;
 
@@ -36,6 +42,8 @@ public class OrderService {
     private OrderFacadeService orderFacadeService;
     @Resource
     private ProductFacadeService productFacadeService;
+    @Resource
+    private DictionaryFacadeService dictionaryFacadeService;
 
     /**
      * 根据订单状态，合同状态，出发状态，订单类型四个条件查询
@@ -59,10 +67,46 @@ public class OrderService {
             LeaveStatus leaveStatus = condition.getLeaveStatus();
             // 出发状态在内存中进行控制
             if (isMatching(leaveStatus, leaveDate, endDate)) {
-                vos.add(OrderVo.fromFdo(orderBillFdo, product));
+                OrderVo vo = new OrderVo();
+                fromBillFdo2Vo(orderBillFdo, product, vo);
+                vos.add(vo);
             }
         }
         return new SearchResult<OrderVo>(vos.size(), vos);
+    }
+
+    /**
+     * 从OrderBillFdo对象转换成页面显示VO对象
+     * 
+     * @param fdo
+     * @param product
+     * @param vo
+     */
+    private void fromBillFdo2Vo(OrderBillFdo fdo, TourProductFdo product, OrderVo vo) {
+        Date leave = product.getGmtLeave();
+        vo.setBeginDate(Utils.formatDate(leave, "yyyy-MM-dd"));
+        vo.setContact(fdo.getContactPerson());
+        // TODO 合同状态未知
+        vo.setContractStatus("不知道合同状态");
+        vo.setOrderId(fdo.getOrderId());
+        vo.setOrderNumber(fdo.getBizOrderId());
+
+        DictionaryFdo dic = dictionaryFacadeService.findDic(TypeCode.ORDER_TYPE.toString(), fdo.getOrderType());
+        vo.setOrderType(new TypeObject<String>(TypeCode.ORDER_TYPE, dic.getDictionaryKey(), dic.getDictionaryValue()));
+
+        vo.setProductId(fdo.getProductId());
+        if (product != null) {
+            vo.setProductName(product.getLineName());
+        }
+        vo.setScheduledTime(Utils.formatDate(fdo.getGmtCreate(), "yyyy-MM-dd"));
+
+        DictionaryFdo statusDic = dictionaryFacadeService.findDic(StatusCode.ORDER_STATUS.toString(),
+                fdo.getOrderStatus());
+        vo.setStatus(new StatusObject<String>(StatusCode.ORDER_STATUS, statusDic.getDictionaryKey(), statusDic
+                .getDictionaryValue()));
+        // TODO 订单游客数量待确定
+        int numOfOrder = product.getNumOfOrder();
+        vo.setTravellerCount(String.valueOf(numOfOrder));
     }
 
     private static boolean isMatching(LeaveStatus leaveStatus, Date leaveDate, Date endDate) {
@@ -93,7 +137,7 @@ public class OrderService {
         String orderStatus;
         String contractStatus;
         LeaveStatus startStatus;
-        OrderType orderType = OrderType.NONE;
+        String orderType;
 
         public Date getBeginScheduledTime() {
             return beginScheduledTime;
@@ -119,7 +163,7 @@ public class OrderService {
             return startStatus;
         }
 
-        public OrderType getOrderType() {
+        public String getOrderType() {
             return orderType;
         }
 
@@ -147,7 +191,7 @@ public class OrderService {
             this.startStatus = startStatus;
         }
 
-        public void setOrderType(OrderType orderType) {
+        public void setOrderType(String orderType) {
             this.orderType = orderType;
         }
     }
@@ -170,19 +214,20 @@ public class OrderService {
             return null;
         }
         OrderDetailVo vo = new OrderDetailVo();
-        OrderVo.fromFdo(fdo, product, vo);
+        fromBillFdo2Vo(fdo, product, vo);
         vo.setCreateOperator(fdo.getSalesman());
         vo.setCreateTime(fdo.getGmtCreate());
         vo.setLockStatus(fdo.getIsLocked() ? "锁定" : "未锁定");
         vo.setOrderMemo(fdo.getMemo());
         vo.setContactMobile(fdo.getMobile());
         vo.setCoordinator(product.getProductClaimPersion());
-        // vo.setFinalPayDate(finalPayDate)//最后支付日期
-        vo.setOrderPrice(showProduct.getPrice());// 价格
-        // vo.setPaidPrice(paidPrice)//已付金额
+        vo.setFinalPayDate(fdo.getGmtEndOfPayment());
+        vo.setOrderPrice(fdo.getAmountPayable());
+        vo.setPaidPrice(fdo.getAmountPaid());
         vo.setProductManager(product.getProductManager());
         vo.setTeamNumber(showProduct.getProductNo());
         vo.setLeaveDate(showProduct.getStartDate());
+        vo.setNotPaid(fdo.getNoPayments());
         List<OrderCustomFdo> customerList = fdo.getOrderCustomBeanList();
         List<CustomerVo> vos = new ArrayList<CustomerVo>(customerList.size());
         for (OrderCustomFdo orderCustomFdo : customerList) {

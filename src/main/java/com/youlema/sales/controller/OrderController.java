@@ -9,13 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.youlema.sales.meta.LeaveStatus;
-import com.youlema.sales.meta.OrderType;
+import com.youlema.sales.meta.OrderDetailVo;
 import com.youlema.sales.meta.OrderVo;
 import com.youlema.sales.meta.SearchResult;
 import com.youlema.sales.service.OrderService;
@@ -29,9 +30,9 @@ public class OrderController {
     private OrderService orderService;
 
     @RequestMapping("info")
-    public String orderInfo(@RequestParam("id") long orderId) {
-    	OrderVo orderVo = orderService.getOrderById(orderId);
-    	
+    public String orderInfo(@RequestParam("id") long orderId, ModelMap modelMap) {
+        OrderDetailVo detailVo = orderService.getOrderById(orderId);
+        modelMap.put("order", detailVo);
         return "order-manage-process";
     }
 
@@ -75,7 +76,7 @@ public class OrderController {
         String orderStatus = ServletRequestUtils.getStringParameter(request, "orderStatus");
         String contractStatus = ServletRequestUtils.getStringParameter(request, "contractStatus");
         int startStatus = ServletRequestUtils.getIntParameter(request, "leaveStatus", -1);
-        OrderType orderType = OrderType.fromStringValue(ServletRequestUtils.getStringParameter(request, "orderType"));
+        String orderType = ServletRequestUtils.getStringParameter(request, "orderType");
         OrderQueryCondition condition = new OrderQueryCondition();
         condition.setBeginScheduledTime(beginScheduledTime);
         condition.setEndScheduledTime(endScheduledTime);

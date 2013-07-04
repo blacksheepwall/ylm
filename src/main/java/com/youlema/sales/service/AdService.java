@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import com.youlema.sales.meta.ATag;
 import com.youlema.sales.meta.LineVo;
 import com.youlema.sales.meta.OrderVo;
+import com.youlema.sales.meta.StatusCode;
+import com.youlema.sales.meta.StatusObject;
 @Service
 public class AdService {
 	/**
@@ -71,7 +73,7 @@ public class AdService {
 			vo.setOrderNumber("YSL13042410560353");
 			vo.setProductId(1000+i);
 			vo.setProductName("【双城春色】石家庄-北京双飞六日游");
-			vo.setStatus("已确认");
+			vo.setStatus(new StatusObject<String>(StatusCode.ORDER_STATUS, "1", "已确认"));
 			vo.setTravellerCount("3大1小");
 			list.add(vo);
 		}
