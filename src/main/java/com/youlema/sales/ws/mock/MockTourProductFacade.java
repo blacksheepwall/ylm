@@ -3,8 +3,8 @@ package com.youlema.sales.ws.mock;
 import org.springframework.stereotype.Service;
 
 import com.yolema.tbss.ext.facade.TourProductFacade;
+import com.yolema.tbss.ext.facade.fdo.SearchProductFdo;
 import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
-import com.yolema.tbss.ext.facade.fdo.product.SearchProductFdo;
 import com.yolema.tbss.ext.facade.result.ShowProductResult;
 import com.yolema.tbss.ext.facade.result.TourProductResult;
 

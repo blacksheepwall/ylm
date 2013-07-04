@@ -9,11 +9,11 @@ import javax.annotation.Resource;
 import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.stereotype.Service;
 
+import com.yolema.tbss.ext.facade.fdo.DictionaryFdo;
+import com.yolema.tbss.ext.facade.fdo.OrderBillFdo;
+import com.yolema.tbss.ext.facade.fdo.OrderCustomFdo;
+import com.yolema.tbss.ext.facade.fdo.ShowProductFdo;
 import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
-import com.yolema.tbss.ext.facade.fdo.order.OrderBillFdo;
-import com.yolema.tbss.ext.facade.fdo.order.OrderCustomFdo;
-import com.yolema.tbss.ext.facade.fdo.product.ShowProductFdo;
-import com.yolema.tbss.ext.facade.fdo.sys.DictionaryFdo;
 import com.yolema.tbss.ext.facade.result.OrderBillResult;
 import com.youlema.sales.meta.CustomerVo;
 import com.youlema.sales.meta.LeaveStatus;
@@ -221,13 +221,13 @@ public class OrderService {
         vo.setOrderMemo(fdo.getMemo());
         vo.setContactMobile(fdo.getMobile());
         vo.setCoordinator(product.getProductClaimPersion());
-        vo.setFinalPayDate(fdo.getGmtEndOfPayment());
-        vo.setOrderPrice(fdo.getAmountPayable());
-        vo.setPaidPrice(fdo.getAmountPaid());
+//        vo.setFinalPayDate(fdo.getGmtEndOfPayment());
+//        vo.setOrderPrice(fdo.getAmountPayable());
+//        vo.setPaidPrice(fdo.getAmountPaid());
         vo.setProductManager(product.getProductManager());
         vo.setTeamNumber(showProduct.getProductNo());
         vo.setLeaveDate(showProduct.getStartDate());
-        vo.setNotPaid(fdo.getNoPayments());
+//        vo.setNotPaid(fdo.getNoPayments());
         List<OrderCustomFdo> customerList = fdo.getOrderCustomBeanList();
         List<CustomerVo> vos = new ArrayList<CustomerVo>(customerList.size());
         for (OrderCustomFdo orderCustomFdo : customerList) {
