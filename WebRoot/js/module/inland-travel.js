@@ -5,6 +5,8 @@ define(['./util', 'dateTimePicker', 'pagination'], function(Util) {
     $endDate = $('#J_end_date'),
     $searchText = $('#J_search_text'),
     $searchBtn = $('#J_search_btn'),
+    $tab = $('#J_tab'),
+    $tabContent = $('#J_tab_content'),
 //    $orderContainer = $('#J_order_container'),
 //    orderRowTpl = Handlebars.compile($('#J_order_row').html()),
     ajaxUrl = 'xxx';
@@ -54,6 +56,18 @@ define(['./util', 'dateTimePicker', 'pagination'], function(Util) {
     });
   }
 
+  function _initTabs() {
+    $('a', $tab).click(function(e) {
+      e.preventDefault();
+      var $this = $(this),
+        index = $tab.children().index($this.parent()),
+        $contents = $tabContent.children();
+      $this.tab('show');
+      $contents.hide();
+      $contents.eq(index).show();
+    });
+  }
+
   function _initPagination() {
     $pagination.jqPagination({
       paged: function(page) {
@@ -77,6 +91,7 @@ define(['./util', 'dateTimePicker', 'pagination'], function(Util) {
   function _init() {
     _initDateTimePicker();
     _initConditions();
+    _initTabs();
     _initPagination();
 //    _queryList({'page': 1});
   }

@@ -4,18 +4,18 @@
 <#escape x as x?html>
   <@html title="国内线路">
     <@body>
-    <div class="main-body clearfix">
-      <#--<div class="sidebar pull-left">-->
-        <#--<@inland_travel_module></@inland_travel_module>-->
-      <#--</div>-->
-      <div>
+    <div class="inland-body main-body clearfix">
+      <div class="sidebar pull-left">
+        <@inland_travel_module></@inland_travel_module>
+      </div>
+      <div class="center pull-left">
         <div class="clearfix">
           <div class="top-search pull-left">
             出发日期 <input type="text" readonly class="input-small date-box"> 至 <input type="text" readonly class="input-small date-box">
           </div>
           <div class="input-append pull-left">
             <input class="search-input" type="text">
-            <button class="btn" type="button">搜索</button>
+            <button class="btn btn-success" type="button"><i class="icon-search"></i> 搜索</button>
             <button class="btn" type="button">高级查找</button>
           </div>
         </div>
@@ -58,114 +58,108 @@
           </div>
         </div>
         <div>
-          <ul class="nav nav-tabs">
+          <ul id="J_tab" class="nav nav-tabs">
             <li class="active">
-              <a href="#">计划查看</a>
+              <a href="#"><i class="icon-calendar"></i> 计划查看</a>
             </li>
-            <li><a href="#">团队查看</a></li>
-            <li><a href="#">出发日期</a></li>
-            <li><a href="#">最低价格</a></li>
+            <li><a href="#"><i class="icon-group"></i> 团队查看</a></li>
+            <li><a href="#"><i class="icon-arrow-up"></i> 出发日期</a></li>
+            <li><a href="#"><i class="icon-arrow-up"></i> 最低价格</a></li>
           </ul>
         </div>
-        <div>
-          <div>
-            <div class="clearfix">
-              <div class="pull-left">
-                <div>
-                  <span class="label label-info">产品标签</span>
-                  <a href="/product/detail/">东航直飞巴厘岛5晚6日至尊逍遥之旅</a>
-                  <span>4晚5天</span>
-                  <span class="label label-warning">国内线路-三亚海南</span>
+        <div id="J_tab_content">
+          <ul id="J_product_list">
+            <#assign product_item>
+            <li>
+              <div class="product" style="display: block;">
+                <div class="clearfix">
+                  <div class="pull-left">
+                    <div>
+                      <span class="label label-success">特价</span>
+                      <a class="title" href="/product/detail?id=1"><strong>东航直飞巴厘岛5晚6日至尊逍遥之旅</strong></a>
+                      <span>4晚5天</span>
+                      <span class="label label-warning">国内线路-三亚海南</span>
+                    </div>
+                    <div class="muted">带您玩最美的黄山，泡真正的黄山温泉。</div>
+                  </div>
+                  <div class="pull-right">
+                    <span class="label label-info">蜜月 亲子 度假</span>
+                    <div>线路主题</div>
+                  </div>
                 </div>
-                <div class="muted">国航直飞 -------产品副标题</div>
+                <div class="row-fluid">国际5*酒店+国际5*独栋泳池别墅+蓝钻岛 -----产品经理推荐</div>
+                <div class="clearfix">
+                  <div class="pull-left">
+                    <strong>产品日期：</strong>
+                    <span>2013.06.05</span>
+                    <span>2013.06.05</span>
+                    <span>2013.06.05</span>
+                    <a href="">更多</a></div>
+                  <div class="pull-right">
+                    <strong class="price-title">价格：</strong><span class="price-value">￥2500起</span>
+                  </div>
+                </div>
               </div>
-              <div class="pull-right">
-                <span class="label label-success">蜜月 亲子 度假</span>
-                <div>线路主题</div>
-              </div>
-            </div>
-            <div class="row-fluid">国际5*酒店+国际5*独栋泳池别墅+蓝钻岛 -----产品经理推荐</div>
-            <div>
-              <div class="pull-left">产品日期 2013.06.05 <a href="">2013.06.05</a> 2013.06.05 <a href="">更多</a></div>
-              <div class="pull-right">价格：3998.00起</div>
-            </div>
+            </li>
+            </#assign>
+            <#noescape>${product_item}</#noescape>
+            <#noescape>${product_item}</#noescape>
+            <#noescape>${product_item}</#noescape>
+          </ul>
+          <div style="display: none;">
+            <table class="table table-hover table-bordered">
+              <thead>
+              <tr>
+                <th>
+                  产品
+                </th>
+                <th>
+                  日期
+                </th>
+                <th>
+                  成团
+                </th>
+                <th>
+                  门市价格
+                </th>
+                <th>
+                  结算价格
+                </th>
+                <th>
+                  剩余
+                </th>
+                <th>
+                  预订
+                </th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>
+                  <a href="/product/detail?id=1" target="_blank">海南三亚双飞5日游YGNHD039PS130408A<尾单></a>
+                </td>
+                <td>
+                  04-08
+                </td>
+                <td>
+                  已成团
+                </td>
+                <td>
+                  6889.00
+                </td>
+                <td>
+                </td>
+                <td>
+                  20
+                </td>
+                <td>
+                  <a href="/product/detail?id=1" target="_blank">预订</a>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <@mock_pagination></@mock_pagination>
           </div>
-          <table class="table table-hover table-bordered">
-            <thead>
-            <tr>
-              <th>
-                团号
-              </th>
-              <th>
-                成团
-              </th>
-              <th>
-                线路名称
-              </th>
-              <th>
-                日期
-              </th>
-              <th>
-                标准价格
-              </th>
-              <th>
-                剩余
-              </th>
-              <th>
-                预订
-              </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <td>
-                <a href="">YGNHD039PS130408A</a>
-              </td>
-              <td>
-                已成团
-              </td>
-              <td>
-                【产品标签】夏威夷4晚6天
-              </td>
-              <td>
-                04-08
-              </td>
-              <td>
-                6889.00 <a href="">更多</a>
-              </td>
-              <td>
-                >9
-              </td>
-              <td>
-                <a href="">预订</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="">YGNHD039PS130408A</a>
-              </td>
-              <td>
-                已成团
-              </td>
-              <td>
-                【产品标签】夏威夷4晚6天
-              </td>
-              <td>
-                04-08
-              </td>
-              <td>
-                6889.00 <a href="">更多</a>
-              </td>
-              <td>
-                >9
-              </td>
-              <td>
-                <a href="">预订</a>
-              </td>
-            </tr>
-            </tbody>
-          </table>
-          <@mock_pagination></@mock_pagination>
         </div>
       </div>
     </div>

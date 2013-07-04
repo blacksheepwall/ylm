@@ -115,6 +115,13 @@ th, tr, td, .table-bordered {
   border: 0 none;
 }
 
+.nav-tabs > .active > a,
+.nav-tabs > .active > a:hover,
+.nav-tabs > .active > a:focus {
+  border-top: 2px #08c solid;
+  border-radius: 0;
+}
+
 .dropdown .dropdown-menu {
   top: 35px;
 }
@@ -369,7 +376,7 @@ table.table thead, table.normal thead {
 .mod-condition .con-row .nav {
   float: left;
   margin-bottom: 0;
-  width: 800px;
+  /*width: 800px;*/
 }
 
 .mod-condition .con-row .nav a {

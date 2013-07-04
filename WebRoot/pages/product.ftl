@@ -112,7 +112,7 @@
           </div>
         </div>
         <div>
-          <ul id="J_nav_tabs" class="nav nav-tabs">
+          <ul id="J_tab" class="nav nav-tabs">
             <li class="active">
               <a href="#route"><i class="icon-plane"></i> 产品行程</a>
             </li>
@@ -122,7 +122,10 @@
             <li><a href="#order"><i class="icon-edit"></i> 预订订单</a></li>
             <li><a href="#relate"><i class="icon-random"></i> 相关线路</a></li>
           </ul>
-          <div data-spy="scroll" data-target="#J_nav_tabs" data-offset="0">
+          <div id="J_tab_content">
+
+          </div>
+          <div data-spy="scroll" data-target="#J_tab" data-offset="0">
             <h5 id="route">产品行程</h5>
             <div>
               <pre>
