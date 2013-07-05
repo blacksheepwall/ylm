@@ -5,7 +5,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.yolema.tbss.ext.facade.DictionaryFacade;
-import com.yolema.tbss.ext.facade.fdo.DictionaryFdo;
+import com.yolema.tbss.ext.facade.fdo.sys.DictionaryFdo;
 import com.yolema.tbss.ext.facade.result.DictionaryResult;
 
 @Service

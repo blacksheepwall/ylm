@@ -5,8 +5,8 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.yolema.tbss.ext.facade.TourProductFacade;
-import com.yolema.tbss.ext.facade.fdo.ShowProductFdo;
 import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
+import com.yolema.tbss.ext.facade.fdo.product.ShowProductFdo;
 import com.yolema.tbss.ext.facade.result.ShowProductResult;
 import com.yolema.tbss.ext.facade.result.TourProductResult;
 
