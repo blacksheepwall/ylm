@@ -3,7 +3,7 @@ package com.youlema.sales.meta;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import com.yolema.tbss.ext.facade.fdo.order.OrderCustomFdo;
+import com.yolema.tbss.ext.facade.fdo.OrderCustomFdo;
 
 
 
