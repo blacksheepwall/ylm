@@ -2,8 +2,8 @@ package com.youlema.sales.ws.mock;
 
 import org.springframework.stereotype.Service;
 
-import com.yolema.tbss.ext.facade.agents.OrderCustomFacade;
-import com.yolema.tbss.ext.facade.fdo.OrderCustomFdo;
+import com.yolema.tbss.ext.facade.OrderCustomFacade;
+import com.yolema.tbss.ext.facade.fdo.order.OrderCustomFdo;
 import com.yolema.tbss.ext.facade.result.OrderCustomResult;
 
 @Service
