@@ -68,7 +68,8 @@ define(['./util', 'dateTimePicker', 'pagination'], function(Util) {
       'url': ajaxUrl,
       'data': data,
       'done': function(data) {
-        $pagination.jqPagination({'max_page': data.count});
+        $pagination.jqPagination({'count': data.count});
+//        $pagination.jqPagination({'max_page': data.count});
         $orderContainer.html(orderRowTpl(data));
       }
     });

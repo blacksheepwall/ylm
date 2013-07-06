@@ -158,7 +158,7 @@
               </tr>
               </tbody>
             </table>
-            <@mock_pagination></@mock_pagination>
+            <@pagination></@pagination>
           </div>
         </div>
       </div>

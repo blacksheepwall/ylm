@@ -32,7 +32,7 @@ define(['scrollMonitor'], function(scrollMonitor) {
   }
 
   function _stickTabs() {
-    var watcher = scrollMonitor.create($tab),
+    var watcher = scrollMonitor.create($tab, {top: 42}),
       fixed = 'fixed';
     watcher.lock();
     watcher.partiallyExitViewport(function() {

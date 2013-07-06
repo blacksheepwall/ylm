@@ -405,6 +405,11 @@ table.table thead, table.normal thead {
   text-align: center;
 }
 
+.pagination .total-number,
+.pagination .current-page {
+  font-weight: bolder;
+}
+
 .footer {
   /*border-top: 1px solid #ccc;*/
   margin-top: 10px;

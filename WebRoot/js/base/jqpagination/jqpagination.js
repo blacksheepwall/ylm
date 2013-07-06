@@ -36,6 +36,8 @@
 		
 		// get input jQuery object
 		base.$input = base.$el.find('input');
+		base.$currentPage = base.$el.find('.current-page');
+		base.$totalNumber = base.$el.find('.total-number');
 
 		// Add a reverse reference to the DOM object
 		base.$el.data("jqPagination", base);
@@ -229,7 +231,10 @@
 							
 			// set the input value
 			base.setInputValue(current_page);
-			
+
+      // jinlu 2013-07-06 14:42:52
+			base.setTextValue(current_page);
+
 			// set the link href attributes
 			base.setLinks(current_page);
 			
@@ -256,6 +261,11 @@
 			base.$input.val(page_string);
 		
 		};
+
+    base.setTextValue = function(page) {
+      base.$currentPage.html((page - 1) * 20 + 1 + '-' + page * 20);
+      base.$totalNumber.html(base.options.count);
+    }
 		
 		base.isNumber = function(n) {
 			return !isNaN(parseFloat(n)) && isFinite(n);

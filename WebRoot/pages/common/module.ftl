@@ -409,12 +409,13 @@
 </div>
 </#macro>
 
-<#macro mock_pagination count="1">
+<#macro pagination count="1">
 <div class="pagination">
-  <a href="javascript:;" class="first" data-action="first" title="第一页">&laquo;</a>
+  显示第 <span class="current-page">1-20</span> 条，共 <span class="total-number">${count}</span> 条记录
+  <a href="javascript:;" class="first" data-action="first" title="首页">&laquo;</a>
   <a href="javascript:;" class="previous" data-action="previous" title="上一页">&lsaquo;</a>
   <input class="pagination-input" type="text" readonly="readonly" data-max-page="${count}" />
   <a href="javascript:;" class="next" data-action="next" title="下一页">&rsaquo;</a>
-  <a href="javascript:;" class="last" data-action="last" title="最后一页">&raquo;</a>
+  <a href="javascript:;" class="last" data-action="last" title="末页">&raquo;</a>
 </div>
 </#macro>
