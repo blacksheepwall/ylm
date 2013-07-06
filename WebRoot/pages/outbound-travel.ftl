@@ -1,12 +1,12 @@
-<#-- 国内游 -->
-<#assign page_name="inland-travel"/>
+<#-- 出境游 -->
+<#assign page_name="outbound-travel"/>
 <#include "common/module.ftl"/>
 <#escape x as x?html>
-  <@html title="国内游">
+  <@html title="出境游">
     <@body>
     <div class="inland-body main-body clearfix">
       <div class="sidebar pull-left">
-        <@inland_travel_module></@inland_travel_module>
+        <#--<@inland_travel_module></@inland_travel_module>-->
       </div>
       <div class="center pull-left">
         <div class="clearfix">
@@ -38,7 +38,7 @@
               <li class="active">
                 <a href="#">不限</a>
               </li>
-              <#list startCitys as st><li><a href="#">${st.cityName}</a></li></#list>
+              <#--<#list startCitys as st><li><a href="#">${st.cityName}</a></li></#list>-->
             </ul>
           </div>
           <div class="con-row clearfix">
@@ -47,7 +47,7 @@
               <li class="active">
                 <a href="#">不限</a>
               </li>
-              <#list dates as dt><li><a href="#">${dt.stringValue}</a></li></#list>
+              <#--<#list dates as dt><li><a href="#">${dt.stringValue}</a></li></#list>-->
             </ul>
           </div>
           <div class="con-row clearfix">
@@ -56,7 +56,7 @@
               <li class="active">
                 <a href="#">不限</a>
               </li>
-              <#list prices as prc><li><a href="#">${prc.stringValue}</a></li></#list>
+              <#--<#list prices as prc><li><a href="#">${prc.stringValue}</a></li></#list>-->
             </ul>
           </div>
           <div class="con-row clearfix">
@@ -65,7 +65,7 @@
               <li class="active">
                 <a href="#">不限</a>
               </li>
-              <#list traffics as tr><li><a href="#">${tr.stringValue}</a></li></#list>
+              <#--<#list traffics as tr><li><a href="#">${tr.stringValue}</a></li></#list>-->
             </ul>
           </div>
         </div>

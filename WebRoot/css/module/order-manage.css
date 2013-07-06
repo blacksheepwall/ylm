@@ -4,9 +4,9 @@
 
 .condition .search-box .date-box {
   width: 85px;
-  margin: 0 10px;
 }
 
 .condition .search-box .search-input {
+  margin-left: 10px;
   width: 300px;
 }

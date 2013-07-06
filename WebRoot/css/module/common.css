@@ -388,6 +388,8 @@ table.table thead, table.normal thead {
 .mod-condition .con-row .nav .active a {
   color: #fff;
   background-color: #3a87ad;
+  font-weight: bold;
+  border-radius: 0;
 }
 
 .pagination {

@@ -33,8 +33,8 @@
                 <#--<li "main,news-detail,news".contains?page_name<#if page_name=="main"||page_name=="news-detail"||page_name=="news">class="active"</#if>>-->
                   <a href="/main/">首页</a>
                 </li>
-                <li>
-                  <a href="#">出境游</a>
+                <li <#if "outbound-travel"?contains(page_name)>class="active"</#if>>
+                  <a href="/main/outbound-travel">出境游</a>
                 </li>
                 <li <#if "product,inland-travel"?contains(page_name)>class="active"</#if>>
                   <a href="/inland/">国内游</a>
