@@ -41,26 +41,28 @@
               </div>
             </#assign>
             <ul id="J_order_info" class="order-info clearfix">
-              <li><strong>订单编号：</strong> YSL13042410560353</li>
-              <li><strong>联系人：</strong> <a href="javascript:;">张三</a><#noescape >${user_card_popover}</#noescape></li>
-              <li><strong>联系电话：</strong> 139166668666</li>
-              <li><strong>线路名称：</strong> 杭州直飞越南岘港风情五日之旅</li>
-              <li><strong>团队编号：</strong> YGTGT001PA130513B</li>
-              <li><strong>出发日期：</strong> </li>
+              <li><strong>订单编号：</strong>${order.orderNumber}</li>
+              <li><strong>联系人：</strong> <a href="javascript:;">${order.contact}</a><#noescape >${user_card_popover}</#noescape></li>
+              <li><strong>联系电话：</strong>${order.contactMobile}</li>
+              <li><strong>线路名称：</strong>${order.productName}</li>
+              <li><strong>团队编号：</strong>${order.teamNumber}</li>
+              <li><strong>出发日期：</strong><#if order.leaveDate??>${order.leaveDate?string('yyyy-MM-dd')}</#if></li>
               <li>
-                <strong>产品经理：</strong> <a href="javascript:;">张三</a><#noescape >${user_card_popover}</#noescape>
+                <strong>产品经理：</strong> <a href="javascript:;">${order.productManager}</a><#noescape >${user_card_popover}</#noescape>
               </li>
-              <li><strong>团队协调：</strong> <a href="javascript:;">张三</a><#noescape >${user_card_popover}</#noescape></li>
-              <li><strong>预订人数：</strong> 10</li>
-              <li><strong>订单状态：</strong> </li>
-              <li><strong>锁定状态：</strong> </li>
+              <li><strong>团队协调：</strong> <a href="javascript:;">${order.coordinator}</a><#noescape >${user_card_popover}</#noescape></li>
+              <li><strong>预订人数：</strong>${order.subscribeCount}</li>
+              <li><strong>订单状态：</strong>${order.status.value}</li>
+              <li><strong>锁定状态：</strong>${order.lockStatus}</li>
+              
+              
               <li><strong>订单费用：</strong> 1000.00</li>
               <li><strong>已付金额：</strong> 1000.00</li>
               <li><strong>余款金额：</strong> 1000.00</li>
               <li><strong>截至付款：</strong> </li>
-              <li><strong>创建时间：</strong> 2013.06.28</li>
-              <li><strong>创建人：</strong> <a href="javascript:;">张三</a><#noescape >${user_card_popover}</#noescape></li>
-              <li><strong>订单备注：</strong> YSL13042410560353</li>
+              <li><strong>创建时间：</strong><#if order.createTime??>${order.createTime?string('yyyy-MM-dd')}</#if></li>
+              <li><strong>创建人：</strong> <a href="javascript:;">${order.createOperator}</a><#noescape >${user_card_popover}</#noescape></li>
+              <li><strong>订单备注：</strong>  ${(order.orderMemo)!}</li>
             </ul>
           </div>
         </div>
@@ -109,23 +111,23 @@
               </tr>
               </thead>
               <tbody>
-                <#assign user_list>
+                <#list order.customers.resultList as cust>
               <tr>
                 <td>
-                  正常
+                  ${cust.status}
                 </td>
                 <td>
-                  林展科（成人）
+                  ${cust.name}
                 </td>
                 <td>
-                  Lin ZhanKe
+                  ${cust.pinyin}
                 </td>
                 <td>
-                  男
+                  ${cust.sex}
                 </td>
                 <td>
                   <div class="price">
-                    <a class="j-price" href="javascript:;">1000</a>
+                    <a class="j-price" href="javascript:;">${cust.amount}</a>
                     <div class="popover bottom">
                       <div class="arrow"></div>
                       <div class="popover-content">
@@ -201,29 +203,26 @@
                   </div>
                 </td>
                 <td>
-                  <p>身份证：330103195304060410</p>
-                  <p>签发日期：</p>
-                  <p>有效期至：</p>
-                  <p>签发地</p>
-                  <p>出生日期：1953-04-06</p>
+                  <p>身份证：${cust.certificate.certificateNumber}</p>
+                  <p>签发日期：${cust.certificate.issueDate?string("yyyy-MM-dd")}</p>
+                  <p>有效期至：${cust.certificate.expiryDate?string("yyyy-MM-dd")}</p>
+                  <p>签发地：${cust.certificate.issuePlace}</p>
+                  <p>出生日期：${cust.certificate.birthday}</p>
                 </td>
                 <td>
-                  浙江
+                  ${cust.household}
                 </td>
                 <td>
+                ${cust.mobile}
                 </td>
                 <td>
+                ${cust.memo}
                 </td>
                 <td>
                   <a href="">编辑</a> <a href="">附件</a>
                 </td>
               </tr>
-              </#assign>
-                <#noescape>${user_list}</#noescape>
-                <#noescape>${user_list}</#noescape>
-                <#noescape>${user_list}</#noescape>
-                <#noescape>${user_list}</#noescape>
-                <#noescape>${user_list}</#noescape>
+              </#list>
               </tbody>
             </table>
           </div>

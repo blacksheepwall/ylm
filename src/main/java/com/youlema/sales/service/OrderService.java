@@ -115,10 +115,19 @@ public class OrderService {
         }
         switch (leaveStatus) {
         case COMPLETE:
+            if(endDate == null){
+                return false;
+            }
             return endDate.getTime() > System.currentTimeMillis();
         case IN_THERE_DAYS:
+            if(leaveDate == null){
+                return false;
+            }
             return (leaveDate.getTime() + DateUtils.MILLIS_PER_DAY * 3) > System.currentTimeMillis();
         case LEAVED:
+            if(leaveDate == null){
+                return false;
+            }
             return leaveDate.getTime() > System.currentTimeMillis();
         }
         return true;

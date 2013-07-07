@@ -1,9 +1,12 @@
 package com.youlema.sales.ws.mock;
 
+import java.util.Date;
+
 import org.springframework.stereotype.Service;
 
 import com.yolema.tbss.ext.facade.TourProductFacade;
 import com.yolema.tbss.ext.facade.fdo.SearchProductFdo;
+import com.yolema.tbss.ext.facade.fdo.ShowProductFdo;
 import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
 import com.yolema.tbss.ext.facade.result.ShowProductResult;
 import com.yolema.tbss.ext.facade.result.TourProductResult;
@@ -18,6 +21,8 @@ public class MockTourProductFacade implements TourProductFacade {
         TourProductFdo fdo = new TourProductFdo();
         fdo.setLineName("火星太阳一日游");
         fdo.setNumOfOrder(65536);
+        fdo.setProductManager("产品经理甲");
+        fdo.setProductClaimPersion("产品计调甲");
         result.setTourProductBean(fdo);
         return result;
     }
@@ -35,7 +40,14 @@ public class MockTourProductFacade implements TourProductFacade {
 
 	@Override
 	public ShowProductResult getShowProductById(Long arg0) {
-		throw new UnsupportedOperationException();
+	    ShowProductResult result = new ShowProductResult();
+	    ShowProductFdo fdo = new ShowProductFdo();
+	    fdo.setProductNo("999999999");
+	    fdo.setStartDate(new Date());
+	    result.setShowProductFdo(fdo);
+	    result.setSuccess(true);
+	    return result;
+	    
 	}
 
 	@Override
