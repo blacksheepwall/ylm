@@ -65,8 +65,24 @@
                     <img src="http://www.youlema.com/default/img/logo_new.png" alt="">
                   </div>
                   <div class="info">
-                    <div class="clearfix"><span class="pull-left"><i class="icon-user"></i> 刘思成(业务操作员) </span><span class="pull-right"><i class="icon-signout"></i> 退出</span></div>
-                    <div class="clearfix"><span class="pull-left"><i class="icon-envelope"></i> 消息(3)</span><span class="pull-right"><i class="icon-list-alt"></i> 快捷菜单</span></div>
+                    <div class="clearfix">
+                      <span class="pull-left"><i class="icon-user"></i> 刘思成(业务操作员) </span>
+                      <span class="pull-right nav-signout"><i class="icon-signout"></i> 退出</span>
+                    </div>
+                    <div class="clearfix">
+                      <a href="/u/msglist/" class="pull-left nav-message"><i class="icon-envelope"></i> 消息(3)</a>
+                      <span class="pull-right"><i class="icon-list-alt"></i> 快捷菜单</span>
+                      <div class="popover bottom shortcut-menu">
+                        <div class="arrow"></div>
+                        <div class="popover-content">
+                          <div><a href="">出境跟团游</a></div>
+                          <div><a href="">我的订单</a></div>
+                          <div><a href="">新增系统用户</a></div>
+                          <div><a href="">国内跟团游</a></div>
+                          <div><a href="">整团预报</a></div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </li>
                 <#--<li class="dropdown">-->

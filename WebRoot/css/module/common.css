@@ -136,7 +136,7 @@ table.table thead, table.normal thead {
   background: url("../../img/nav-bg.jpg") repeat-x top;
 }
 
-.navbar .nav-login {
+.nav-login {
   width: 200px;
   padding: 0 10px;
   background-color: #ff9913;
@@ -144,19 +144,46 @@ table.table thead, table.normal thead {
   color: #fff;
 }
 
-.navbar .nav-login .avatar {
+.nav-login .avatar {
   float: left;
 }
 
-.navbar .nav-login .avatar img {
+.nav-login .avatar img {
   width: 30px;
   height: 30px;
   margin-top: 5px;
 }
 
-.navbar .nav-login .info {
+.nav-login .info {
   float: left;
   width: 165px;
+}
+
+.nav-login .nav-signout {
+  cursor: pointer;
+}
+
+.nav-login .nav-message {
+  cursor: pointer;
+  color: #fff;
+}
+
+.nav-login .shortcut-menu {
+  top: 30px;
+  right: 0;
+}
+
+.nav-login .shortcut-menu .popover-content {
+  min-width: 120px;
+  max-width: 200px;
+}
+
+.nav-login .shortcut-menu .popover-content a {
+  display: block;
+}
+
+.nav-login:hover .popover {
+  display: block;
 }
 
 .header-fixed {
