@@ -23,34 +23,34 @@
             <a class="btn btn-danger btn-small" href="/main/order-cancel-tourist"><i class="icon-remove"></i> 取消游客</a>
           </div>
           <div>
-            <#assign user_card_popover>
+            <#macro user_card_popover dept="" name="" tel="" phone="">
               <div class="popover top">
                 <div class="arrow"></div>
                 <i class="icon icon-remove" title="关闭"></i>
                 <div class="popover-content">
                   <img src="/img/logo.png" alt="">
-                  <p>部门：国内部门</p>
-                  <p>姓名：虞碧辉</p>
-                  <p>电话：0571-87025678</p>
-                  <p>手机：13588761571</p>
+                  <p>部门：${dept}</p>
+                  <p>姓名：${name}</p>
+                  <p>电话：${tel}</p>
+                  <p>手机：${phone}</p>
                 </div>
                 <div class="popover-action">
                   <a href="" class="btn btn-small">站内短信</a>
                   <a href="" class="btn btn-small">手机短信</a>
                 </div>
               </div>
-            </#assign>
+            </#macro>
             <ul id="J_order_info" class="order-info clearfix">
               <li><strong>订单编号：</strong>${order.orderNumber}</li>
-              <li><strong>联系人：</strong> <a href="javascript:;">${order.contact}</a><#noescape >${user_card_popover}</#noescape></li>
+              <li><strong>联系人：</strong> <a href="javascript:;">${order.contact}</a><#noescape ><@user_card_popover name="${order.contact}"></@user_card_popover></#noescape></li>
               <li><strong>联系电话：</strong>${order.contactMobile}</li>
               <li><strong>线路名称：</strong>${order.productName}</li>
               <li><strong>团队编号：</strong>${order.teamNumber}</li>
               <li><strong>出发日期：</strong><#if order.leaveDate??>${order.leaveDate?string('yyyy-MM-dd')}</#if></li>
               <li>
-                <strong>产品经理：</strong> <a href="javascript:;">${order.productManager}</a><#noescape >${user_card_popover}</#noescape>
+                <strong>产品经理：</strong> <a href="javascript:;">${order.productManager}</a><#noescape ><@user_card_popover name="${order.productManager}"></@user_card_popover></#noescape>
               </li>
-              <li><strong>团队协调：</strong> <a href="javascript:;">${order.coordinator}</a><#noescape >${user_card_popover}</#noescape></li>
+              <li><strong>团队协调：</strong> <a href="javascript:;">${order.coordinator}</a><#noescape ><@user_card_popover name="${order.coordinator}"></@user_card_popover></#noescape></li>
               <li><strong>预订人数：</strong>${order.subscribeCount}</li>
               <li><strong>订单状态：</strong>${order.status.value}</li>
               <li><strong>锁定状态：</strong>${order.lockStatus}</li>
@@ -61,7 +61,7 @@
               <li><strong>余款金额：</strong> 1000.00</li>
               <li><strong>截至付款：</strong> </li>
               <li><strong>创建时间：</strong><#if order.createTime??>${order.createTime?string('yyyy-MM-dd')}</#if></li>
-              <li><strong>创建人：</strong> <a href="javascript:;">${order.createOperator}</a><#noescape >${user_card_popover}</#noescape></li>
+              <li><strong>创建人：</strong> <a href="javascript:;">${order.createOperator}</a><#noescape ><@user_card_popover name="${order.createOperator}"></@user_card_popover></#noescape></li>
               <li><strong>订单备注：</strong>  ${(order.orderMemo)!}</li>
             </ul>
           </div>
@@ -219,7 +219,7 @@
                 ${cust.memo}
                 </td>
                 <td>
-                  <a href="">编辑</a> <a href="">附件</a>
+                  <a href=""><i class="icon-pencil"></i> 编辑 </a><a href=""><i class="icon-file-alt"></i> 附件</a>
                 </td>
               </tr>
               </#list>
@@ -278,7 +278,7 @@
                     <td>
                     </td>
                     <td>
-                      <a href="">查看</a>
+                      <a href=""><i class="icon-eye-open"></i> 查看</a>
                     </td>
                   </tr>
                   </#assign>
@@ -350,7 +350,7 @@
                     <td>
                     </td>
                     <td>
-                      <a href="">查看</a>
+                      <a href=""><i class="icon-eye-open"></i> 查看</a>
                     </td>
                   </tr>
                   </#assign>
@@ -479,7 +479,7 @@
                       2012-6-20 14：23
                     </td>
                     <td>
-                      <a href="">查看</a> <a href="">下载</a>
+                      <a href=""><i class="icon-eye-open"></i> 查看</a> <a href=""><i class="icon-download"></i> 下载</a>
                     </td>
                   </tr>
                   </#assign>

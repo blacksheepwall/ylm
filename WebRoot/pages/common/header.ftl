@@ -42,8 +42,8 @@
                 <li>
                   <a href="#">自由行</a>
                 </li>
-                <li>
-                  <a href="#">整团业务</a>
+                <li <#if page_name?contains("group")>class="active"</#if>>
+                  <a href="/main/group-tour">整团业务</a>
                 </li>
                 <li <#if page_name?contains("order")>class="active"</#if>>
                   <a href="/order/">订单管理</a>
