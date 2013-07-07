@@ -6,7 +6,7 @@
     <@body>
     <div class="inland-body main-body clearfix">
       <div class="sidebar pull-left">
-        <#--<@inland_travel_module></@inland_travel_module>-->
+        <@inland_travel_module mock_region=false></@inland_travel_module>
       </div>
       <div class="center pull-left">
         <div class="clearfix">

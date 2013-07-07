@@ -205,9 +205,10 @@
 </div>
 </#macro>
 
-<#macro inland_travel_module>
+<#macro inland_travel_module mock_region=true>
 <div class="destination mt10 bg_lgray">
 <h2 class="fc_white f14">国内旅游</h2>
+<#if mock_region>
 <#list regions as rg>
 <div class="des_sort mr5 clearfix ov">
   <h3>${rg.name}</h3>
@@ -218,6 +219,7 @@
   </p>
 </div>
 </#list>
+</#if>
 <div class="des_sortsep pr">
   <h3><span class="fr mr10 mt5 pngFix"></span>周边游</h3>
   <div class="des_sortcon none">
