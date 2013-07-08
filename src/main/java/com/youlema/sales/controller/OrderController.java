@@ -8,6 +8,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.ServletRequestBindingException;
@@ -44,6 +45,31 @@ public class OrderController {
     @RequestMapping("")
     public String orderView() {
         return "order-manage";
+    }
+
+    /**
+     * 取消游客
+     * 
+     * @return
+     */
+    @RequestMapping("/cancel")
+    public String cancel(@RequestParam("id") long orderId, ModelMap modelMap) {
+        OrderDetailVo detailVo = orderService.getOrderById(orderId);
+        modelMap.put("order", detailVo);
+        return "order-cancel-tourist";
+    }
+    /**
+     * 提交取消订单请求
+     * @param ids
+     * @param cancelMemo
+     * @param response
+     * @throws IOException
+     */
+    @RequestMapping("/submitCancel")
+    public void postCancel(@RequestParam("ids") String ids,
+            @RequestParam(value = "cancelMemo", required = false, defaultValue = "") String cancelMemo , HttpServletResponse response) throws IOException {
+        String[] strings = StringUtils.split(ids, ',');
+        JsonUtils.writeToJson("success", response);
     }
 
     /**

@@ -18,24 +18,24 @@
           <h5 class="mod-title">订单基本信息</h5>
           <div>
             <ul class="order-info clearfix">
-              <li><strong>订单编号：</strong> YSL13042410560353</li>
-              <li><strong>联系人：</strong> 张三</li>
-              <li><strong>联系电话：</strong> YSL13042410560353</li>
-              <li><strong>线路名称：</strong> 杭州直飞越南岘港风情五日之旅</li>
-              <li><strong>团队编号：</strong> No123456</li>
-              <li><strong>出发日期：</strong> 2013-07-02</li>
-              <li><strong>产品经理：</strong> 王伟</li>
-              <li><strong>团队计调：</strong> 王伟</li>
-              <li><strong>预订人数：</strong> 10</li>
-              <li><strong>订单状态：</strong> 锁定</li>
-              <li><strong>锁定状态：</strong> 锁定</li>
-              <li><strong>订单费用：</strong> 1000.00</li>
-              <li><strong>已付金额：</strong> 800.00</li>
-              <li><strong>余款金额：</strong> 200.00</li>
-              <li><strong>截至付款：</strong> 2013.07.02</li>
-              <li><strong>创建时间：</strong> 2013-07-02</li>
-              <li><strong>创建人：</strong> 王伟</li>
-              <li><strong>订单备注：</strong> </li>
+              <li><strong>订单编号：</strong>${order.orderNumber}</li>
+              <li><strong>联系人：</strong>${order.contact}</li>
+              <li><strong>联系电话：</strong>${order.contactMobile}</li>
+              <li><strong>线路名称：</strong>${order.productName}</li>
+              <li><strong>团队编号：</strong>${order.teamNumber}</li>
+              <li><strong>出发日期：</strong><#if order.leaveDate??>${order.leaveDate?string('yyyy-MM-dd')}</#if></li>
+              <li><strong>产品经理：</strong>${order.productManager}</li>
+              <li><strong>团队计调：</strong>${order.coordinator}</li>
+              <li><strong>预订人数：</strong>${order.subscribeCount}</li>
+              <li><strong>订单状态：</strong>${order.status.value}</li>
+              <li><strong>锁定状态：</strong>${order.lockStatus}</li>
+              <li><strong>订单费用：</strong>${(order.orderPrice)!0}</li>
+              <li><strong>已付金额：</strong>${(order.paidPrice)!0}</li>
+              <li><strong>余款金额：</strong>${(order.notPaid)!0}</li>
+              <li><strong>截至付款：</strong><#if order.finalPayDate??>${order.finalPayDate?string('yyyy-MM-dd')}</#if></li>
+              <li><strong>创建时间：</strong><#if order.createTime??>${order.createTime?string('yyyy-MM-dd')}</#if></li>
+              <li><strong>创建人：</strong>${order.createOperator}</li>
+              <li><strong>订单备注：</strong>  ${(order.orderMemo)!}</li>
             </ul>
           </div>
         </div>
@@ -74,30 +74,33 @@
               </tr>
               </thead>
               <tbody>
-                <#assign user_list>
+                <#list order.customers.resultList as cust>
                 <tr>
                   <td>
                     <input type="checkbox">
                   </td>
                   <td>
-                    林展科（成人）
                   </td>
                   <td>
+                   ${cust.name}
                   </td>
                   <td>
+                   ${cust.sex}
                   </td>
                   <td>
+                  ${cust.amount}
                   </td>
                   <td>
+                  ${cust.certificate.certificateNumber}
                   </td>
                   <td>
+                  ${cust.mobile}
                   </td>
                   <td>
+                   ${cust.memo}
                   </td>
                 </tr>
-                </#assign>
-                <#noescape>${user_list}</#noescape>
-                <#noescape>${user_list}</#noescape>
+                </#list>
               </tbody>
             </table>
           </div>

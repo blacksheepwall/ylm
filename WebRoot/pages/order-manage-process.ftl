@@ -20,7 +20,7 @@
             <a class="btn btn btn-small" href="/main/order-confirm" target="_blank"><i class="icon-ok"></i> 确认单</a>
             <a class="btn btn btn-small" href="/main/order-group-preview" target="_blank"><i class="icon-info"></i> 出团通知</a>
             <button class="btn btn-warning btn-small" type="button"><i class="icon-pencil"></i> 修改联系人</button>
-            <a class="btn btn-danger btn-small" href="/main/order-cancel-tourist"><i class="icon-remove"></i> 取消游客</a>
+            <a class="btn btn-danger btn-small" href="/order/cancel/?id=${order.orderId}"><i class="icon-remove"></i> 取消游客</a>
           </div>
           <div>
             <#macro user_card_popover dept="" name="" tel="" phone="">
@@ -56,10 +56,10 @@
               <li><strong>锁定状态：</strong>${order.lockStatus}</li>
               
               
-              <li><strong>订单费用：</strong> 1000.00</li>
-              <li><strong>已付金额：</strong> 1000.00</li>
-              <li><strong>余款金额：</strong> 1000.00</li>
-              <li><strong>截至付款：</strong> </li>
+              <li><strong>订单费用：</strong>${(order.orderPrice)!0}</li>
+              <li><strong>已付金额：</strong>${order.paidPrice!0}</li>
+              <li><strong>余款金额：</strong>${(order.notPaid)!0}</li>
+              <li><strong>截至付款：</strong><#if order.finalPayDate??>${order.finalPayDate?string('yyyy-MM-dd')}</#if></li>
               <li><strong>创建时间：</strong><#if order.createTime??>${order.createTime?string('yyyy-MM-dd')}</#if></li>
               <li><strong>创建人：</strong> <a href="javascript:;">${order.createOperator}</a><#noescape ><@user_card_popover name="${order.createOperator}"></@user_card_popover></#noescape></li>
               <li><strong>订单备注：</strong>  ${(order.orderMemo)!}</li>
