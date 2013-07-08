@@ -41,14 +41,14 @@
         </div>
         <div class="mod-body">
           <h5 class="mod-title">取消说明</h5>
-          <textarea class="desc-value"></textarea>
+          <textarea id="J_memo" class="desc-value"></textarea>
           <h5 class="mod-title">选择取消游客</h5>
           <div id="J_user_list">
             <table class="table table-bordered user-list">
               <thead>
               <tr>
-                <th>
-                  <label><input type="checkbox" value="全选">全选</label>
+                <th width="50px;">
+                  <label><input id="J_check_all" type="checkbox" value="全选">全选</label>
                 </th>
                 <th>
                   类型
@@ -73,7 +73,7 @@
                 </th>
               </tr>
               </thead>
-              <tbody>
+              <tbody id="J_tbody">
                 <#list order.customers.resultList as cust>
                 <tr>
                   <td>
@@ -106,7 +106,7 @@
           </div>
         </div>
         <div class="action">
-          <button class="btn btn-primary">确认</button>
+          <button id="J_cancel" class="btn btn-primary">确认</button>
           <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
         </div>
       </div>

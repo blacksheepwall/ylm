@@ -5,10 +5,20 @@
   <@html title="出境游">
     <@body>
     <div class="inland-body main-body clearfix">
-      <div class="sidebar pull-left">
-        <@inland_travel_module mock_region=false></@inland_travel_module>
+      <div>
+        <div class="route-body clearfix">
+        <strong class="route-type">出境线路：</strong>
+        <ul class="route-list clearfix">
+          <#--<#list regions as rg>-->
+          <#--&lt;#&ndash;${rg.name}&ndash;&gt;-->
+            <#--<#list rg.citys as city>-->
+              <#--<li>-->
+                <#--<a href="">${city.cityName}</a>-->
+              <#--</li>-->
+            <#--</#list>-->
+          <#--</#list>-->
+        </ul>
       </div>
-      <div class="center pull-left">
         <div class="clearfix">
           <div class="top-search pull-left form-horizontal">
             <strong>线路分类：</strong>

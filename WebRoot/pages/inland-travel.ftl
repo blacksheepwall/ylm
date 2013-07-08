@@ -5,10 +5,23 @@
   <@html title="国内游">
     <@body>
     <div class="inland-body main-body clearfix">
-      <div class="sidebar pull-left">
-        <@inland_travel_module></@inland_travel_module>
-      </div>
-      <div class="center pull-left">
+      <#--<div class="sidebar pull-left">-->
+        <#--<@inland_travel_module></@inland_travel_module>-->
+      <#--</div>-->
+      <div>
+        <div class="route-body clearfix">
+          <strong class="route-type">国内线路：</strong>
+          <ul class="route-list clearfix">
+            <#list regions as rg>
+            <#--${rg.name}-->
+              <#list rg.citys as city>
+                <li>
+                  <a href="">${city.cityName}</a>
+                </li>
+              </#list>
+            </#list>
+          </ul>
+        </div>
         <div class="clearfix">
           <div class="top-search pull-left form-horizontal">
             <strong>线路分类：</strong>
