@@ -18,6 +18,7 @@
           <h5 class="mod-title">订单基本信息</h5>
           <div>
             <ul class="order-info clearfix">
+              <li id="J_order_id" style="display: none;">${order.orderId}</li>
               <li><strong>订单编号：</strong>${order.orderNumber}</li>
               <li><strong>联系人：</strong>${order.contact}</li>
               <li><strong>联系电话：</strong>${order.contactMobile}</li>
@@ -77,7 +78,7 @@
                 <#list order.customers.resultList as cust>
                 <tr>
                   <td>
-                    <input type="checkbox">
+                    <input type="checkbox" value="${cust.customerId}">
                   </td>
                   <td>
                   </td>
