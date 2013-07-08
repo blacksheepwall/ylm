@@ -9,11 +9,11 @@ define(['./util'], function(Util) {
     if (confirm('确定要取消这些游客吗？')) {
       Util.post({
         'url': '/order/submitCancel',
-        'data': $.toJSON({
+        'data': {
           'ids': '1,2,3',
           'cancelMemo': $.trim($memo.val()),
           'orderId': 1000
-        }),
+        },
         'done': function(data) {
           alert(data);
         }
