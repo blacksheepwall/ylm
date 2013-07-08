@@ -8,8 +8,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.yolema.tbss.ext.facade.OrderBillFacade;
-import com.yolema.tbss.ext.facade.fdo.OrderBillFdo;
-import com.yolema.tbss.ext.facade.fdo.OrderCustomFdo;
+import com.yolema.tbss.ext.facade.fdo.order.OrderBillFdo;
+import com.yolema.tbss.ext.facade.fdo.order.OrderCustomFdo;
 import com.yolema.tbss.ext.facade.result.BaseResult;
 import com.yolema.tbss.ext.facade.result.OrderBillResult;
 
