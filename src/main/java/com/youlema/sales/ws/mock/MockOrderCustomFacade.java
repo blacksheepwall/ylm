@@ -17,7 +17,8 @@ public class MockOrderCustomFacade implements OrderCustomFacade {
 
     @Override
     public OrderCustomResult getById(Long id) {
-        throw new UnsupportedOperationException();
+        //TODO 
+        return null;
     }
 
     @Override

@@ -3,22 +3,31 @@ define(['./util'], function(Util) {
   var $checkAll = $('#J_check_all'),
     $tbody = $('#J_tbody'),
     $cancel = $('#J_cancel'),
-    $memo = $('#J_memo');
+    $memo = $('#J_memo'),
+    $orderId = $('#J_order_id');
 
   function _cancel() {
     if (confirm('确定要取消这些游客吗？')) {
       Util.post({
         'url': '/order/submitCancel',
         'data': {
-          'ids': '1,2,3',
+          'ids': _getUserIds(),
           'cancelMemo': $.trim($memo.val()),
-          'orderId': 1000
+          'orderId': $orderId.html()
         },
         'done': function(data) {
           alert(data);
         }
       });
     }
+  }
+
+  function _getUserIds() {
+    var ids = [];
+    $.each($tbody.find(':checked'), function() {
+      ids.push($(this).val());
+    });
+    return ids.join(',');
   }
 
   function _checkAll() {
