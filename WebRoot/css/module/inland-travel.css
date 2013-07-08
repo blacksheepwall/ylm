@@ -65,6 +65,31 @@
   margin-top: 5px;
 }
 
+.route-body {
+  margin-bottom: 10px;
+  padding: 4px 10px;
+  border: 2px solid #ffa500;
+}
+
+.route-body .route-type {
+  float: left;
+}
+
+.route-body .route-list {
+  float: left;
+  width: 880px;
+  line-height: 24px;
+}
+
+.route-body .route-list li {
+  float: left;
+  padding-right: 20px;
+}
+
+.route-body .route-list li a {
+  color: #666;
+}
+
 .conditions {
   /*background-color: #e9eae6;*/
   padding: 10px 10px 4px;
@@ -74,10 +99,10 @@
   width: 170px;
 }
 
-.center {
-  width: 800px;
-  padding-left: 10px;
-}
+/*.center {*/
+/*width: 800px;*/
+/*padding-left: 10px;*/
+/*}*/
 
 .top-search select {
   font-size: 12px;

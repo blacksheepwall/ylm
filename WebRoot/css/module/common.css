@@ -431,6 +431,7 @@ table.table thead, table.normal thead {
 
 .pagination-input {
   width: 60px;
+  margin-bottom: 4px !important;
   text-align: center;
 }
 
