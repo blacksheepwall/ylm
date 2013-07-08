@@ -1,7 +1,9 @@
 package com.youlema.sales.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletOutputStream;
@@ -21,6 +23,7 @@ import com.youlema.sales.meta.OrderDetailVo;
 import com.youlema.sales.meta.OrderVo;
 import com.youlema.sales.meta.SearchResult;
 import com.youlema.sales.service.OrderService;
+import com.youlema.sales.service.UserService;
 import com.youlema.sales.service.OrderService.OrderQueryCondition;
 import com.youlema.sales.utils.Utils;
 
@@ -29,6 +32,8 @@ import com.youlema.sales.utils.Utils;
 public class OrderController {
     @Resource
     private OrderService orderService;
+    @Resource
+    private UserService userService;
 
     @RequestMapping("info")
     public String orderInfo(@RequestParam("id") long orderId, ModelMap modelMap) {
@@ -58,17 +63,29 @@ public class OrderController {
         modelMap.put("order", detailVo);
         return "order-cancel-tourist";
     }
+
     /**
      * 提交取消订单请求
+     * 
      * @param ids
      * @param cancelMemo
      * @param response
      * @throws IOException
      */
     @RequestMapping("/submitCancel")
-    public void postCancel(@RequestParam("ids") String ids,
-            @RequestParam(value = "cancelMemo", required = false, defaultValue = "") String cancelMemo , HttpServletResponse response) throws IOException {
+    public void postCancel(@RequestParam("orderId") long orderId, @RequestParam("ids") String ids,
+            @RequestParam(value = "cancelMemo", required = false, defaultValue = "") String cancelMemo,
+            HttpServletResponse response) throws IOException {
         String[] strings = StringUtils.split(ids, ',');
+        List<Long> custIds = new ArrayList<Long>(strings.length);
+        for (String string : strings) {
+            try {
+                Long custId = Long.parseLong(string.trim());
+                custIds.add(custId);
+            } catch (Exception e) {
+            }
+        }
+        orderService.cancelOrder(orderId, cancelMemo, custIds, userService.getCurrentUser());
         JsonUtils.writeToJson("success", response);
     }
 

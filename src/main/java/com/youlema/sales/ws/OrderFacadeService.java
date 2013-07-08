@@ -1,5 +1,7 @@
 package com.youlema.sales.ws;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -7,7 +9,9 @@ import org.springframework.stereotype.Service;
 import com.yolema.tbss.ext.facade.OrderBillFacade;
 import com.yolema.tbss.ext.facade.agents.OrderCustomFacade;
 import com.yolema.tbss.ext.facade.fdo.order.OrderBillFdo;
+import com.yolema.tbss.ext.facade.fdo.order.OrderCustomFdo;
 import com.yolema.tbss.ext.facade.result.OrderBillResult;
+import com.yolema.tbss.ext.facade.result.OrderCustomResult;
 import com.youlema.sales.mapper.meta.AgentsAccount;
 import com.youlema.sales.service.OrderService.OrderQueryCondition;
 
@@ -52,16 +56,31 @@ public class OrderFacadeService {
         return queryFdo;
     }
 
+    public boolean cancelCustomer(long orderId , List<Long> custIds){
+        for (Long cid : custIds) {
+            OrderCustomResult result = orderCustomFacade.getById(cid);
+            if(result !=null){
+                OrderCustomFdo customFdo = result.getOrderCustomFdo();
+                if(customFdo != null && !customFdo.getIsCanceled()){
+                    customFdo.setIsCanceled(true);
+//                    orderCustomFacade.update(customFdo);
+                }
+            }
+        }
+        return true;
+    }
     /**
      * 取消订单
      * 
      * @param orderId
      */
-    public void cancelOrder(long orderId, String cancelMemo, AgentsAccount account) {
+    public boolean cancelOrder(long orderId, String cancelMemo, AgentsAccount account) {
         OrderBillFdo orderFdo = getOrderFdo(orderId);
         if (orderFdo != null) {
             orderFdo.setCancelMemo(cancelMemo);
             orderBillFacade.saveOrderCancel(orderFdo, account.getName());
+            return true;
         }
+        return false;
     }
 }
