@@ -115,17 +115,17 @@ public class OrderService {
         }
         switch (leaveStatus) {
         case COMPLETE:
-            if(endDate == null){
+            if (endDate == null) {
                 return false;
             }
             return endDate.getTime() > System.currentTimeMillis();
         case IN_THERE_DAYS:
-            if(leaveDate == null){
+            if (leaveDate == null) {
                 return false;
             }
             return (leaveDate.getTime() + DateUtils.MILLIS_PER_DAY * 3) > System.currentTimeMillis();
         case LEAVED:
-            if(leaveDate == null){
+            if (leaveDate == null) {
                 return false;
             }
             return leaveDate.getTime() > System.currentTimeMillis();
@@ -254,7 +254,15 @@ public class OrderService {
      * @param orderId
      * @param user
      */
-    public void cancelOrder(long orderId, String cancelMemo, User user) {
-        orderFacadeService.cancelOrder(orderId, cancelMemo, user.getAccount());
+    public boolean cancelOrder(long orderId, String cancelMemo, List<Long> custIds, User user) {
+        OrderBillFdo orderFdo = orderFacadeService.getOrderFdo(orderId);
+        if (orderFdo == null) {
+            return false;
+        }
+        boolean bo = orderFacadeService.cancelCustomer(orderId, custIds);
+        if (bo && custIds.size() >= orderFdo.getOrderCustomBeanList().size()) {
+            return orderFacadeService.cancelOrder(orderId, cancelMemo, user.getAccount());
+        }
+        return bo;
     }
 }
