@@ -28,7 +28,6 @@ public class OrderFacadeService {
         return orderBillFacade.queryPageList(queryFdo);
     }
 
-
     public OrderBillFdo getOrderFdo(long orderId) {
         OrderBillResult result = orderBillFacade.getById(orderId);
         if (result.isSuccess() && result.getList().size() > 0) {
@@ -50,25 +49,28 @@ public class OrderFacadeService {
         String orderStatus = condition.getOrderStatus();
         queryFdo.setOrderStatus(orderStatus);
         queryFdo.setSearchKeyWords(condition.getQueryText());
-        // TODO 合同状态未知
-        // String contractStatus = condition.getContractStatus();
+        String contractStatus = condition.getContractStatus();
+        if(contractStatus != null){
+            queryFdo.setSalesBargainStatus(true);
+        }
         queryFdo.setOrderType(condition.getOrderType());
         return queryFdo;
     }
 
-    public boolean cancelCustomer(long orderId , List<Long> custIds){
+    public boolean cancelCustomer(long orderId, List<Long> custIds) {
         for (Long cid : custIds) {
             OrderCustomResult result = orderCustomFacade.getById(cid);
-            if(result !=null){
+            if (result != null) {
                 OrderCustomFdo customFdo = result.getOrderCustomFdo();
-                if(customFdo != null && !customFdo.getIsCanceled()){
+                if (customFdo != null && !customFdo.getIsCanceled()) {
                     customFdo.setIsCanceled(true);
-//                    orderCustomFacade.update(customFdo);
+                    // orderCustomFacade.update(customFdo);
                 }
             }
         }
         return true;
     }
+
     /**
      * 取消订单
      * 

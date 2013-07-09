@@ -8,8 +8,10 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.yolema.tbss.ext.facade.OrderBillFacade;
+import com.yolema.tbss.ext.facade.fdo.order.ClientInfoFdo;
 import com.yolema.tbss.ext.facade.fdo.order.OrderBillFdo;
 import com.yolema.tbss.ext.facade.fdo.order.OrderCustomFdo;
+import com.yolema.tbss.ext.facade.fdo.order.SalesBargainFdo;
 import com.yolema.tbss.ext.facade.result.BaseResult;
 import com.yolema.tbss.ext.facade.result.OrderBillResult;
 
@@ -31,7 +33,19 @@ public class MockOrderBillFacade implements OrderBillFacade {
         fdo.setMobile("13999999999");
         fdo.setSalesman("订单创建人甲");
         
-        
+        List<SalesBargainFdo> list = new ArrayList<SalesBargainFdo>();
+        for (int i = 0; i < 10; i++) {
+            SalesBargainFdo bo = new SalesBargainFdo();
+            bo.setBargainNo("合同编号NO."+i);
+            bo.setBargainSignPerson("签订人"+i);
+            bo.setGmtSigned(new Date());
+            bo.setMemo("合同备注"+i);
+            bo.setOrderCustomId(1111L+i);
+            bo.setOrderId(id);
+            bo.setSalesBargainId(99999L);
+            list.add(bo);
+        }
+        fdo.setSalesBargainList(list);
         
         ArrayList<OrderCustomFdo> orderCustomBeanList = new ArrayList<OrderCustomFdo>();
         
@@ -69,11 +83,6 @@ public class MockOrderBillFacade implements OrderBillFacade {
 
     @Override
     public BaseResult orderReceiveReturn(String freezeCode, Long orderId, String opeartor) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public BaseResult refundReturnSuccess(Long orderId, BigDecimal refundMoney, String operator) {
         throw new UnsupportedOperationException();
     }
 
@@ -129,6 +138,17 @@ public class MockOrderBillFacade implements OrderBillFacade {
         foBillFdos.add(fdo);
         result.setList(foBillFdos);
         return result;
+    }
+
+    @Override
+    public OrderBillResult getOrderBillView(Long arg0, ClientInfoFdo arg1) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public BaseResult refundReturnSuccess(Long arg0, BigDecimal arg1, String arg2, String arg3) {
+        // TODO Auto-generated method stub
+        return null;
     }
 
 }

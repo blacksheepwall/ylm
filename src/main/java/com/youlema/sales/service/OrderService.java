@@ -12,9 +12,11 @@ import org.springframework.stereotype.Service;
 import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
 import com.yolema.tbss.ext.facade.fdo.order.OrderBillFdo;
 import com.yolema.tbss.ext.facade.fdo.order.OrderCustomFdo;
+import com.yolema.tbss.ext.facade.fdo.order.SalesBargainFdo;
 import com.yolema.tbss.ext.facade.fdo.product.ShowProductFdo;
 import com.yolema.tbss.ext.facade.fdo.sys.DictionaryFdo;
 import com.yolema.tbss.ext.facade.result.OrderBillResult;
+import com.youlema.sales.meta.ContractItemVo;
 import com.youlema.sales.meta.CustomerVo;
 import com.youlema.sales.meta.LeaveStatus;
 import com.youlema.sales.meta.OrderDetailVo;
@@ -86,8 +88,8 @@ public class OrderService {
         Date leave = product.getGmtLeave();
         vo.setBeginDate(Utils.formatDate(leave, "yyyy-MM-dd"));
         vo.setContact(fdo.getContactPerson());
-        // TODO 合同状态未知
-        vo.setContractStatus("不知道合同状态");
+        vo.setContractStatus(fdo.getSalesBargainStatus() ? "已签订" : "未签订");
+
         vo.setOrderId(fdo.getOrderId());
         vo.setOrderNumber(fdo.getBizOrderId());
 
@@ -104,7 +106,6 @@ public class OrderService {
                 fdo.getOrderStatus());
         vo.setStatus(new StatusObject<String>(StatusCode.ORDER_STATUS, statusDic.getDictionaryKey(), statusDic
                 .getDictionaryValue()));
-        // TODO 订单游客数量待确定
         int numOfOrder = product.getNumOfOrder();
         vo.setTravellerCount(String.valueOf(numOfOrder));
     }
@@ -222,7 +223,25 @@ public class OrderService {
         if (product == null || showProduct == null) {
             return null;
         }
+        List<SalesBargainFdo> bargainList = fdo.getSalesBargainList();
+        
+        List<ContractItemVo> contractItemVos = new ArrayList<ContractItemVo>();
+        
+        for (SalesBargainFdo bargainFdo : bargainList) {
+            ContractItemVo item = new ContractItemVo();
+            item.setContractNo(bargainFdo.getBargainNo());
+            item.setCustId(bargainFdo.getOrderCustomId());
+            item.setId(bargainFdo.getSalesBargainId());
+            item.setMemo(bargainFdo.getMemo());
+            item.setOrderId(bargainFdo.getOrderId());
+            item.setSignDate(bargainFdo.getGmtSigned());
+            item.setSignPerson(bargainFdo.getBargainSignPerson());
+            contractItemVos.add(item);
+        }
+        
+        
         OrderDetailVo vo = new OrderDetailVo();
+        vo.setContractItems(contractItemVos);
         fromBillFdo2Vo(fdo, product, vo);
         vo.setCreateOperator(fdo.getSalesman());
         vo.setCreateTime(fdo.getGmtCreate());

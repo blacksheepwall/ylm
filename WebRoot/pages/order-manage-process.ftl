@@ -409,26 +409,25 @@
                 </tr>
                 </thead>
                 <tbody>
-                  <#assign user_list>
+                  <#list contracts as ct>
                   <tr>
                     <td>
+                    ${ct.contractNo}
                     </td>
                     <td>
+                    ${ct.signPerson}
                     </td>
                     <td>
+                    <#if ct.signDate??>${ct.signDate?string('yyyy-MM-dd')}</#if>
                     </td>
                     <td>
+                    ${ct.memo}
                     </td>
                     <td>
                       <a href="">代理已签收</a>
                     </td>
                   </tr>
-                  </#assign>
-                  <#noescape>${user_list}</#noescape>
-                  <#noescape>${user_list}</#noescape>
-                  <#noescape>${user_list}</#noescape>
-                  <#noescape>${user_list}</#noescape>
-                  <#noescape>${user_list}</#noescape>
+                  </#list>
                 </tbody>
               </table>
             </div>

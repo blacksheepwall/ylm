@@ -1,7 +1,9 @@
 package com.youlema.sales.meta;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 订单详情Vo
@@ -40,6 +42,16 @@ public class OrderDetailVo extends OrderVo {
     private String orderMemo;
     // 出发日期
     private Date leaveDate;
+    
+    private List<ContractItemVo> contractItems = new ArrayList<ContractItemVo>();
+
+    public List<ContractItemVo> getContractItems() {
+        return contractItems;
+    }
+
+    public void setContractItems(List<ContractItemVo> contractItems) {
+        this.contractItems = contractItems;
+    }
 
     public BigDecimal getNotPaid() {
         return notPaid;
