@@ -39,7 +39,7 @@
             <input type="text" readonly class="input-small date-box"><strong> 至 </strong><input type="text" readonly class="input-small date-box">
           </div>
           <div class="input-append pull-left">
-            <input class="search-input" type="text">
+            <input class="search-input" type="text" placeholder="产品名称、站点城市、游览景点">
             <button class="btn btn-success" type="button"><i class="icon-search"></i> 搜索</button>
             <button class="btn" type="button">高级查找</button>
           </div>

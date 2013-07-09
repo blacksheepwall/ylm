@@ -1,8 +1,8 @@
-<#-- 整团业务 -->
-<#assign page_name="group-tour"/>
+<#-- 整团预报 -->
+<#assign page_name="group-forecast"/>
 <#include "common/module.ftl"/>
 <#escape x as x?html>
-  <@html title="整团业务">
+  <@html title="整团预报">
     <@body>
     <div class="inland-body main-body clearfix">
       <div class="row-fluid">
@@ -16,40 +16,6 @@
         <@group_tour_sidebar></@group_tour_sidebar>
         <div class="span10">
           <@group_tour_condition></@group_tour_condition>
-        <#--<div class="mod-body">-->
-            <#--<div class="clearfix">-->
-              <#--<div class="top-search pull-left form-horizontal">-->
-                <#--<strong>线路分类：</strong>-->
-                <#--<select>-->
-                  <#--<option value="所有">所有</option>-->
-                  <#--<option value="出境线路">出境线路</option>-->
-                  <#--<option value="港澳台">港澳台</option>-->
-                  <#--<option value="出境线路">国内</option>-->
-                <#--</select>-->
-                <#--<strong>出发日期：</strong>-->
-                <#--<input type="text" readonly class="input-small date-box"><strong> 至 </strong><input type="text" readonly class="input-small date-box">-->
-              <#--</div>-->
-              <#--<div class="input-append pull-left">-->
-                <#--<input class="search-input" type="text">-->
-                <#--<button class="btn btn-success" type="button"><i class="icon-search"></i> 搜索</button>-->
-                <#--<button class="btn" type="button">高级查找</button>-->
-              <#--</div>-->
-            <#--</div>-->
-            <#--<div id="J_condition" class="conditions mod-condition">-->
-              <#--<div class="con-row clearfix">-->
-                <#--<strong class="pull-left">出发城市：</strong>-->
-              <#--</div>-->
-              <#--<div class="con-row clearfix">-->
-                <#--<strong class="pull-left">天数：</strong>-->
-              <#--</div>-->
-              <#--<div class="con-row clearfix">-->
-                <#--<strong class="pull-left">价格：</strong>-->
-              <#--</div>-->
-              <#--<div class="con-row clearfix">-->
-                <#--<strong class="pull-left">交通：</strong>-->
-              <#--</div>-->
-            <#--</div>-->
-          <#--</div>-->
           <div class="nav-con">
             <ul id="J_tab" class="nav nav-tabs">
               <li class="active">

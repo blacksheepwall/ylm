@@ -1,0 +1,10 @@
+@import "group-common.css";
+
+.top-search {
+  margin-bottom: 10px;
+}
+
+.search-input {
+  width: 400px;
+  margin-left: 0;
+}

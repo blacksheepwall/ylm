@@ -205,6 +205,62 @@
 </div>
 </#macro>
 
+<#macro group_tour_sidebar>
+<div class="span2">
+  <ul class="nav nav-list manage-sidebar">
+    <li class="nav-header">
+      <i class="icon-group"></i> 整团业务
+    </li>
+    <li <#if "group-team"==page_name>class="active"</#if>>
+      <a href="/main/group-team/">整团团队<i class="icon-chevron-right"></i></a>
+    </li>
+    <li <#if "group-forecast"==page_name>class="active"</#if>>
+      <a href="/main/group-forecast/">整团预报<i class="icon-chevron-right"></i></a>
+    <li <#if "group-route"==page_name>class="active"</#if>>
+      <a href="/main/group-route/">旅游线路<i class="icon-chevron-right"></i></a>
+    </li>
+  </ul>
+</div>
+</#macro>
+
+<#macro group_tour_condition>
+<div class="<#--mod-body-->">
+  <div class="clearfix">
+    <div class="input-append pull-left">
+      <input class="search-input" type="text" placeholder="线路名称、途径城市、游览景点">
+      <button class="btn btn-success" type="button"><i class="icon-search"></i> 搜索</button>
+    </div>
+    <div class="top-search pull-left form-horizontal">
+      <strong>线路分类：</strong>
+      <select>
+        <option value="所有">所有</option>
+        <option value="出境线路">出境线路</option>
+        <option value="港澳台">港澳台</option>
+        <option value="出境线路">国内</option>
+      </select>
+      <strong>天数：</strong>
+      <input type="text" readonly class="input-small date-box"><strong> 至 </strong><input type="text" readonly class="input-small date-box">
+      <strong> 单人预算：</strong>
+      <input type="text" class="input-small"><strong> 至 </strong><input type="text" class="input-small">
+    </div>
+  </div>
+  <div id="J_condition" class="mod-condition">
+    <div class="con-row clearfix">
+      <strong class="pull-left">出发城市：</strong>
+    </div>
+  <#--<div class="con-row clearfix">-->
+  <#--<strong class="pull-left">天数：</strong>-->
+  <#--</div>-->
+  <#--<div class="con-row clearfix">-->
+  <#--<strong class="pull-left">价格：</strong>-->
+  <#--</div>-->
+    <div class="con-row clearfix">
+      <strong class="pull-left">交通：</strong>
+    </div>
+  </div>
+</div>
+</#macro>
+
 <#macro inland_travel_module mock_region=true>
 <div class="destination mt10 bg_lgray">
 <h2 class="fc_white f14">国内旅游</h2>

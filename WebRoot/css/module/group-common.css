@@ -1,0 +1,106 @@
+/*@import "youlema.com/abroad.css";*/
+
+/*.destination {*/
+/*border: solid 2px #8bb267; *//*width:196px;*/
+/*}*/
+
+/*.destination h2, .destination h3 {*/
+/*margin: 0*/
+/*}*/
+
+/*.destination h2 {*/
+/*height: 30px;*/
+/*padding-left: 12px;*/
+/*line-height: 30px;*/
+/*}*/
+
+/*.destination .f14 {*/
+/*font-size: 14px;*/
+/*}*/
+
+/*.des_sort {*/
+/*border-bottom: solid 1px #ededed;*/
+/*padding: 6px 0 3px 10px;*/
+/*_padding: 5px 0 2px 10px;*/
+/*overflow: hidden;*/
+/*}*/
+
+/*.destination h3 {*/
+/*color: #418800;*/
+/*width: 100%;*/
+/*clear: both;*/
+/*font-size: 12px;*/
+/*height: 14px;*/
+/*line-height: 14px;*/
+/*}*/
+
+/*.des_sort em {*/
+/*}*/
+
+/*.destination p {*/
+/*padding: 5px 0;*/
+/*}*/
+
+/*.destination p a {*/
+/*margin-right: 6px;*/
+/*white-space: nowrap;*/
+/*float: left;*/
+/*}*/
+
+/*.destination p.twoline{max-height:33px;_height:expression((document.documentElement.clientHeight||document.body.clientHeight)<33?"33px":"");overflow:hidden;}*/
+/*.destination p.threeline{max-height:53px;_height:expression((document.documentElement.clientHeight||document.body.clientHeight)<51?"51px":"");overflow:hidden;}*/
+/*.destination .none {*/
+/*display: none;*/
+/*}*/
+
+/*.destination .des_sortsep:hover .none {*/
+/*display: block;*/
+/*}*/
+
+/*.destination .pr {*/
+/*position: relative;*/
+/*}*/
+
+.conditions {
+  /*background-color: #e9eae6;*/
+  padding: 10px 10px 4px;
+}
+
+.top-search select {
+  font-size: 12px;
+  width: auto !important;
+  margin-right: 10px;
+}
+
+.search-input {
+  margin-left: 5px;
+  width: 160px;
+}
+
+.product {
+  margin-bottom: 20px;
+  line-height: 24px;
+}
+
+.product .title {
+  font-size: 14px;
+}
+
+.product .price-value {
+  color: #f60;
+  font-size: 18px;
+}
+
+.nav-con {
+  position: relative;
+}
+
+.nav-con .col-sort {
+  position: absolute;
+  top: 10px;
+  right: 0;
+}
+
+.nav-con .col-sort a {
+  margin-right: 10px;
+}
