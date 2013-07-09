@@ -39,6 +39,7 @@ public class OrderController {
     public String orderInfo(@RequestParam("id") long orderId, ModelMap modelMap) {
         OrderDetailVo detailVo = orderService.getOrderById(orderId);
         modelMap.put("order", detailVo);
+        modelMap.put("contracts", detailVo.getContractItems());
         return "order-manage-process";
     }
 
