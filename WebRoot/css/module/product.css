@@ -1,3 +1,5 @@
+@import "product-common.css";
+
 .basic-info {
   position: relative;
   margin-bottom: 10px;
@@ -77,11 +79,4 @@
 .sidebar .plan {
   padding: 5px 0;
   border-bottom: 1px solid #ffa500;
-}
-
-.nav.fixed {
-  position: fixed;
-  top: 40px;
-  width: 980px;
-  background-color: #fff;
 }

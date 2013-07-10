@@ -1,0 +1,64 @@
+.mod-body {
+  position: relative;
+}
+
+.action-list {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+}
+
+.group-info {
+  margin-top: 10px;
+}
+
+.group-info li {
+  position: relative;
+  float: left;
+  width: 300px;
+  line-height: 24px;
+  margin-right: 10px;
+}
+
+.user-list p {
+  margin-bottom: 5px;
+}
+
+.group-info .popover {
+  top: -160px;
+  left: -70px;
+}
+
+.group-info .popover .icon-remove {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.group-info .popover-content {
+  width: 280px;
+}
+
+.group-info .popover-content img {
+  float: left;
+  margin-top: 10px;
+  width: 70px;
+  height: 70px;
+}
+
+.nav.fixed {
+  position: fixed;
+  top: 40px;
+  width: 980px;
+  background-color: #fff;
+}
+
+.product-body h5 {
+  font-size: 14px;
+  font-family: "Microsoft YaHei";
+}
+
+.product-body pre {
+  border: 0 none;
+}

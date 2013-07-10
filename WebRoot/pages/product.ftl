@@ -125,7 +125,7 @@
           <div id="J_tab_content">
 
           </div>
-          <div data-spy="scroll" data-target="#J_tab" data-offset="0">
+          <div data-spy="scroll" data-target="#J_tab" data-offset="0" class="product-body">
             <h5 id="route">产品行程</h5>
             <div>
               <pre>
@@ -218,7 +218,7 @@
             </div>
             <h5 id="order">预订订单</h5>
             <div>
-              <table class="table">
+              <table class="table table-bordered">
                 <thead>
                 <tr>
                   <th>

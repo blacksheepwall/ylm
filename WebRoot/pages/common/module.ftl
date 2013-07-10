@@ -226,37 +226,42 @@
 <#macro group_tour_condition>
 <div class="<#--mod-body-->">
   <div class="clearfix">
-    <div class="input-append pull-left">
-      <input class="search-input" type="text" placeholder="线路名称、途径城市、游览景点">
-      <button class="btn btn-success" type="button"><i class="icon-search"></i> 搜索</button>
-    </div>
-    <div class="top-search pull-left form-horizontal">
-      <strong>线路分类：</strong>
-      <select>
-        <option value="所有">所有</option>
-        <option value="出境线路">出境线路</option>
-        <option value="港澳台">港澳台</option>
-        <option value="出境线路">国内</option>
-      </select>
-      <strong>天数：</strong>
-      <input type="text" readonly class="input-small date-box"><strong> 至 </strong><input type="text" readonly class="input-small date-box">
-      <strong> 单人预算：</strong>
-      <input type="text" class="input-small"><strong> 至 </strong><input type="text" class="input-small">
-    </div>
-  </div>
-  <div id="J_condition" class="mod-condition">
-    <div class="con-row clearfix">
-      <strong class="pull-left">出发城市：</strong>
-    </div>
-  <#--<div class="con-row clearfix">-->
-  <#--<strong class="pull-left">天数：</strong>-->
-  <#--</div>-->
-  <#--<div class="con-row clearfix">-->
-  <#--<strong class="pull-left">价格：</strong>-->
-  <#--</div>-->
-    <div class="con-row clearfix">
-      <strong class="pull-left">交通：</strong>
-    </div>
+    <ul class="top-search mod-condition mod-body form-horizontal">
+      <li class="con-row">
+        <strong>关键字：</strong>
+        <input class="search-input" type="text" placeholder="线路名称、途径城市、游览景点">
+      </li>
+      <li class="con-row">
+        <strong>线路分类：</strong>
+        <select>
+          <option value="所有">所有</option>
+          <option value="出境线路">出境线路</option>
+          <option value="港澳台">港澳台</option>
+          <option value="出境线路">国内</option>
+        </select>
+        <strong>天数：</strong>
+        <input type="text" readonly class="input-small date-box"><strong> ~ </strong><input type="text" readonly class="input-small date-box">
+        <strong> 单人预算：</strong>
+        <input type="text" class="input-small"><strong> ~ </strong><input type="text" class="input-small">
+      </li>
+      <li id="J_condition">
+        <div class="con-row clearfix">
+          <strong class="pull-left">出发城市：</strong>
+        </div>
+      <#--<div class="con-row clearfix">-->
+      <#--<strong class="pull-left">天数：</strong>-->
+      <#--</div>-->
+      <#--<div class="con-row clearfix">-->
+      <#--<strong class="pull-left">价格：</strong>-->
+      <#--</div>-->
+        <div class="con-row clearfix">
+          <strong class="pull-left">交通：</strong>
+        </div>
+      </li>
+      <li class="con-row">
+        <button class="btn btn-success" type="button"><i class="icon-search"></i> 搜索</button>
+      </li>
+    </ul>
   </div>
 </div>
 </#macro>

@@ -1,1 +1,13 @@
 @import "group-common.css";
+
+.mod-condition .keyword {
+  margin-left: 20px;
+}
+
+.mod-condition .search-input {
+  width: 300px;
+}
+
+.mod-condition {
+  margin-bottom: 10px;
+}
