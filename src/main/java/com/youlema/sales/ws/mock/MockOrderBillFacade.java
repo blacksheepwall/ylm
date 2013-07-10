@@ -70,6 +70,7 @@ public class MockOrderBillFacade implements OrderBillFacade {
         
         fdo.setOrderCustomBeanList(orderCustomBeanList);
         foBillFdos.add(fdo);
+        result.setOrderBillBean(fdo);
         result.setSuccess(true);
         result.setList(foBillFdos);
         return result;

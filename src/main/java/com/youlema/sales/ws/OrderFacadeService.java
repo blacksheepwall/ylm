@@ -31,9 +31,14 @@ public class OrderFacadeService {
     public OrderBillFdo getOrderFdo(long orderId) {
         OrderBillResult result = orderBillFacade.getById(orderId);
         if (result.isSuccess() && result.getList().size() > 0) {
-            return result.getList().get(0);
+            return result.getOrderBillBean();
         }
         return null;
+    }
+    
+    public OrderBillResult getOrderBillResult(long orderId){
+        OrderBillResult result = orderBillFacade.getById(orderId);
+        return result;
     }
 
     /**
@@ -64,7 +69,7 @@ public class OrderFacadeService {
                 OrderCustomFdo customFdo = result.getOrderCustomFdo();
                 if (customFdo != null && !customFdo.getIsCanceled()) {
                     customFdo.setIsCanceled(true);
-                    // orderCustomFacade.update(customFdo);
+//                     orderCustomFacade.update(customFdo);
                 }
             }
         }

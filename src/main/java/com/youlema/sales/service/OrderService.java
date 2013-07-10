@@ -213,7 +213,8 @@ public class OrderService {
      * @return
      */
     public OrderDetailVo getOrderById(long orderId) {
-        OrderBillFdo fdo = orderFacadeService.getOrderFdo(orderId);
+        OrderBillResult orderBillResult = orderFacadeService.getOrderBillResult(orderId);
+        OrderBillFdo fdo = orderBillResult.getOrderBillBean();
         if (fdo == null) {
             return null;
         }
@@ -223,6 +224,7 @@ public class OrderService {
         if (product == null || showProduct == null) {
             return null;
         }
+        
         List<SalesBargainFdo> bargainList = fdo.getSalesBargainList();
         
         List<ContractItemVo> contractItemVos = new ArrayList<ContractItemVo>();
