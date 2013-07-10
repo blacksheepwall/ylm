@@ -424,7 +424,7 @@
                     ${ct.memo}
                     </td>
                     <td>
-                      <a href="">代理已签收</a>
+                      <a href="">${order.contractStatus}</a>
                     </td>
                   </tr>
                   </#list>
