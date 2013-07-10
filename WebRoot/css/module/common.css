@@ -46,6 +46,10 @@ input[type="color"],
   border-radius: 0;
 }
 
+input[disabled], select[disabled], textarea[disabled], input[readonly], select[readonly], textarea[readonly] {
+  background-color: #fff;
+}
+
 th, tr, td, .table-bordered {
   border-radius: 0 !important;
 }
