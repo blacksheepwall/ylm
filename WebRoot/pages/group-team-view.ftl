@@ -15,7 +15,7 @@
       </div>
       <div class="row-fluid">
         <div class="mod-body">
-          <h5 class="mod-title">团队基本信息</h5>
+          <h5 class="mod-title"><i class="icon-flag"></i> 团队基本信息</h5>
           <div class="action-list">
             <a class="btn btn-small" href="/main/travel-itinerary" target="_blank"><i class="icon-file-alt"></i> 行程单</a>
           </div>

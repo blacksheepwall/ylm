@@ -1,23 +1,24 @@
-<#-- 预报查看 -->
-<#assign page_name="group-forecast-view"/>
+<#-- 线路查看 -->
+<#assign page_name="group-route-view"/>
 <#include "common/module.ftl"/>
 <#escape x as x?html>
-  <@html title="预报查看">
+  <@html title="线路查看">
     <@body>
     <div class="main-body clearfix">
       <div class="row-fluid">
         <ul class="breadcrumb pull-left">
           <li><a href="/main/">首页</a> <span class="divider">/</span></li>
           <li><a href="/main/group-tour">整团业务</a> <span class="divider">/</span></li>
-          <li><a href="/main/group-forecast">整团预报</a> <span class="divider">/</span></li>
-          <li class="active">预报查看</li>
+          <li><a href="/main/group-route">旅游线路</a> <span class="divider">/</span></li>
+          <li class="active">线路查看</li>
         </ul>
       </div>
       <div class="row-fluid">
         <div class="mod-body">
-          <h5 class="mod-title"><i class="icon-flag"></i> 团队基本信息</h5>
+          <h5 class="mod-title"><i class="icon-map-marker"></i> 新疆吐鲁番、 天池、南山、敦煌丝路风情双飞单卧5日游</h5>
           <div class="action-list">
-            <a class="btn btn-small" href="/main/travel-itinerary" target="_blank"><i class="icon-file-alt"></i> 预报单</a>
+            <span class="muted">最近更新：2013-04-19 12:09</span>
+            <a class="btn btn-small" href="/main/travel-itinerary" target="_blank"><i class="icon-file-alt"></i> 行程单</a>
           </div>
           <#macro user_card_popover dept="" name="" tel="" phone="">
             <div class="popover top">
@@ -37,7 +38,7 @@
             </div>
           </#macro>
           <ul id="J_group_info" class="group-info clearfix">
-            <li><strong>线路名称：</strong></li>
+            <li><strong>线路编号：</strong></li>
             <li><strong>线路分类：</strong></li>
             <li><strong>线路类型：</strong></li>
             <li><strong>旅游天数：</strong></li>
@@ -47,15 +48,9 @@
             <li><strong>出发交通：</strong></li>
             <li><strong>返回口岸：</strong></li>
             <li><strong>返回交通：</strong></li>
-            <li><strong>参考报价：</strong></li>
-            <li><strong>标准人数：</strong></li>
-            <li><strong>报价有效期：</strong></li>
-            <li><strong>产品助理：</strong><a href="">曾俊</a><#noescape><@user_card_popover></@user_card_popover></#noescape></li>
-            <li><strong>适用客户：</strong></li>
-            <li><strong>出行目的：</strong></li>
             <li><strong>行程站点：</strong></li>
             <li><strong>游览景点：</strong></li>
-            <li><strong>产品经理推荐：</strong></li>
+            <li><strong>线路主题：</strong></li>
           </ul>
         </div>
         <div>

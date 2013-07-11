@@ -48,7 +48,7 @@
                 <td>
                 </td>
                 <td>
-                  <a href="/main/group-team-view" target="_blank">海南双飞4晚5日团队游</a>
+                  <a href="/main/group-route-view" target="_blank">海南双飞4晚5日团队游</a>
                 </td>
                 <td>
                   国内线路-海南三亚
