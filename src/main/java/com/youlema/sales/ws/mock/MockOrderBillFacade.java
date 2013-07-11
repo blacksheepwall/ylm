@@ -8,7 +8,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.yolema.tbss.ext.facade.OrderBillFacade;
-import com.yolema.tbss.ext.facade.fdo.order.ClientInfoFdo;
 import com.yolema.tbss.ext.facade.fdo.order.OrderBillFdo;
 import com.yolema.tbss.ext.facade.fdo.order.OrderCustomFdo;
 import com.yolema.tbss.ext.facade.fdo.order.SalesBargainFdo;
@@ -141,13 +140,15 @@ public class MockOrderBillFacade implements OrderBillFacade {
         return result;
     }
 
-    @Override
-    public OrderBillResult getOrderBillView(Long arg0, ClientInfoFdo arg1) {
-        throw new UnsupportedOperationException();
-    }
 
     @Override
     public BaseResult refundReturnSuccess(Long arg0, BigDecimal arg1, String arg2, String arg3) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public OrderBillResult getOrderBillView(Long arg0) {
         // TODO Auto-generated method stub
         return null;
     }

@@ -51,13 +51,20 @@ public class MockTourProductFacade implements TourProductFacade {
 	}
 
 	@Override
-	public TourProductResult queryIndexProduct(String arg0, Integer arg1) {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
 	public ShowProductResult queryProductList(SearchProductFdo arg0, String arg1) {
 		throw new UnsupportedOperationException();
 	}
+
+    @Override
+    public ShowProductResult queryIndexLabelProduct(String arg0, Integer arg1) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public ShowProductResult queryIndexProduct(String promotionType, Integer num) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
 }
