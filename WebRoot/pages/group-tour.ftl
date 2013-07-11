@@ -15,147 +15,91 @@
         <@group_tour_sidebar></@group_tour_sidebar>
         <div class="span10">
           <@group_tour_condition></@group_tour_condition>
-        <#--<div class="mod-body">-->
-            <#--<div class="clearfix">-->
-              <#--<div class="top-search pull-left form-horizontal">-->
-                <#--<strong>线路分类：</strong>-->
-                <#--<select>-->
-                  <#--<option value="所有">所有</option>-->
-                  <#--<option value="出境线路">出境线路</option>-->
-                  <#--<option value="港澳台">港澳台</option>-->
-                  <#--<option value="出境线路">国内</option>-->
-                <#--</select>-->
-                <#--<strong>出发日期：</strong>-->
-                <#--<input type="text" readonly class="input-small date-box"><strong> 至 </strong><input type="text" readonly class="input-small date-box">-->
-              <#--</div>-->
-              <#--<div class="input-append pull-left">-->
-                <#--<input class="search-input" type="text">-->
-                <#--<button class="btn btn-success" type="button"><i class="icon-search"></i> 搜索</button>-->
-                <#--<button class="btn" type="button">高级查找</button>-->
-              <#--</div>-->
-            <#--</div>-->
-            <#--<div id="J_condition" class="conditions mod-condition">-->
-              <#--<div class="con-row clearfix">-->
-                <#--<strong class="pull-left">出发城市：</strong>-->
-              <#--</div>-->
-              <#--<div class="con-row clearfix">-->
-                <#--<strong class="pull-left">天数：</strong>-->
-              <#--</div>-->
-              <#--<div class="con-row clearfix">-->
-                <#--<strong class="pull-left">价格：</strong>-->
-              <#--</div>-->
-              <#--<div class="con-row clearfix">-->
-                <#--<strong class="pull-left">交通：</strong>-->
-              <#--</div>-->
-            <#--</div>-->
-          <#--</div>-->
-          <div class="nav-con">
-            <ul id="J_tab" class="nav nav-tabs">
-              <li class="active">
-                <a href="#"><i class="icon-calendar"></i> 计划查看</a>
-              </li>
-              <li><a href="#"><i class="icon-group"></i> 团队查看</a></li>
-            </ul>
-            <div id="J_sort" class="col-sort">
-              <a href="#"><i class="icon-arrow-up"></i> 出发日期</a>
-              <a href="#"><i class="icon-arrow-up"></i> 最低价格</a>
-            </div>
-          </div>
-          <div id="J_tab_content">
-            <div>
-              <ul id="J_product_list">
-                <#assign product_item>
-                <li>
-                  <div class="product" style="display: block;">
-                    <div class="clearfix">
-                      <div class="pull-left">
-                        <div>
-                          <span class="label label-success">特价</span>
-                          <a class="title" href="/product/detail?id=1"><strong>东航直飞巴厘岛5晚6日至尊逍遥之旅</strong></a>
-                          <span>4晚5天</span>
-                          <span class="label label-warning">国内线路-三亚海南</span>
-                        </div>
-                        <div class="muted">带您玩最美的黄山，泡真正的黄山温泉。</div>
-                      </div>
-                      <div class="pull-right">
-                        <span class="label label-info">蜜月 亲子 度假</span>
-                        <div>线路主题</div>
-                      </div>
-                    </div>
-                    <div class="row-fluid">国际5*酒店+国际5*独栋泳池别墅+蓝钻岛 -----产品经理推荐</div>
-                    <div class="clearfix">
-                      <div class="pull-left">
-                        <strong>产品日期：</strong>
-                        <span>2013.06.05</span>
-                        <span>2013.06.05</span>
-                        <span>2013.06.05</span>
-                        <a href="">更多</a></div>
-                      <div class="pull-right">
-                        <strong class="price-title">价格：</strong><span class="price-value">￥2500起</span>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                </#assign>
-                <#noescape>${product_item}</#noescape>
-                <#noescape>${product_item}</#noescape>
-                <#noescape>${product_item}</#noescape>
-              </ul>
-              <@pagination></@pagination>
-            </div>
-            <div style="display: none;">
+          <div class="mod-body">
+            <h5 class="mod-title">未结团整团</h5><a href="/main/group-team" class="group-team">所有团队</a>
+            <div class="content">
               <table class="table table-hover table-bordered">
                 <thead>
                 <tr>
                   <th>
-                    产品
+                    团队编号
                   </th>
                   <th>
-                    日期
+                    线路名称
                   </th>
                   <th>
-                    成团
+                    旅游天数
                   </th>
                   <th>
-                    门市价格
+                    出发口岸
                   </th>
                   <th>
-                    结算价格
+                    出发日期
                   </th>
                   <th>
-                    剩余
+                    计划
                   </th>
                   <th>
-                    预订
+                    实际
+                  </th>
+                  <th>
+                    计调状态
+                  </th>
+                  <th>
+                    拼团
                   </th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                   <td>
-                    <a href="/product/detail?id=1" target="_blank">海南三亚双飞5日游YGNHD039PS130408A<尾单></a>
+                    <a href="/main/group-team-view" target="_blank">YGNHD039PS130408A</a>
                   </td>
                   <td>
-                    04-08
+                    夏威夷4晚6天
                   </td>
                   <td>
-                    已成团
+                    4晚6天
                   </td>
                   <td>
-                    6889.00
+                    上海
                   </td>
                   <td>
+                    2013-04-08
                   </td>
                   <td>
-                    20
+                    15人
                   </td>
                   <td>
-                    <a href="/product/detail?id=1" target="_blank">预订</a>
+                    18人
+                  </td>
+                  <td>
+                    落实中
+                  </td>
+                  <td>
+                    否
                   </td>
                 </tr>
                 </tbody>
               </table>
               <@pagination></@pagination>
+            </div>
+          </div>
+          <div class="mod-body">
+            <h5 class="mod-title">整团预报推荐</h5><a href="/main/group-forecast" class="group-team">所有报价</a>
+            <div class="media clearfix">
+              <a class="pull-left" href="/main/group-forecast-view">
+                <img data-src="holder.js/140x140" class="img-rounded" alt="140x140" style="width: 140px; height: 140px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAYAAACuwEE+AAAEIElEQVR4Xu3XwStlYQDG4e8WIsmGyEayxFr5961sZEXKgkRWVxIrzPSdOpM57nDfmXtvufPYzXi7x/zOM985ev1+/0fxpcCQBXrADFnKrCkADAhRAWCiXMbAMBAVACbKZQwMA1EBYKJcxsAwEBUAJsplDAwDUQFgolzGwDAQFQAmymUMDANRAWCiXMbAMBAVACbKZQwMA1EBYKJcxsAwEBUAJsplDAwDUQFgolzGwDAQFQAmymUMDANRAWCiXMbAMBAVACbKZQwMA1EBYKJcxsAwEBUAJsplDAwDUQFgolzGwDAQFQAmymUMDANRAWCiXMbAMBAVACbKZQwMA1EBYKJcxsAwEBUAJsplDAwDUQFgolzGwDAQFQAmymUMDANRAWCiXMbAMBAVACbKZQwMA1EBYKJcxsAwEBUAJsplDAwDUQFgolzGwDAQFQAmymUMDANRAWCiXMbAMBAVmAow19fX5erqquzv75fZ2dkPAbrfr38+Pz//tVtbWyt7e3tDh5v09Yb+wSYw/PZgjo+PS7/fL/Pz8wPB1O+dnJyUubm55vu9Xq8cHh6WlZWVBsnZ2Vm5ubkpu7u7ZX19/cvkk77elz/QhAffGky92RXCw8NDeX5+/gDm5eWlwfH6+voL1N3dXXO6tEBaUJubm2V7e/vT/JO+3oQtDHW5bw2m/RfW//WDwNS/f3p6ak6V+lVPmIuLi3J7e1sODg7KwsJCaVHVE2dmZqY5bba2tho87aOr+8ga1fWSx+BQd3MCo6kF0z5qdnZ2yuXlZXPKfAXm/SNqeXm5ObkGvd8MAvO315vAPR7pJaYSTPuYWV1dLRXM0dHR0GBq3fY9ZWlpqUHW/eqC+dfrjfSOjvnDphJMe8O77SqAjY2NT99hBr33dH/z6oL5l+uN+f6O/OOnEsz7Sm9vb7+dMI+Pj81vTfX0aR9B799p6s2/v79vTqbT09OyuLj44ZT50ztMvW56vZHf0TF/4H8Hpp4W7ftG27Z9yW1Piu5Lb/fRlID57Hpjvrdj+fipADOWMj50YAFgwIgKABPlMgaGgagAMFEuY2AYiAoAE+UyBoaBqAAwUS5jYBiICgAT5TIGhoGoADBRLmNgGIgKABPlMgaGgagAMFEuY2AYiAoAE+UyBoaBqAAwUS5jYBiICgAT5TIGhoGoADBRLmNgGIgKABPlMgaGgagAMFEuY2AYiAoAE+UyBoaBqAAwUS5jYBiICgAT5TIGhoGoADBRLmNgGIgKABPlMgaGgagAMFEuY2AYiAoAE+UyBoaBqAAwUS5jYBiICgAT5TIGhoGoADBRLmNgGIgKABPlMgaGgagAMFEuY2AYiAoAE+UyBoaBqAAwUS5jYBiICgAT5TIGhoGoADBRLmNgGIgKABPlMgaGgagAMFEuY2AYiAr8BEtvBLVi8MZpAAAAAElFTkSuQmCC">
+              </a>
+              <div class="media-body">
+                <h4 class="media-heading">雪山、香格里拉尊贵双飞五日游</h4>
+                <p class="price-body">参考报价： <strong class="price">3299.00</strong> 每人</p>
+                <p><strong>行程天数：</strong>4晚5天 <strong>出发口岸：</strong>杭州 <strong>往返交通：</strong>飞机</span></p>
+                <p><strong>有效期：</strong>2013-05-01/2013-06-08</p>
+                <p><strong>适用客户：</strong>国企/政府单位   医疗   高新   媒体   教育   老年团体   学生团体 </p>
+                <p><strong>出行目的：</strong>奖励旅游</p>
+                <p class="text-error">产品经理推荐：安排杭州直飞丽江航班，节省交通时间、避免路途颠簸。全程精选优质酒店，并特别安排世界上最高的实景演出剧场－丽江《印象丽江秀》，让您藉由观赏大型的歌舞表演，深入了解当地文化，丰富您的旅程</p>
+              </div>
             </div>
           </div>
         </div>
