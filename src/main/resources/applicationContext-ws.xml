@@ -13,7 +13,6 @@
     http://www.springframework.org/schema/util/spring-util-3.0.xsd
     http://www.springframework.org/schema/context 
     http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-
 	<bean id="client" class="com.youlema.sales.ws.IHelloWorldService"
 		factory-bean="clientFactory" factory-method="create" />
 

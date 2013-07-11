@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.yolema.tbss.ext.facade.agents.BulletinFacade;
+import com.yolema.tbss.ext.facade.BulletinFacade;
 import com.yolema.tbss.ext.facade.fdo.sys.BulletinFdo;
 import com.yolema.tbss.ext.facade.result.BulletinResult;
 
