@@ -1,0 +1,22 @@
+.message-detail {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-top: 2px #08c solid;
+}
+
+.control-label {
+  font-size: 12px;
+}
+
+.attachment {
+  margin-left: 2em;
+}
+
+.reply {
+  margin-top: 10px;
+}
+
+.reply textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
