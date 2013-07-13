@@ -65,7 +65,7 @@
                     <div class="product-main">
                       <div>
                         <span class="label label-success">【机票+酒店】</span>
-                        <a class="title" href="/product/detail?id=1"><strong>香港常规双园3晚4天亲子自由行</strong></a>
+                        <a class="title" href="/main/free-travel-view"><strong>香港常规双园3晚4天亲子自由行</strong></a>
                         <span class="text-warning">香港航空，包含迪士尼1日门票，海洋公园1日门票</span>
                         <div class="muted">直航往返，轻松便捷、全程5星标准酒店（3晚入住五星酒店），全程舒适大床双标房、全程用餐自理，尽享香港美食天堂的魅力、自由活动，尽情享受购物乐趣</div>
                         <div>
@@ -96,60 +96,6 @@
               <#noescape>${product_item}</#noescape>
               <#noescape>${product_item}</#noescape>
             </ul>
-            <@pagination></@pagination>
-          </div>
-          <div style="display: none;">
-            <table class="table table-hover table-bordered">
-              <thead>
-              <tr>
-                <th>
-                  产品
-                </th>
-                <th>
-                  日期
-                </th>
-                <th>
-                  成团
-                </th>
-                <th>
-                  门市价格
-                </th>
-                <th>
-                  结算价格
-                </th>
-                <th>
-                  剩余
-                </th>
-                <th>
-                  预订
-                </th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <td>
-                  <a href="/product/detail?id=1" target="_blank">海南三亚双飞5日游YGNHD039PS130408A<尾单></a>
-                </td>
-                <td>
-                  04-08
-                </td>
-                <td>
-                  已成团
-                </td>
-                <td>
-                  6889.00
-                </td>
-                <td>
-                </td>
-                <td>
-                  20
-                </td>
-                <td>
-                  <a href="/product/detail?id=1" target="_blank">预订</a>
-                </td>
-              </tr>
-              </tbody>
-            </table>
             <@pagination></@pagination>
           </div>
         </div>

@@ -39,7 +39,7 @@
                 <li <#if "product,inland-travel"?contains(page_name)>class="active"</#if>>
                   <a href="/inland/">国内游</a>
                 </li>
-                <li <#if "free-travel"?contains(page_name)>class="active"</#if>>
+                <li <#if "free-travel,free-travel-view"?contains(page_name)>class="active"</#if>>
                   <a href="/main/free-travel">自由行</a>
                 </li>
                 <li <#if page_name?contains("group")>class="active"</#if>>
