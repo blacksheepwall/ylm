@@ -482,3 +482,14 @@
   <a href="javascript:;" class="last" data-action="last" title="末页">&raquo;</a>
 </div>
 </#macro>
+
+<#macro product_date_list>
+<div class="product-date pull-left">
+  <strong>日期：</strong>
+  <a href="javascript:;" class="date-value">2013.06.05</a>
+  <a href="javascript:;" class="date-value">2013.06.05</a>
+  <a href="javascript:;" class="date-value">2013.06.05</a>
+  <a href="javascript:;" class="date-value">2013.06.05</a>
+  <a href="javascript:;" class="date-more">更多</a>
+</div>
+</#macro>

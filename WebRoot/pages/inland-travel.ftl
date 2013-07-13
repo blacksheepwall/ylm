@@ -117,12 +117,7 @@
                   </div>
                   <div class="row-fluid">国际5*酒店+国际5*独栋泳池别墅+蓝钻岛 -----产品经理推荐</div>
                   <div class="clearfix">
-                    <div class="pull-left">
-                      <strong>产品日期：</strong>
-                      <span>2013.06.05</span>
-                      <span>2013.06.05</span>
-                      <span>2013.06.05</span>
-                      <a href="">更多</a></div>
+                    <@product_date_list></@product_date_list>
                     <div class="pull-right">
                       <strong class="price-title">价格：</strong><span class="price-value">￥2500起</span>
                     </div>

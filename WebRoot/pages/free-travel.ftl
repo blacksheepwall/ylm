@@ -4,7 +4,7 @@
 <#escape x as x?html>
   <@html title="自由行">
     <@body>
-    <div class="inland-body main-body clearfix">
+    <div class="free-travel main-body clearfix">
       <div>
         <ul id="J_condition" class="mod-body conditions mod-condition form-horizontal">
           <li class="con-row">
@@ -55,18 +55,6 @@
             </ul>
           </li>
         </ul>
-        <div class="nav-con">
-          <ul id="J_tab" class="nav nav-tabs">
-            <li class="active">
-              <a href="#"><i class="icon-calendar"></i> 计划查看</a>
-            </li>
-            <li><a href="#"><i class="icon-group"></i> 团队查看</a></li>
-          </ul>
-          <div id="J_sort" class="col-sort">
-            <a href="#"><i class="icon-arrow-up"></i> 出发日期</a>
-            <a href="#"><i class="icon-arrow-up"></i> 最低价格</a>
-          </div>
-        </div>
         <div id="J_tab_content">
           <div>
             <ul id="J_product_list">
@@ -74,30 +62,31 @@
               <li>
                 <div class="product" style="display: block;">
                   <div class="clearfix">
-                    <div class="pull-left">
+                    <div class="product-main">
                       <div>
-                        <span class="label label-success">特价</span>
-                        <a class="title" href="/product/detail?id=1"><strong>东航直飞巴厘岛5晚6日至尊逍遥之旅</strong></a>
-                        <span>4晚5天</span>
-                        <span class="label label-warning">国内线路-三亚海南</span>
+                        <span class="label label-success">【机票+酒店】</span>
+                        <a class="title" href="/product/detail?id=1"><strong>香港常规双园3晚4天亲子自由行</strong></a>
+                        <span class="text-warning">香港航空，包含迪士尼1日门票，海洋公园1日门票</span>
+                        <div class="muted">直航往返，轻松便捷、全程5星标准酒店（3晚入住五星酒店），全程舒适大床双标房、全程用餐自理，尽享香港美食天堂的魅力、自由活动，尽情享受购物乐趣</div>
+                        <div>
+                          天数：3晚4天
+                          出发口岸(地)：杭州
+                          主题：游乐园 蜜月 亲子 购物
+                        </div>
+                        <@product_date_list></@product_date_list>
                       </div>
-                      <div class="muted">带您玩最美的黄山，泡真正的黄山温泉。</div>
                     </div>
-                    <div class="pull-right">
-                      <span class="label label-info">蜜月 亲子 度假</span>
-                      <div>线路主题</div>
-                    </div>
-                  </div>
-                  <div class="row-fluid">国际5*酒店+国际5*独栋泳池别墅+蓝钻岛 -----产品经理推荐</div>
-                  <div class="clearfix">
-                    <div class="pull-left">
-                      <strong>产品日期：</strong>
-                      <span>2013.06.05</span>
-                      <span>2013.06.05</span>
-                      <span>2013.06.05</span>
-                      <a href="">更多</a></div>
-                    <div class="pull-right">
-                      <strong class="price-title">价格：</strong><span class="price-value">￥2500起</span>
+                    <div class="product-more">
+                      <div class="text-center">
+                        <strong class="price-title">价格：</strong><span class="price-value">￥2500起</span>
+                      </div>
+                      <div class="text-center">
+                        <span class="label label-warning">促销</span>
+                        <span class="label label-warning">尾单</span>
+                      </div>
+                      <div class="show-detail text-center">
+                        <a class="btn btn-success btn-small" href="">查看详情</a>
+                      </div>
                     </div>
                   </div>
                 </div>

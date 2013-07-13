@@ -1,3 +1,9 @@
+@import "group-common.css";
+
+.search-input {
+  width: 400px;
+}
+
 .message-detail {
   padding: 10px;
   border: 1px solid #ccc;
@@ -19,4 +25,18 @@
 .reply textarea {
   width: 100%;
   box-sizing: border-box;
+}
+
+.product-main {
+  float: left;
+  width: 800px;
+}
+
+.product-more {
+  float: right;
+  width: 150px;
+}
+
+.product-more .show-detail {
+  margin-top: 10px;
 }
