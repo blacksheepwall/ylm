@@ -1,0 +1,57 @@
+@import "product-common.css";
+
+.product {
+  overflow: hidden;
+  margin-bottom: 20px;
+  padding-bottom: 4px;
+  line-height: 24px;
+  border-bottom: 1px solid #ccc;
+}
+
+.product .title {
+  margin: 0 4px;
+  font-size: 14px;
+  font-family: "microsoft yahei";
+}
+
+.product .price-value {
+  color: #f60;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.product .product-date {
+  width: 100%;
+}
+
+.product .product-date .date-value {
+  margin-right: 15px;
+}
+
+.product .product-date .date-more {
+  float: right;
+  margin-left: 30px;
+}
+
+.product .product-main {
+  float: left;
+  width: 770px;
+}
+
+.product .product-more {
+  float: right;
+  width: 150px;
+  margin-bottom: -9999px;
+  padding-bottom: 9999px;
+  border-left: 1px dashed #ccc;
+}
+
+.product .product-more .product-price {
+  text-align: center;
+}
+
+.product .product-more .product-price .price-title {
+  vertical-align: top;
+  font-weight: normal !important;
+}
+

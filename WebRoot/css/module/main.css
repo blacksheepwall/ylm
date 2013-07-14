@@ -127,6 +127,7 @@
 .mod-product .price {
   float: right;
   font-size: 20px;
+  font-weight: bold;
   color: #f60;
 }
 

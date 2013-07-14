@@ -151,6 +151,14 @@ table thead label input[type="checkbox"] {
   vertical-align: -2px;
 }
 
+.label {
+  border-radius: 0;
+}
+
+.text-warning {
+  color: #f60;
+}
+
 .nav-login {
   width: 200px;
   padding: 0 10px;

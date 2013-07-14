@@ -58,43 +58,11 @@
         <div id="J_tab_content">
           <div>
             <ul id="J_product_list">
-              <#assign product_item>
-              <li>
-                <div class="product" style="display: block;">
-                  <div class="clearfix">
-                    <div class="product-main">
-                      <div>
-                        <span class="label label-success">【机票+酒店】</span>
-                        <a class="title" href="/main/free-travel-view"><strong>香港常规双园3晚4天亲子自由行</strong></a>
-                        <span class="text-warning">香港航空，包含迪士尼1日门票，海洋公园1日门票</span>
-                        <div class="muted">直航往返，轻松便捷、全程5星标准酒店（3晚入住五星酒店），全程舒适大床双标房、全程用餐自理，尽享香港美食天堂的魅力、自由活动，尽情享受购物乐趣</div>
-                        <div>
-                          天数：3晚4天
-                          出发口岸(地)：杭州
-                          主题：游乐园 蜜月 亲子 购物
-                        </div>
-                        <@product_date_list></@product_date_list>
-                      </div>
-                    </div>
-                    <div class="product-more">
-                      <div class="text-center">
-                        <strong class="price-title">价格：</strong><span class="price-value">￥2500起</span>
-                      </div>
-                      <div class="text-center">
-                        <span class="label label-warning">促销</span>
-                        <span class="label label-warning">尾单</span>
-                      </div>
-                      <div class="show-detail text-center">
-                        <a class="btn btn-success btn-small" href="">查看详情</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              </#assign>
-              <#noescape>${product_item}</#noescape>
-              <#noescape>${product_item}</#noescape>
-              <#noescape>${product_item}</#noescape>
+              <#noescape><@product_item_type1></@product_item_type1></#noescape>
+              <#noescape><@product_item_type1></@product_item_type1></#noescape>
+              <#noescape><@product_item_type1></@product_item_type1></#noescape>
+              <#noescape><@product_item_type1></@product_item_type1></#noescape>
+              <#noescape><@product_item_type1></@product_item_type1></#noescape>
             </ul>
             <@pagination></@pagination>
           </div>

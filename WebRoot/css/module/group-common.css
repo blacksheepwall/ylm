@@ -1,3 +1,5 @@
+@import "product-list-common.css";
+
 /*@import "youlema.com/abroad.css";*/
 
 /*.destination {*/
@@ -75,30 +77,6 @@
 .search-input {
   margin-left: 5px;
   width: 160px;
-}
-
-.product {
-  margin-bottom: 20px;
-  line-height: 24px;
-  border-bottom: 1px solid #ddd;
-}
-
-.product .title {
-  font-size: 14px;
-  font-family: "microsoft yahei";
-}
-
-.product .price-value {
-  color: #f60;
-  font-size: 18px;
-}
-
-.product .product-date .date-value {
-  margin-right: 15px;
-}
-
-.product .product-date .date-more {
-  margin-left: 30px;
 }
 
 .nav-con {
