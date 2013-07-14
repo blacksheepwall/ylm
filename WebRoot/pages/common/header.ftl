@@ -67,7 +67,7 @@
                   <div class="info">
                     <div class="clearfix">
                       <span class="pull-left"><i class="icon-user"></i> 刘思成(业务操作员) </span>
-                      <span class="pull-right nav-signout"><i class="icon-signout"></i> 退出</span>
+                      <a href="/u/logout" class="pull-right nav-signout"><i class="icon-signout"></i> 退出</a>
                     </div>
                     <div class="clearfix">
                       <a href="/u/msglist/" class="pull-left nav-message"><i class="icon-envelope"></i> 消息(3)</a>

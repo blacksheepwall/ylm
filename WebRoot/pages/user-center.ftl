@@ -33,9 +33,9 @@
               <label class="control-label"><strong>最近登录</strong>：2013年6月14日 22:18:27</label>
             </div>
             <div class="user-panel">
-              <a href="javascript:;">设置头像</a>
-              <a href="javascript:;">修改密码</a>
-              <a href="javascript:;">修改个人信息</a>
+              <a href="/u/setup/">设置头像</a>
+              <a href="/u/changepass/">修改密码</a>
+              <a href="/u/setup/">修改个人信息</a>
             </div>
           </div>
           <div class="mod-body clearfix">

@@ -15,19 +15,24 @@
       <div class="row-fluid">
         <@user_center_sidebar></@user_center_sidebar>
         <div class="span10 manage-body">
-          <div class="mod-body clearfix">
-            <ul class="nav nav-tabs">
-              <li class="active">
-                <a href="#">已接收</a>
-              </li>
-              <li><a href="#">已发送</a></li>
-              <li class="send-btn"><a href="/main/user-center-send-message">发送消息</a></li>
-            </ul>
-            <table class="table table-hover table-bordered">
+          <ul id="J_tab" class="nav nav-tabs">
+            <li class="active">
+              <a href="#"><i class="icon-signin"></i> 已接收</a>
+            </li>
+            <li>
+              <a href="#"><i class="icon-signout"></i> 已发送</a>
+            </li>
+          </ul>
+          <div class="send-btn">
+            <a href="/main/user-center-send-message"><i class="icon-envelope-alt"></i> 发送消息</a>
+          </div>
+          <div id="J_tab_content">
+            <#macro table_body style="display:none;">
+            <table class="table table-hover table-bordered" style="${style}">
               <thead>
               <tr>
                 <th>
-                  选择
+                  <label><input id="J_check_all" type="checkbox" value="全选">全选</label>
                 </th>
                 <th>
                   序号
@@ -60,7 +65,8 @@
                   <a href="/main/user-center-message/">收款通知</a>
                 </td>
                 <td>
-                  预览  下载
+                  <a href="javascript:;"><i class="icon-search"></i> 预览</a>
+                  <a href="javascript:;"><i class="icon-download-alt"></i> 下载</a>
                 </td>
                 <td>
                   2013年6月14日 23:22:42
@@ -69,11 +75,15 @@
                   2013年6月14日 23:22:42
                 </td>
                 <td>
-                  <a href="">查看  回复</a>
+                  <a href=""><i class="icon-eye-open"></i> 查看 </a>
+                  <a href=""><i class="icon-reply"></i> 回复</a>
                 </td>
               </tr>
               </tbody>
             </table>
+            </#macro>
+            <#noescape ><@table_body style="display:table;"></@table_body></#noescape>
+            <#noescape ><@table_body></@table_body></#noescape>
           </div>
         </div>
       </div>

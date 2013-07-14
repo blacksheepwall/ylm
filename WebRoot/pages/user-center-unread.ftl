@@ -57,7 +57,8 @@
                   2013年6月14日 23:22:42
                 </td>
                 <td>
-                  <a href="">查看  回复</a>
+                  <a href=""><i class="icon-eye-open"></i> 查看 </a>
+                  <a href=""><i class="icon-reply"></i> 回复 </a>
                 </td>
               </tr>
               </tbody>

@@ -1,21 +1,22 @@
 <#-- 自由行产品查看 -->
 <#assign page_name="free-travel-view"/>
+<#assign product={'name':"东航直飞巴厘岛5晚6日至尊逍遥之旅"}/>
 <#include "common/module.ftl"/>
 <#escape x as x?html>
-  <@html title="自由行产品查看">
+  <@html title="${product.name}_自由行产品查看">
     <@body>
     <div class="main-body clearfix">
     <ul class="breadcrumb">
       <li><a href="/main/">首页</a> <span class="divider">/</span></li>
       <li><a href="/main/free-travel">自由行</a> <span class="divider">/</span></li>
-      <li class="active">东航直飞巴厘岛5晚6日至尊逍遥之旅</li>
+      <li class="active">${product.name}</li>
     </ul>
     <div class="center">
     <div class="basic-info">
       <div class="title-group">
         <h2>
           <span class="label label-warning">跟团游</span>
-          <span class="product-title">东航直飞巴厘岛5晚6日至尊逍遥之旅</span>
+          <span class="product-title">${product.name}</span>
           <span class="product-subtitle">（2晚钻石五星酒店+3晚独栋泳池别墅，宝格丽海景下午茶+龙目岛离岛）</span>
         </h2>
         <div class="product-num">产品编号：YCJIS58PA130518B</div>

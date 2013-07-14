@@ -17,7 +17,7 @@
         <div class="span10 manage-body">
           <div class="mod-body clearfix">
             <div class="pull-left condition">
-              起止日期 <input type="text" class="input-small"> 至 <input type="text" class="input-small">
+              起止日期 <input type="text" class="input-small"> ~ <input type="text" class="input-small">
               <button class="btn btn-success search-btn" type="button">确定</button>
             </div>
             <table class="table table-hover table-bordered">

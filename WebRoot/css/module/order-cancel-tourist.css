@@ -17,14 +17,3 @@
 .action {
   text-align: center;
 }
-
-.user-list th label {
-  margin-bottom: 0;
-  font-weight: bold;
-  font-size: 12px;
-}
-
-.user-list th label input {
-  margin-right: 4px;
-  vertical-align: -2px;
-}

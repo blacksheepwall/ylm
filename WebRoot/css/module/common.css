@@ -140,6 +140,17 @@ table.table thead, table.normal thead {
   background: url("../../img/nav-bg.jpg") repeat-x top;
 }
 
+table thead label {
+  margin-bottom: 0;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+table thead label input[type="checkbox"] {
+  margin-right: 4px;
+  vertical-align: -2px;
+}
+
 .nav-login {
   width: 200px;
   padding: 0 10px;
@@ -163,11 +174,7 @@ table.table thead, table.normal thead {
   width: 165px;
 }
 
-.nav-login .nav-signout {
-  cursor: pointer;
-}
-
-.nav-login .nav-message {
+.nav-login .nav-signout, .nav-login .nav-message {
   cursor: pointer;
   color: #fff;
 }
