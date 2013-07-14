@@ -9,11 +9,13 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.youlema.sales.meta.ATag;
+import com.youlema.sales.meta.Bulletin;
 import com.youlema.sales.meta.City;
-import com.youlema.sales.meta.LineVo;
+import com.youlema.sales.meta.ProductItem;
 import com.youlema.sales.meta.Region;
+import com.youlema.sales.meta.SearchResult;
 import com.youlema.sales.service.AdService;
+import com.youlema.sales.service.BulletinService;
 import com.youlema.sales.service.DateCount;
 import com.youlema.sales.service.PriceRange;
 import com.youlema.sales.service.ProductService;
@@ -30,7 +32,9 @@ public class MainController {
 	@Resource
 	private UserService userService;
 	@Resource
-	ProductService productService;
+	private ProductService productService;
+	@Resource
+	private BulletinService bulletinService;
 	
 	@RequestMapping(value = "/index")
 	public String indexPage() {
@@ -38,16 +42,10 @@ public class MainController {
 	}
 	@RequestMapping("/main")
 	public String main(ModelMap model){
-		List<LineVo> lines = adService.readNewestLines();
-		List<ATag> notes = adService.readNote();
-		List<ATag> promotion = adService.readPromotion();
-		List<ATag> shortcuts = userService.getShortcuts();
-		List<ATag> noteList = adService.getSystemNoteList();
-		model.put("systemNoteList", noteList);
-		model.put("shortcuts", shortcuts);
-		model.put("lines", lines);
-		model.put("notes", notes);
-		model.put("promotion", promotion);
+	    SearchResult<Bulletin> bulletinResult = bulletinService.getBulletinList();
+	    model.put("bulletinResult", bulletinResult);
+	    SearchResult<ProductItem> hotProducts = productService.listHotProduct();
+	    model.put("hotProducts", hotProducts);
 		return "main";
 	}
 	@RequestMapping("/main/{pageName}")

@@ -62,11 +62,9 @@
       <div class="business-news mod-body">
         <h3 class="mod-title"><i class="icon-volume-up"></i> 业务公告 <#--<a href="" class="more">更多国内产品</a>--></h3>
         <ol>
-          <li><a href="/main/news" class="link">“美丽杭州，环保骑行”杭城市民为环保呐喊</a> <span class="date">6月21日</span></li>
-          <li><a href="/main/news" class="link">吃喝玩乐吹拉弹唱 杭州运河庙会一样都不少</a> <span class="date">6月22日</span></li>
-          <li><a href="/main/news" class="link">暑假旅游大推荐(1)：大家都去哪里玩？</a> <span class="date">6月23日</span></li>
-          <li><a href="/main/news" class="link">腾讯专访中山国旅董事长蒋慧明：让旅游走进生活</a> <span class="date">6月24日</span></li>
-          <li><a href="/main/news" class="link">悠乐马寻找小马族——我的旅行我代言</a> <span class="date">6月25日</span></li>
+          <#list bulletinResult.resultList as bulletin>
+          <li><a href="/bulletin/info/?id=${bulletin.id}" class="link">${bulletin.title}</a> <span class="date">${bulletin.createDate?string('MM月dd日')}</span></li>
+          </#list>
         </ol>
       </div>
       <#--</div>-->
