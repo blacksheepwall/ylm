@@ -20,5 +20,12 @@
 		<property name="serviceClass" value="com.youlema.sales.ws.IHelloWorldService" />
 		<property name="address" value="http://localhost:8080/helloWorld" />
 	</bean>
+	<bean id="authHeader" class="com.yolema.common.ws.interceptor.AuthHeader">
+		<property name="content" value="${token}" />
+	</bean>
+	<bean id="clientSoapAuth"
+		class="com.yolema.common.ws.interceptor.WebserviceAuthOutInterceptor">
+		<property name="authHeader" ref="authHeader" />
+	</bean>
 
 </beans>
