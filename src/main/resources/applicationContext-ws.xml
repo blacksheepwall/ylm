@@ -21,23 +21,6 @@
 		class="com.yolema.common.ws.interceptor.WebserviceAuthOutInterceptor">
 		<property name="authHeader" ref="authHeader" />
 	</bean>
-	<bean id="bulletinFacade" class="com.yolema.tbss.ext.facade.BulletinFacade"
-		factory-bean="bulletinFacadeFactory" factory-method="create" />
-
-	<bean id="bulletinFacadeFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
-		<property name="serviceClass" value="com.yolema.tbss.ext.facade.BulletinFacade" />
-		<property name="address" value="http://183.129.158.179:8080/tbss/services/bulletin" />
-	</bean>
-	
-	
-	<bean id="DictionaryFacade" class="com.yolema.tbss.ext.facade.DictionaryFacade"
-		factory-bean="DictionaryFacadeFactory" factory-method="create" />
-
-	<bean id="DictionaryFacadeFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
-		<property name="serviceClass" value="com.yolema.tbss.ext.facade.DictionaryFacade" />
-		<property name="address" value="http://183.129.158.179:8080/tbss/services/dictionary" />
-	</bean>
-	
 	
 	
 </beans>
