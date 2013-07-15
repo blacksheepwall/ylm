@@ -13,13 +13,7 @@
     http://www.springframework.org/schema/util/spring-util-3.0.xsd
     http://www.springframework.org/schema/context 
     http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-	<bean id="client" class="com.youlema.sales.ws.IHelloWorldService"
-		factory-bean="clientFactory" factory-method="create" />
-
-	<bean id="clientFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
-		<property name="serviceClass" value="com.youlema.sales.ws.IHelloWorldService" />
-		<property name="address" value="http://localhost:8080/helloWorld" />
-	</bean>
+    
 	<bean id="authHeader" class="com.yolema.common.ws.interceptor.AuthHeader">
 		<property name="content" value="${token}" />
 	</bean>
@@ -27,5 +21,23 @@
 		class="com.yolema.common.ws.interceptor.WebserviceAuthOutInterceptor">
 		<property name="authHeader" ref="authHeader" />
 	</bean>
+	<bean id="bulletinFacade" class="com.yolema.tbss.ext.facade.BulletinFacade"
+		factory-bean="bulletinFacadeFactory" factory-method="create" />
 
+	<bean id="bulletinFacadeFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+		<property name="serviceClass" value="com.yolema.tbss.ext.facade.BulletinFacade" />
+		<property name="address" value="http://183.129.158.179:8080/tbss/services/bulletin" />
+	</bean>
+	
+	
+	<bean id="DictionaryFacade" class="com.yolema.tbss.ext.facade.DictionaryFacade"
+		factory-bean="DictionaryFacadeFactory" factory-method="create" />
+
+	<bean id="DictionaryFacadeFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+		<property name="serviceClass" value="com.yolema.tbss.ext.facade.DictionaryFacade" />
+		<property name="address" value="http://183.129.158.179:8080/tbss/services/dictionary" />
+	</bean>
+	
+	
+	
 </beans>
