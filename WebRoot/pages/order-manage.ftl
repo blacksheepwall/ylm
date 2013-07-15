@@ -17,7 +17,7 @@
             <div class="control-group search-box">
               <strong>预定日期：</strong>
               <input id="J_start_date" class="date-box" type="text" readonly>
-              <strong>至</strong>
+              <strong> ~ </strong>
               <input id="J_end_date" class="date-box" type="text" readonly>
               <input id="J_search_text" class="search-input" type="text"> <button id="J_search_btn" class="btn btn-success search-btn" type="button"><i class="icon-search"></i> 搜索</button>
             </div>

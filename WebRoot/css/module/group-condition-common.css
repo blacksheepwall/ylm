@@ -6,3 +6,15 @@
   width: 400px;
   margin-left: 0;
 }
+
+.mod-condition .day-box {
+  width: 30px;
+}
+
+.top-search .condition-name {
+  margin-left: 20px;
+}
+
+.top-search .condition-name:first-child {
+  margin-left: 0;
+}

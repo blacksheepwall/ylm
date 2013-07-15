@@ -14,12 +14,12 @@
       </div>
       <div class="row-fluid">
         <@user_center_sidebar></@user_center_sidebar>
-        <div class="span10 form-horizontal manage-body mod-body">
+        <form id="J_form" class="span10 form-horizontal manage-body mod-body">
           <div class="control-group">
             <label class="control-label">接收人</label>
             <div class="controls">
               <input type="text" class="input-xlarge">
-              <a href="javascript:;">选择接收人</a>
+              <a href="javascript:;"><i class="icon-user"></i> 选择接收人</a>
             </div>
           </div>
           <div class="control-group">
@@ -42,11 +42,11 @@
           </div>
           <div class="control-group">
             <div class="controls">
-              <button id="login" class="btn btn-primary">发送</button>
-              <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+              <button id="J_send" class="btn btn-primary">发送</button>
+              <button id="J_reset_form" class="btn">重置</button>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
     </@body>

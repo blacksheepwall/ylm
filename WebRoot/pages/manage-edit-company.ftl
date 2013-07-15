@@ -14,7 +14,7 @@
       </div>
       <div class="row-fluid">
         <@manage_sidebar></@manage_sidebar>
-        <form class="span10 form-horizontal mod-body">
+        <form id="J_form" class="span10 form-horizontal mod-body">
           <fieldset>
             <div class="control-group">
 
@@ -175,8 +175,8 @@
 
             <div class="control-group">
               <div class="controls">
-                <button id="login" class="btn btn-primary">提交</button>
-                <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+                <button id="J_submit" class="btn btn-primary">提交</button>
+                <button id="J_reset_form" class="btn">重置</button>
               </div>
             </div>
 

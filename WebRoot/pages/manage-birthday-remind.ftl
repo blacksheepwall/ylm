@@ -105,8 +105,8 @@
               </div>
               <p class="text-center">短信内容不能超过70个中文，包括标点符号，落款内容</p>
               <div class="modal-footer">
-                <button id="login" class="btn btn-primary">发送</button>
-                <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+                <button id="J_send" class="btn btn-primary">发送</button>
+                <button id="J_close" class="btn">取消</button>
               </div>
             </form>
           </div>

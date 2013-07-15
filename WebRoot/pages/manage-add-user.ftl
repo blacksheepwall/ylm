@@ -14,12 +14,12 @@
       </div>
       <div class="row-fluid">
         <@manage_sidebar></@manage_sidebar>
-        <div class="span10 form-horizontal manage-body mod-body">
+        <form id="J_form" class="span10 form-horizontal manage-body mod-body">
           <div class="control-group">
             <label class="control-label">登录账户</label>
             <div class="controls">
               <input type="text">
-              <a href="javascript:;">检查账户</a>
+              <a href="javascript:;"><i class="icon-refresh"></i> 检查账户</a>
             </div>
           </div>
           <div class="control-group">
@@ -34,7 +34,7 @@
               <label class="checkbox inline">
                 <input type="checkbox">财务结算
               </label>
-              <a href="">角色说明</a>
+              <a href=""><i class="icon-info-sign"></i> 角色说明</a>
             </div>
           </div>
           <div class="control-group">
@@ -86,11 +86,11 @@
           </div>
           <div class="control-group">
             <div class="controls">
-              <button id="login" class="btn btn-primary">提交</button>
-              <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+              <button id="J_submit" class="btn btn-primary">提交</button>
+              <button id="J_reset_form" class="btn">重置</button>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
     </@body>

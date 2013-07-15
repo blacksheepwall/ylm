@@ -14,21 +14,21 @@
       </div>
       <div class="row-fluid">
         <@manage_sidebar></@manage_sidebar>
-        <form class="span10 form-horizontal mod-body">
+        <form id="J_form" class="span10 form-horizontal mod-body">
           <fieldset>
             <div class="control-group">
-              <label class="control-label"><a href="">系统设置说明</a></label>
+              <label class="control-label"><a href=""><i class="icon-info-sign"></i> 系统设置说明</a></label>
             </div>
             <div class="control-group">
               <label class="control-label">行程单打印设置</label>
               <div class="controls">
                 <!-- Inline Radios -->
                 <label class="radio inline">
-                  <input type="radio" value="组团社抬头及落款" name="" checked="checked">
+                  <input type="radio" value="组团社抬头及落款" name="_1" checked="checked">
                   组团社抬头及落款
                 </label>
                 <label class="radio inline">
-                  <input type="radio" value="代理社抬头及落款" name="">
+                  <input type="radio" value="代理社抬头及落款" name="_1">
                   代理社抬头及落款
                 </label>
               </div>
@@ -41,11 +41,11 @@
               <div class="controls">
                 <!-- Inline Checkboxes -->
                 <label class="checkbox inline">
-                  <input type="checkbox" value="产品列表显示">
+                  <input type="checkbox" value="产品列表显示" name="_2">
                   产品列表显示
                 </label>
                 <label class="checkbox inline">
-                  <input type="checkbox" value="产品详情页面">
+                  <input type="checkbox" value="产品详情页面" name="_2">
                   产品详情页面
                 </label>
               </div>
@@ -57,11 +57,11 @@
               <div class="controls">
                 <!-- Inline Radios -->
                 <label class="radio inline">
-                  <input type="radio" value="默认签订组团社合同" name="" checked="checked">
+                  <input type="radio" value="默认签订组团社合同" name="_3" checked="checked">
                   默认签订组团社合同
                 </label>
                 <label class="radio inline">
-                  <input type="radio" value="默认签订代理社合同" name="">
+                  <input type="radio" value="默认签订代理社合同" name="_3">
                   默认签订代理社合同
                 </label>
               </div>
@@ -72,14 +72,14 @@
 
               <!-- File Upload -->
               <div class="controls">
-                <input class="input-file" id="fileInput" type="file">
+                <input class="input-file" id="J_file" type="file">
               </div>
             </div>
 
             <div class="control-group">
               <div class="controls">
-                <button id="login" class="btn btn-primary">提交</button>
-                <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+                <button id="J_submit" class="btn btn-primary">提交</button>
+                <button id="J_reset_form" class="btn">重置</button>
               </div>
             </div>
 

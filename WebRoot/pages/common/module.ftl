@@ -232,16 +232,16 @@
         <input class="search-input" type="text" placeholder="线路名称、途径城市、游览景点">
       </li>
       <li class="con-row">
-        <strong>线路分类：</strong>
+        <strong class="condition-name">线路分类：</strong>
         <select>
           <option value="所有">所有</option>
           <option value="出境线路">出境线路</option>
           <option value="港澳台">港澳台</option>
           <option value="出境线路">国内</option>
         </select>
-        <strong>天数：</strong>
-        <input type="text" readonly class="input-small date-box"><strong> ~ </strong><input type="text" readonly class="input-small date-box">
-        <strong> 单人预算：</strong>
+        <strong class="condition-name">天数：</strong>
+        <input type="text" class="input-small day-box"><strong> ~ </strong><input type="text" class="input-small day-box">
+        <strong class="condition-name"> 单人预算：</strong>
         <input type="text" class="input-small"><strong> ~ </strong><input type="text" class="input-small">
       </li>
       <li id="J_condition">

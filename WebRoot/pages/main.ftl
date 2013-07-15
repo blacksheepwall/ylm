@@ -158,7 +158,7 @@
       </div>
     </div>
     <div class="main-body clearfix">
-      <h3 class="mod-title title-blue">尾单产品列表 <#--<a href="" class="more">更多国内产品</a>--></h3>
+      <h3 class="mod-title title-black">尾单产品列表 <#--<a href="" class="more">更多国内产品</a>--></h3>
       <div class="mod-product">
         <ol>
           <#assign promote_product_item>

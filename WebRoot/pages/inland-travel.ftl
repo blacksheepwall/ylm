@@ -36,7 +36,7 @@
               <option value="云南贵州">云南贵州</option>
             </select>
             <strong>出发日期：</strong>
-            <input type="text" readonly class="input-small date-box"><strong> 至 </strong><input type="text" readonly class="input-small date-box">
+            <input type="text" readonly class="input-small date-box"><strong> ~ </strong><input type="text" readonly class="input-small date-box">
           </div>
           <div class="input-append pull-left">
             <input class="search-input" type="text" placeholder="产品名称、站点城市、游览景点">
