@@ -163,12 +163,6 @@
 			<artifactId>youlema-tools-jee</artifactId>
 			<version>1.0.0.20121117</version>
 		</dependency>
-		<dependency>
-			<groupId>com.yolema.tbss</groupId>
-			<artifactId>tbss-common-facade</artifactId>
-			<version>1.2-TBDS-SNAPSHOT</version>
-		</dependency>
-
 	</dependencies>
 	<repositories>
 		<repository>
