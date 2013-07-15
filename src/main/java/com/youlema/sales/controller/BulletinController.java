@@ -1,5 +1,6 @@
 package com.youlema.sales.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  *
  */
 @RequestMapping("/bulletin")
+@Controller
 public class BulletinController {
 
     /**
@@ -18,7 +20,7 @@ public class BulletinController {
      */
     @RequestMapping("/info")
     public String bulletinInfo(@RequestParam("id")long id){
-        return null;
+        return "news";
     }
     
 }
