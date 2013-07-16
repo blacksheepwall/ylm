@@ -30,7 +30,7 @@ public class BulletinController {
      * 
      * @return
      */
-    @RequestMapping("/")
+    @RequestMapping("")
     public String bulletin() {
         return "news";
     }

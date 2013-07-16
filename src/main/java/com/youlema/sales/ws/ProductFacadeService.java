@@ -1,5 +1,7 @@
 package com.youlema.sales.ws;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -10,29 +12,32 @@ import com.yolema.tbss.ext.facade.fdo.product.ShowProductFdo;
 import com.yolema.tbss.ext.facade.result.ShowProductResult;
 import com.yolema.tbss.ext.facade.result.TourProductResult;
 import com.youlema.sales.meta.SearchResult;
-import com.youlema.tools.jee.pages.PageList;
 
 @Service
 public class ProductFacadeService {
     @Resource
     private TourProductFacade tourProductFacade;
-    
-    public TourProductFdo getProduct(long productId){
+
+    public TourProductFdo getProduct(long productId) {
         TourProductResult result = tourProductFacade.getById(productId);
         return result.getTourProductBean();
     }
-    
-    public ShowProductFdo getShowProductFdo(long productId){
+
+    public ShowProductFdo getShowProductFdo(long productId) {
         ShowProductResult result = tourProductFacade.getShowProductById(productId);
         return result.getShowProductFdo();
     }
-    
-    public SearchResult<TourProductFdo> getProductsByType(String type){
-        TourProductFdo fdo = new TourProductFdo();
-        fdo.setTourProductType(type);
-        TourProductResult result = tourProductFacade.queryPageList(fdo);
-        PageList<TourProductFdo> list = result.getTourProductBeanList();
-        return new SearchResult<TourProductFdo>(list.size(), list);
+
+    /**
+     * 获取首页公告数据
+     * 
+     * @param type
+     * @return
+     */
+    public SearchResult<ShowProductFdo> getIndexProductsByType(String type) {
+        ShowProductResult result = tourProductFacade.queryIndexLabelProduct(type, 20);
+        List<ShowProductFdo> productFdos = result.getShowProductFdos();
+        return new SearchResult<ShowProductFdo>(productFdos.size(), productFdos);
     }
-    
+
 }

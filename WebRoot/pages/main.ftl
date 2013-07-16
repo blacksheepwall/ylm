@@ -83,87 +83,69 @@
       <div class="mod-product">
         <h3 class="mod-title title-green">热卖产品列表 <#--<a href="" class="more">更多国内产品</a>--></h3>
         <ol>
-          <#assign promote_product_item>
-            <li>
+        <#list hotPdts.resultList as it>
+        	<#if it.keywords??>
+        	<li>
               <div>
-                <span class="label label-success">特价</span>
-                <a href="" class="product-title">武夷山双卧4日游含九曲溪漂流</a>
-                <span class="price">￥2500</span>
+                <span class="label label-success">${it.keywords}</span>
+                <a href="" class="product-title">${it.title}</a>
+                <span class="price">${it.storePrice}</span>
               </div>
               <div>
-                <span class="start">出发口岸：杭州</span><span class="date">日期：6-28</span><span
-                class="origin-price">￥2500起</span>
+                <span class="start">出发口岸：${it.leaveCity}</span><span class="date">日期：${it.leaveDate?string('MM-dd')}</span><span
+                class="origin-price">${it.price}起</span>
               </div>
             </li>
-          </#assign>
-          <#noescape>${promote_product_item}</#noescape>
-          <#noescape>${promote_product_item}</#noescape>
-          <#noescape>${promote_product_item}</#noescape>
-          <#noescape>${promote_product_item}</#noescape>
-          <#noescape>${promote_product_item}</#noescape>
-          <#assign promote_product_item>
+            <#else>
             <li>
               <div>
-                <a href="" class="product-title">巴厘岛+新加坡5晚6日尊贵游</a>
+                <a href="" class="product-title">${it.title}</a>
                 <span class="muted">新加坡航空</span>
-                <span class="price">￥2500</span>
+                <span class="price">${it.storePrice}</span>
               </div>
               <div>
-                <span class="start">出发口岸：杭州</span>
-                <span class="start">往返交通：飞机</span>
-                <span class="date">发团日期：6-28</span><span
-                class="origin-price">￥2500起</span>
+                <span class="start">出发口岸：${it.leaveCity}</span>
+                <span class="start">往返交通：${it.returnTraffic}</span>
+                <span class="date">发团日期：${it.leaveDate?string('MM-dd')}</span><span
+                class="origin-price">${it.price}起</span>
               </div>
             </li>
-          </#assign>
-          <#noescape>${promote_product_item}</#noescape>
-          <#noescape>${promote_product_item}</#noescape>
-          <#noescape>${promote_product_item}</#noescape>
-          <#noescape>${promote_product_item}</#noescape>
-          <#noescape>${promote_product_item}</#noescape>
+            </#if>
+        </#list>
         </ol>
       </div>
       <div class="mod-product">
         <h3 class="mod-title title-orange">特价产品列表 <#--<a href="" class="more">更多国内产品</a>--></h3>
         <ol>
-          <#assign promote_product_item>
-            <li>
+              <#list specialPdts.resultList as it>
+        	<#if it.keywords??>
+        	<li>
               <div>
-                <span class="label label-success">特价</span>
-                <a href="" class="product-title">武夷山双卧4日游含九曲溪漂流</a>
-                <span class="price">￥2500</span>
+                <span class="label label-success">${it.keywords}</span>
+                <a href="" class="product-title">${it.title}</a>
+                <span class="price">${it.storePrice}</span>
               </div>
               <div>
-                <span class="start">出发口岸：杭州</span><span class="date">日期：6-28</span><span
-                class="origin-price">￥2500起</span>
+                <span class="start">出发口岸：${it.leaveCity}</span><span class="date">日期：${it.leaveDate?string('MM-dd')}</span><span
+                class="origin-price">${it.price}起</span>
               </div>
             </li>
-          </#assign>
-          <#noescape>${promote_product_item}</#noescape>
-          <#noescape>${promote_product_item}</#noescape>
-          <#noescape>${promote_product_item}</#noescape>
-          <#noescape>${promote_product_item}</#noescape>
-          <#noescape>${promote_product_item}</#noescape>
-          <#assign promote_product_item>
+            <#else>
             <li>
               <div>
-                <a href="" class="product-title">巴厘岛+新加坡5晚6日尊贵游</a>
+                <a href="" class="product-title">${it.title}</a>
                 <span class="muted">新加坡航空</span>
-                <span class="price">￥2500</span>
+                <span class="price">${it.storePrice}</span>
               </div>
               <div>
-                <span class="start">出发口岸：杭州</span>
-                <span class="start">往返交通：飞机</span>
-                <span class="date">发团日期：6-28</span><span
-                class="origin-price">￥2500起</span>
+                <span class="start">出发口岸：${it.leaveCity}</span>
+                <span class="start">往返交通：${it.returnTraffic}</span>
+                <span class="date">发团日期：${it.leaveDate?string('MM-dd')}</span><span
+                class="origin-price">${it.price}起</span>
               </div>
             </li>
-          </#assign>
-          <#noescape>${promote_product_item}</#noescape>
-          <#noescape>${promote_product_item}</#noescape>
-          <#noescape>${promote_product_item}</#noescape>
-          <#noescape>${promote_product_item}</#noescape>
-          <#noescape>${promote_product_item}</#noescape>
+            </#if>
+        </#list>
         </ol>
       </div>
     </div>
@@ -171,24 +153,35 @@
       <h3 class="mod-title title-black">尾单产品列表 <#--<a href="" class="more">更多国内产品</a>--></h3>
       <div class="mod-product">
         <ol>
-          <#assign promote_product_item>
-            <li>
+      <#list endPdts.resultList as it>
+        	<#if it.keywords??>
+        	<li>
               <div>
-                <span class="label label-success">特价</span>
-                <a href="" class="product-title">武夷山双卧4日游含九曲溪漂流</a>
-                <span class="price">￥2500</span>
+                <span class="label label-success">${it.keywords}</span>
+                <a href="" class="product-title">${it.title}</a>
+                <span class="price">${it.storePrice}</span>
               </div>
               <div>
-                <span class="start">出发口岸：杭州</span><span class="date">日期：6-28</span><span
-                class="origin-price">￥2500起</span>
+                <span class="start">出发口岸：${it.leaveCity}</span><span class="date">日期：${it.leaveDate?string('MM-dd')}</span><span
+                class="origin-price">${it.price}起</span>
               </div>
             </li>
-          </#assign>
-          <#noescape>${promote_product_item}</#noescape>
-          <#noescape>${promote_product_item}</#noescape>
-          <#noescape>${promote_product_item}</#noescape>
-          <#noescape>${promote_product_item}</#noescape>
-          <#noescape>${promote_product_item}</#noescape>
+            <#else>
+            <li>
+              <div>
+                <a href="" class="product-title">${it.title}</a>
+                <span class="muted">新加坡航空</span>
+                <span class="price">${it.storePrice}</span>
+              </div>
+              <div>
+                <span class="start">出发口岸：${it.leaveCity}</span>
+                <span class="start">往返交通：${it.returnTraffic}</span>
+                <span class="date">发团日期：${it.leaveDate?string('MM-dd')}</span><span
+                class="origin-price">${it.price}起</span>
+              </div>
+            </li>
+            </#if>
+        </#list>
         </ol>
       </div>
     </div>

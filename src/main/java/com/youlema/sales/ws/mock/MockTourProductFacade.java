@@ -26,6 +26,8 @@ public class MockTourProductFacade implements TourProductFacade {
         fdo.setNumOfOrder(65536);
         fdo.setProductManager("产品经理甲");
         fdo.setProductClaimPersion("产品计调甲");
+        fdo.setStroePrice(BigDecimal.ONE);
+        fdo.setPromotionPrice(BigDecimal.TEN);
         result.setTourProductBean(fdo);
         return result;
     }
@@ -71,7 +73,23 @@ public class MockTourProductFacade implements TourProductFacade {
 
     @Override
     public ShowProductResult queryIndexLabelProduct(String arg0, Integer arg1) {
-        throw new UnsupportedOperationException();
+        ShowProductResult showProductResult = new ShowProductResult(true);
+        List<ShowProductFdo> showProductFdos = new ArrayList<ShowProductFdo>();
+        for (int i = 0; i < 10; i++) {
+            ShowProductFdo fdo = new ShowProductFdo();
+
+            fdo.setProductId((long) i + 40000);
+            fdo.setLeaveCity("杭州");
+            fdo.setLeaveTraffic("灰机");
+            fdo.setLineName("太阳水星一辈子游");
+            fdo.setGmtLeave(new Date());
+            fdo.setPrice(BigDecimal.ONE);
+            fdo.setKeyword(arg0);
+            fdo.setReturnTraffic("灰机2");
+            showProductFdos.add(fdo);
+        }
+        showProductResult.setShowProductFdos(showProductFdos);
+        return showProductResult;
     }
 
     @Override

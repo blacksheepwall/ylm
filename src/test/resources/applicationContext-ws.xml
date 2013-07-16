@@ -22,7 +22,7 @@
 		<property name="authHeader" ref="authHeader" />
 	</bean>
 	<bean id="BulletinFacade" class="com.yolema.tbss.ext.facade.BulletinFacade"
-		factory-bean="bulletinFacadeFactory" factory-method="create" />
+		factory-bean="BulletinFacadeFactory" factory-method="create" />
 
 	<bean id="BulletinFacadeFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
 		<property name="serviceClass" value="com.yolema.tbss.ext.facade.BulletinFacade" />

@@ -11,6 +11,42 @@ public class ProductItem {
     private BigDecimal storePrice;
     private Date leaveDate;
     private boolean recommend;
+    private String leaveCity;
+    private String keywords;
+    private String leaveTraffic;
+    private String returnTraffic;
+
+    public String getReturnTraffic() {
+        return returnTraffic;
+    }
+
+    public void setReturnTraffic(String returnTraffic) {
+        this.returnTraffic = returnTraffic;
+    }
+
+    public String getLeaveTraffic() {
+        return leaveTraffic;
+    }
+
+    public void setLeaveTraffic(String leaveTraffic) {
+        this.leaveTraffic = leaveTraffic;
+    }
+
+    public String getKeywords() {
+        return keywords;
+    }
+
+    public void setKeywords(String keywords) {
+        this.keywords = keywords;
+    }
+
+    public String getLeaveCity() {
+        return leaveCity;
+    }
+
+    public void setLeaveCity(String leaveCity) {
+        this.leaveCity = leaveCity;
+    }
 
     public boolean getRecommend() {
         return recommend;
