@@ -29,7 +29,8 @@
       'scrollMonitor': 'base/scrollMonitor',
       'pagination': 'base/jqpagination/jqpagination',
       'dateTimePicker':'base/dateTimePicker/bootstrap-datetimepicker',
-      'placeholder':'base/jquery.placeholder'
+      'placeholder':'base/jquery.placeholder',
+      'marquee':'base/marquee/marquee'
     },
     urlArgs: 'v=' /*+ (+new Date()) */ + '${cfg_version_js}'
   });

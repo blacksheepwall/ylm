@@ -53,7 +53,7 @@
 
 .system-news {
   float: right;
-  width: 400px;
+  width: 450px;
 }
 
 .system-news .news-title {
@@ -66,23 +66,41 @@
 
 .system-news .news-list {
   float: left;
-  width: 310px;
+  width: 330px !important;
+  height: 30px !important;
   line-height: 30px;
   margin-left: 10px;
+  overflow-y: hidden;
 }
 
-.system-news .news-list li {
+.system-news .news-list .item {
+  position: relative;
+  width: 330px !important;
   line-height: 30px;
 }
 
 .system-news .news-list .link {
-  float: left;
+  /*float: left;*/
+  display: inline-block;
+  width: 280px;
   color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .system-news .news-list .date {
-  float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
   color: #999;
+}
+
+.system-news .all-news {
+  float: right;
+  position: relative;
+  top: 5px;
+  right: 0;
 }
 
 .business-news {
@@ -94,6 +112,10 @@
 }
 
 .business-news .date {
+  float: right;
+}
+
+.business-news .all-news {
   float: right;
 }
 

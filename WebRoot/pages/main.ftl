@@ -53,17 +53,27 @@
         </div>
         <div class="system-news">
           <h4 class="news-title"><i class="icon-bullhorn"></i> 系统公告</h4>
-          <ol class="news-list">
-            <li><a href="" class="link">系统开始正式使用，欢迎反应系统问题</a> <span class="date">6月20日</span></li>
+          <ol id="J_news_list" class="news-list">
+            <li class="item">
+              <a class="link" href="/bulletin/info/?id=1" target="_blank">系统开始正式使用系统开始正式使用系统开始正式使用系统开始正式使用系统开始正式使用，欢迎反应系统问题 <span class="date">6月20日</span></a>
+            </li>
+            <li class="item">
+              <a class="link" href="/bulletin/info/?id=1" target="_blank">系统开始正式使用，欢迎反应系统问题 <span class="date">6月20日</span></a>
+            </li>
+            <li class="item">
+              <a class="link" href="/bulletin/info/?id=1" target="_blank">系统开始正式使用，欢迎反应系统问题 <span class="date">6月20日</span></a>
+            </li>
           </ol>
+          <a class="all-news" href="/bulletin" target="_blank">更多 »</a>
         </div>
       </div>
       <#--<div class="side-box">-->
       <div class="business-news mod-body">
-        <h3 class="mod-title"><i class="icon-volume-up"></i> 业务公告 <#--<a href="" class="more">更多国内产品</a>--></h3>
+        <h3 class="mod-title">
+          <i class="icon-volume-up"></i> 业务公告 <a class="all-news" href="/bulletin" target="_blank">所有公告 »</a></h3>
         <ol>
           <#list bulletinResult.resultList as bulletin>
-          <li><a href="/bulletin/info/?id=${bulletin.id}" class="link">${bulletin.title}</a> <span class="date">${bulletin.createDate?string('MM月dd日')}</span></li>
+          <li><a class="link" href="/bulletin/info/?id=${bulletin.id}" target="_blank">${bulletin.title}</a> <span class="date">${bulletin.createDate?string('MM月dd日')}</span></li>
           </#list>
         </ol>
       </div>
