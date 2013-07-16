@@ -13,7 +13,7 @@
     http://www.springframework.org/schema/util/spring-util-3.0.xsd
     http://www.springframework.org/schema/context 
     http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-    
+
 	<bean id="authHeader" class="com.yolema.common.ws.interceptor.AuthHeader">
 		<property name="content" value="${token}" />
 	</bean>
@@ -21,23 +21,60 @@
 		class="com.yolema.common.ws.interceptor.WebserviceAuthOutInterceptor">
 		<property name="authHeader" ref="authHeader" />
 	</bean>
-	<bean id="bulletinFacade" class="com.yolema.tbss.ext.facade.BulletinFacade"
+	<bean id="BulletinFacade" class="com.yolema.tbss.ext.facade.BulletinFacade"
 		factory-bean="bulletinFacadeFactory" factory-method="create" />
 
-	<bean id="bulletinFacadeFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+	<bean id="BulletinFacadeFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
 		<property name="serviceClass" value="com.yolema.tbss.ext.facade.BulletinFacade" />
-		<property name="address" value="http://183.129.158.179:8080/tbss/services/bulletin" />
+		<property name="address"
+			value="http://183.129.158.179:8080/tbss/services/bulletin" />
 	</bean>
-	
-	
+
+
 	<bean id="DictionaryFacade" class="com.yolema.tbss.ext.facade.DictionaryFacade"
 		factory-bean="DictionaryFacadeFactory" factory-method="create" />
 
 	<bean id="DictionaryFacadeFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
 		<property name="serviceClass" value="com.yolema.tbss.ext.facade.DictionaryFacade" />
-		<property name="address" value="http://183.129.158.179:8080/tbss/services/dictionary" />
+		<property name="address"
+			value="http://183.129.158.179:8080/tbss/services/dictionary" />
 	</bean>
-	
-	
-	
+
+	<bean id="OrderBillFacade" class="com.yolema.tbss.ext.facade.OrderBillFacade"
+		factory-bean="OrderBillFacadeFactory" factory-method="create" />
+
+	<bean id="OrderBillFacadeFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+		<property name="serviceClass" value="com.yolema.tbss.ext.facade.OrderBillFacade" />
+		<property name="address"
+			value="http://183.129.158.179:8080/tbss/services/orderbill" />
+	</bean>
+
+	<bean id="OrderCustomFacade" class="com.yolema.tbss.ext.facade.OrderCustomFacade"
+		factory-bean="OrderCustomFacadeFactory" factory-method="create" />
+
+	<bean id="OrderCustomFacadeFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+		<property name="serviceClass" value="com.yolema.tbss.ext.facade.OrderCustomFacade" />
+		<property name="address"
+			value="http://183.129.158.179:8080/tbss/services/ordercustom" />
+	</bean>
+
+	<bean id="TourProductFacade" class="com.yolema.tbss.ext.facade.TourProductFacade"
+		factory-bean="TourProductFacadeFactory" factory-method="create" />
+
+	<bean id="TourProductFacadeFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+		<property name="serviceClass" value="com.yolema.tbss.ext.facade.TourProductFacade" />
+		<property name="address"
+			value="http://183.129.158.179:8080/tbss/services/tourproduct" />
+	</bean>
+
+	<bean id="MsgFacade" class="com.yolema.tbss.ext.facade.MsgFacade"
+		factory-bean="MsgFacadeFactory" factory-method="create" />
+
+	<bean id="MsgFacadeFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+		<property name="serviceClass" value="com.yolema.tbss.ext.facade.MsgFacade" />
+		<property name="address"
+			value="http://183.129.158.179:8080/tbss/services/msg" />
+	</bean>
+
+
 </beans>

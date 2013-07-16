@@ -1,6 +1,6 @@
 package com.youlema.sales.testws;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -11,23 +11,30 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.yolema.tbss.ext.facade.BulletinFacade;
-import com.yolema.tbss.ext.facade.DictionaryFacade;
-import com.yolema.tbss.ext.facade.fdo.sys.DictionaryFdo;
-import com.yolema.tbss.ext.facade.result.BulletinResult;
-import com.yolema.tbss.ext.facade.result.DictionaryResult;
+import com.yolema.tbss.ext.facade.MsgFacade;
+import com.yolema.tbss.ext.facade.OrderCustomFacade;
+import com.yolema.tbss.ext.facade.TourProductFacade;
+import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
+import com.yolema.tbss.ext.facade.fdo.order.OrderCustomFdo;
+import com.yolema.tbss.ext.facade.fdo.sys.MsgFdo;
+import com.yolema.tbss.ext.facade.fdo.sys.MsgInboxFdo;
+import com.yolema.tbss.ext.facade.result.MsgResult;
+import com.yolema.tbss.ext.facade.result.OrderCustomResult;
+import com.yolema.tbss.ext.facade.result.TourProductResult;
+import com.youlema.tools.jee.pages.PageList;
 
 @ContextConfiguration(locations = "file:src/test/resources/applicationContext-ws.xml")
 @RunWith(SpringJUnit4ClassRunner.class)
 public class WsTest extends TestCase {
     @Resource
-    BulletinFacade facade;
+    MsgFacade facade;
 	@Test
 	public void testHello() throws Exception {
-
-        BulletinResult bulletinList = facade.queryBulletinList("BUSINESS", 100);
-
-        BulletinResult sysList = facade.queryBulletinList("SYSTEM", 100);
+	    MsgResult queryInboxMsg = facade.queryInboxMsg(new MsgInboxFdo());
+	    PageList<MsgInboxFdo> list = queryInboxMsg.getInboxPageList();
+	    for (MsgInboxFdo msgInboxFdo : list) {
+            System.out.println(msgInboxFdo.getMsgContent());
+        }
 	}
 	
 }
