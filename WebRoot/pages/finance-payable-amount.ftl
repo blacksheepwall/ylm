@@ -17,7 +17,7 @@
         <div class="span10">
           <div class="mod-body clearfix">
             <h5 class="mod-title">应付款统计</h5>
-            <table class="table table-hover table-bordered">
+            <table id="J_table" class="table table-hover table-bordered">
               <thead>
               <tr>
                 <th>

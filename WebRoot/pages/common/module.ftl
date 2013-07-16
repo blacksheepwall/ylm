@@ -490,7 +490,7 @@
   <a href="javascript:;" class="date-value">2013.06.05</a>
   <a href="javascript:;" class="date-value">2013.06.05</a>
   <a href="javascript:;" class="date-value">2013.06.05</a>
-  <a href="javascript:;" class="date-more"><i class="icon-external-link"></i> 更多</a>
+  <a href="javascript:;" class="date-more">更多 »</a>
 </div>
 </#macro>
 
@@ -533,7 +533,7 @@
     <div class="product-main">
       <div>
         <span class="label label-success">特价</span>
-        <a class="title" href="/main/free-travel-view"><strong>香港常规双园3晚4天亲子自由行</strong></a>
+        <a class="title" href="/main/product?id=1" target="_blank"><strong>香港常规双园3晚4天亲子自由行</strong></a>
         <span class="text-warning">4晚5天</span>
         <div class="muted">直航往返，轻松便捷、全程5星标准酒店（3晚入住五星酒店），全程舒适大床双标房、全程用餐自理，尽享香港美食天堂的魅力、自由活动，尽情享受购物乐趣</div>
         <div>国际5*酒店+国际5*独栋泳池别墅+蓝钻岛</div>

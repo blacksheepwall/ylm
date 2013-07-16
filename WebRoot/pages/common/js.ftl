@@ -30,7 +30,8 @@
       'pagination': 'base/jqpagination/jqpagination',
       'dateTimePicker':'base/dateTimePicker/bootstrap-datetimepicker',
       'placeholder':'base/jquery.placeholder',
-      'marquee':'base/marquee/marquee'
+      'marquee':'base/marquee',
+      'treetable':'base/jquery.treetable'
     },
     urlArgs: 'v=' /*+ (+new Date()) */ + '${cfg_version_js}'
   });
