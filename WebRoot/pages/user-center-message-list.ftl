@@ -31,7 +31,7 @@
               <thead>
               <tr>
                 <th>
-                  <label><input id="J_check_all" type="checkbox" value="全选">全选</label>
+                  <label><input id="J_check_all_inbox" type="checkbox" value="全选">全选</label>
                 </th>
                 <th>
                   序号
@@ -87,7 +87,7 @@
               <thead>
               <tr>
                 <th>
-                  <label><input id="J_check_all" type="checkbox" value="全选">全选</label>
+                  <label><input id="J_check_all_outbox" type="checkbox" value="全选">全选</label>
                 </th>
                 <th>
                   序号
