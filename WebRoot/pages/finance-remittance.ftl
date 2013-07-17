@@ -63,18 +63,25 @@
               <tbody>
               <tr>
                 <td>
+                  <a href="/main/finance-verification">YN1305150326</a>
                 </td>
                 <td>
+                  <a href="/order/info/?id=12345678" target="_blank">YSL13050310010390</a>
                 </td>
                 <td>
+                  <a href="/main/product?id=1">【双城春色】石家庄-北京双飞六日游</a>
                 </td>
                 <td>
+                  2013-05-07
                 </td>
                 <td>
+                  3大1小
                 </td>
                 <td>
+                  3000.00
                 </td>
                 <td>
+                  已收款
                 </td>
               </tr>
               </tbody>
