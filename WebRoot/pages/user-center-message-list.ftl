@@ -55,30 +55,33 @@
               </tr>
               </thead>
               <tbody>
+              <#list inboxMessages.resultList as it>
               <tr>
                 <td>
                   <input type="checkbox">
                 </td>
                 <td>
+                	${it_index + 1}
                 </td>
                 <td>
-                  <a href="/main/user-center-message/">收款通知</a>
+                  <a href="/u/msginfo/?id=${it.id}">${it.title}</a>
                 </td>
                 <td>
                   <a href="javascript:;"><i class="icon-search"></i> 预览</a>
                   <a href="javascript:;"><i class="icon-download-alt"></i> 下载</a>
                 </td>
                 <td>
-                  2013年6月14日 23:22:42
+                  ${it.sender}
                 </td>
                 <td>
-                  2013年6月14日 23:22:42
+                  ${it.sendTime?string('yyyy-MM-dd')}
                 </td>
                 <td>
-                  <a href=""><i class="icon-eye-open"></i> 查看 </a>
+                  <a href="/u/msginfo/?id=${it.id}"><i class="icon-eye-open"></i> 查看 </a>
                   <a href=""><i class="icon-reply"></i> 回复</a>
                 </td>
               </tr>
+              </#list>
               </tbody>
             </table>
             </#macro>

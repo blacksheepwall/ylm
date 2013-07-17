@@ -18,8 +18,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.youlema.sales.mapper.meta.AgentsAccount;
 import com.youlema.sales.mapper.meta.AgentsFavorites;
 import com.youlema.sales.meta.BusinessType;
+import com.youlema.sales.meta.MessageItem;
+import com.youlema.sales.meta.SearchResult;
 import com.youlema.sales.meta.User;
 import com.youlema.sales.service.FavoriteService;
+import com.youlema.sales.service.MsgService;
 import com.youlema.sales.service.UserService;
 
 /**
@@ -35,6 +38,8 @@ public class UserController {
     private FavoriteService favoriteService;
     @Resource
     private UserService userService;
+    @Resource
+    private MsgService msgService;
 
     /**
      * 用户中心首页
@@ -154,8 +159,43 @@ public class UserController {
      * @return
      */
     @RequestMapping("/msglist")
-    public String messageList() {
+    public String messageList(ModelMap modelMap) {
+
+        User user = userService.getCurrentUser();
+        SearchResult<MessageItem> inboxMessages = msgService.getInboxMessageList(user);
+        modelMap.put("inboxMessages", inboxMessages);
         return "user-center-message-list";
+    }
+
+    /**
+     * 消息详情
+     * 
+     * @param id
+     * @return
+     */
+    @RequestMapping("/msginfo")
+    public String message(@RequestParam("id") long id, ModelMap modelMap) {
+        MessageItem item = msgService.getInboxMessage(id);
+        modelMap.put("message", item);
+        return "user-center-message";
+    }
+    /**
+     * 回复消息
+     * @param id
+     * @param content
+     * @param title
+     * @param response
+     * @throws IOException
+     */
+    @RequestMapping("/replymsg")
+    public void replyMsg(@RequestParam("id") long id, @RequestParam("content") String content,@RequestParam(value="title",required=false,defaultValue="")String title,
+            HttpServletResponse response) throws IOException {
+        User user = userService.getCurrentUser();
+        if(msgService.reply(title, content, user, id)){
+            JsonUtils.writeToJson("SUCCESS", response);
+        }else{
+            JsonUtils.writeToErrJson("FAIL", "FAIL", response);
+        }
     }
 
     /**
@@ -177,10 +217,11 @@ public class UserController {
      * @param request
      * @return
      * @throws ServletRequestBindingException
-     * @throws IOException 
+     * @throws IOException
      */
     @RequestMapping("/updateSetup")
-    public void updateSetup(HttpServletRequest request,HttpServletResponse response) throws ServletRequestBindingException, IOException {
+    public void updateSetup(HttpServletRequest request, HttpServletResponse response)
+            throws ServletRequestBindingException, IOException {
         AgentsAccount account = userService.getCurrentAccount();
         String userName = ServletRequestUtils.getStringParameter(request, "userName");
         String depart = ServletRequestUtils.getStringParameter(request, "depart");

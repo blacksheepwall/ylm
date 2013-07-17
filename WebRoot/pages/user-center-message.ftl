@@ -9,7 +9,7 @@
         <ul class="breadcrumb pull-left">
           <li><a href="/main/">首页</a> <span class="divider">/</span></li>
           <li><a href="/u/">用户中心</a> <span class="divider">/</span></li>
-          <li><a href="/main/user-center-message-list/">消息列表</a> <span class="divider">/</span></li>
+          <li><a href="/u/msglist/">消息列表</a> <span class="divider">/</span></li>
           <li class="active">消息查看</li>
         </ul>
       </div>
@@ -17,10 +17,10 @@
         <@user_center_sidebar></@user_center_sidebar>
         <div class="span10 manage-body">
           <div class="message-detail clearfix">
-            <p><strong>发送人</strong>：王伟</p>
-            <p><strong>发送时间</strong>：2013年6月15日 13:41:50</p>
-            <p><strong>消息标题</strong>：xxxxxxxxx</p>
-            <p><strong>消息内容</strong>：xxxxxxxxx</p>
+            <p><strong>发送人</strong>：${message.sender}</p>
+            <p><strong>发送时间</strong>：${message.sendTime?string('yyyy年MM月dd日 HH:mm:ss')}</p>
+            <p><strong>消息标题</strong>：${message.title}</p>
+            <p><strong>消息内容</strong>：${message.content}</p>
             <p><strong>附件</strong></p>
             <div class="attachment">
               <p><a href="">xxxxxxxxxxxxxx</a></p>
