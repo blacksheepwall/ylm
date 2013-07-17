@@ -27,8 +27,7 @@
             <a href="/main/user-center-send-message"><i class="icon-envelope-alt"></i> 发送消息</a>
           </div>
           <div id="J_tab_content">
-            <#macro table_body style="display:none;">
-            <table class="table table-hover table-bordered" style="${style}">
+            <table class="table table-hover table-bordered" style="display: table;">
               <thead>
               <tr>
                 <th>
@@ -84,9 +83,62 @@
               </#list>
               </tbody>
             </table>
-            </#macro>
-            <#noescape ><@table_body style="display:table;"></@table_body></#noescape>
-            <#noescape ><@table_body></@table_body></#noescape>
+            <table class="table table-hover table-bordered" style="display: none;">
+              <thead>
+              <tr>
+                <th>
+                  <label><input id="J_check_all" type="checkbox" value="全选">全选</label>
+                </th>
+                <th>
+                  序号
+                </th>
+                <th>
+                  标题
+                </th>
+                <th>
+                  附件
+                </th>
+                <th>
+                  发送人
+                </th>
+                <th>
+                  发送时间
+                </th>
+                <th>
+                  操作
+                </th>
+              </tr>
+              </thead>
+              <tbody>
+                <#list inboxMessages.resultList as it>
+                <tr>
+                  <td>
+                    <input type="checkbox">
+                  </td>
+                  <td>
+                  ${it_index + 1}
+                  </td>
+                  <td>
+                    <a href="/u/msginfo/?id=${it.id}">${it.title}</a>
+                  </td>
+                  <td>
+                    <a href="javascript:;"><i class="icon-search"></i> 预览</a>
+                    <a href="javascript:;"><i class="icon-download-alt"></i> 下载</a>
+                  </td>
+                  <td>
+                  ${it.sender}
+                  </td>
+                  <td>
+                  ${it.sendTime?string('yyyy-MM-dd')}
+                  </td>
+                  <td>
+                    <a href="/u/msginfo/?id=${it.id}"><i class="icon-eye-open"></i> 查看 </a>
+                    <a href=""><i class="icon-reply"></i> 回复</a>
+                  </td>
+                </tr>
+                </#list>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

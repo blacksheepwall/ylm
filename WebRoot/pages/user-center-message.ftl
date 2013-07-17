@@ -23,22 +23,25 @@
             <p><strong>消息内容</strong>：${message.content}</p>
             <p><strong>附件</strong></p>
             <div class="attachment">
-              <p><a href="">xxxxxxxxxxxxxx</a></p>
-              <p><a href="">xxxxxxxxxxxxxx</a></p>
+              <p><a href=""></a></p>
+              <p><a href=""></a></p>
             </div>
           </div>
           <div class="reply">
             <p><strong>回复内容</strong>：</p>
-            <textarea name="" id="" cols="30" rows="5"></textarea>
+            <textarea id="J_content" cols="30" rows="5"></textarea>
             <div class="control-group">
               <div class="controls">
-                <button id="login" class="btn btn-primary">回复</button>
-                <a href="javascript:history.go(-1);" class="btn" data-dismiss="modal" aria-hidden="true">返回</a>
+                <button id="J_send" class="btn btn-primary">回复</button>
+                <a href="javascript:history.go(-1);" class="btn">返回</a>
               </div>
             </div>
           </div>
         </div>
     </div>
+    <script>
+      id = '${message.id}';
+    </script>
     </@body>
   </@html>
 </#escape>
