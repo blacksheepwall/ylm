@@ -36,7 +36,7 @@ define(['scrollMonitor'], function(scrollMonitor) {
       fixed = 'fixed';
     watcher.lock();
     watcher.partiallyExitViewport(function() {
-      $tab.addClass(fixed);
+      !watcher.isBelowViewport && $tab.addClass(fixed);
     });
     watcher.fullyEnterViewport(function() {
       $tab.removeClass(fixed);

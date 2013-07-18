@@ -18,26 +18,26 @@
           <div class="control-group">
             <label class="control-label">接收人</label>
             <div class="controls">
-              <input type="text" class="input-xlarge">
+              <input id="J_receiver" name="receiver" type="text" class="input-xlarge">
               <a href="javascript:;"><i class="icon-user"></i> 选择接收人</a>
             </div>
           </div>
           <div class="control-group">
             <label class="control-label">消息标题</label>
             <div class="controls">
-              <input type="text" class="input-xlarge">
+              <input id="J_title" name="title" type="text" class="input-xlarge">
             </div>
           </div>
           <div class="control-group">
             <label class="control-label">消息内容</label>
             <div class="controls">
-              <textarea></textarea>
+              <textarea id="J_content" name="content"></textarea>
             </div>
           </div>
           <div class="control-group">
             <label class="control-label">附件</label>
             <div class="controls">
-              <a href="javascript:;">上传附件</a>
+              <input type="file" name="attachment">
             </div>
           </div>
           <div class="control-group">

@@ -21,6 +21,11 @@ ul, ol {
   list-style: none;
 }
 
+dl, dt, dd {
+  margin: 0;
+  padding: 0;
+}
+
 pre {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

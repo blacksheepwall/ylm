@@ -5,6 +5,7 @@
   margin-bottom: 10px;
   padding: 0 10px 10px 10px;
   border: 3px solid #ffa500;
+  background-color: #fdf6df;
 }
 
 .basic-info .product-title {
@@ -45,17 +46,13 @@
   font-size: 12px;
 }
 
-.sidebar .book-now {
-  text-align: center;
-}
-
 .sidebar .date-title {
   font-weight: bold;
 }
 
 .sidebar .date-select {
+  width: auto !important;
   margin: 0 10px;
-  width: 220px;
   font-size: 12px;
 }
 
@@ -63,8 +60,12 @@
   vertical-align: top;
 }
 
+.sidebar .product-date {
+  margin-bottom: 10px;
+}
+
 .sidebar .key {
-  color: #666;
+  color: #333;
 }
 
 .sidebar .book-body {
@@ -72,8 +73,43 @@
   border-bottom: 1px solid #ffa500;
 }
 
+.sidebar .book-body .people-num {
+  float: left;
+}
+
+.sidebar .product-meta {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  color: #666;
+  border-bottom: 1px solid #ffa500;
+}
+
+.sidebar .book-body .people-num {
+  float: left;
+  margin-right: 10px;
+}
+
+.sidebar .book-body .people-num input {
+  width: 60px;
+}
+
 .sidebar .recommend {
   padding: 5px 0;
+  border-bottom: 1px solid #ffa500;
+}
+
+.sidebar .recommend dt {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.sidebar .recommend dd {
+  color: #666;
+}
+
+.sidebar .recommend dd .icon-star {
+  margin-right: 5px;
+  font-size: 12px;
 }
 
 .sidebar .plan {
