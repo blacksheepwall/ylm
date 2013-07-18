@@ -19,7 +19,7 @@
           <div class="message-detail clearfix">
             <p><strong>发送人</strong>：${message.sender}</p>
             <p><strong>发送时间</strong>：${message.sendTime?string('yyyy年MM月dd日 HH:mm:ss')}</p>
-            <p><strong>消息标题</strong>：${message.title}</p>
+            <p><strong>消息标题</strong>： ${message.title}</p>
             <p><strong>消息内容</strong>：${message.content}</p>
             <p><strong>附件</strong></p>
             <div class="attachment">
@@ -41,7 +41,8 @@
     </div>
     <script>
       id = '${message.id}';
-    </script>
+      title = 'Re: ${message.title}';
+      </script>
     </@body>
   </@html>
 </#escape>

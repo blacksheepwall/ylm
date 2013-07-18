@@ -7,7 +7,7 @@ define(['./util'], function(Util) {
       'url': '/u/replymsg',
       'data': {
         'id': id,
-        'title': '',
+        'title': title,
         'content': $.trim($content.val())
       },
       'done': function(data) {
