@@ -160,10 +160,11 @@ public class UserController {
      */
     @RequestMapping("/msglist")
     public String messageList(ModelMap modelMap) {
-
         User user = userService.getCurrentUser();
         SearchResult<MessageItem> inboxMessages = msgService.getInboxMessageList(user);
         modelMap.put("inboxMessages", inboxMessages);
+        SearchResult<MessageItem> sendMessageList = msgService.getSendMessageList(user);
+        modelMap.put("outboxMessages", sendMessageList);
         return "user-center-message-list";
     }
 

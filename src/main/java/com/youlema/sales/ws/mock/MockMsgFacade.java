@@ -68,7 +68,7 @@ public class MockMsgFacade implements MsgFacade {
         fdo.setMsgTitle("标题一定要长！！！！！！！！");
         fdo.setMsgType("msgType");
         fdo.setIsRead(false);
-        
+
         MsgResult result = new MsgResult(true);
         result.setMsgInboxFdo(fdo);
         result.setNum(1);
@@ -77,7 +77,22 @@ public class MockMsgFacade implements MsgFacade {
 
     @Override
     public MsgResult getOutboxMsg(MsgFdo arg0) {
-        throw new UnsupportedOperationException();
+        MsgResult result = new MsgResult(true);
+        PageList<MsgFdo> list = new PageList<MsgFdo>();
+        for (int i = 0; i < 10; i++) {
+            MsgFdo fdo = new MsgFdo();
+            fdo.setGmtSend(new Date());
+            fdo.setMsgContent("内容内容内容内容");
+            fdo.setMsgId(40000L + i);
+            fdo.setMsgSender("发送人" + i);
+            fdo.setMsgTitle("发送消息的标题更需要要长！！！！！！！！");
+            fdo.setMsgType("msgType");
+            fdo.setIsRead((i & 1) == 0);
+            list.add(fdo);
+        }
+        result.setList(list);
+        result.setNum(list.size());
+        return result;
     }
 
     @Override

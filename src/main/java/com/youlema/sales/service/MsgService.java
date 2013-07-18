@@ -27,8 +27,10 @@ import com.youlema.tools.jee.pages.PageList;
 public class MsgService {
     @Resource
     private MsgFacade msgFacade;
+
     /**
      * 获取收件箱信息列表
+     * 
      * @param user
      * @return
      */
@@ -46,8 +48,38 @@ public class MsgService {
         }
         return new SearchResult<MessageItem>(msgResult.getNum(), items);
     }
+
+    /**
+     * 获取发件箱列表
+     * 
+     * @param user
+     * @return
+     */
+    public SearchResult<MessageItem> getSendMessageList(User user) {
+        MsgFdo fdo = new MsgFdo();
+        AgentsAccount account = user.getAccount();
+        String accountLoginName = account.getAccountLoginName();
+        fdo.setMsgSender(accountLoginName);
+        MsgResult result = msgFacade.getOutboxMsg(fdo);
+        List<MsgFdo> list = result.getList();
+        List<MessageItem> items = new ArrayList<MessageItem>();
+        for (MsgFdo msgFdo : list) {
+            MessageItem item = new MessageItem();
+            item.setId(msgFdo.getMsgId());
+            item.setSender(msgFdo.getMsgSender());
+            item.setSendTime(msgFdo.getGmtSend());
+            item.setTitle(msgFdo.getMsgTitle());
+            item.setContent(msgFdo.getMsgContent());
+            item.setType(msgFdo.getMsgType());
+            item.setReaded(msgFdo.getIsRead());
+            items.add(item);
+        }
+        return new SearchResult<MessageItem>(result.getNum(), items);
+
+    }
+
     private static MessageItem inboxFdo2MessageItem(MsgInboxFdo msgInboxFdo) {
-        if(msgInboxFdo == null){
+        if (msgInboxFdo == null) {
             return null;
         }
         MessageItem item = new MessageItem();
@@ -60,8 +92,10 @@ public class MsgService {
         item.setReaded(msgInboxFdo.getIsRead());
         return item;
     }
+
     /**
      * 获取收件信息详情
+     * 
      * @param id
      * @return
      */
@@ -71,28 +105,30 @@ public class MsgService {
         MessageItem item = inboxFdo2MessageItem(inboxFdo);
         return item;
     }
+
     /**
      * 回复消息
+     * 
      * @param content
      * @param user
      */
-    public boolean reply(String title , String content , User user , long msgId){
+    public boolean reply(String title, String content, User user, long msgId) {
         MessageItem message = getInboxMessage(msgId);
-        if(message == null){
+        if (message == null) {
             return false;
         }
         MsgFdo fdo = new MsgFdo();
         fdo.setMsgTitle(title);
         AgentsAccount account = user.getAccount();
-        //TODO 待确定
+        // TODO 待确定
         fdo.setMsgSender(account.getAccountLoginName());
         fdo.setMsgReceiver(message.getSender());
         fdo.setMsgContent(content);
-        //TODO 消息类型未知
+        // TODO 消息类型未知
         fdo.setMsgType("type");
-        
+
         MsgResult msgResult = msgFacade.send(fdo);
         return msgResult.isSuccess();
     }
-    
+
 }

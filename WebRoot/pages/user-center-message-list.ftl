@@ -110,7 +110,7 @@
               </tr>
               </thead>
               <tbody>
-                <#list inboxMessages.resultList as it>
+                <#list outboxMessages.resultList as it>
                 <tr>
                   <td>
                     <input type="checkbox">
