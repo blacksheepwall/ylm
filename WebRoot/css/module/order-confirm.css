@@ -19,7 +19,15 @@ body {
   float: left;
   width: 470px;
   margin: 4px 10px 4px 0;
-  text-indent: 2em;
+  /*text-indent: 2em;*/
+}
+
+.order-info.multi li {
+  min-width: 200px;
+  max-width: 300px;
+  margin: 0 -1px -1px 0;
+  padding: 2px 4px;
+  border: 1px solid #333;
 }
 
 .order-info .whole-row {
@@ -51,7 +59,7 @@ body {
 .cost-body .date {
   display: inline-block;
   margin: 0 5px;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #333;
 }
 
 .cost-body .date {
@@ -68,4 +76,27 @@ body {
 thead {
   background-color: #fff !important;
   color: #333 !important;
+}
+
+.section {
+  padding: 4px 8px;
+  border: 1px solid #333;
+}
+
+.ti2 {
+  text-indent: 2em;
+}
+
+.hl-red {
+  color: red;
+  text-decoration: underline;
+}
+
+.account-body .party {
+  float: left;
+  width: 480px;
+}
+
+.table-bordered, .table-bordered th, .table-bordered td {
+  border-color: #333;
 }
