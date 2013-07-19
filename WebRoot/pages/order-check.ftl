@@ -76,11 +76,11 @@
               </tbody>
             </table>
           </div>
-        </div>
-        <div class="order-action">
-          <button id="" class="btn btn-primary">修改订单</button>
-          <button id="" class="btn btn-success">确认提交</button>
-          <button id="" class="btn btn-danger">取消预订</button>
+          <div class="order-action">
+            <a href="" class="btn">修改订单</a>
+            <a href="javascript:;" class="btn btn-primary">确认提交</a>
+            <a href="javascript:;" class="btn btn-danger">取消预订</a>
+          </div>
         </div>
       </div>
     </div>
