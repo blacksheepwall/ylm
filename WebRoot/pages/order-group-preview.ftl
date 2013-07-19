@@ -13,6 +13,10 @@
           <li>联系电话：400-711-8989</li>
           <li>传真：55552222</li>
         </ul>
+        <div class="btn-list">
+          <a href="" class="btn">打印</a>
+          <a href="" class="btn">下载</a>
+        </div>
       </div>
       <h1 class="top-title">团队预订单</h1>
       <h2 class="sub-title">订单编号：No.YSL13042410560353</h2>

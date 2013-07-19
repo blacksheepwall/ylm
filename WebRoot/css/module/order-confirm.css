@@ -100,3 +100,16 @@ thead {
 .table-bordered, .table-bordered th, .table-bordered td {
   border-color: #333;
 }
+
+.main-body {
+  position: relative;
+}
+
+.btn-list {
+  position: absolute;
+  right: 10px;
+}
+
+table.table thead, table.normal thead {
+  background-image: none !important;
+}

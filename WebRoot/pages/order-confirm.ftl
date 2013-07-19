@@ -6,6 +6,10 @@
     <@body nohead=true>
     <div class="main-body">
       <h1 class="top-title">浙江中山国际旅行社代理预订确认单</h1>
+      <div class="btn-list">
+        <a href="" class="btn">打印</a>
+        <a href="" class="btn">下载</a>
+      </div>
       <ul class="order-info clearfix">
         <li><strong>甲方（组团社）：浙江中山国际旅行社</strong></li>
         <li><strong>乙方（代理社）：桐乡市假日旅行社有限责任公司</strong></li>

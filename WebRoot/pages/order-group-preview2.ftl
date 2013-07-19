@@ -13,6 +13,10 @@
           <li>联系电话：400-711-8989</li>
           <li>传真：55552222</li>
         </ul>
+        <div class="btn-list">
+          <a href="" class="btn">打印</a>
+          <a href="" class="btn">下载</a>
+        </div>
       </div>
       <h1 class="top-title">东航直飞巴厘岛5晚6日至尊逍遥之旅</h1>
       <ul class="order-info multi clearfix">
