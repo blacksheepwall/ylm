@@ -14,6 +14,11 @@
           <li>传真：55552222</li>
         </ul>
       </div>
+      <h1 class="top-title">自由行预订单</h1>
+      <div class="btn-list">
+        <a href="" class="btn">打印</a>
+        <a href="" class="btn">下载</a>
+      </div>
       <div>
         <h2 class="sub-title">订单编号：No.YSL13042410560353</h2>
         <ul class="order-info clearfix">

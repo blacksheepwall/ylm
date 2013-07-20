@@ -111,5 +111,7 @@ thead {
 }
 
 table.table thead, table.normal thead {
-  background-image: none !important;
+  /*background-image: none !important;*/
+  /*background-color: #eee !important;*/
+  background: url('') #ddd !important;
 }
