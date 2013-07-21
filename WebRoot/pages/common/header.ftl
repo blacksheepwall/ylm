@@ -66,11 +66,11 @@
                   </div>
                   <div class="info">
                     <div class="clearfix">
-                      <span class="pull-left"><i class="icon-user"></i> 刘思成(业务操作员) </span>
-                      <a href="/u/logout" class="pull-right nav-signout"><i class="icon-signout"></i> 退出</a>
+                      <span class="pull-left"><i class="icon-user"></i>${user.userName!}(业务操作员) </span>
+                      <a href="/logout" class="pull-right nav-signout"><i class="icon-signout"></i> 退出</a>
                     </div>
                     <div class="clearfix">
-                      <a href="/u/msglist/" class="pull-left nav-message"><i class="icon-envelope"></i> 消息(3)</a>
+                      <a href="/u/msglist/" class="pull-left nav-message"><i class="icon-envelope"></i> 消息(${msgCount})</a>
                       <span class="pull-right"><i class="icon-list-alt"></i> 快捷菜单</span>
                       <div class="popover bottom shortcut-menu">
                         <div class="arrow"></div>

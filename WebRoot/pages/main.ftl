@@ -54,15 +54,11 @@
         <div class="system-news">
           <h4 class="news-title"><i class="icon-bullhorn"></i> 系统公告</h4>
           <ol id="J_news_list" class="news-list">
+          	<#list systemBulletinResult.resultList as it>
             <li class="item">
-              <a class="link" href="/bulletin/info/?id=1" target="_blank">系统开始正式使用系统开始正式使用系统开始正式使用系统开始正式使用系统开始正式使用，欢迎反应系统问题 <span class="date">6月20日</span></a>
+              <a class="link" href="/bulletin/info/?id=${it.id}" target="_blank">${it.title} <span class="date">${it.createDate?string('MM月dd日')}</span></a>
             </li>
-            <li class="item">
-              <a class="link" href="/bulletin/info/?id=1" target="_blank">系统开始正式使用，欢迎反应系统问题 <span class="date">6月20日</span></a>
-            </li>
-            <li class="item">
-              <a class="link" href="/bulletin/info/?id=1" target="_blank">系统开始正式使用，欢迎反应系统问题 <span class="date">6月20日</span></a>
-            </li>
+            </#list>
           </ol>
           <a class="all-news" href="/bulletin" target="_blank">更多 »</a>
         </div>

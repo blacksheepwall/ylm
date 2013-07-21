@@ -48,6 +48,8 @@ public class MainController {
     public String main(ModelMap model) {
         SearchResult<Bulletin> bulletinResult = bulletinService.getBulletinList();
         model.put("bulletinResult", bulletinResult);
+        SearchResult<Bulletin> systemBulletinResult = bulletinService.getSystemBulletinList();
+        model.put("systemBulletinResult", systemBulletinResult);
         SearchResult<ProductItem> hotProducts = productService.listHotProduct();
         SearchResult<ProductItem> specialPdts = productService.listSpecialOfferProduct();
         SearchResult<ProductItem> endPdts = productService.listEndProduct();

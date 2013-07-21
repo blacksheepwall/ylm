@@ -97,7 +97,9 @@ public class MockMsgFacade implements MsgFacade {
 
     @Override
     public MsgResult getUnreadNum(String arg0) {
-        throw new UnsupportedOperationException();
+        MsgResult result = new MsgResult();
+        result.setNum(101);
+        return result;
     }
 
     @Override

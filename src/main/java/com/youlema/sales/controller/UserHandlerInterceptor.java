@@ -8,11 +8,14 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.youlema.sales.meta.User;
+import com.youlema.sales.service.MsgService;
 import com.youlema.sales.service.UserService;
 
 public class UserHandlerInterceptor implements HandlerInterceptor {
     @Resource
     private UserService userService;
+    @Resource
+    private MsgService msgService;
     
     
     @Override
@@ -26,6 +29,7 @@ public class UserHandlerInterceptor implements HandlerInterceptor {
         User user = userService.getCurrentUser();
         if(arg3 != null){
         	arg3.addObject("user", user);
+        	arg3.addObject("msgCount", msgService.getNewMsgCount(user));
         }
     }
 

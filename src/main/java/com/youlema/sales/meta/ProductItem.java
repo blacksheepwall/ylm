@@ -3,17 +3,26 @@ package com.youlema.sales.meta;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import com.youlema.sales.utils.VoField;
+
 public class ProductItem {
+    @VoField("getProductId")
     private long productId;
+    @VoField("getLineName")
     private String title;
-    private String placeTag;
+    @VoField("getPromotionPrice")
     private BigDecimal price;
+    @VoField("getStroePrice")
     private BigDecimal storePrice;
+    @VoField("getGmtLeave")
     private Date leaveDate;
-    private boolean recommend;
+    @VoField("getLeaveCity")
     private String leaveCity;
+    @VoField("getKeyword")
     private String keywords;
+    @VoField("getLeaveTraffic")
     private String leaveTraffic;
+    @VoField("getReturnTraffic")
     private String returnTraffic;
 
     public String getReturnTraffic() {
@@ -48,14 +57,6 @@ public class ProductItem {
         this.leaveCity = leaveCity;
     }
 
-    public boolean getRecommend() {
-        return recommend;
-    }
-
-    public void setRecommend(boolean recommend) {
-        this.recommend = recommend;
-    }
-
     public BigDecimal getStorePrice() {
         return storePrice;
     }
@@ -86,14 +87,6 @@ public class ProductItem {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getPlaceTag() {
-        return placeTag;
-    }
-
-    public void setPlaceTag(String placeTag) {
-        this.placeTag = placeTag;
     }
 
     public BigDecimal getPrice() {

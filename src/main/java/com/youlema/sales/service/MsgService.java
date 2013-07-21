@@ -120,15 +120,18 @@ public class MsgService {
         MsgFdo fdo = new MsgFdo();
         fdo.setMsgTitle(title);
         AgentsAccount account = user.getAccount();
-        // TODO 待确定
         fdo.setMsgSender(account.getAccountLoginName());
         fdo.setMsgReceiver(message.getSender());
         fdo.setMsgContent(content);
-        // TODO 消息类型未知
-        fdo.setMsgType("type");
+        fdo.setMsgType("NORMAL");
 
         MsgResult msgResult = msgFacade.send(fdo);
         return msgResult.isSuccess();
+    }
+
+    public int getNewMsgCount(User user) {
+        MsgResult result = msgFacade.getUnreadNum(user.getAccount().getAccountLoginName());
+        return result.getNum();
     }
 
 }

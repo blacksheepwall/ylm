@@ -3,7 +3,6 @@ package com.youlema.sales.service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -16,6 +15,7 @@ import com.youlema.sales.meta.City;
 import com.youlema.sales.meta.ProductItem;
 import com.youlema.sales.meta.Region;
 import com.youlema.sales.meta.SearchResult;
+import com.youlema.sales.utils.Vo;
 import com.youlema.sales.ws.ProductFacadeService;
 
 @Service
@@ -168,36 +168,16 @@ public class ProductService {
         SearchResult<ShowProductFdo> result = facadeService.getIndexProductsByType(type);
         List<ShowProductFdo> resultList = result.getResultList();
         List<ProductItem> items = new ArrayList<ProductItem>();
+        Vo<ProductItem> vo = new Vo<ProductItem>(ProductItem.class);
         for (ShowProductFdo fdo : resultList) {
-            ProductItem item = toProductItem(fdo);
-            if (item != null) {
+            Long productId = fdo.getProductId();
+            TourProductFdo productFdo = facadeService.getProduct(productId);
+            if (productFdo != null) {
+                ProductItem item = vo.inject(productFdo, fdo);
                 items.add(item);
             }
         }
         return new SearchResult<ProductItem>(items.size(), items);
-    }
-
-    private ProductItem toProductItem(ShowProductFdo fdo) {
-        Long productId = fdo.getProductId();
-        TourProductFdo productFdo = facadeService.getProduct(productId);
-        ProductItem item = new ProductItem();
-        if (productFdo != null) {
-            String name = fdo.getLineName();
-            Date leave = fdo.getGmtLeave();
-            String leaveCity = fdo.getLeaveCity();
-            item.setLeaveCity(leaveCity);
-            item.setReturnTraffic(fdo.getReturnTraffic());
-            item.setRecommend(true);
-            item.setPrice(productFdo.getPromotionPrice());
-            item.setProductId(productId);
-            item.setTitle(name);
-            item.setLeaveDate(leave);
-            item.setStorePrice(productFdo.getStroePrice());
-            item.setKeywords(fdo.getKeyword());
-            item.setLeaveTraffic(fdo.getLeaveTraffic());
-            return item;
-        }
-        return null;
     }
 
 }

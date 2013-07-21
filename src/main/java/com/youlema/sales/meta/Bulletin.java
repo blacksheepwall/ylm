@@ -2,6 +2,8 @@ package com.youlema.sales.meta;
 
 import java.util.Date;
 
+import com.youlema.sales.utils.VoField;
+
 /**
  * 公告
  * 
@@ -9,12 +11,19 @@ import java.util.Date;
  * 
  */
 public class Bulletin {
+    @VoField("getBulletinId")
     private long id;
+    @VoField("getBulletinTitle")
     private String title;
+    @VoField("getBulletinType")
     private String type;
+    @VoField("getBulletinContent")
     private String content;
+    @VoField("getBulletinLable")
     private String lable;
+    @VoField("getCreator")
     private String creator;
+    @VoField("getGmtCreat")
     private Date createDate;
 
     public long getId() {
