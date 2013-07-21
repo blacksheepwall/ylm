@@ -1,6 +1,7 @@
+/*start*/
 .flow-steps {
   height: 32px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .flow-steps .num2 li {
@@ -76,6 +77,13 @@
   font-size: 25px;
 }
 
+/*end*/
+.product-name {
+  margin-bottom: 10px;
+  font-family: "microsoft yahei";
+  font-size: 14px;
+}
+
 .hl14 {
   padding: 4px 10px;
   font-size: 14px;
@@ -97,45 +105,81 @@
   margin-left: 10px;
 }
 
-.step1 .date-member {
+.form-body .date-member {
   margin-bottom: 10px;
 }
 
-.step1 .date-member li {
+.form-body .date-member li {
   line-height: 24px;
 }
 
-.step1 .text-warning {
+.form-body .text-warning {
   font-size: 14px;
 }
 
-.step1 select {
+.form-body select {
   width: auto;
 }
 
-.step1 .pro-name {
+.form-body .pro-name {
   position: relative;
 }
 
-.step1 .pro-name .popover.bottom {
+.form-body .pro-name .popover.bottom {
   margin-top: 25px;
 }
 
-.step1 .pro-name .popover.bottom .arrow {
+.form-body .pro-name .popover.bottom .arrow {
   left: 30px;
 }
 
-.step1 .book-side-info {
+.book-side-info {
   margin-bottom: 20px;
   padding-bottom: 10px;
   border-bottom: 1px dotted #ccc;
 }
 
-.step1 .book-side-info li {
+.book-side-info li {
   line-height: 24px;
 }
 
-.step1 .book-side-total {
+.book-side-total {
   color: red;
   font-size: 14px;
+  font-weight: bold;
+}
+
+.step2 .people li {
+  float: left;
+  width: 215px;
+  min-height: 35px;
+  margin: 0 10px 10px 0;
+}
+
+.step2 .people li input[type="text"] {
+  width: 135px;
+}
+
+.step2 .people .radio {
+  font-size: 12px;
+}
+
+.step2 .people .id-card {
+  width: 400px;
+}
+
+.step2 .people .id-card input[type="text"] {
+  width: 300px;
+}
+
+.step2 .people textarea {
+  width: 660px;
+  height: 100px;
+}
+
+.step2 .form-item {
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+  /*border-top: 1px solid rgba(0, 0, 0, 0.1);*/
+  /*background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f9f9f9), to(#e4e4e4));*/
 }
