@@ -1,0 +1,141 @@
+.flow-steps {
+  height: 32px;
+  margin-bottom: 30px;
+}
+
+.flow-steps .num2 li {
+  padding-right: 19px;
+  width: 461px;
+}
+
+.flow-steps .num3 li {
+  padding-right: 19px;
+  width: 301px;
+}
+
+.flow-steps .num4 li {
+  padding-right: 19px;
+  width: 226px;
+}
+
+.flow-steps .num6 li {
+  padding-right: 19px;
+  width: 141px;
+}
+
+.flow-steps li {
+  float: left;
+  position: relative;
+  height: 32px;
+  line-height: 32px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "microsoft yahei";
+  color: #fff;
+  background: url("../../img/flow-steps.png") no-repeat 100% 0 #c3c3c3;
+}
+
+.flow-steps li span {
+  display: block;
+  padding-left: 30px;
+}
+
+.flow-steps li.crt {
+  background-color: #4a8bcc;
+}
+
+.flow-steps li.prv {
+  background-position: right -32px;
+}
+
+.flow-steps li.crt .num {
+  color: #bce9bc;
+}
+
+.flow-steps li.crt .first {
+  background-color: #4a8bcc;
+  background-position: -14px -96px;
+}
+
+.flow-steps li .first {
+  background: url("../../img/flow-steps.png") no-repeat -14px -64px #c3c3c3;
+}
+
+.flow-steps li.last {
+  background: url("../../img/flow-steps.png") no-repeat right -128px #c3c3c3;
+}
+
+.flow-steps li.crt.last {
+  background-color: #4a8bcc;
+  background-position: right -160px;
+}
+
+.flow-steps li .num {
+  position: absolute;
+  left: 10px;
+  font-size: 25px;
+}
+
+.hl14 {
+  padding: 4px 10px;
+  font-size: 14px;
+}
+
+.mod-sub-title {
+  margin-top: 0;
+  padding-bottom: 4px;
+  font-size: 16px;
+  font-family: "microsoft yahei";
+  border-bottom: 1px dotted #ccc;
+}
+
+.form-item {
+  margin-bottom: 25px;
+}
+
+.step1 .edit-flight {
+  margin-left: 10px;
+}
+
+.step1 .date-member {
+  margin-bottom: 10px;
+}
+
+.step1 .date-member li {
+  line-height: 24px;
+}
+
+.step1 .text-warning {
+  font-size: 14px;
+}
+
+.step1 select {
+  width: auto;
+}
+
+.step1 .pro-name {
+  position: relative;
+}
+
+.step1 .pro-name .popover.bottom {
+  margin-top: 25px;
+}
+
+.step1 .pro-name .popover.bottom .arrow {
+  left: 30px;
+}
+
+.step1 .book-side-info {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px dotted #ccc;
+}
+
+.step1 .book-side-info li {
+  line-height: 24px;
+}
+
+.step1 .book-side-total {
+  color: red;
+  font-size: 14px;
+}

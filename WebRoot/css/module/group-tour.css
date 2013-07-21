@@ -32,3 +32,7 @@
   font-size: 14px;
   font-family: "microsoft yahei";
 }
+
+.media-body .sep {
+  margin-left: 10px;
+}
