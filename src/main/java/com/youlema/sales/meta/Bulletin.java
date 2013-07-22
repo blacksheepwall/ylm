@@ -25,6 +25,26 @@ public class Bulletin {
     private String creator;
     @VoField("getGmtCreat")
     private Date createDate;
+    @VoField("getGmtEffective")
+    private Date effectiveDate;
+    @VoField("getKeyword")
+    private String tag;
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
+    public Date getEffectiveDate() {
+        return effectiveDate;
+    }
+
+    public void setEffectiveDate(Date effectiveDate) {
+        this.effectiveDate = effectiveDate;
+    }
 
     public long getId() {
         return id;

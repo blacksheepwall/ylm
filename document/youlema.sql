@@ -1,393 +1,397 @@
-drop table if exists Agents;
+DROP TABLE IF EXISTS AGENTS;
 
-drop table if exists Agents_Account;
+DROP TABLE IF EXISTS AGENTS_ACCOUNT;
 
-drop table if exists Agents_Favorites;
+DROP TABLE IF EXISTS AGENTS_FAVORITES;
 
-drop table if exists Agents_Menu;
+DROP TABLE IF EXISTS AGENTS_MENU;
 
-drop table if exists Agents_Privilege;
+DROP TABLE IF EXISTS AGENTS_PRIVILEGE;
 
-drop table if exists Agents_Role;
+DROP TABLE IF EXISTS AGENTS_ROLE;
 
-drop table if exists Agents_Statistics;
+DROP TABLE IF EXISTS AGENTS_SHORTCUT_MENU;
 
-drop table if exists Ass_Agents_Account_Privilege;
+DROP TABLE IF EXISTS AGENTS_SMSC_CONFIG;
 
-drop table if exists Ass_Agents_Account_Role;
+DROP TABLE IF EXISTS AGENTS_STATISTICS;
 
-drop table if exists Ass_Role_Privilege;
+DROP TABLE IF EXISTS ASS_AGENTS_ACCOUNT_PRIVILEGE;
 
-drop table if exists Order_Tour_Product;
+DROP TABLE IF EXISTS ASS_AGENTS_ACCOUNT_ROLE;
 
-drop table if exists Product_Type;
+DROP TABLE IF EXISTS ASS_ROLE_PRIVILEGE;
 
-drop table if exists Report_Achievements;
+DROP TABLE IF EXISTS ORDER_TOUR_PRODUCT;
 
-drop table if exists Reprot_Store_Sale;
+DROP TABLE IF EXISTS PRODUCT_TYPE;
 
-drop table if exists Shortcut_Menu;
+DROP TABLE IF EXISTS REPORT_ACHIEVEMENTS;
 
-drop table if exists Smsc_Config;
+DROP TABLE IF EXISTS REPROT_STORE_SALE;
 
-drop table if exists Tour_Line;
+DROP TABLE IF EXISTS TOUR_LINE;
 
 /*==============================================================*/
-/* Table: Agents                                                */
+/* Table: AGENTS                                                */
 /*==============================================================*/
-create table Agents
+CREATE TABLE AGENTS
 (
-   agents_Id            bigint not null auto_increment,
-   agents_Name          varchar(64),
-   agents_Type          varchar(32),
-   agents_Code          varchar(32),
-   agents_Tel           varchar(16),
-   agents_Fax           varchar(16),
-   agents_Mail          varchar(64),
-   agents_Site          varchar(2000),
-   agents_Addr          varchar(256),
-   agents_Level         varchar(32),
-   operating_Range      varchar(64),
-   application_Code     varchar(32),
-   license_No           varchar(32),
-   type_Of_Contract     varchar(32),
-   is_Show_Prices       numeric(1,0),
-   agents_Status        varchar(32),
-   account_Executive    varchar(64),
-   agents_Contact       varchar(64),
-   contact_Phone        varchar(16),
-   agents_Introduction  varchar(4000),
-   financail_Info_Audit_Status varchar(32),
-   financail_Info_Auditor varchar(64),
-   gmt_Financail_Info_Audit date,
-   financail_Info_Audit_Opinion varchar(512),
-   creator              varchar(64),
-   gmt_Create           datetime,
-   modifier             varchar(64),
-   gmt_Modify           datetime,
-   is_Edit              numeric(1,0),
-   is_Limit_Booking     numeric(1,0),
-   legal_Representative varchar(64),
-   primary key (agents_Id)
-)
-engine = InnoDB;
-
-
-/*==============================================================*/
-/* Table: Agents_Account                                        */
-/*==============================================================*/
-create table Agents_Account
-(
-   agents_Account_Id    bigint not null auto_increment,
-   agents_Id            bigint,
-   agents_parent_Id     bigint,
-   account_Status       varchar(32),
-   memo                 varchar(512),
-   creator              varchar(64),
-   gmt_Create           datetime,
-   modifier             varchar(64),
-   gmt_Modify           datetime,
-   account_Login_Name   varchar(64),
-   account_Password     varchar(64),
-   email                varchar(64),
-   nick_Name            varchar(64),
-   last_Login_Time      datetime,
-   name                 char(1),
-   sex                  numeric(1,0),
-   depart               varchar(32),
-   duty                 varchar(32),
-   employee_Code        varchar(32),
-   telphone             varchar(16),
-   mobile               varchar(16),
-   QQ                   varchar(32),
-   user_Addr            varchar(64),
-   primary key (agents_Account_Id)
-)
-engine = InnoDB;
-
-
-/*==============================================================*/
-/* Table: Agents_Favorites                                      */
-/*==============================================================*/
-create table Agents_Favorites
-(
-   agents_Favorites_Id  bigint not null auto_increment,
-   agents_Account_Id    bigint,
-   gmt_Of_Favorites     datetime,
-   memo                 varchar(1024),
-   business_Id          bigint,
-   business_Type        varchar(32),
-   primary key (agents_Favorites_Id)
-)
-engine = InnoDB;
-
-
-/*==============================================================*/
-/* Table: Agents_Menu                                           */
-/*==============================================================*/
-create table Agents_Menu
-(
-   agents_Menu_Id       bigint not null auto_increment,
-   parent_Id            bigint,
-   agents_Menu_Name     varchar(64),
-   agents_Menu_Code     varchar(32) not null,
-   memo                 varchar(512),
-   agents_Menu_Ord      int not null,
-   agents_Menu_Level    int not null,
-   agents_Menu_Act      varchar(256),
-   agents_Menu_Target   varchar(32),
-   agents_Menu_Icon     varchar(64),
-   creator              varchar(64),
-   gmt_Create           datetime,
-   modifier             varchar(64),
-   gmt_Modify           datetime,
-   bind_Privilege       varchar(512),
-   primary key (agents_Menu_Id)
-)
-engine = InnoDB;
-
-
-/*==============================================================*/
-/* Table: Agents_Privilege                                      */
-/*==============================================================*/
-create table Agents_Privilege
-(
-   agents_Privilege_Id  bigint not null auto_increment,
-   parent_Id            bigint,
-   agents_Privilege_Name varchar(64),
-   agents_Privilege_Code varchar(32),
-   agents_Privilege_Type varchar(32),
-   agents_Privilege_Memo varchar(1024),
-   creator              varchar(64),
-   gmt_Create           datetime,
-   modifier             varchar(64),
-   gmt_Modify           datetime,
-   primary key (agents_Privilege_Id)
-)
-engine = InnoDB;
-
-
-/*==============================================================*/
-/* Table: Agents_Role                                           */
-/*==============================================================*/
-create table Agents_Role
-(
-   agents_Role_Id       bigint not null auto_increment,
-   agents_Role_Name     varchar(64),
-   agents_Role_Code     varchar(32),
-   agents_Role_Type     varchar(32),
-   memo                 varchar(512),
-   creator              varchar(64),
-   gmt_Create           datetime,
-   modifier             varchar(64),
-   gmt_Modify           datetime,
-   primary key (agents_Role_Id)
-)
-engine = InnoDB;
-
-
-/*==============================================================*/
-/* Table: Agents_Statistics                                     */
-/*==============================================================*/
-create table Agents_Statistics
-(
-   agents_Id            bigint,
-   total_Of_orders      int,
-   total_Transactions   decimal(10,2),
-   number_Of_Adults     int,
-   number_Of_Children   int
-)
-engine = InnoDB;
-
-
-/*==============================================================*/
-/* Table: Ass_Agents_Account_Privilege                          */
-/*==============================================================*/
-create table Ass_Agents_Account_Privilege
-(
-   ass_Agents_Account_Privilege_Id bigint not null auto_increment,
-   agents_Account_Id    bigint not null,
-   agents_Privilege_Id  bigint not null,
-   primary key (ass_Agents_Account_Privilege_Id, agents_Account_Id, agents_Privilege_Id)
+   AGENTS_ID            BIGINT NOT NULL AUTO_INCREMENT,
+   AGENTS_NAME          VARCHAR(64),
+   AGENTS_TYPE          VARCHAR(32),
+   AGENTS_CODE          VARCHAR(32),
+   AGENTS_TEL           VARCHAR(16),
+   AGENTS_FAX           VARCHAR(16),
+   AGENTS_MAIL          VARCHAR(64),
+   AGENTS_SITE          VARCHAR(2000),
+   AGENTS_ADDR          VARCHAR(256),
+   AGENTS_LEVEL         VARCHAR(32),
+   OPERATING_RANGE      VARCHAR(64),
+   APPLICATION_CODE     VARCHAR(32),
+   LICENSE_NO           VARCHAR(32),
+   TYPE_OF_CONTRACT     VARCHAR(32),
+   IS_SHOW_PRICES       TINYINT(1),
+   AGENTS_STATUS        VARCHAR(32),
+   ACCOUNT_EXECUTIVE    VARCHAR(64),
+   AGENTS_CONTACT       VARCHAR(64),
+   CONTACT_PHONE        VARCHAR(16),
+   AGENTS_INTRODUCTION  VARCHAR(4000),
+   FINANCAIL_INFO_AUDIT_STATUS VARCHAR(32),
+   FINANCAIL_INFO_AUDITOR VARCHAR(64),
+   GMT_FINANCAIL_INFO_AUDIT DATE,
+   FINANCAIL_INFO_AUDIT_OPINION VARCHAR(512),
+   CREATOR              VARCHAR(64),
+   GMT_CREATE           DATETIME,
+   MODIFIER             VARCHAR(64),
+   GMT_MODIFY           DATETIME,
+   IS_EDIT              TINYINT(1),
+   IS_LIMIT_BOOKING     TINYINT(1),
+   LEGAL_REPRESENTATIVE VARCHAR(64),
+   PRIMARY KEY (AGENTS_ID)
 );
 
+ALTER TABLE AGENTS COMMENT '代理商信息';
+
 /*==============================================================*/
-/* Table: Ass_Agents_Account_Role                               */
+/* Table: AGENTS_ACCOUNT                                        */
 /*==============================================================*/
-create table Ass_Agents_Account_Role
+CREATE TABLE AGENTS_ACCOUNT
 (
-   ass_Agents_Account_Role_Id bigint not null auto_increment,
-   agents_Role_Id       bigint not null,
-   agents_Account_Id    bigint not null,
-   primary key (ass_Agents_Account_Role_Id, agents_Role_Id, agents_Account_Id)
-)
-engine = InnoDB;
-
-
-/*==============================================================*/
-/* Table: Ass_Role_Privilege                                    */
-/*==============================================================*/
-create table Ass_Role_Privilege
-(
-   ass_Role_Privilege_Id bigint not null auto_increment,
-   agents_Privilege_Id  bigint not null,
-   agents_Role_Id       bigint not null,
-   primary key (ass_Role_Privilege_Id,agents_Privilege_Id, agents_Role_Id )
-)
-engine = InnoDB;
-
-
-/*==============================================================*/
-/* Table: Order_Tour_Product                                    */
-/*==============================================================*/
-create table Order_Tour_Product
-(
-   Column_1             char(10)
-)
-engine = InnoDB;
-
-
-/*==============================================================*/
-/* Table: Product_Type                                          */
-/*==============================================================*/
-create table Product_Type
-(
-   product_Type_Id      bigint not null auto_increment,
-   parent_Id            bigint,
-   product_Type_Name    varchar(64),
-   product_Type_Ord     int,
-   creator              varchar(64),
-   gmt_Create           datetime,
-   modifier             varchar(64),
-   gmt_Modify           datetime,
-   product_Type_City    varchar(256),
-   product_Code         varchar(32),
-   primary key (product_Type_Id)
-)
-engine = InnoDB;
-
-
-/*==============================================================*/
-/* Table: Report_Achievements                                   */
-/*==============================================================*/
-create table Report_Achievements
-(
-   achievements_Report_Id bigint not null auto_increment,
-   product_Id           bigint,
-   product_Type         varchar(32),
-   main_Type_Code       varchar(32),
-   minor_Type_Code      varchar(32),
-   total_Adult          int,
-   total_Child          int,
-   total_Order          int,
-   total_Expense        decimal(10,2),
-   total_Cost           decimal(10,2),
-   dept_Product         varchar(32),
-   op                   varchar(32),
-   dept_Op              varchar(32),
-   store_Salesman       varchar(32),
-   dept_Store           varchar(32),
-   gmt_Last_product_Modify date,
-   primary key (achievements_Report_Id)
-)
-engine = InnoDB;
-
-
-/*==============================================================*/
-/* Table: Reprot_Store_Sale                                     */
-/*==============================================================*/
-create table Reprot_Store_Sale
-(
-   sale_Report_Id       bigint not null auto_increment,
-   gmt_Order            date,
-   product_Id           bigint,
-   product_Type         varchar(32),
-   main_Type_Code       varchar(32),
-   minor_Type_Code      varchar(32),
-   total_Adult          int,
-   total_Child          int,
-   total_Order          int,
-   total_Expense        decimal(10,2),
-   total_Cost           decimal(10,2),
-   dept_Product         varchar(32),
-   op                   varchar(32),
-   dept_Op              varchar(32),
-   store_Salesman       varchar(32),
-   dept_Store           varchar(32),
-   gmt_Last_product_Modify date,
-   primary key (sale_Report_Id)
-)
-engine = InnoDB;
-
-
-/*==============================================================*/
-/* Table: Shortcut_Menu                                         */
-/*==============================================================*/
-create table Shortcut_Menu
-(
-   shortcut_Menu_Id     bigint not null auto_increment,
-   agents_Account_Id    bigint,
-   agents_Menu_Id       bigint,
-   is_Enable            numeric(1,0),
-   primary key (shortcut_Menu_Id)
-)
-engine = InnoDB;
-
-
-/*==============================================================*/
-/* Table: Smsc_Config                                           */
-/*==============================================================*/
-create table Smsc_Config
-(
-   smsc_Config_Id       bigint not null auto_increment,
-   agents_Id            bigint,
-   短信帐号                 varchar(64),
-   短信帐号密码               varchar(64),
-   短信签名                 varchar(256),
-   primary key (smsc_Config_Id)
+   AGENTS_ACCOUNT_ID    BIGINT NOT NULL AUTO_INCREMENT,
+   AGENTS_ID            BIGINT,
+   AGENTS_PARENT_ID     BIGINT,
+   ACCOUNT_STATUS       VARCHAR(32),
+   MEMO                 VARCHAR(512),
+   CREATOR              VARCHAR(64),
+   GMT_CREATE           DATETIME,
+   MODIFIER             VARCHAR(64),
+   GMT_MODIFY           DATETIME,
+   ACCOUNT_LOGIN_NAME   VARCHAR(64),
+   ACCOUNT_PASSWORD     VARCHAR(64),
+   EMAIL                VARCHAR(64),
+   NICK_NAME            VARCHAR(64),
+   LAST_LOGIN_TIME      DATETIME,
+   NAME                 VARCHAR(64),
+   SEX                  TINYINT(1),
+   DEPART               VARCHAR(32),
+   DUTY                 VARCHAR(32),
+   EMPLOYEE_CODE        VARCHAR(32),
+   TELPHONE             VARCHAR(16),
+   MOBILE               VARCHAR(16),
+   QQ                   VARCHAR(32),
+   USER_ADDR            VARCHAR(64),
+   PRIMARY KEY (AGENTS_ACCOUNT_ID)
 );
 
-/*==============================================================*/
-/* Table: Tour_Line                                             */
-/*==============================================================*/
-create table Tour_Line
-(
-   tour_Line_Id         bigint not null auto_increment,
-   product_Main_Type_Id bigint,
-   product_Minor_Type_Id bigint,
-   line_Code            varchar(64) comment '线路编号',
-   line_Name            varchar(256) comment '线路名称',
-   line_Topic           varchar(256) comment '线路主题',
-   line_Type            varchar(32) comment '线路类型',
-   line_Brand           varchar(32) comment '线路品牌',
-   tour_Cards           varchar(256) comment '旅行证件',
-   before_Days_Grant_Vista int,
-   days_Night           int comment '旅游天数夜晚数',
-   days_During          int comment '旅游天数白天数',
-   leave_City           varchar(32) comment '出发城市',
-   leave_City_Traffic   varchar(32) comment '出发城市交通',
-   return_City          varchar(32) comment '返回城市',
-   return_City_Traffic  varchar(32) comment '返回城市交通',
-   through_Citys        varchar(256),
-   tour_Attractions     varchar(256) comment '游览景点',
-   key_Words            varchar(256) comment '关键字',
-   tour_Highlights      text,
-   design_Status        char(1) comment '设计状态',
-   gmt_Desing_Complete  datetime comment '设计完成时间',
-   is_Enable            numeric(1,0),
-   gmt_Create           datetime,
-   creator              varchar(64),
-   gmt_Modify           datetime,
-   modifier             varchar(64),
-   memo                 varchar(512),
-   audit_Opinion        varchar(512),
-   audit_Status         varchar(32),
-   target_Customers     varchar(256) comment '目标客户，多个逗号分隔',
-   tour_Purpose         varchar(256) comment '出行目的，多个逗号分隔',
-   is_Deleted           numeric(1,0),
-   PV                   numeric(11,0),
-   applicable_Type      varchar(64) comment '适用产品类型，多个逗号分隔',
-   primary key (tour_Line_Id)
-)
-engine = InnoDB;
+ALTER TABLE AGENTS_ACCOUNT COMMENT '代理商帐号';
 
+/*==============================================================*/
+/* Table: AGENTS_FAVORITES                                      */
+/*==============================================================*/
+CREATE TABLE AGENTS_FAVORITES
+(
+   AGENTS_FAVORITES_ID  BIGINT NOT NULL AUTO_INCREMENT,
+   AGENTS_ACCOUNT_ID    BIGINT,
+   GMT_OF_FAVORITES     DATETIME,
+   MEMO                 VARCHAR(1024),
+   BUSINESS_ID          BIGINT,
+   BUSINESS_TYPE        VARCHAR(32),
+   PRIMARY KEY (AGENTS_FAVORITES_ID)
+);
+
+ALTER TABLE AGENTS_FAVORITES COMMENT '代理商收藏';
+
+/*==============================================================*/
+/* Table: AGENTS_MENU                                           */
+/*==============================================================*/
+CREATE TABLE AGENTS_MENU
+(
+   AGENTS_MENU_ID       BIGINT NOT NULL AUTO_INCREMENT,
+   PARENT_ID            BIGINT,
+   AGENTS_MENU_NAME     VARCHAR(64),
+   AGENTS_MENU_CODE     VARCHAR(32) NOT NULL,
+   MEMO                 VARCHAR(512),
+   AGENTS_MENU_ORD      INT NOT NULL,
+   AGENTS_MENU_LEVEL    INT NOT NULL,
+   AGENTS_MENU_ACT      VARCHAR(256),
+   AGENTS_MENU_TARGET   VARCHAR(32),
+   AGENTS_MENU_ICON     VARCHAR(64),
+   CREATOR              VARCHAR(64),
+   GMT_CREATE           DATETIME,
+   MODIFIER             VARCHAR(64),
+   GMT_MODIFY           DATETIME,
+   BIND_PRIVILEGE       VARCHAR(512),
+   PRIMARY KEY (AGENTS_MENU_ID)
+);
+
+ALTER TABLE AGENTS_MENU COMMENT '代理商菜单';
+
+/*==============================================================*/
+/* Table: AGENTS_PRIVILEGE                                      */
+/*==============================================================*/
+CREATE TABLE AGENTS_PRIVILEGE
+(
+   AGENTS_PRIVILEGE_ID  BIGINT NOT NULL AUTO_INCREMENT,
+   PARENT_ID            BIGINT,
+   AGENTS_PRIVILEGE_NAME VARCHAR(64),
+   AGENTS_PRIVILEGE_CODE VARCHAR(32),
+   AGENTS_PRIVILEGE_TYPE VARCHAR(32),
+   AGENTS_PRIVILEGE_MEMO VARCHAR(1024),
+   CREATOR              VARCHAR(64),
+   GMT_CREATE           DATETIME,
+   MODIFIER             VARCHAR(64),
+   GMT_MODIFY           DATETIME,
+   PRIMARY KEY (AGENTS_PRIVILEGE_ID)
+);
+
+ALTER TABLE AGENTS_PRIVILEGE COMMENT '代理商权限';
+
+/*==============================================================*/
+/* Table: AGENTS_ROLE                                           */
+/*==============================================================*/
+CREATE TABLE AGENTS_ROLE
+(
+   AGENTS_ROLE_ID       BIGINT NOT NULL AUTO_INCREMENT,
+   AGENTS_ROLE_NAME     VARCHAR(64),
+   AGENTS_ROLE_CODE     VARCHAR(32),
+   AGENTS_ROLE_TYPE     VARCHAR(32),
+   MEMO                 VARCHAR(512),
+   CREATOR              VARCHAR(64),
+   GMT_CREATE           DATETIME,
+   MODIFIER             VARCHAR(64),
+   GMT_MODIFY           DATETIME,
+   PRIMARY KEY (AGENTS_ROLE_ID)
+);
+
+ALTER TABLE AGENTS_ROLE COMMENT '代理商角色';
+
+/*==============================================================*/
+/* Table: AGENTS_SHORTCUT_MENU                                  */
+/*==============================================================*/
+CREATE TABLE AGENTS_SHORTCUT_MENU
+(
+   AGENTS_SHORTCUT_MENU_ID BIGINT NOT NULL AUTO_INCREMENT,
+   AGENTS_ACCOUNT_ID    BIGINT,
+   AGENTS_MENU_ID       BIGINT,
+   IS_ENABLE            TINYINT(1),
+   PRIMARY KEY (AGENTS_SHORTCUT_MENU_ID)
+);
+
+ALTER TABLE AGENTS_SHORTCUT_MENU COMMENT '快捷菜单';
+
+/*==============================================================*/
+/* Table: AGENTS_SMSC_CONFIG                                    */
+/*==============================================================*/
+CREATE TABLE AGENTS_SMSC_CONFIG
+(
+   SMSC_CONFIG_ID       BIGINT NOT NULL AUTO_INCREMENT,
+   AGENTS_ID            BIGINT,
+   短信帐号                 VARCHAR(64),
+   短信帐号密码               VARCHAR(64),
+   短信签名                 VARCHAR(256),
+   PRIMARY KEY (SMSC_CONFIG_ID)
+);
+
+ALTER TABLE AGENTS_SMSC_CONFIG COMMENT '短信配置';
+
+/*==============================================================*/
+/* Table: AGENTS_STATISTICS                                     */
+/*==============================================================*/
+CREATE TABLE AGENTS_STATISTICS
+(
+   AGENTS_ID            BIGINT,
+   TOTAL_OF_ORDERS      INT,
+   TOTAL_TRANSACTIONS   DECIMAL(10,2),
+   NUMBER_OF_ADULTS     INT,
+   NUMBER_OF_CHILDREN   INT
+);
+
+ALTER TABLE AGENTS_STATISTICS COMMENT '代理商统计';
+
+/*==============================================================*/
+/* Table: ASS_AGENTS_ACCOUNT_PRIVILEGE                          */
+/*==============================================================*/
+CREATE TABLE ASS_AGENTS_ACCOUNT_PRIVILEGE
+(
+   ASS_AGENTS_ACCOUNT_PRIVILEGE_ID BIGINT NOT NULL AUTO_INCREMENT,
+   AGENTS_ACCOUNT_ID    BIGINT NOT NULL,
+   AGENTS_PRIVILEGE_ID  BIGINT NOT NULL,
+   PRIMARY KEY (ASS_AGENTS_ACCOUNT_PRIVILEGE_ID, AGENTS_ACCOUNT_ID, AGENTS_PRIVILEGE_ID)
+);
+
+ALTER TABLE ASS_AGENTS_ACCOUNT_PRIVILEGE COMMENT 'Ass_Agents_Account_Privilege';
+
+/*==============================================================*/
+/* Table: ASS_AGENTS_ACCOUNT_ROLE                               */
+/*==============================================================*/
+CREATE TABLE ASS_AGENTS_ACCOUNT_ROLE
+(
+   ASS_AGENTS_ACCOUNT_ROLE_ID BIGINT NOT NULL AUTO_INCREMENT,
+   AGENTS_ROLE_ID       BIGINT NOT NULL,
+   AGENTS_ACCOUNT_ID    BIGINT NOT NULL,
+   PRIMARY KEY (ASS_AGENTS_ACCOUNT_ROLE_ID, AGENTS_ROLE_ID, AGENTS_ACCOUNT_ID)
+);
+
+ALTER TABLE ASS_AGENTS_ACCOUNT_ROLE COMMENT 'Ass_Agents_Account_Role';
+
+/*==============================================================*/
+/* Table: ASS_ROLE_PRIVILEGE                                    */
+/*==============================================================*/
+CREATE TABLE ASS_ROLE_PRIVILEGE
+(
+   ASS_ROLE_PRIVILEGE_ID BIGINT NOT NULL AUTO_INCREMENT,
+   AGENTS_PRIVILEGE_ID  BIGINT NOT NULL,
+   AGENTS_ROLE_ID       BIGINT NOT NULL,
+   PRIMARY KEY (ASS_ROLE_PRIVILEGE_ID , AGENTS_PRIVILEGE_ID, AGENTS_ROLE_ID )
+);
+
+ALTER TABLE ASS_ROLE_PRIVILEGE COMMENT 'Ass_Role_Privilege';
+
+/*==============================================================*/
+/* Table: ORDER_TOUR_PRODUCT                                    */
+/*==============================================================*/
+CREATE TABLE ORDER_TOUR_PRODUCT
+(
+   COLUMN_1             CHAR(10)
+);
+
+ALTER TABLE ORDER_TOUR_PRODUCT COMMENT '订单旅游产品';
+
+/*==============================================================*/
+/* Table: PRODUCT_TYPE                                          */
+/*==============================================================*/
+CREATE TABLE PRODUCT_TYPE
+(
+   PRODUCT_TYPE_ID      BIGINT NOT NULL AUTO_INCREMENT,
+   PARENT_ID            BIGINT,
+   PRODUCT_TYPE_NAME    VARCHAR(64),
+   PRODUCT_TYPE_ORD     INT,
+   CREATOR              VARCHAR(64),
+   GMT_CREATE           DATETIME,
+   MODIFIER             VARCHAR(64),
+   GMT_MODIFY           DATETIME,
+   PRODUCT_TYPE_CITY    VARCHAR(256),
+   PRODUCT_CODE         VARCHAR(32),
+   PRIMARY KEY (PRODUCT_TYPE_ID)
+);
+
+ALTER TABLE PRODUCT_TYPE COMMENT '产品分类';
+
+/*==============================================================*/
+/* Table: REPORT_ACHIEVEMENTS                                   */
+/*==============================================================*/
+CREATE TABLE REPORT_ACHIEVEMENTS
+(
+   ACHIEVEMENTS_REPORT_ID BIGINT NOT NULL AUTO_INCREMENT,
+   PRODUCT_ID           BIGINT,
+   PRODUCT_TYPE         VARCHAR(32),
+   MAIN_TYPE_CODE       VARCHAR(32),
+   MINOR_TYPE_CODE      VARCHAR(32),
+   TOTAL_ADULT          INT,
+   TOTAL_CHILD          INT,
+   TOTAL_ORDER          INT,
+   TOTAL_EXPENSE        DECIMAL(10,2),
+   TOTAL_COST           DECIMAL(10,2),
+   DEPT_PRODUCT         VARCHAR(32),
+   OP                   VARCHAR(32),
+   DEPT_OP              VARCHAR(32),
+   STORE_SALESMAN       VARCHAR(32),
+   DEPT_STORE           VARCHAR(32),
+   GMT_LAST_PRODUCT_MODIFY DATE,
+   PRIMARY KEY (ACHIEVEMENTS_REPORT_ID)
+);
+
+ALTER TABLE REPORT_ACHIEVEMENTS COMMENT '业绩报表';
+
+/*==============================================================*/
+/* Table: REPROT_STORE_SALE                                     */
+/*==============================================================*/
+CREATE TABLE REPROT_STORE_SALE
+(
+   SALE_REPORT_ID       BIGINT NOT NULL AUTO_INCREMENT,
+   GMT_ORDER            DATE,
+   PRODUCT_ID           BIGINT,
+   PRODUCT_TYPE         VARCHAR(32),
+   MAIN_TYPE_CODE       VARCHAR(32),
+   MINOR_TYPE_CODE      VARCHAR(32),
+   TOTAL_ADULT          INT,
+   TOTAL_CHILD          INT,
+   TOTAL_ORDER          INT,
+   TOTAL_EXPENSE        DECIMAL(10,2),
+   TOTAL_COST           DECIMAL(10,2),
+   DEPT_PRODUCT         VARCHAR(32),
+   OP                   VARCHAR(32),
+   DEPT_OP              VARCHAR(32),
+   STORE_SALESMAN       VARCHAR(32),
+   DEPT_STORE           VARCHAR(32),
+   GMT_LAST_PRODUCT_MODIFY DATE,
+   PRIMARY KEY (SALE_REPORT_ID)
+);
+
+ALTER TABLE REPROT_STORE_SALE COMMENT '门店销售报表';
+
+/*==============================================================*/
+/* Table: TOUR_LINE                                             */
+/*==============================================================*/
+CREATE TABLE TOUR_LINE
+(
+   TOUR_LINE_ID         BIGINT NOT NULL AUTO_INCREMENT,
+   PRODUCT_MAIN_TYPE_ID BIGINT,
+   PRODUCT_MINOR_TYPE_ID BIGINT,
+   LINE_CODE            VARCHAR(64) COMMENT '线路编号',
+   LINE_NAME            VARCHAR(256) COMMENT '线路名称',
+   LINE_TOPIC           VARCHAR(256) COMMENT '线路主题',
+   LINE_TYPE            VARCHAR(32) COMMENT '线路类型',
+   LINE_BRAND           VARCHAR(32) COMMENT '线路品牌',
+   TOUR_CARDS           VARCHAR(256) COMMENT '旅行证件',
+   BEFORE_DAYS_GRANT_VISTA INT,
+   DAYS_NIGHT           INT COMMENT '旅游天数夜晚数',
+   DAYS_DURING          INT COMMENT '旅游天数白天数',
+   LEAVE_CITY           VARCHAR(32) COMMENT '出发城市',
+   LEAVE_CITY_TRAFFIC   VARCHAR(32) COMMENT '出发城市交通',
+   RETURN_CITY          VARCHAR(32) COMMENT '返回城市',
+   RETURN_CITY_TRAFFIC  VARCHAR(32) COMMENT '返回城市交通',
+   THROUGH_CITYS        VARCHAR(256),
+   TOUR_ATTRACTIONS     VARCHAR(256) COMMENT '游览景点',
+   KEY_WORDS            VARCHAR(256) COMMENT '关键字',
+   TOUR_HIGHLIGHTS      TEXT,
+   DESIGN_STATUS        CHAR(1) COMMENT '设计状态',
+   GMT_DESING_COMPLETE  DATETIME COMMENT '设计完成时间',
+   IS_ENABLE            NUMERIC(1,0),
+   GMT_CREATE           DATETIME,
+   CREATOR              VARCHAR(64),
+   GMT_MODIFY           DATETIME,
+   MODIFIER             VARCHAR(64),
+   MEMO                 VARCHAR(512),
+   AUDIT_OPINION        VARCHAR(512),
+   AUDIT_STATUS         VARCHAR(32),
+   TARGET_CUSTOMERS     VARCHAR(256) COMMENT '目标客户，多个逗号分隔',
+   TOUR_PURPOSE         VARCHAR(256) COMMENT '出行目的，多个逗号分隔',
+   IS_DELETED           NUMERIC(1,0),
+   PV                   NUMERIC(11,0),
+   APPLICABLE_TYPE      VARCHAR(64) COMMENT '适用产品类型，多个逗号分隔',
+   PRIMARY KEY (TOUR_LINE_ID)
+);
+
+ALTER TABLE TOUR_LINE COMMENT '旅游线路';

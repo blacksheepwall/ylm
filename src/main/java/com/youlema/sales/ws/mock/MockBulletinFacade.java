@@ -55,6 +55,7 @@ public class MockBulletinFacade implements BulletinFacade {
             fdo.setBulletinTitle("测试公告"+i);
             fdo.setBulletinType("type");
             fdo.setCreator("创建人");
+            fdo.setGmtEffective(new Date());
             fdo.setGmtCreat(new Date());
             list.add(fdo);
         }
