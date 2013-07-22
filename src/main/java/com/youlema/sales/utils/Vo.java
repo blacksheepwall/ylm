@@ -49,9 +49,18 @@ public class Vo<T> {
                         continue;
                     }
                     Method writeMethod = entry.getKey();
-                    if (method != null && method.getReturnType().isAssignableFrom(writeMethod.getParameterTypes()[0])) {
-                        Object result = method.invoke(obj);
-                        writeMethod.invoke(inst, result);
+                    Class<?> writeClass = writeMethod.getParameterTypes()[0];
+                    Class<?> returnClass = method.getReturnType();
+                    if (method != null) {
+                        if (acceptWrite(writeClass, returnClass)) {
+                            Object result = method.invoke(obj);
+                            result = transformType(result, writeClass);
+                            writeMethod.invoke(inst, result);
+                        } else {
+                            LOGGER.warn(
+                                    "getter and setter's type is not match , getter={} , getter's type={},setter's type={}",
+                                    new Object[] { entry.getValue(), returnClass, writeClass });
+                        }
                     }
                 }
             }
@@ -59,6 +68,42 @@ public class Vo<T> {
         } catch (Exception e) {
             throw new RuntimeException("Inject data error ", e);
         }
+    }
+
+    private static Object transformType(Object result, Class<?> writeClass) {
+        if (writeClass == long.class) {
+            if (result == null) {
+                return 0L;
+            }
+            if (result.getClass().isAssignableFrom(Number.class)) {
+                return ((Number) result).longValue();
+            }
+        }
+        if (writeClass == int.class) {
+            if (result == null) {
+                return 0;
+            }
+            if (result.getClass().isAssignableFrom(Number.class)) {
+                return ((Number) result).intValue();
+            }
+        }
+        return result;
+    }
+
+    private static boolean acceptWrite(Class<?> writeClass, Class<?> returnClass) {
+        if (writeClass == returnClass) {
+            return true;
+        }
+        if (returnClass.isAssignableFrom(writeClass)) {
+            return true;
+        }
+        if (writeClass == Long.class || writeClass == long.class) {
+            return returnClass == Long.class || returnClass == long.class;
+        }
+        if (writeClass == Integer.class || writeClass == int.class) {
+            return returnClass == int.class || returnClass == Integer.class;
+        }
+        return false;
     }
 
 }
