@@ -343,8 +343,6 @@
                 </#assign>
                 <#noescape >${people}</#noescape>
                 <#noescape >${people}</#noescape>
-                <#noescape >${people}</#noescape>
-                <#noescape >${people}</#noescape>
               </div>
               <div class="action text-center">
                 <a id="J_back_step1" class="btn">上一步</a>
