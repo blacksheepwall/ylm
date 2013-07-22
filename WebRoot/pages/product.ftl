@@ -8,17 +8,17 @@
       <ul class="breadcrumb">
         <li><a href="/main/">首页</a> <span class="divider">/</span></li>
         <li><a href="/main/">出境线路</a> <span class="divider">/</span></li>
-        <li class="active">东航直飞巴厘岛5晚6日至尊逍遥之旅</li>
+        <li class="active">${pdt.title}</li>
       </ul>
       <div class="center">
         <div class="basic-info">
           <div class="title-group">
             <h2>
               <span class="label label-warning">跟团游</span>
-              <span class="product-title">东航直飞巴厘岛5晚6日至尊逍遥之旅</span>
-              <span class="product-subtitle">（2晚钻石五星酒店+3晚独栋泳池别墅，宝格丽海景下午茶+龙目岛离岛）</span>
+              <span class="product-title">${pdt.title}</span>
+              <span class="product-subtitle">（${pdt.subtitle}）</span>
             </h2>
-            <div class="product-num">产品编号：YCJIS58PA130518B</div>
+            <div class="product-num">产品编号：${pdt.pdtCode}</div>
             <div class="action-bar">
               <#--<a id="J_favorite" href="/u/addFavorite/?id=${productId}&type=${type}">收藏</a>-->
               <a id="J_favorite" href="javascript:;">收藏</a>
@@ -86,10 +86,10 @@
                   <li class="item"><span class="key">悠乐马价：</span> 588元起起价说明</li>
                   <li class="item"><span class="key">开票日期：</span> 2013-05-12</li>
                   <li class="item"><span class="key">截至送签日期：</span> 2013-05-12</li>
-                  <li class="item"><span class="key">出发港口：</span> 杭州</li>
-                  <li class="item"><span class="key">旅行证件：</span> 护照</li>
-                  <li class="item"><span class="key">产品经理：<a href="">王伟</a></li>
-                  <li class="item"><span class="key">团队协调：<a href="">王伟</a></li>
+                  <li class="item"><span class="key">出发港口：</span>${pdt.leaveCity}</li>
+                  <li class="item"><span class="key">旅行证件：</span>${pdt.tourCards}</li>
+                  <li class="item"><span class="key">产品经理：<a href="">${pdt.pdtManager}</a></li>
+                  <li class="item"><span class="key">团队协调：<a href="">${pdt.pdtAssistant}</a></li>
                   <li><span class="key">出发交通：</span> 飞机VN551（21:00 /23:00）</li>
                   <li><span class="key">返回交通：</span> 飞机VN551（21:00 /23:00）</li>
                 </ol>
@@ -105,7 +105,12 @@
               <div class="plan">
                 <span>计划：22人       可预订：12人          预订需审核</span>
               </div>
-              <@pm_recommend></@pm_recommend>
+              <div class="recommend">
+				  <dl>
+				    <dt>产品经理推荐</dt>
+				    ${pdt.pdtManagerRecommend}
+				  </dl>
+				</div>
             </div>
             <#-- 日期控件 -->
           </div>

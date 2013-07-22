@@ -9,9 +9,13 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.yolema.tbss.ext.facade.TourPkgProductFacade;
 import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
+import com.yolema.tbss.ext.facade.fdo.pkgProduct.TourPkgProductFdo;
 import com.yolema.tbss.ext.facade.fdo.product.ShowProductFdo;
+import com.yolema.tbss.ext.facade.result.TourPkgProductResult;
 import com.youlema.sales.meta.City;
+import com.youlema.sales.meta.ProductInfo;
 import com.youlema.sales.meta.ProductItem;
 import com.youlema.sales.meta.Region;
 import com.youlema.sales.meta.SearchResult;
@@ -22,6 +26,8 @@ import com.youlema.sales.ws.ProductFacadeService;
 public class ProductService {
     @Resource
     private ProductFacadeService facadeService;
+    @Resource
+    private TourPkgProductFacade tourPkgProductFacade;
 
     /**
      * 获取出发城市
@@ -178,6 +184,16 @@ public class ProductService {
             }
         }
         return new SearchResult<ProductItem>(items.size(), items);
+    }
+
+    public ProductInfo getProduct(long productId) {
+        TourPkgProductResult result = tourPkgProductFacade.getById(productId);
+        TourPkgProductFdo productFdo = result.getTourPkgProductFdo();
+        if(productFdo == null){
+            return null;
+        }
+        Vo<ProductInfo> vo = new Vo<ProductInfo>(ProductInfo.class);
+        return vo.inject(productFdo);
     }
 
 }
