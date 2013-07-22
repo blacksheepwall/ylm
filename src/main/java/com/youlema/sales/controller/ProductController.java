@@ -1,5 +1,6 @@
 package com.youlema.sales.controller;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -8,10 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.youlema.sales.meta.BusinessType;
+import com.youlema.sales.meta.ProductInfo;
+import com.youlema.sales.service.ProductService;
 
 @Controller
 @RequestMapping("/product")
 public class ProductController {
+    @Resource
+    private ProductService productService;
     /**
      * 产品详情页
      * 
@@ -21,6 +26,9 @@ public class ProductController {
     public String productDetailInfo(@RequestParam(value = "id") long productId, ModelMap modelMap) {
         modelMap.put("productId", productId);
         modelMap.put("type", BusinessType.LINE.name());
+        
+        ProductInfo info = productService.getProduct(productId);
+        modelMap.put("pdt", info);
         return "product";
     }
 
