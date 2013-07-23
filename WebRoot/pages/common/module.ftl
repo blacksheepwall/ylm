@@ -568,3 +568,183 @@
   </dl>
 </div>
 </#macro>
+
+<#macro product_book_content>
+<div class="form-item">
+  <h5 class="mod-sub-title">机票信息</h5>
+  <table class="table table-bordered user-list">
+    <thead>
+    <tr>
+      <th>
+        出发日期
+      </th>
+      <th>
+        时间/目的地
+      </th>
+      <th>
+        抵达时间
+      </th>
+      <th>
+        航班号
+      </th>
+      <th>
+        机型
+      </th>
+      <th>
+        仓位
+      </th>
+      <th>
+        数量
+      </th>
+      <th>
+        差价
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div class="form-item">
+  <h5 class="mod-sub-title">酒店信息</h5>
+  <table class="table table-bordered user-list">
+    <thead>
+    <tr>
+      <th width="100">
+        目的地
+      </th>
+      <th width="180">
+        酒店名称
+      </th>
+      <th>
+        房型
+      </th>
+      <th>
+        早餐
+      </th>
+      <th>
+        床型
+      </th>
+      <th>
+        宽带
+      </th>
+      <th width="100">
+        入住日期
+      </th>
+      <th width="100">
+        退房日期
+      </th>
+      <th width="80">
+        数量
+      </th>
+      <th width="80">
+        差价
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div class="form-item">
+  <h5 class="mod-sub-title">附加项目</h5>
+  <table class="table table-bordered user-list">
+    <thead>
+    <tr>
+      <th>
+        类型
+      </th>
+      <th width="250">
+        项目名称
+      </th>
+      <th>
+        单价
+      </th>
+      <th>
+        使用日期
+      </th>
+      <th>
+        份数
+      </th>
+      <th>
+        小计
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        送关
+      </td>
+      <td>
+        <div class="pro-name">
+          <a href="">L签客人送关服务</a>
+          <div class="popover bottom">
+            <div class="arrow"></div>
+            <div class="popover-content">
+              <p><strong>L签客人送关服务</strong></p>
+              <p>1.请最晚于出发前3个工作日提供准确的出行人中英文姓名、出生日期、出生地、证件号码、签发地、证件有效期。</p>
+              <p>2.不接受新疆出生或签发的客人预订。</p>
+              <p>3.最晚出发前1天通知送关信息(含送关人及联系方式集合时间和地点），协助L签客人以旅游团队形式通过中国边防检查。</p>
+              <p>4.2013-06-06至2090-12-31 :不接受新疆出生或签发的客人预订。</p>
+            </div>
+          </div>
+        </div>
+      </td>
+      <td>
+        120.00
+      </td>
+      <td>
+        2013-07-21
+      </td>
+      <td>
+        3份
+      </td>
+      <td>
+        360.00
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</#macro>

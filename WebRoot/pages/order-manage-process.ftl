@@ -68,13 +68,17 @@
         </div>
         <ul id="J_tab" class="nav nav-tabs">
           <li class="active">
-            <a href="#"><i class="icon-list"></i> 名单</a>
+            <a href="#"><i class="icon-list"></i> 预订内容</a>
           </li>
+          <li><a href="#"><i class="icon-group"></i> 游客名单</a></li>
           <li><a href="#"><i class="icon-share-alt"></i> 收款退款</a></li>
           <li><a href="#"><i class="icon-pencil"></i> 处理信息</a></li>
         </ul>
         <div id="J_tab_content">
-          <div id="J_user_list">
+          <div id="J_order_content">
+            <@product_book_content></@product_book_content>
+          </div>
+          <div id="J_user_list" style="display: none;">
             <table class="table table-bordered user-list">
               <thead>
               <tr>
