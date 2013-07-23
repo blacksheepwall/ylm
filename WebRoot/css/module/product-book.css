@@ -101,8 +101,11 @@
   margin-bottom: 25px;
 }
 
-.step1 .edit-flight {
-  margin-left: 10px;
+.form-item .detail-list li {
+  float: left;
+  width: 300px;
+  line-height: 24px;
+  margin-right: 20px;
 }
 
 .form-body .date-member {
@@ -149,6 +152,10 @@
   font-weight: bold;
 }
 
+.step1 .edit-flight {
+  margin-left: 10px;
+}
+
 .step2 .people li {
   float: left;
   width: 215px;
@@ -182,6 +189,16 @@
   border: 1px solid #ccc;
   /*border-top: 1px solid rgba(0, 0, 0, 0.1);*/
   /*background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f9f9f9), to(#e4e4e4));*/
+}
+
+.step4 .success-title {
+  margin: 20px 0;
+  font-size: 20px;
+  font-family: "microsoft yahei";
+}
+
+.step4 .action {
+  margin: 20px 0;
 }
 
 .action .btn {

@@ -44,7 +44,7 @@
                     <li>2013-08-29：杭州--香港 </li>
                   </ol>
                   <div>
-                    <strong>成人人数： </strong><input type="text" class="input-small"><strong> 小孩人数： </strong><input type="text" class="input-small">
+                    <strong>成人人数： </strong><input type="text" class="input-small">&nbsp;<strong> 小孩人数： </strong><input type="text" class="input-small">
                   </div>
                 </div>
                 <div class="form-item">
@@ -326,8 +326,9 @@
                     <li><strong>证件类型：</strong>
                       <select>
                         <option value="">身份证</option>
-                        <option value="">身份证</option>
-                        <option value="">身份证</option>
+                        <option value="">护照</option>
+                        <option value="">港澳通行证</option>
+                        <option value="">台湾通行证</option>
                       </select>
                     </li>
                     <li class="id-card"><strong>证件号码：</strong><input type="text"></li>
@@ -349,7 +350,281 @@
                 <a id="J_to_step3" class="btn btn-primary">下一步</a>
               </div>
             </div>
-            <#noescape ><@step1 id="J_to_step4" class="hide" next_text="提交订单"></@step1></#noescape>
+            <#--<#noescape ><@step1 id="J_to_step4" class="hide" next_text="提交订单"></@step1></#noescape>-->
+            <div class="form-body step3 hide">
+              <div class="mod-body">
+                <div class="form-item form-horizontal">
+                  <h5 class="mod-sub-title">产品信息</h5>
+                  <ul class="detail-list clearfix">
+                    <li><strong>产品编号： </strong>YCJIS58PA130518B</li>
+                    <li><strong>产品名称： </strong>香港4晚5日至尊逍遥之旅</li>
+                    <li><strong>出发口岸： </strong>杭州</li>
+                    <li><strong>出发日期： </strong>2013-08-29</li>
+                  </ul>
+                </div>
+                <div class="form-item">
+                  <h5 class="mod-sub-title">机票信息</h5>
+                  <table class="table table-bordered user-list">
+                    <thead>
+                    <tr>
+                      <th>
+                        出发日期
+                      </th>
+                      <th>
+                        时间/目的地
+                      </th>
+                      <th>
+                        抵达时间
+                      </th>
+                      <th>
+                        航班号
+                      </th>
+                      <th>
+                        机型
+                      </th>
+                      <th>
+                        仓位
+                      </th>
+                      <th>
+                        数量
+                      </th>
+                      <th>
+                        差价
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>
+                      </td>
+                      <td>
+                      </td>
+                      <td>
+                      </td>
+                      <td>
+                      </td>
+                      <td>
+                      </td>
+                      <td>
+                      </td>
+                      <td>
+                      </td>
+                      <td>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="form-item">
+                  <h5 class="mod-sub-title">酒店信息</h5>
+                  <table class="table table-bordered user-list">
+                    <thead>
+                    <tr>
+                      <th width="100">
+                        目的地
+                      </th>
+                      <th width="180">
+                        酒店名称
+                      </th>
+                      <th>
+                        房型
+                      </th>
+                      <th>
+                        早餐
+                      </th>
+                      <th>
+                        床型
+                      </th>
+                      <th>
+                        宽带
+                      </th>
+                      <th width="100">
+                        入住日期
+                      </th>
+                      <th width="100">
+                        退房日期
+                      </th>
+                      <th width="80">
+                        数量
+                      </th>
+                      <th width="80">
+                        差价
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>
+                        香港
+                      </td>
+                      <td>
+                        2013-08-29
+                      </td>
+                      <td>
+                        2013-08-29
+                      </td>
+                      <td>
+                        07:45
+                        杭州--萧山国际机场
+                      </td>
+                      <td>
+                        11:20
+                        香港--启德国际机场
+                      </td>
+                      <td>
+                        港龙航空
+                        KA937
+                      </td>
+                      <td>
+                      </td>
+                      <td>
+                        经济舱
+                      </td>
+                      <td>
+                        3
+                      </td>
+                      <td>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="form-item">
+                  <h5 class="mod-sub-title">附加项目</h5>
+                  <table class="table table-bordered user-list">
+                    <thead>
+                    <tr>
+                      <th>
+                        类型
+                      </th>
+                      <th width="250">
+                        项目名称
+                      </th>
+                      <th>
+                        单价
+                      </th>
+                      <th>
+                        使用日期
+                      </th>
+                      <th>
+                        份数
+                      </th>
+                      <th>
+                        小计
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>
+                        送关
+                      </td>
+                      <td>
+                        <div class="pro-name">
+                          <a href="">L签客人送关服务</a>
+                          <div class="popover bottom">
+                            <div class="arrow"></div>
+                            <div class="popover-content">
+                              <p><strong>L签客人送关服务</strong></p>
+                              <p>1.请最晚于出发前3个工作日提供准确的出行人中英文姓名、出生日期、出生地、证件号码、签发地、证件有效期。</p>
+                              <p>2.不接受新疆出生或签发的客人预订。</p>
+                              <p>3.最晚出发前1天通知送关信息(含送关人及联系方式集合时间和地点），协助L签客人以旅游团队形式通过中国边防检查。</p>
+                              <p>4.2013-06-06至2090-12-31 :不接受新疆出生或签发的客人预订。</p>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        120.00
+                      </td>
+                      <td>
+                        2013-07-21
+                      </td>
+                      <td>
+                        3份
+                      </td>
+                      <td>
+                        360.00
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="form-item">
+                  <h5 class="mod-sub-title">附加项目</h5>
+                  <ul class="detail-list clearfix">
+                    <li><strong>游客联系人：</strong>王伟</li>
+                    <li><strong>手机号码：</strong>13913911136</li>
+                    <li><strong>预订备注：</strong></li>
+                  </ul>
+                  <table class="table table-bordered user-list">
+                    <thead>
+                    <tr>
+                      <th>
+                        姓名
+                      </th>
+                      <th>
+                        拼音
+                      </th>
+                      <th>
+                        性别
+                      </th>
+                      <th>
+                        出生日期
+                      </th>
+                      <th>
+                        户籍
+                      </th>
+                      <th>
+                        证件
+                      </th>
+                      <th>
+                        手机号码
+                      </th>
+                      <th>
+                        备注
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>
+                      </td>
+                      <td>
+                      </td>
+                      <td>
+                      </td>
+                      <td>
+                      </td>
+                      <td>
+                      </td>
+                      <td>
+                      </td>
+                      <td>
+                      </td>
+                      <td>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="action text-center">
+                <a id="J_back_step2" class="btn">上一步</a>
+                <a id="J_to_step4" class="btn btn-primary">提交订单</a>
+              </div>
+            </div>
+            <div class="form-body step4 text-center hide">
+              <div class="mod-body">
+                <h4 class="success-title"><i class="icon-ok"></i> 预订成功</h4>
+                <div><strong>订单号：YSL13052903300683</strong></div>
+                <div><strong>可进行以下操作</strong></div>
+                <div class="action text-center">
+                  <a href="/main/order-free-travel-preview" class="btn btn-info">打印预订单</a>
+                  <a class="btn btn-info">订单查看</a>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="mod-body span3">
             <h4 class="mod-title">预订信息</h4>
