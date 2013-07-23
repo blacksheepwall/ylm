@@ -42,6 +42,7 @@
 				/**/*.otf = anon
 				/index* = anon
 				/login/* = anon
+				/err/** = anon
 				/** = authc
 			</value>
 		</property>

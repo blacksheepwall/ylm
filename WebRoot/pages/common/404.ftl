@@ -1,4 +1,5 @@
 <#assign hide_nav=true/>
+<#assign page_name="404"/>
 <#include "../common/module.ftl"/>
 <#escape x as x?html>
 <@html>
