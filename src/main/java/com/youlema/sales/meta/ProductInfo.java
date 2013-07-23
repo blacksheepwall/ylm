@@ -1,5 +1,7 @@
 package com.youlema.sales.meta;
 
+import java.math.BigDecimal;
+
 import com.youlema.sales.utils.VoField;
 
 /**
@@ -9,14 +11,12 @@ import com.youlema.sales.utils.VoField;
  * 
  */
 public class ProductInfo {
-    @VoField("getProductItemName")
+    @VoField("getLineName")
     private String title;
     @VoField("getSubtitle")
     private String subtitle;
-    @VoField("getTourProductType")
+    @VoField("getProductType")
     private String pdtType;
-    @VoField("getDestination")
-    private String destination;
     @VoField("getLeaveCity")
     private String leaveCity;
     @VoField("getTourCards")
@@ -27,8 +27,100 @@ public class ProductInfo {
     private String pdtAssistant;
     @VoField("getProductManagerRecommend")
     private String pdtManagerRecommend;
-    @VoField("getProductCode")
+    @VoField("getProductNo")
     private String pdtCode;
+    // TODO 页面上的悠乐马价格，究竟是哪个字段还不明确
+    @VoField("getPrice")
+    private BigDecimal price;
+    @VoField("getLeaveCityTraffic")
+    private String leaveTraffic;
+    @VoField("getReturnCityTraffic")
+    private String returnTraffic;
+    @VoField("getAdultPrice")
+    private BigDecimal adultPrice;
+    @VoField("getChildPrice")
+    private BigDecimal childPrice;
+    // TODO 标签字段究竟是哪个
+    @VoField("getKeyword")
+    private String keyword;
+    @VoField("getNumberOfPeoplePlan")
+    private int numberOfPeoplePlan;
+    @VoField("getBookNubmer")
+    private int bookNubmer;
+    @VoField("getImgUrl")
+    private String imageUrl;
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public int getNumberOfPeoplePlan() {
+        return numberOfPeoplePlan;
+    }
+
+    public void setNumberOfPeoplePlan(int numberOfPeoplePlan) {
+        this.numberOfPeoplePlan = numberOfPeoplePlan;
+    }
+
+    public int getBookNubmer() {
+        return bookNubmer;
+    }
+
+    public void setBookNubmer(int bookNubmer) {
+        this.bookNubmer = bookNubmer;
+    }
+
+    public String getKeyword() {
+        return keyword;
+    }
+
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
+    }
+
+    public BigDecimal getAdultPrice() {
+        return adultPrice;
+    }
+
+    public void setAdultPrice(BigDecimal adultPrice) {
+        this.adultPrice = adultPrice;
+    }
+
+    public BigDecimal getChildPrice() {
+        return childPrice;
+    }
+
+    public void setChildPrice(BigDecimal childPrice) {
+        this.childPrice = childPrice;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public String getLeaveTraffic() {
+        return leaveTraffic;
+    }
+
+    public void setLeaveTraffic(String leaveTraffic) {
+        this.leaveTraffic = leaveTraffic;
+    }
+
+    public String getReturnTraffic() {
+        return returnTraffic;
+    }
+
+    public void setReturnTraffic(String returnTraffic) {
+        this.returnTraffic = returnTraffic;
+    }
 
     public String getPdtCode() {
         return pdtCode;
@@ -60,14 +152,6 @@ public class ProductInfo {
 
     public void setPdtType(String pdtType) {
         this.pdtType = pdtType;
-    }
-
-    public String getDestination() {
-        return destination;
-    }
-
-    public void setDestination(String destination) {
-        this.destination = destination;
     }
 
     public String getLeaveCity() {

@@ -24,11 +24,14 @@ public class MockTourProductFacade implements TourProductFacade {
         TourProductFdo fdo = new TourProductFdo();
         fdo.setLineName("火星太阳一日游");
         fdo.setNumOfOrder(65536);
-        fdo.setProductManager("产品经理甲");
-        fdo.setProductClaimPersion("产品计调甲");
+        fdo.setProductManager("奥巴马");
+        fdo.setProductClaimPersion("松岛枫");
+        fdo.setProductAssistant("松岛枫");
         fdo.setStroePrice(BigDecimal.ONE);
         fdo.setPromotionPrice(BigDecimal.TEN);
+        fdo.setNumberOfPeoplePlan(10000000);
         result.setTourProductBean(fdo);
+        
         return result;
     }
 
@@ -59,7 +62,21 @@ public class MockTourProductFacade implements TourProductFacade {
         ShowProductResult result = new ShowProductResult();
         ShowProductFdo fdo = new ShowProductFdo();
         fdo.setProductNo("999999999");
+        fdo.setSubtitle("飞船游 途经很多很多很多星球，保证一辈子想回都回不来");
+        fdo.setProductManagerRecommend("总统+美女全程陪伴");
+        fdo.setKeyword("飞船游");
         fdo.setStartDate(new Date());
+        fdo.setPrice(new BigDecimal("100000"));
+        fdo.setAdultPrice(new BigDecimal("1234"));
+        fdo.setChildPrice(new BigDecimal("2234"));
+        fdo.setImgUrl("/img/8e71e654bbdb_640_426.jpg");
+        fdo.setLeaveCity("地球");
+        fdo.setTourCards("出生证");
+        fdo.setLeaveCityTraffic("火箭");
+        fdo.setReturnCity("冥王星");
+        fdo.setReturnCityTraffic("还是火箭");
+        fdo.setGmtLeave(new Date());
+        fdo.setBookNubmer(9999);
         result.setShowProductFdo(fdo);
         result.setSuccess(true);
         return result;

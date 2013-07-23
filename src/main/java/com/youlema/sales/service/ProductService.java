@@ -11,9 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.yolema.tbss.ext.facade.TourPkgProductFacade;
 import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
-import com.yolema.tbss.ext.facade.fdo.pkgProduct.TourPkgProductFdo;
 import com.yolema.tbss.ext.facade.fdo.product.ShowProductFdo;
-import com.yolema.tbss.ext.facade.result.TourPkgProductResult;
 import com.youlema.sales.meta.City;
 import com.youlema.sales.meta.ProductInfo;
 import com.youlema.sales.meta.ProductItem;
@@ -187,13 +185,14 @@ public class ProductService {
     }
 
     public ProductInfo getProduct(long productId) {
-        TourPkgProductResult result = tourPkgProductFacade.getById(productId);
-        TourPkgProductFdo productFdo = result.getTourPkgProductFdo();
-        if(productFdo == null){
+        ShowProductFdo productFdo = facadeService.getShowProductFdo(productId);
+        TourProductFdo pdtFdo = facadeService.getProduct(productId);
+        if (productFdo == null || pdtFdo == null) {
             return null;
         }
         Vo<ProductInfo> vo = new Vo<ProductInfo>(ProductInfo.class);
-        return vo.inject(productFdo);
+        ProductInfo inject = vo.inject(productFdo, pdtFdo);
+        return inject;
     }
 
 }

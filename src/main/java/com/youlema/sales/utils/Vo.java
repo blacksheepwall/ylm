@@ -56,6 +56,9 @@ public class Vo<T> {
                             Object result = method.invoke(obj);
                             result = transformType(result, writeClass);
                             writeMethod.invoke(inst, result);
+                            if(result!=null){
+                                break;
+                            }
                         } else {
                             LOGGER.warn(
                                     "getter and setter's type is not match , getter={} , getter's type={},setter's type={}",

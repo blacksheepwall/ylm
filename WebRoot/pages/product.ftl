@@ -14,7 +14,7 @@
         <div class="basic-info">
           <div class="title-group">
             <h2>
-              <span class="label label-warning">跟团游</span>
+              <span class="label label-warning">${pdt.keyword}</span>
               <span class="product-title">${pdt.title}</span>
               <span class="product-subtitle">（${pdt.subtitle}）</span>
             </h2>
@@ -36,7 +36,7 @@
               </ol>
               <div class="carousel-inner">
                 <div class="item">
-                  <img alt="" src="/img/8e71e654bbdb_640_426.jpg">
+                  <img alt="" src="${pdt.imageUrl}">
                   <div class="carousel-caption">
                     <h4>
                       阳光海滨
@@ -83,27 +83,26 @@
               </div>
               <div class="product-meta">
                 <ol class="meta-list clearfix">
-                  <li class="item"><span class="key">悠乐马价：</span> 588元起起价说明</li>
+                  <li class="item"><span class="key">悠乐马价：</span>${pdt.price}元起 起价说明</li>
                   <li class="item"><span class="key">开票日期：</span> 2013-05-12</li>
                   <li class="item"><span class="key">截至送签日期：</span> 2013-05-12</li>
                   <li class="item"><span class="key">出发港口：</span>${pdt.leaveCity}</li>
                   <li class="item"><span class="key">旅行证件：</span>${pdt.tourCards}</li>
                   <li class="item"><span class="key">产品经理：<a href="">${pdt.pdtManager}</a></li>
                   <li class="item"><span class="key">团队协调：<a href="">${pdt.pdtAssistant}</a></li>
-                  <li><span class="key">出发交通：</span> 飞机VN551（21:00 /23:00）</li>
-                  <li><span class="key">返回交通：</span> 飞机VN551（21:00 /23:00）</li>
+                  <li><span class="key">出发交通：</span>${pdt.leaveTraffic}</li>
+                  <li><span class="key">返回交通：</span>${pdt.returnTraffic}</li>
                 </ol>
               </div>
               <div class="book-body">
-                <div>成人价：588元</div>
-                <div>成人价：588元</div>
-                <div>成人价：588元</div>
+                <div>成人价：${pdt.adultPrice}元</div>
+                <div>儿童价：${pdt.childPrice}元</div>
                 <div class="book-now">
                   <button class="btn btn-primary" type="button">立刻预订</button>
                 </div>
               </div>
               <div class="plan">
-                <span>计划：22人       可预订：12人          预订需审核</span>
+                <span>计划：${pdt.numberOfPeoplePlan}人       可预订：${pdt.bookNubmer}人          预订需审核</span>
               </div>
               <div class="recommend">
 				  <dl>
