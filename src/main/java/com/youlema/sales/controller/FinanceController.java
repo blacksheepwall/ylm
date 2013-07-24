@@ -3,17 +3,17 @@ package com.youlema.sales.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/**
+ * 财务Controller
+ * 
+ * @author user
+ * 
+ */
 @Controller
-@RequestMapping("/ziyouxing")
-public class ZiyouxingController {
-    /**
-     * 自由行首页
-     * @return
-     */
+@RequestMapping("/finance")
+public class FinanceController {
     @RequestMapping("")
-    public String main(){
-        return "free-travel";
+    public String main() {
+        return "finance";
     }
-    
-    
 }

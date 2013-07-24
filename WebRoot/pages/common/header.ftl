@@ -10,7 +10,7 @@
     <div class="links">
       <a href="/u/">用户中心</a>
       <a href="/manage/">管理中心</a>
-      <a href="/main/help">常见问题</a>
+      <a href="/help/">常见问题</a>
     </div>
     <div class="hotline">
       <div class="text">服务热线</div>
@@ -34,22 +34,22 @@
                   <a href="/main/">首页</a>
                 </li>
                 <li <#if "outbound-travel"?contains(page_name)>class="active"</#if>>
-                  <a href="/main/outbound-travel">出境游</a>
+                  <a href="/chujingyou/">出境游</a>
                 </li>
                 <li <#if "product,inland-travel"?contains(page_name)>class="active"</#if>>
-                  <a href="/inland/">国内游</a>
+                  <a href="/guoneiyou/">国内游</a>
                 </li>
                 <li <#if "free-travel,free-travel-view"?contains(page_name)>class="active"</#if>>
-                  <a href="/main/free-travel">自由行</a>
+                  <a href="/ziyouxing/">自由行</a>
                 </li>
                 <li <#if page_name?contains("group")>class="active"</#if>>
-                  <a href="/main/group-tour">整团业务</a>
+                  <a href="/zhengtuan/">整团业务</a>
                 </li>
                 <li <#if page_name?contains("order")>class="active"</#if>>
                   <a href="/order/">订单管理</a>
                 </li>
                 <li class="dropdown <#if page_name?contains("finance")>active</#if>">
-                  <a class="dropdown-toggle" href="/main/finance/">财务结算<#-- <i class="icon-caret-down"></i>--></a>
+                  <a class="dropdown-toggle" href="/finance/">财务结算<#-- <i class="icon-caret-down"></i>--></a>
                   <#--<ul class="dropdown-menu" role="menu">-->
                     <#--<li <#if page_name=="finance-payable-amount">class="active"</#if>><a href="/main/finance-payable-amount/">应付款统计</a></li>-->
                     <#--<li <#if page_name=="finance-payable-detail">class="active"</#if>><a href="/main/finance-payable-detail/">应付款明细</a></li>-->

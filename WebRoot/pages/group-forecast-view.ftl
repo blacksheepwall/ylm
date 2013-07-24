@@ -8,7 +8,7 @@
       <div class="row-fluid">
         <ul class="breadcrumb pull-left">
           <li><a href="/main/">首页</a> <span class="divider">/</span></li>
-          <li><a href="/main/group-tour">整团业务</a> <span class="divider">/</span></li>
+          <li><a href="/zhengtuan/">整团业务</a> <span class="divider">/</span></li>
           <li><a href="/main/group-forecast">整团预报</a> <span class="divider">/</span></li>
           <li class="active">预报查看</li>
         </ul>

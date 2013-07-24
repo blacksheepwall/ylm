@@ -4,16 +4,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/ziyouxing")
-public class ZiyouxingController {
+@RequestMapping("/zhengtuan")
+public class GroupController {
     /**
-     * 自由行首页
+     * 整团业务
      * @return
      */
     @RequestMapping("")
     public String main(){
-        return "free-travel";
+        return "group-tour";
     }
-    
-    
 }

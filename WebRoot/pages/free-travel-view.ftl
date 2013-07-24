@@ -8,7 +8,7 @@
     <div class="main-body clearfix">
     <ul class="breadcrumb">
       <li><a href="/main/">首页</a> <span class="divider">/</span></li>
-      <li><a href="/main/free-travel">自由行</a> <span class="divider">/</span></li>
+      <li><a href="/ziyouxing/">自由行</a> <span class="divider">/</span></li>
       <li class="active">${product.name}</li>
     </ul>
     <div class="center">

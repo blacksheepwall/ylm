@@ -8,7 +8,7 @@
       <div class="row-fluid">
         <ul class="breadcrumb pull-left">
           <li><a href="/main/">首页</a> <span class="divider">/</span></li>
-          <li><a href="/main/finance/">财务结算</a> <span class="divider">/</span></li>
+          <li><a href="/finance/">财务结算</a> <span class="divider">/</span></li>
           <li><a href="/main/finance-remittance-list/">汇款列表</a> <span class="divider">/</span></li>
           <li class="active">汇款查看</li>
         </ul>
