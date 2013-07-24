@@ -3,6 +3,10 @@ body {
   font-size: 14px;
 }
 
+.stamp01 {
+  background: url('../../img/stamp01.gif') no-repeat 30px 30px;
+}
+
 .top-title {
   padding-bottom: 10px;
   font-size: 24px;
@@ -108,10 +112,23 @@ thead {
 .btn-list {
   position: absolute;
   right: 10px;
+  top: 0;
 }
 
 table.table thead, table.normal thead {
   /*background-image: none !important;*/
   /*background-color: #eee !important;*/
   background: url('') #ddd !important;
+}
+
+.fwn strong {
+  font-weight: normal;
+}
+
+.fwn input[type="radio"] {
+  vertical-align: top;
+}
+
+.fwn .form-inline label {
+  margin-bottom: 0;
 }

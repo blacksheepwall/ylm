@@ -2,7 +2,7 @@
 <#assign page_name="order-confirm"/>
 <#include "common/module.ftl"/>
 <#escape x as x?html>
-  <@html title="确认单（跟团游）">
+  <@html title="确认单（机票+酒店）">
     <@body nohead=true>
     <div class="main-body stamp01">
       <div class="top">
@@ -27,17 +27,22 @@
         <li><strong>产品名称：魅力台湾豪华6日游（北高）</strong></li>
         <li><strong>出发日期：2013.06.27</strong></li>
         <li><strong>开票日期： <span class="hl-red">2013-06-10</span></strong></li>
-        <li><strong>截至送签： <span class="hl-red">2013-06-10</span></strong></li>
         <li><strong>旅游天数：4天</strong></li>
         <li><strong>预订人数：2</strong></li>
         <li><strong>订单费用：柒仟肆佰元整</strong></li>
-        <li><strong>合同类型：</strong></li>
+        <li>
+          <strong class="form-inline">合同类型：
+            <label><input type="radio" name="_contract_type">我社合同</label>
+            <label><input type="radio" name="_contract_type">合同自理</label>
+          </strong>
+        </li>
         <li><strong>应付金额：7400.00</strong></li>
         <li><strong>已付金额：7400.00</strong></li>
         <li><strong>未付余款：7400.00</strong></li>
         <li><strong>最迟付款：2013.06.27</strong></li>
         <li><strong>订单备注：</strong></li>
       </ul>
+      <@product_book_content></@product_book_content>
       <h2 class="sub-title">订单名单及费用</h2>
       <table class="table table-bordered user-list">
         <thead>

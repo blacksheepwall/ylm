@@ -14,20 +14,22 @@
           <li>传真：55552222</li>
         </ul>
       </div>
-      <h1 class="top-title">自由行预订单</h1>
-      <div class="btn-list">
-        <a href="" class="btn">打印</a>
-        <a href="" class="btn">下载</a>
+      <div class="top">
+        <h1 class="top-title">自由行预订单</h1>
+        <div class="btn-list">
+          <a href="" class="btn">打印</a>
+          <a href="" class="btn">下载</a>
+        </div>
       </div>
       <div>
         <h2 class="sub-title">订单编号：No.YSL13042410560353</h2>
         <ul class="order-info clearfix">
-          <li><strong>预订产品：</strong>东航直飞巴厘岛5晚6日至尊逍遥之</li>
-          <li><strong>出发日期：</strong>2013.06.27</li>
-          <li><strong>预订人：</strong>王伟</li>
-          <li><strong>联系电话：</strong>13916668666</li>
-          <li><strong>预订人数：</strong>2</li>
-          <li><strong>总价：</strong>10000.00</li>
+          <li><strong>预订产品：东航直飞巴厘岛5晚6日至尊逍遥之</strong></li>
+          <li><strong>出发日期：2013.06.27</strong></li>
+          <li><strong>预订人：王伟</strong></li>
+          <li><strong>联系电话：13916668666</strong></li>
+          <li><strong>预订人数：2</strong></li>
+          <li><strong>总价：10000.00</strong></li>
           <li><strong>联系电话：</strong></li>
           <li><strong>订单备注：</strong></li>
         </ul>
@@ -96,7 +98,7 @@
             <#noescape>${list}</#noescape>
           </tbody>
         </table>
-        <p>退改政策</p>
+        <p><strong>退改政策：</strong></p>
       </div>
       <div>
         <h2 class="sub-title">酒店信息</h2>
@@ -104,22 +106,31 @@
           <thead>
           <tr>
             <th>
-              出发日期
+              目的地
             </th>
             <th>
-              出发时间/机场
+              酒店名称
             </th>
             <th>
-              抵达时间/机场
+              房型
             </th>
             <th>
-              航班号
+              早餐
             </th>
             <th>
-              机型
+              床型
             </th>
             <th>
-              仓位
+              宽带
+            </th>
+            <th>
+              入住日期
+            </th>
+            <th>
+              退房日期
+            </th>
+            <th>
+              入住
             </th>
             <th>
               数量
@@ -133,28 +144,26 @@
             <#assign list>
             <tr>
               <td>
-                2013-08-29
               </td>
               <td>
-                07:45
               </td>
               <td>
-                杭州-萧山国际机场
               </td>
               <td>
-                11:20
               </td>
               <td>
-                香港-启德国际机场
               </td>
               <td>
-                KA937
               </td>
               <td>
-                港龙航空
               </td>
               <td>
-                经济舱
+              </td>
+              <td>
+              </td>
+              <td>
+              </td>
+              <td>
               </td>
             </tr>
             </#assign>
@@ -162,7 +171,7 @@
             <#noescape>${list}</#noescape>
           </tbody>
         </table>
-        <p>退改政策</p>
+        <p><strong>退改政策：</strong></p>
       </div>
       <div>
         <h2 class="sub-title">附加项目</h2>
@@ -170,28 +179,16 @@
           <thead>
           <tr>
             <th>
-              出发日期
+              类型
             </th>
             <th>
-              出发时间/机场
+              项目名称
             </th>
             <th>
-              抵达时间/机场
+              使用日期
             </th>
             <th>
-              航班号
-            </th>
-            <th>
-              机型
-            </th>
-            <th>
-              仓位
-            </th>
-            <th>
-              数量
-            </th>
-            <th>
-              备注
+              份数
             </th>
           </tr>
           </thead>
@@ -199,28 +196,14 @@
             <#assign list>
             <tr>
               <td>
-                2013-08-29
+                送关
               </td>
               <td>
-                07:45
+                L签客人送关服务
               </td>
               <td>
-                杭州-萧山国际机场
               </td>
               <td>
-                11:20
-              </td>
-              <td>
-                香港-启德国际机场
-              </td>
-              <td>
-                KA937
-              </td>
-              <td>
-                港龙航空
-              </td>
-              <td>
-                经济舱
               </td>
             </tr>
             </#assign>
@@ -228,36 +211,45 @@
             <#noescape>${list}</#noescape>
           </tbody>
         </table>
-        <p>退改政策</p>
+        <p><strong>退改政策：</strong></p>
       </div>
       <div>
-        <h2 class="sub-title">游客名单及费用</h2>
+        <h2 class="sub-title">游客名单</h2>
         <table class="table table-bordered user-list">
           <thead>
           <tr>
-            <th>
-              编号
-            </th>
-            <th>
+            <th width="60">
               类型
             </th>
-            <th>
-              姓名
+            <th width="90">
+              中文姓名
             </th>
-            <th>
+            <th width="90">
+              英文姓名
+            </th>
+            <th width="40">
               性别
             </th>
-            <th>
-              费用
+            <th width="90">
+              出生年月
+            </th>
+            <th width="90">
+              户籍
+            </th>
+            <th width="80">
+              证件类型
+            </th>
+            <th width="140">
+              证件号码
             </th>
             <th>
-              证件信息
+              有效期
             </th>
-            <th>
+            <th width="90">
+              签发地
+            </th>
+            <th width="100">
               联系电话
-            </th>
-            <th>
-              备注
             </th>
           </tr>
           </thead>
@@ -265,10 +257,10 @@
             <#assign user_list>
             <tr>
               <td>
-                1
+                成人
               </td>
               <td>
-                林展科（成人）
+                林展科
               </td>
               <td>
                 Lin ZhanKe
@@ -277,16 +269,22 @@
                 男
               </td>
               <td>
-                1000
-              </td>
-              <td>
-                <p>身份证：330103195304060410</p>
+                1953-04-06
               </td>
               <td>
                 浙江
               </td>
               <td>
+                <p>身份证</p>
               </td>
+              <td>
+                330103195304060410
+              </td>
+              <td>
+                2010-03-01/2015-02-28
+              </td>
+              <td></td>
+              <td></td>
             </tr>
             </#assign>
             <#noescape>${user_list}</#noescape>
@@ -303,7 +301,7 @@
           <#--<p>甲方代表签字：</p>-->
           <#--<p>日期：</p>-->
         <#--</div>-->
-        <div class="party">
+        <div class="party" style="margin-left:500px;">
           <p>经办人：浙江中山国际旅行社有限公司</p>
           <p>联系电话：</p>
           <p>日期：2013-05-15</p>
