@@ -26,9 +26,9 @@ public class MockOrderBillFacade implements OrderBillFacade {
         fdo.setContactPerson("联系人甲");
         fdo.setGmtCreate(new Date());
         fdo.setOrderId(12345678L);
-        fdo.setOrderType("1");
+        fdo.setOrderType("TOUR_ORDER");
         fdo.setIsLocked(false);
-        fdo.setOrderStatus("完成");
+        fdo.setOrderStatus("CONFIRMED");
         fdo.setMobile("13999999999");
         fdo.setSalesman("订单创建人甲");
         

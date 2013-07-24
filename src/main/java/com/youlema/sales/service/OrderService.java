@@ -241,7 +241,6 @@ public class OrderService {
             contractItemVos.add(item);
         }
         
-        
         OrderDetailVo vo = new OrderDetailVo();
         vo.setContractItems(contractItemVos);
         fromBillFdo2Vo(fdo, product, vo);
