@@ -18,7 +18,7 @@
           <h5 class="mod-title"><i class="icon-map-marker"></i> 新疆吐鲁番、 天池、南山、敦煌丝路风情双飞单卧5日游</h5>
           <div class="action-list">
             <span class="muted">最近更新：2013-04-19 12:09</span>
-            <a class="btn btn-small" href="/main/travel-itinerary" target="_blank"><i class="icon-file-alt"></i> 行程单</a>
+            <a class="btn btn-small" href="/main/group-travel-itinerary" target="_blank"><i class="icon-file-alt"></i> 行程单</a>
           </div>
           <#macro user_card_popover dept="" name="" tel="" phone="">
             <div class="popover top">
