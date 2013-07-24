@@ -1,12 +1,10 @@
 package com.youlema.sales.ws.mock;
 
-import org.springframework.stereotype.Service;
-
 import com.yolema.tbss.ext.facade.DictionaryFacade;
 import com.yolema.tbss.ext.facade.fdo.sys.DictionaryFdo;
 import com.yolema.tbss.ext.facade.result.DictionaryResult;
 
-@Service
+//@Service
 public class MockDictionaryFacade implements DictionaryFacade {
 
     @Override

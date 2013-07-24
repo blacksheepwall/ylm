@@ -21,7 +21,7 @@
 		class="com.yolema.common.ws.interceptor.WebserviceAuthOutInterceptor">
 		<property name="authHeader" ref="authHeader" />
 	</bean>
-	<bean id="BulletinFacade" class="com.yolema.tbss.ext.facade.BulletinFacade"
+	<bean id="bulletinFacade" class="com.yolema.tbss.ext.facade.BulletinFacade"
 		factory-bean="BulletinFacadeFactory" factory-method="create" />
 
 	<bean id="BulletinFacadeFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
