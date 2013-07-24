@@ -16,7 +16,7 @@
         <div class="mod-body">
           <h5 class="mod-title">订单基本信息</h5>
           <div class="action-list">
-            <a class="btn btn btn-small" href="/main/order-group" target="_blank"><i class="icon-reorder"></i> 预订单</a>
+            <a class="btn btn btn-small" href="/main/order-group-preview" target="_blank"><i class="icon-reorder"></i> 预订单</a>
             <a class="btn btn btn-small" href="/main/order-confirm" target="_blank"><i class="icon-ok"></i> 确认单</a>
             <a class="btn btn btn-small" href="/main/order-group-preview" target="_blank"><i class="icon-info"></i> 出团通知</a>
             <button class="btn btn-warning btn-small" type="button"><i class="icon-pencil"></i> 修改联系人</button>
