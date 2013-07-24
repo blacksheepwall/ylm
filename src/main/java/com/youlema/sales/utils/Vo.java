@@ -56,7 +56,13 @@ public class Vo<T> {
                             Object result = method.invoke(obj);
                             result = transformType(result, writeClass);
                             writeMethod.invoke(inst, result);
-                            if(result!=null){
+                            if (result != null) {
+                                if (result instanceof Number) {
+                                    if (((Number) result).intValue() == 0) {
+                                        continue;
+                                    }
+                                }
+
                                 break;
                             }
                         } else {

@@ -84,7 +84,7 @@
         	<li>
               <div>
                 <span class="label label-success">${it.keywords}</span>
-                <a href="" class="product-title">${it.title}</a>
+                <a href="/product/detail/?id=${it.productId}" class="product-title">${it.title}</a>
                 <span class="price">${it.storePrice}</span>
               </div>
               <div>
@@ -95,7 +95,7 @@
             <#else>
             <li>
               <div>
-                <a href="" class="product-title">${it.title}</a>
+                <a href="/product/detail/?id=${it.productId}" class="product-title">${it.title}</a>
                 <span class="muted">新加坡航空</span>
                 <span class="price">${it.storePrice}</span>
               </div>
@@ -118,7 +118,7 @@
         	<li>
               <div>
                 <span class="label label-success">${it.keywords}</span>
-                <a href="" class="product-title">${it.title}</a>
+                <a href="/product/detail/?id=${it.productId}" class="product-title">${it.title}</a>
                 <span class="price">${it.storePrice}</span>
               </div>
               <div>
@@ -129,7 +129,7 @@
             <#else>
             <li>
               <div>
-                <a href="" class="product-title">${it.title}</a>
+                <a href="/product/detail/?id=${it.productId}" class="product-title">${it.title}</a>
                 <span class="muted">新加坡航空</span>
                 <span class="price">${it.storePrice}</span>
               </div>
@@ -154,7 +154,7 @@
         	<li>
               <div>
                 <span class="label label-success">${it.keywords}</span>
-                <a href="" class="product-title">${it.title}</a>
+                <a href="/product/detail/?id=${it.productId}" class="product-title">${it.title}</a>
                 <span class="price">${it.storePrice}</span>
               </div>
               <div>
@@ -165,7 +165,7 @@
             <#else>
             <li>
               <div>
-                <a href="" class="product-title">${it.title}</a>
+                <a href="/product/detail/?id=${it.productId}" class="product-title">${it.title}</a>
                 <span class="muted">新加坡航空</span>
                 <span class="price">${it.storePrice}</span>
               </div>

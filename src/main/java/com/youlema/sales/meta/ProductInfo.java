@@ -15,7 +15,7 @@ public class ProductInfo {
     private String title;
     @VoField("getSubtitle")
     private String subtitle;
-    @VoField("getProductType")
+    @VoField("getTourProductType")
     private String pdtType;
     @VoField("getLeaveCity")
     private String leaveCity;
