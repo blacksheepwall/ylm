@@ -22,7 +22,7 @@ import com.youlema.sales.utils.Vo;
  */
 @Service
 public class BulletinService {
-    @Resource
+    @Resource(name="MockBulletinFacade")
     private BulletinFacade bulletinFacade;
 
     /**

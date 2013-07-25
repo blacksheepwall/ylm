@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.yolema.tbss.ext.facade.BulletinFacade;
 import com.yolema.tbss.ext.facade.fdo.sys.BulletinFdo;
 import com.yolema.tbss.ext.facade.result.BulletinResult;
@@ -12,7 +14,7 @@ import com.yolema.tbss.ext.facade.result.BulletinResult;
  * @author user
  *
  */
-//@Service("MockBulletinFacade")
+@Service("MockBulletinFacade")
 public class MockBulletinFacade implements BulletinFacade {
 
     @Override

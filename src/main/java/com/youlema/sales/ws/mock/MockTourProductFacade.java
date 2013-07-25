@@ -15,7 +15,7 @@ import com.yolema.tbss.ext.facade.result.ShowProductResult;
 import com.yolema.tbss.ext.facade.result.TourProductResult;
 import com.youlema.tools.jee.pages.PageList;
 
-@Service
+@Service("MockTourProductFacade")
 public class MockTourProductFacade implements TourProductFacade {
 
     @Override

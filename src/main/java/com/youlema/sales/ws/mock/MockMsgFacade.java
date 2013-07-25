@@ -2,13 +2,15 @@ package com.youlema.sales.ws.mock;
 
 import java.util.Date;
 
+import org.springframework.stereotype.Service;
+
 import com.yolema.tbss.ext.facade.MsgFacade;
 import com.yolema.tbss.ext.facade.fdo.sys.MsgFdo;
 import com.yolema.tbss.ext.facade.fdo.sys.MsgInboxFdo;
 import com.yolema.tbss.ext.facade.result.MsgResult;
 import com.youlema.tools.jee.pages.PageList;
 
-//@Service
+@Service("MockMsgFacade")
 public class MockMsgFacade implements MsgFacade {
 
     @Override

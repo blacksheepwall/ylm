@@ -25,7 +25,7 @@ import com.youlema.tools.jee.pages.PageList;
  */
 @Service
 public class MsgService {
-    @Resource
+    @Resource(name="MockMsgFacade")
     private MsgFacade msgFacade;
 
     /**
