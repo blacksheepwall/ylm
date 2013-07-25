@@ -123,7 +123,7 @@
           <a href="/order/info/?id={{orderId}}">{{orderNumber}}</a>
         </td>
         <td>
-          {{orderType.key}}
+          {{orderType.value}}
         </td>
         <td>
           <a href="/product/detail/?id={{productId}}">{{productName}}</a>
@@ -141,7 +141,7 @@
           {{scheduledTime}}
         </td>
         <td>
-          {{status.key}}
+          {{status.value}}
         </td>
         <td>
           {{contractStatus}}

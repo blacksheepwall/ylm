@@ -10,7 +10,7 @@ import com.yolema.tbss.ext.facade.result.DictionaryResult;
 
 @Service
 public class DictionaryFacadeService {
-    @Resource(name="MockDictionaryFacade")
+    @Resource(name="DictionaryFacade")
     private DictionaryFacade dictionaryFacade;
     
     /**

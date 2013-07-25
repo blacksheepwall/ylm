@@ -133,8 +133,8 @@ public class MockOrderBillFacade implements OrderBillFacade {
         fdo.setContactPerson("金鹿");
         fdo.setGmtCreate(new Date());
         fdo.setOrderId(12345678L);
-        fdo.setOrderType("1");
-        fdo.setOrderStatus("完成");
+        fdo.setOrderType("TOUR_ORDER");
+        fdo.setOrderStatus("CONFIRMED");
         foBillFdos.add(fdo);
         result.setList(foBillFdos);
         return result;
