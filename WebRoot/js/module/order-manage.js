@@ -1,6 +1,6 @@
 define(['./util', 'dateTimePicker', 'pagination'], function(Util) {
   'use strict';
-  var self = {}, $pagination = $('.pagination'),
+  var mod = {}, $pagination = $('.pagination'),
     $startDate = $('#J_start_date'),
     $endDate = $('#J_end_date'),
     $searchText = $('#J_search_text'),
@@ -25,10 +25,12 @@ define(['./util', 'dateTimePicker', 'pagination'], function(Util) {
 
   function _initConditions() {
     $searchBtn.click(function() {
+      var start = +new Date($startDate.val()),
+        end = +new Date($endDate.val());
       _queryOrderList({
         'data': {
-          'beginScheduledTime': $.trim($startDate.val()),
-          'endScheduledTime': $.trim($endDate.val()),
+          'beginScheduledTime': _.isNaN(start) ? 0 : start,
+          'endScheduledTime': _.isNaN(end) ? 0 : end,
           'queryText': $.trim($searchText.val()),
           'orderStatus': 1,
           'contractStatus': 1,
@@ -36,14 +38,16 @@ define(['./util', 'dateTimePicker', 'pagination'], function(Util) {
           'orderType': 1
         }
       });
-    })
+    });
     $('#J_condition .nav').on('click', 'a', function(e) {
       e.preventDefault();
       $(this).tab('show');
+      var start = +new Date($startDate.val()),
+        end = +new Date($endDate.val());
       _queryOrderList({
         'data': {
-          'beginScheduledTime': $.trim($startDate.val()),
-          'endScheduledTime': $.trim($endDate.val()),
+          'beginScheduledTime': _.isNaN(start) ? 0 : start,
+          'endScheduledTime': _.isNaN(end) ? 0 : end,
           'queryText': $.trim($searchText.val()),
           'orderStatus': 1,
           'contractStatus': 1,
