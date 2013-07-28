@@ -9,7 +9,6 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.yolema.tbss.ext.facade.TourPkgProductFacade;
 import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
 import com.yolema.tbss.ext.facade.fdo.product.ShowProductFdo;
 import com.youlema.sales.meta.City;
@@ -24,8 +23,6 @@ import com.youlema.sales.ws.ProductFacadeService;
 public class ProductService {
     @Resource
     private ProductFacadeService facadeService;
-    @Resource
-    private TourPkgProductFacade tourPkgProductFacade;
 
     /**
      * 获取出发城市

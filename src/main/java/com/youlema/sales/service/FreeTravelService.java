@@ -12,6 +12,7 @@ import com.yolema.tbss.ext.facade.TourPkgProductFacade;
 import com.yolema.tbss.ext.facade.fdo.pkgProduct.TourPkgDateFdo;
 import com.yolema.tbss.ext.facade.fdo.pkgProduct.TourPkgProductFdo;
 import com.yolema.tbss.ext.facade.result.TourPkgProductResult;
+import com.youlema.sales.meta.FreeTravelProductInfo;
 import com.youlema.sales.meta.FreeTravelProductItem;
 import com.youlema.sales.meta.SearchResult;
 import com.youlema.sales.utils.Vo;
@@ -123,5 +124,15 @@ public class FreeTravelService {
         public void setType(String type) {
             this.type = type;
         }
+    }
+
+    /**
+     * 根据ID号获取自由行对象
+     * @param id
+     * @return
+     */
+    public SearchResult<FreeTravelProductInfo> getFreeTravelProductById(long id) {
+        // TODO Auto-generated method stub
+        return null;
     }
 }
