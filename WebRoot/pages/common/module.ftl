@@ -494,46 +494,13 @@
 </div>
 </#macro>
 
-<#macro product_item_type1>
-<li>
-  <div class="product clearfix" style="display: block;">
-    <div class="product-main">
-      <div>
-        <span class="label label-success">【机票+酒店】</span>
-        <a class="title" href="/main/free-travel-view"><strong>香港常规双园3晚4天亲子自由行</strong></a>
-        <span class="text-warning">香港航空，包含迪士尼1日门票，海洋公园1日门票</span>
-        <div class="muted">直航往返，轻松便捷、全程5星标准酒店（3晚入住五星酒店），全程舒适大床双标房、全程用餐自理，尽享香港美食天堂的魅力、自由活动，尽情享受购物乐趣</div>
-        <div>
-          天数：3晚4天
-          出发口岸(地)：杭州
-          主题：游乐园 蜜月 亲子 购物
-        </div>
-        <@product_date_list></@product_date_list>
-      </div>
-    </div>
-    <div class="product-more">
-      <div class="product-price">
-        <strong class="price-title">价格：</strong><span class="price-value">￥2500起</span>
-      </div>
-      <div class="text-center">
-        <span class="label label-warning">促销</span>
-        <span class="label label-warning">尾单</span>
-      </div>
-      <div class="show-detail text-center">
-        <a class="btn btn-success btn-small" href="">查看详情</a>
-      </div>
-    </div>
-  </div>
-</li>
-</#macro>
-
 <#macro product_item_type2>
 <li>
   <div class="product clearfix" style="display: block;">
     <div class="product-main">
       <div>
         <span class="label label-success">特价</span>
-        <a class="title" href="/main/product?id=1" target="_blank"><strong>香港常规双园3晚4天亲子自由行</strong></a>
+        <a class="title" href="/product/detail?id=1" target="_blank"><strong>香港常规双园3晚4天亲子自由行</strong></a>
         <span class="text-warning">4晚5天</span>
         <div class="muted">直航往返，轻松便捷、全程5星标准酒店（3晚入住五星酒店），全程舒适大床双标房、全程用餐自理，尽享香港美食天堂的魅力、自由活动，尽情享受购物乐趣</div>
         <div>国际5*酒店+国际5*独栋泳池别墅+蓝钻岛</div>

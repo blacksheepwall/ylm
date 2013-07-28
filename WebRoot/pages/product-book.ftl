@@ -9,7 +9,7 @@
         <ul class="breadcrumb pull-left">
           <li><a href="/main/">首页</a> <span class="divider">/</span></li>
           <li><a href="/ziyouxing/">自由行</a> <span class="divider">/</span></li>
-          <li><a href="/main/free-travel-view">预订产品：香港4晚5日至尊逍遥之旅</a> <span class="divider">/</span></li>
+          <li><a href="/ziyouxing/detail/?id=-1">预订产品：香港4晚5日至尊逍遥之旅</a> <span class="divider">/</span></li>
           <li class="active">预订</li>
         </ul>
       </div>

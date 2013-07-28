@@ -25,7 +25,7 @@ import com.youlema.tools.jee.pages.PageList;
  */
 @Service
 public class MsgService {
-    @Resource(name="MockMsgFacade")
+    @Resource(name="MsgFacade")
     private MsgFacade msgFacade;
 
     /**
@@ -124,14 +124,17 @@ public class MsgService {
         fdo.setMsgReceiver(message.getSender());
         fdo.setMsgContent(content);
         fdo.setMsgType("NORMAL");
-
+        fdo.setReceiveCodes(account.getAccountLoginName());
         MsgResult msgResult = msgFacade.send(fdo);
         return msgResult.isSuccess();
     }
 
     public int getNewMsgCount(User user) {
         MsgResult result = msgFacade.getUnreadNum(user.getAccount().getAccountLoginName());
-        return result.getNum();
+        if(result.isSuccess()){
+            return result.getNum();
+        }
+        return -1;
     }
 
 }

@@ -58,11 +58,46 @@
         <div id="J_tab_content">
           <div>
             <ul id="J_product_list">
-              <#noescape><@product_item_type1></@product_item_type1></#noescape>
-              <#noescape><@product_item_type1></@product_item_type1></#noescape>
-              <#noescape><@product_item_type1></@product_item_type1></#noescape>
-              <#noescape><@product_item_type1></@product_item_type1></#noescape>
-              <#noescape><@product_item_type1></@product_item_type1></#noescape>
+              <#list result.resultList as it>
+              
+			<li>
+			  <div class="product clearfix" style="display: block;">
+			    <div class="product-main">
+			      <div>
+			        <span class="label label-success">【机票+酒店】</span>
+			        <a class="title" href="/ziyouxing/detail/?id=${it.productId}"><strong>${it.title}</strong></a>
+			        <span class="text-warning">${it.subtitle}</span>
+			        <div class="muted">${it.productManagerRecommend}</div>
+			        <div>
+			          天数：${it.dayCount}晚${it.nightCount}天
+			          出发口岸(地)：${it.leaveCity}
+			          主题：${it.topic}
+			        </div>
+					<div class="product-date pull-left">
+					  <strong>日期：</strong>
+					  <#list it.leaveDates as date>
+					  <a href="javascript:;" class="date-value">${date?string('yyyy-MM-dd')}</a>
+					  </#list>
+					  <a href="javascript:;" class="date-more">更多 »</a>
+					</div>
+			        
+			      </div>
+			    </div>
+			    <div class="product-more">
+			      <div class="product-price">
+			        <strong class="price-title">价格：</strong><span class="price-value">￥${it.price}起</span>
+			      </div>
+			      <div class="text-center">
+			        <span class="label label-warning">促销</span>
+			        <span class="label label-warning">尾单</span>
+			      </div>
+			      <div class="show-detail text-center">
+			        <a class="btn btn-success btn-small" href="">查看详情</a>
+			      </div>
+			    </div>
+			  </div>
+			</li>              
+              </#list>
             </ul>
             <@pagination></@pagination>
           </div>

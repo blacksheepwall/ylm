@@ -1,7 +1,10 @@
 package com.youlema.sales.ws.mock;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import org.apache.commons.lang.time.DateUtils;
 import org.springframework.stereotype.Service;
@@ -10,8 +13,9 @@ import com.yolema.tbss.ext.facade.TourPkgProductFacade;
 import com.yolema.tbss.ext.facade.fdo.pkgProduct.TourPkgDateFdo;
 import com.yolema.tbss.ext.facade.fdo.pkgProduct.TourPkgProductFdo;
 import com.yolema.tbss.ext.facade.result.TourPkgProductResult;
+import com.youlema.tools.jee.pages.PageList;
 
-@Service
+@Service("MockTourPkgProductFacade")
 public class MockTourPkgProductFacade implements TourPkgProductFacade {
 
     @Override
@@ -64,7 +68,32 @@ public class MockTourPkgProductFacade implements TourPkgProductFacade {
 
     @Override
     public TourPkgProductResult queryPageList(TourPkgProductFdo arg0) {
-        throw new UnsupportedOperationException();
+        TourPkgProductResult result = new TourPkgProductResult(true);
+        PageList<TourPkgProductFdo> list = new PageList<TourPkgProductFdo>();
+        for (int i = 0; i < 12; i++) {
+            TourPkgProductFdo fdo = new TourPkgProductFdo();
+            fdo.setProductId(4000L+i);
+            fdo.setProductItemName("金星木星三日游");
+            fdo.setSubtitle("太阳系四处溜达系列");
+            fdo.setMinPrice(new BigDecimal("123456789"));
+            fdo.setLeaveCity("地球");
+            fdo.setKeyWords("金星 木星");
+            fdo.setDaysDuring(3);
+            fdo.setDaysNight(2);
+            fdo.setTourTopic("外星蜜月旅游");
+            fdo.setProductManagerRecommend("外星球度蜜月，你们懂的。");
+            List<TourPkgDateFdo> dates = new ArrayList<TourPkgDateFdo>();
+            for (int j = 0; j < 6; j++) {
+                TourPkgDateFdo dateFdo =new TourPkgDateFdo();
+                dateFdo.setGmtDayOfStart(DateUtils.addDays(new Date(), j));
+                dates.add(dateFdo);
+            }
+            fdo.setTourPkgDateFdos(dates);
+            list.add(fdo);
+        }
+        
+        result.setTourPkgProductFdoPageList(list);
+        return result;
     }
 
     @Override
