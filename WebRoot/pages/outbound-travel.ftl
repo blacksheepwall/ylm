@@ -94,11 +94,32 @@
         <div id="J_tab_content">
           <div>
             <ul id="J_product_list">
-              <#noescape><@product_item_type2></@product_item_type2></#noescape>
-              <#noescape><@product_item_type2></@product_item_type2></#noescape>
-              <#noescape><@product_item_type2></@product_item_type2></#noescape>
-              <#noescape><@product_item_type2></@product_item_type2></#noescape>
-              <#noescape><@product_item_type2></@product_item_type2></#noescape>
+             <#list result.resultList as it>
+			<li>
+			  <div class="product clearfix" style="display: block;">
+			    <div class="product-main">
+			      <div>
+			        <span class="label label-success">特价</span>
+			        <a class="title" href="/product/detail?id=${it.productId}" target="_blank"><strong>${it.title}</strong></a>
+			        <span class="text-warning">${it.nightCount}晚${it.dayCount}天</span>
+			        <div class="muted">${it.managerRecommend}</div>
+			        <@product_date_list></@product_date_list>
+			      </div>
+			    </div>
+			    <div class="product-more">
+			      <div class="text-center">
+			        <span class="label label-info">蜜月</span>
+			        <span class="label label-info">亲子</span>
+			        <span class="label label-info">度假</span>
+			        <div>${it.topic}</div>
+			      </div>
+			      <div class="product-price">
+			        <strong class="price-title">价格：</strong><span class="price-value">￥${it.price}起</span>
+			      </div>
+			    </div>
+			  </div>
+			</li>
+              </#list>
             </ul>
             <@pagination></@pagination>
           </div>

@@ -7,15 +7,21 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.lang.math.IntRange;
+import org.apache.commons.lang.math.NumberRange;
 import org.springframework.stereotype.Service;
 
+import com.yolema.tbss.ext.facade.TourProductFacade;
 import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
+import com.yolema.tbss.ext.facade.fdo.product.SearchProductFdo;
 import com.yolema.tbss.ext.facade.fdo.product.ShowProductFdo;
+import com.yolema.tbss.ext.facade.result.ShowProductResult;
 import com.youlema.sales.meta.City;
 import com.youlema.sales.meta.ProductInfo;
 import com.youlema.sales.meta.ProductItem;
 import com.youlema.sales.meta.Region;
 import com.youlema.sales.meta.SearchResult;
+import com.youlema.sales.utils.DateRange;
 import com.youlema.sales.utils.Vo;
 import com.youlema.sales.ws.ProductFacadeService;
 
@@ -23,6 +29,8 @@ import com.youlema.sales.ws.ProductFacadeService;
 public class ProductService {
     @Resource
     private ProductFacadeService facadeService;
+    @Resource(name = "MockTourProductFacade")
+    private TourProductFacade tourProductFacade;
 
     /**
      * 获取出发城市
@@ -165,9 +173,20 @@ public class ProductService {
         return queryIndexProduct("END");
     }
 
+    /**
+     * 根据类型获取散拼产品List
+     * 
+     * @param type
+     * @return
+     */
     private SearchResult<ProductItem> queryIndexProduct(String type) {
         SearchResult<ShowProductFdo> result = facadeService.getIndexProductsByType(type);
         List<ShowProductFdo> resultList = result.getResultList();
+        List<ProductItem> items = formatToProductItems(resultList);
+        return new SearchResult<ProductItem>(result.getCount(), items);
+    }
+
+    private List<ProductItem> formatToProductItems(List<ShowProductFdo> resultList) {
         List<ProductItem> items = new ArrayList<ProductItem>();
         Vo<ProductItem> vo = new Vo<ProductItem>(ProductItem.class);
         for (ShowProductFdo fdo : resultList) {
@@ -178,9 +197,15 @@ public class ProductService {
                 items.add(item);
             }
         }
-        return new SearchResult<ProductItem>(items.size(), items);
+        return items;
     }
 
+    /**
+     * 根据Id获取散拼产品详细信息
+     * 
+     * @param productId
+     * @return
+     */
     public ProductInfo getProduct(long productId) {
         ShowProductFdo productFdo = facadeService.getShowProductFdo(productId);
         TourProductFdo pdtFdo = facadeService.getProduct(productId);
@@ -190,6 +215,90 @@ public class ProductService {
         Vo<ProductInfo> vo = new Vo<ProductInfo>(ProductInfo.class);
         ProductInfo inject = vo.inject(productFdo, pdtFdo);
         return inject;
+    }
+
+    public SearchResult<ProductItem> query(QueryCondition condition) {
+        SearchProductFdo productFdo = new SearchProductFdo();
+        if (condition != null) {
+            productFdo.setKeyword(condition.getQueryText());
+            productFdo.setProductMainTypeId(1L);
+            productFdo.setLeaveCity(condition.getLeaveCity());
+            productFdo.setTraffic(condition.getTraffic());
+            // TODO 查询的金额应该是区间
+            // productFdo.setPrice(price);
+        }
+        ShowProductResult result = tourProductFacade.queryProductList(productFdo, null);
+        List<ShowProductFdo> productFdos = result.getShowProductFdos();
+        List<ProductItem> items = formatToProductItems(productFdos);
+        return new SearchResult<ProductItem>(items.size(), items);
+    }
+
+    public static class QueryCondition {
+        private String queryText;
+        private String leaveCity;
+        private IntRange dateCountRange;
+        private NumberRange priceRange;
+        private String traffic;
+        // TODO 不知道对应SearchProductFdo的哪个字段
+        private DateRange dateRange;
+        // TODO 不知道对应SearchProductFdo的哪个字段
+        private String lineType;
+
+        public String getQueryText() {
+            return queryText;
+        }
+
+        public void setQueryText(String queryText) {
+            this.queryText = queryText;
+        }
+
+        public IntRange getDateCountRange() {
+            return dateCountRange;
+        }
+
+        public void setDateCountRange(IntRange dateCountRange) {
+            this.dateCountRange = dateCountRange;
+        }
+
+        public DateRange getDateRange() {
+            return dateRange;
+        }
+
+        public void setDateRange(DateRange dateRange) {
+            this.dateRange = dateRange;
+        }
+
+        public String getLineType() {
+            return lineType;
+        }
+
+        public void setLineType(String lineType) {
+            this.lineType = lineType;
+        }
+
+        public String getLeaveCity() {
+            return leaveCity;
+        }
+
+        public void setLeaveCity(String leaveCity) {
+            this.leaveCity = leaveCity;
+        }
+
+        public NumberRange getPriceRange() {
+            return priceRange;
+        }
+
+        public void setPriceRange(NumberRange priceRange) {
+            this.priceRange = priceRange;
+        }
+
+        public String getTraffic() {
+            return traffic;
+        }
+
+        public void setTraffic(String traffic) {
+            this.traffic = traffic;
+        }
     }
 
 }

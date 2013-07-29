@@ -31,7 +31,7 @@ public class MockTourProductFacade implements TourProductFacade {
         fdo.setPromotionPrice(BigDecimal.TEN);
         fdo.setNumberOfPeoplePlan(10000000);
         result.setTourProductBean(fdo);
-        
+
         return result;
     }
 
@@ -85,7 +85,7 @@ public class MockTourProductFacade implements TourProductFacade {
 
     @Override
     public ShowProductResult queryProductList(SearchProductFdo arg0, String arg1) {
-        throw new UnsupportedOperationException();
+        return queryIndexLabelProduct("关键字", 0);
     }
 
     @Override
@@ -100,7 +100,11 @@ public class MockTourProductFacade implements TourProductFacade {
             fdo.setLeaveTraffic("灰机");
             fdo.setLineName("太阳水星一辈子游");
             fdo.setGmtLeave(new Date());
+            fdo.setProductManagerRecommend("总统+美女全程陪伴");
             fdo.setPrice(BigDecimal.ONE);
+            fdo.setTopic("打灰机");
+            fdo.setDays(100);
+            fdo.setNight(1000);
             fdo.setKeyword(arg0);
             fdo.setReturnTraffic("灰机2");
             showProductFdos.add(fdo);
