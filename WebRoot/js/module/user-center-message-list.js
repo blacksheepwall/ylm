@@ -1,4 +1,4 @@
-define(function() {
+define(['pagination'], function() {
   'use strict';
   var mod = {}, $tab = $('#J_tab'),
     $tabContent = $('#J_tab_content'),
@@ -6,7 +6,8 @@ define(function() {
     $tableInbox = $tables.eq(0),
     $tableOutbox = $tables.eq(1),
     $allInbox = $('#J_check_all_inbox'),
-    $allOutbox = $('#J_check_all_outbox');
+    $allOutbox = $('#J_check_all_outbox'),
+    $pagination = $('.pagination');
 
   function _initTabs() {
     $('a', $tab).click(function(e) {
@@ -28,9 +29,18 @@ define(function() {
     $target.is(':checked') ? $elems.prop('checked', true) : $elems.prop('checked', false);
   }
 
+  function _initPagination() {
+    $pagination.jqPagination({
+      paged: function(page) {
+//        _queryOrderList({'page': page});
+      }
+    });
+  }
+
   function _init() {
     _initTabs();
     $allInbox.add($allOutbox).on('change', _checkAll);
+    _initPagination();
   }
 
   _init();
