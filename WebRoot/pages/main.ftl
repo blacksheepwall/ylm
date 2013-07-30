@@ -96,7 +96,7 @@
             <li>
               <div>
                 <a href="/product/detail/?id=${it.productId}" class="product-title">${it.title}</a>
-                <span class="muted">新加坡航空</span>
+                <span class="muted">${it.leaveTraffic}</span>
                 <span class="price">${it.storePrice}</span>
               </div>
               <div>
@@ -130,7 +130,7 @@
             <li>
               <div>
                 <a href="/product/detail/?id=${it.productId}" class="product-title">${it.title}</a>
-                <span class="muted">新加坡航空</span>
+                <span class="muted">${it.leaveTraffic}</span>
                 <span class="price">${it.storePrice}</span>
               </div>
               <div>
@@ -166,7 +166,7 @@
             <li>
               <div>
                 <a href="/product/detail/?id=${it.productId}" class="product-title">${it.title}</a>
-                <span class="muted">新加坡航空</span>
+                <span class="muted">${it.leaveTraffic}</span>
                 <span class="price">${it.storePrice}</span>
               </div>
               <div>

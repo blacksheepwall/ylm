@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.youlema.sales.meta.Bulletin;
-import com.youlema.sales.meta.ProductItem;
+import com.youlema.sales.meta.HomePageProductItem;
 import com.youlema.sales.meta.SearchResult;
 import com.youlema.sales.service.AdService;
 import com.youlema.sales.service.BulletinService;
@@ -43,9 +43,9 @@ public class MainController {
         model.put("bulletinResult", bulletinResult);
         SearchResult<Bulletin> systemBulletinResult = bulletinService.getSystemBulletinList();
         model.put("systemBulletinResult", systemBulletinResult);
-        SearchResult<ProductItem> hotProducts = productService.listHotProduct();
-        SearchResult<ProductItem> specialPdts = productService.listSpecialOfferProduct();
-        SearchResult<ProductItem> endPdts = productService.listEndProduct();
+        SearchResult<HomePageProductItem> hotProducts = productService.listHotProduct();
+        SearchResult<HomePageProductItem> specialPdts = productService.listSpecialOfferProduct();
+        SearchResult<HomePageProductItem> endPdts = productService.listEndProduct();
         model.put("hotPdts", hotProducts);
         model.put("specialPdts", specialPdts);
         model.put("endPdts", endPdts);

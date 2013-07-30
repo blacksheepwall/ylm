@@ -88,8 +88,7 @@ public class MockTourProductFacade implements TourProductFacade {
         return queryIndexLabelProduct("关键字", 0);
     }
 
-    @Override
-    public ShowProductResult queryIndexLabelProduct(String arg0, Integer arg1) {
+    private ShowProductResult queryIndexLabelProduct(String arg0, Integer arg1) {
         ShowProductResult showProductResult = new ShowProductResult(true);
         List<ShowProductFdo> showProductFdos = new ArrayList<ShowProductFdo>();
         for (int i = 0; i < 10; i++) {

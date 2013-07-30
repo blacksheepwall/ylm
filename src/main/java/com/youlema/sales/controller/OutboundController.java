@@ -12,25 +12,27 @@ import com.youlema.sales.service.ProductService;
 
 /**
  * 出境游
+ * 
  * @author user
- *
+ * 
  */
 @Controller
 @RequestMapping("/chujingyou")
 public class OutboundController {
     @Resource
     private ProductService productService;
-    
+
     /**
      * 出境游首页
+     * 
      * @return
      */
     @RequestMapping("")
-    public String main(ModelMap modelMap){
-        ProductService.QueryCondition condition = null ;
-        SearchResult<ProductItem> result = productService.query(condition);
+    public String main(ModelMap modelMap) {
+        ProductService.QueryCondition condition = null;
+        SearchResult<ProductItem> result = productService.query(condition, 1, 20);
         modelMap.put("result", result);
         return "outbound-travel";
     }
-    
+
 }

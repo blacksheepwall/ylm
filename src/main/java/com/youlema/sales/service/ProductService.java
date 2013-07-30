@@ -14,9 +14,11 @@ import org.springframework.stereotype.Service;
 import com.yolema.tbss.ext.facade.TourProductFacade;
 import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
 import com.yolema.tbss.ext.facade.fdo.product.SearchProductFdo;
+import com.yolema.tbss.ext.facade.fdo.product.ShowHomePageProductFdo;
 import com.yolema.tbss.ext.facade.fdo.product.ShowProductFdo;
 import com.yolema.tbss.ext.facade.result.ShowProductResult;
 import com.youlema.sales.meta.City;
+import com.youlema.sales.meta.HomePageProductItem;
 import com.youlema.sales.meta.ProductInfo;
 import com.youlema.sales.meta.ProductItem;
 import com.youlema.sales.meta.Region;
@@ -29,7 +31,7 @@ import com.youlema.sales.ws.ProductFacadeService;
 public class ProductService {
     @Resource
     private ProductFacadeService facadeService;
-    @Resource(name = "MockTourProductFacade")
+    @Resource(name = "TourProductFacade")
     private TourProductFacade tourProductFacade;
 
     /**
@@ -161,15 +163,15 @@ public class ProductService {
         return Collections.emptyList();
     }
 
-    public SearchResult<ProductItem> listHotProduct() {
+    public SearchResult<HomePageProductItem> listHotProduct() {
         return queryIndexProduct("热卖");
     }
 
-    public SearchResult<ProductItem> listSpecialOfferProduct() {
+    public SearchResult<HomePageProductItem> listSpecialOfferProduct() {
         return queryIndexProduct("特价");
     }
 
-    public SearchResult<ProductItem> listEndProduct() {
+    public SearchResult<HomePageProductItem> listEndProduct() {
         return queryIndexProduct("END");
     }
 
@@ -179,25 +181,20 @@ public class ProductService {
      * @param type
      * @return
      */
-    private SearchResult<ProductItem> queryIndexProduct(String type) {
-        SearchResult<ShowProductFdo> result = facadeService.getIndexProductsByType(type);
-        List<ShowProductFdo> resultList = result.getResultList();
-        List<ProductItem> items = formatToProductItems(resultList);
-        return new SearchResult<ProductItem>(result.getCount(), items);
-    }
-
-    private List<ProductItem> formatToProductItems(List<ShowProductFdo> resultList) {
-        List<ProductItem> items = new ArrayList<ProductItem>();
-        Vo<ProductItem> vo = new Vo<ProductItem>(ProductItem.class);
-        for (ShowProductFdo fdo : resultList) {
+    private SearchResult<HomePageProductItem> queryIndexProduct(String type) {
+        SearchResult<ShowHomePageProductFdo> result = facadeService.getIndexProductsByType(type);
+        List<ShowHomePageProductFdo> resultList = result.getResultList();
+        List<HomePageProductItem> items1 = new ArrayList<HomePageProductItem>();
+        Vo<HomePageProductItem> vo = new Vo<HomePageProductItem>(HomePageProductItem.class);
+        for (ShowHomePageProductFdo fdo : resultList) {
             Long productId = fdo.getProductId();
             TourProductFdo productFdo = facadeService.getProduct(productId);
             if (productFdo != null) {
-                ProductItem item = vo.inject(productFdo, fdo);
-                items.add(item);
+                HomePageProductItem item = vo.inject(productFdo, fdo);
+                items1.add(item);
             }
         }
-        return items;
+        return new SearchResult<HomePageProductItem>(result.getCount(), items1);
     }
 
     /**
@@ -217,20 +214,31 @@ public class ProductService {
         return inject;
     }
 
-    public SearchResult<ProductItem> query(QueryCondition condition) {
+    public SearchResult<ProductItem> query(QueryCondition condition, int pageNo, int pageSize) {
         SearchProductFdo productFdo = new SearchProductFdo();
+        productFdo.setProductMainTypeId(2L);
+        productFdo.setPageNum(pageNo);
+        productFdo.setPageSize(pageSize);
         if (condition != null) {
             productFdo.setKeyword(condition.getQueryText());
-            productFdo.setProductMainTypeId(1L);
             productFdo.setLeaveCity(condition.getLeaveCity());
             productFdo.setTraffic(condition.getTraffic());
             // TODO 查询的金额应该是区间
             // productFdo.setPrice(price);
         }
-        ShowProductResult result = tourProductFacade.queryProductList(productFdo, null);
+        ShowProductResult result = tourProductFacade.queryProductList(productFdo, "");
         List<ShowProductFdo> productFdos = result.getShowProductFdos();
-        List<ProductItem> items = formatToProductItems(productFdos);
-        return new SearchResult<ProductItem>(items.size(), items);
+        Vo<ProductItem> vo = new Vo<ProductItem>(ProductItem.class);
+        List<ProductItem> items1 = new ArrayList<ProductItem>();
+        for (ShowProductFdo showProductFdo : productFdos) {
+            Long productId = showProductFdo.getProductId();
+            TourProductFdo pdtFdo = facadeService.getProduct(productId);
+            if (productFdo != null) {
+                ProductItem item = vo.inject(showProductFdo, pdtFdo);
+                items1.add(item);
+            }
+        }
+        return new SearchResult<ProductItem>(items1.size(), items1);
     }
 
     public static class QueryCondition {

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.yolema.tbss.ext.facade.TourProductFacade;
 import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
+import com.yolema.tbss.ext.facade.fdo.product.ShowHomePageProductFdo;
 import com.yolema.tbss.ext.facade.fdo.product.ShowProductFdo;
 import com.yolema.tbss.ext.facade.result.ShowProductResult;
 import com.yolema.tbss.ext.facade.result.TourProductResult;
@@ -15,7 +16,7 @@ import com.youlema.sales.meta.SearchResult;
 
 @Service
 public class ProductFacadeService {
-    @Resource(name="MockTourProductFacade")
+    @Resource(name = "TourProductFacade")
     private TourProductFacade tourProductFacade;
 
     public TourProductFdo getProduct(long productId) {
@@ -34,10 +35,10 @@ public class ProductFacadeService {
      * @param type
      * @return
      */
-    public SearchResult<ShowProductFdo> getIndexProductsByType(String type) {
-        ShowProductResult result = tourProductFacade.queryIndexLabelProduct(type, 20);
-        List<ShowProductFdo> productFdos = result.getShowProductFdos();
-        return new SearchResult<ShowProductFdo>(productFdos.size(), productFdos);
+    public SearchResult<ShowHomePageProductFdo> getIndexProductsByType(String type) {
+        ShowProductResult result = tourProductFacade.queryIndexProduct(type, 20);
+        List<ShowHomePageProductFdo> productFdos = result.getShowHomePageProductFdos();
+        return new SearchResult<ShowHomePageProductFdo>(productFdos.size(), productFdos);
     }
 
 }
