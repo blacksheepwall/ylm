@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.yolema.tbss.ext.facade.TourProductFacade;
 import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
 import com.yolema.tbss.ext.facade.fdo.product.SearchProductFdo;
+import com.yolema.tbss.ext.facade.fdo.product.ShowHomePageProductFdo;
 import com.yolema.tbss.ext.facade.fdo.product.ShowProductFdo;
 import com.yolema.tbss.ext.facade.result.ShowProductResult;
 import com.yolema.tbss.ext.facade.result.TourProductResult;
@@ -30,6 +31,16 @@ public class MockTourProductFacade implements TourProductFacade {
         fdo.setStroePrice(BigDecimal.ONE);
         fdo.setPromotionPrice(BigDecimal.TEN);
         fdo.setNumberOfPeoplePlan(10000000);
+        fdo.setSubtitle("飞船游 途经很多很多很多星球，保证一辈子想回都回不来");
+        fdo.setProductManagerRecommend("总统+美女全程陪伴");
+        fdo.setKeyword("飞船游");
+        fdo.setLeaveCity("地球");
+        fdo.setTourCards("出生证");
+        fdo.setLeaveCityTraffic("火箭");
+        fdo.setReturnCity("冥王星");
+        fdo.setReturnCityTraffic("还是火箭");
+        fdo.setGmtLeave(new Date());
+        result.setSuccess(true);
         result.setTourProductBean(fdo);
 
         return result;
@@ -114,7 +125,22 @@ public class MockTourProductFacade implements TourProductFacade {
 
     @Override
     public ShowProductResult queryIndexProduct(String promotionType, Integer num) {
-        throw new UnsupportedOperationException();
+        ShowProductResult showProductResult = new ShowProductResult(true);
+        List<ShowHomePageProductFdo> showProductFdos = new ArrayList<ShowHomePageProductFdo>();
+        for (int i = 0; i < 10; i++) {
+            ShowHomePageProductFdo fdo = new ShowHomePageProductFdo();
+
+            fdo.setProductId((long) i + 40000);
+            fdo.setProductName("太阳水星一辈子游");
+            fdo.setGmtDayOfStart(new Date());
+            fdo.setMinAgency(new BigDecimal("1000"));
+            fdo.setMarketCost(new BigDecimal("2000"));
+            fdo.setDaysDuring(10);
+            showProductFdos.add(fdo);
+        }
+        showProductResult.setShowHomePageProductFdos(showProductFdos);
+        return showProductResult;
+        
     }
 
 }

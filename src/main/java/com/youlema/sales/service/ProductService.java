@@ -31,7 +31,7 @@ import com.youlema.sales.ws.ProductFacadeService;
 public class ProductService {
     @Resource
     private ProductFacadeService facadeService;
-    @Resource(name = "TourProductFacade")
+    @Resource(name = "MockTourProductFacade")
     private TourProductFacade tourProductFacade;
 
     /**
