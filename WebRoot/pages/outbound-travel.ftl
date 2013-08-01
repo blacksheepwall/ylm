@@ -41,7 +41,7 @@
             <button class="btn" type="button">高级查找</button>
           </div>
         </div>
-        <div id="J_condition" class="mod-body conditions mod-condition">
+        <div id="J_condition" class="mod-body condition mod-condition">
           <div class="con-row clearfix">
             <strong class="pull-left">出发城市：</strong>
             <ul class="nav nav-pills">

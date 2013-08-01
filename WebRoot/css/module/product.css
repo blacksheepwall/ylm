@@ -8,6 +8,11 @@
   background-color: #fdf6df;
 }
 
+.basic-info .product-label {
+  vertical-align: text-bottom;
+  font-weight: normal;
+}
+
 .basic-info .product-title {
   margin: 0;
   font-size: 20px;
@@ -66,6 +71,7 @@
 
 .sidebar .key {
   color: #333;
+  font-weight: bold;
 }
 
 .sidebar .book-body {

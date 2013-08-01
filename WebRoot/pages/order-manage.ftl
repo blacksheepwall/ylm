@@ -13,14 +13,14 @@
       </div>
       <div class="row-fluid">
         <div id="J_condition" class="condition mod-condition">
+          <div class="form-horizontal control-group search-box">
+            <strong>预定日期：</strong>
+            <input id="J_start_date" class="date-box" type="text" readonly>
+            <strong> ~ </strong>
+            <input id="J_end_date" class="date-box" type="text" readonly>
+            <input id="J_search_text" class="search-input" type="text"> <button id="J_search_btn" class="btn btn-success search-btn" type="button"><i class="icon-search"></i> 搜索</button>
+          </div>
           <form class="form-horizontal mod-body">
-            <div class="control-group search-box">
-              <strong>预定日期：</strong>
-              <input id="J_start_date" class="date-box" type="text" readonly>
-              <strong> ~ </strong>
-              <input id="J_end_date" class="date-box" type="text" readonly>
-              <input id="J_search_text" class="search-input" type="text"> <button id="J_search_btn" class="btn btn-success search-btn" type="button"><i class="icon-search"></i> 搜索</button>
-            </div>
             <div>
               <div class="con-row clearfix">
                 <strong class="pull-left">订单状态：</strong>

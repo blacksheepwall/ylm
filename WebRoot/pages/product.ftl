@@ -14,14 +14,14 @@
         <div class="basic-info">
           <div class="title-group">
             <h2>
-              <span class="label label-warning">${pdt.keyword}</span>
+              <span class="product-label label label-warning">${pdt.keyword}</span>
               <span class="product-title">${pdt.title}</span>
               <span class="product-subtitle">（${pdt.subtitle}）</span>
             </h2>
             <div class="product-num">产品编号：${pdt.pdtCode}</div>
             <div class="action-bar">
               <#--<a id="J_favorite" href="/u/addFavorite/?id=${productId}&type=${type}">收藏</a>-->
-              <a id="J_favorite" href="javascript:;">收藏</a>
+              <a id="J_favorite" href="javascript:;"><i class="icon-folder-open-alt"></i> 收藏</a>
             </div>
           </div>
           <div class="clearfix">

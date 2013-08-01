@@ -63,9 +63,13 @@
 /*position: relative;*/
 /*}*/
 
-.conditions {
+.condition {
   /*background-color: #e9eae6;*/
-  padding: 10px 10px 4px;
+  /*padding: 10px 10px 4px;*/
+}
+
+.condition .search-box {
+  margin-bottom: 10px;
 }
 
 .top-search select {
