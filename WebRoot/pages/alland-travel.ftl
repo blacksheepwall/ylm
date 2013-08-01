@@ -1,22 +1,22 @@
-<#-- 出境游 -->
+<#-- 国内游、出境游 -->
 <#assign page_name="outbound-travel"/>
 <#include "common/module.ftl"/>
 <#escape x as x?html>
-  <@html title="出境游">
+  <@html title="国内游、出境游">
     <@body>
     <div class="inland-body main-body clearfix">
       <div>
         <div class="route-body clearfix">
-        <strong class="route-type">出境线路：</strong>
+        <strong class="route-type">国内、出境线路：</strong>
         <ul class="route-list clearfix">
-          <#--<#list regions as rg>-->
-          <#--&lt;#&ndash;${rg.name}&ndash;&gt;-->
-            <#--<#list rg.citys as city>-->
-              <#--<li>-->
-                <#--<a href="">${city.cityName}</a>-->
-              <#--</li>-->
-            <#--</#list>-->
-          <#--</#list>-->
+          <#list regions as rg>
+          <#--${rg.name}-->
+            <#list rg.citys as city>
+              <li>
+                <a href="">${city.cityName}</a>
+              </li>
+            </#list>
+          </#list>
         </ul>
       </div>
         <div class="clearfix">
