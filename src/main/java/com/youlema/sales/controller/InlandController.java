@@ -8,12 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.youlema.sales.meta.City;
+import com.youlema.sales.meta.ProductItem;
 import com.youlema.sales.meta.Region;
-import com.youlema.sales.service.DateCount;
-import com.youlema.sales.service.PriceRange;
+import com.youlema.sales.meta.SearchResult;
 import com.youlema.sales.service.ProductService;
-import com.youlema.sales.service.TrafficType;
+import com.youlema.sales.service.ProductService.QueryCondition;
 
 @Controller
 @RequestMapping("/guoneiyou")
@@ -23,15 +22,14 @@ public class InlandController {
 
     @RequestMapping("")
     public String main(ModelMap modelMap) {
+        ProductService.QueryCondition condition = new QueryCondition();
+        condition.setProductType(1);
         List<Region> regions = productService.listInlandRegions();
-        List<City> startCitys = productService.listStartCitys(null);
-
+        SearchResult<ProductItem> result = productService.query(condition, 1, 20);
+        modelMap.put("productType", "outbound");
+        modelMap.put("result", result);
         modelMap.put("regions", regions);
-        modelMap.put("startCitys", startCitys);
-        modelMap.put("dates", DateCount.values());
-        modelMap.put("prices", PriceRange.values());
-        modelMap.put("traffics", TrafficType.values());
-        return "inland-travel";
+        return "alland-travel";
     }
 
 }

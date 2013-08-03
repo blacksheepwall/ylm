@@ -216,10 +216,10 @@ public class ProductService {
 
     public SearchResult<ProductItem> query(QueryCondition condition, int pageNo, int pageSize) {
         SearchProductFdo productFdo = new SearchProductFdo();
-        productFdo.setProductMainTypeId(2L);
         productFdo.setPageNum(pageNo);
         productFdo.setPageSize(pageSize);
         if (condition != null) {
+            productFdo.setProductMainTypeId((long) condition.getProductType());
             productFdo.setKeyword(condition.getQueryText());
             productFdo.setLeaveCity(condition.getLeaveCity());
             productFdo.setTraffic(condition.getTraffic());
@@ -242,6 +242,16 @@ public class ProductService {
     }
 
     public static class QueryCondition {
+        private int productType;
+        
+        public int getProductType() {
+            return productType;
+        }
+
+        public void setProductType(int productType) {
+            this.productType = productType;
+        }
+
         private String queryText;
         private String leaveCity;
         private IntRange dateCountRange;
