@@ -14,11 +14,11 @@
         <div class="basic-info">
           <div class="title-group">
             <h2>
-              <span class="product-label label label-warning">${pdt.keyword}</span>
+              <span class="product-label label label-warning">${pdt.keyword!}</span>
               <span class="product-title">${pdt.title}</span>
-              <span class="product-subtitle">（${pdt.subtitle}）</span>
+              <span class="product-subtitle">（${pdt.subtitle!}）</span>
             </h2>
-            <div class="product-num">产品编号：${pdt.pdtCode}</div>
+            <div class="product-num">产品编号：${pdt.pdtCode!}</div>
             <div class="action-bar">
               <#--<a id="J_favorite" href="/u/addFavorite/?id=${productId}&type=${type}">收藏</a>-->
               <a id="J_favorite" href="javascript:;"><i class="icon-folder-open-alt"></i> 收藏</a>
@@ -36,7 +36,7 @@
               </ol>
               <div class="carousel-inner">
                 <div class="item">
-                  <img alt="" src="${pdt.imageUrl}">
+                  <img alt="" src="${pdt.imageUrl!}">
                   <div class="carousel-caption">
                     <h4>
                       阳光海滨
@@ -83,31 +83,31 @@
               </div>
               <div class="product-meta">
                 <ol class="meta-list clearfix">
-                  <li class="item"><span class="key">悠乐马价：</span>${pdt.price}元起 起价说明</li>
+                  <li class="item"><span class="key">悠乐马价：</span>${pdt.price!}元起 起价说明</li>
                   <li class="item"><span class="key">开票日期：</span> 2013-05-12</li>
                   <li class="item"><span class="key">截至送签日期：</span> 2013-05-12</li>
-                  <li class="item"><span class="key">出发港口：</span>${pdt.leaveCity}</li>
-                  <li class="item"><span class="key">旅行证件：</span>${pdt.tourCards}</li>
-                  <li class="item"><span class="key">产品经理：<a href="">${pdt.pdtManager}</a></li>
-                  <li class="item"><span class="key">团队协调：<a href="">${pdt.pdtAssistant}</a></li>
-                  <li><span class="key">出发交通：</span>${pdt.leaveTraffic}</li>
-                  <li><span class="key">返回交通：</span>${pdt.returnTraffic}</li>
+                  <li class="item"><span class="key">出发港口：</span>${pdt.leaveCity!}</li>
+                  <li class="item"><span class="key">旅行证件：</span>${pdt.tourCards!}</li>
+                  <li class="item"><span class="key">产品经理：<a href="">${pdt.pdtManager!}</a></li>
+                  <li class="item"><span class="key">团队协调：<a href="">${pdt.pdtAssistant!}</a></li>
+                  <li><span class="key">出发交通：</span>${pdt.leaveTraffic!}</li>
+                  <li><span class="key">返回交通：</span>${pdt.returnTraffic!}</li>
                 </ol>
               </div>
               <div class="book-body">
-                <div>成人价：${pdt.adultPrice}元</div>
-                <div>儿童价：${pdt.childPrice}元</div>
+                <div>成人价：${pdt.adultPrice!}元</div>
+                <div>儿童价：${pdt.childPrice!}元</div>
                 <div class="book-now">
                   <button class="btn btn-primary" type="button">立刻预订</button>
                 </div>
               </div>
               <div class="plan">
-                <span>计划：${pdt.numberOfPeoplePlan}人       可预订：${pdt.bookNubmer}人          预订需审核</span>
+                <span>计划：${pdt.numberOfPeoplePlan!0}人       可预订：${pdt.bookNubmer!0}人          预订需审核</span>
               </div>
               <div class="recommend">
 				  <dl>
 				    <dt>产品经理推荐</dt>
-				    ${pdt.pdtManagerRecommend}
+				    ${pdt.pdtManagerRecommend!}
 				  </dl>
 				</div>
             </div>

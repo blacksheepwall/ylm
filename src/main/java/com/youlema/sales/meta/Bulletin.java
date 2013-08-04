@@ -29,6 +29,26 @@ public class Bulletin {
     private Date effectiveDate;
     @VoField("getKeyword")
     private String tag;
+    
+    private String attachName;
+    
+    private String attachPath;
+
+    public String getAttachName() {
+        return attachName;
+    }
+
+    public void setAttachName(String attachName) {
+        this.attachName = attachName;
+    }
+
+    public String getAttachPath() {
+        return attachPath;
+    }
+
+    public void setAttachPath(String attachPath) {
+        this.attachPath = attachPath;
+    }
 
     public String getTag() {
         return tag;

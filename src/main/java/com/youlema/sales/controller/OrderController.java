@@ -35,7 +35,7 @@ public class OrderController {
     @Resource
     private UserService userService;
 
-    @RequestMapping("info")
+    @RequestMapping("/info")
     public String orderInfo(@RequestParam("id") long orderId, ModelMap modelMap) {
         OrderDetailVo detailVo = orderService.getOrderById(orderId);
         modelMap.put("order", detailVo);

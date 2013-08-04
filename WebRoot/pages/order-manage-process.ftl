@@ -207,11 +207,11 @@
                   </div>
                 </td>
                 <td>
-                  <p>身份证：${cust.certificate.certificateNumber}</p>
-                  <p>签发日期：${cust.certificate.issueDate?string("yyyy-MM-dd")}</p>
-                  <p>有效期至：${cust.certificate.expiryDate?string("yyyy-MM-dd")}</p>
-                  <p>签发地：${cust.certificate.issuePlace}</p>
-                  <p>出生日期：${cust.certificate.birthday}</p>
+                  <p>身份证：${cust.certificate.certificateNumber!}</p>
+                  <p>签发日期：<#if cust.certificate.issueDate??>${cust.certificate.issueDate?string("yyyy-MM-dd")}</#if></p>
+                  <p>有效期至：<#if cust.certificate.expiryDate??>${cust.certificate.expiryDate?string("yyyy-MM-dd")}</#if></p>
+                  <p>签发地：${cust.certificate.issuePlace!}</p>
+                  <p>出生日期：${cust.certificate.birthday!}</p>
                 </td>
                 <td>
                   ${cust.household}

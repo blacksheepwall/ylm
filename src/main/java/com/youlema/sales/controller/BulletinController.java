@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.youlema.sales.meta.Bulletin;
+import com.youlema.sales.meta.SearchResult;
 import com.youlema.sales.service.BulletinService;
 
 /**
@@ -41,7 +42,10 @@ public class BulletinController {
      * @return
      */
     @RequestMapping("")
-    public String bulletin() {
+    public String bulletin(ModelMap modelMap) {
+        SearchResult<Bulletin> result = bulletinService.getBulletinList();
+        modelMap.put("result", result);
+
         return "news";
     }
 }

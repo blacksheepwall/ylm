@@ -14,7 +14,7 @@ import com.yolema.tbss.ext.facade.fdo.order.SalesBargainFdo;
 import com.yolema.tbss.ext.facade.result.BaseResult;
 import com.yolema.tbss.ext.facade.result.OrderBillResult;
 
-@Service
+@Service("MockOrderBillFacade")
 public class MockOrderBillFacade implements OrderBillFacade {
     @Override
     public OrderBillResult getById(Long id) {

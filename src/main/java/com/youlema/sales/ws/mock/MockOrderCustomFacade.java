@@ -7,7 +7,7 @@ import com.yolema.tbss.ext.facade.fdo.order.OrderCustomFdo;
 import com.yolema.tbss.ext.facade.result.OrderCustomPkgResult;
 import com.yolema.tbss.ext.facade.result.OrderCustomResult;
 
-@Service
+@Service("MockOrderCustomFacade")
 public class MockOrderCustomFacade implements OrderCustomFacade {
 
     @Override

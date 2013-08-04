@@ -40,26 +40,28 @@
           </tr>
           </thead>
           <tbody>
+          <#list result.resultList as it>
           <tr>
             <td>
               1
             </td>
             <td>
-              <a href="/main/news-detail/">6月港澳散拼计划</a>
+              <a href="/bulletin/info/?id=${it.id}">${it.title}</a>
             </td>
             <td>
-              <a href="">附件名称</a>
+              <#if it.attachName??><a href="${it.attachPath}">${it.attachName}</a></#if>
             </td>
             <td>
-              港澳、散拼计划
+              ${it.lable}
             </td>
             <td>
-              2013-07-01
+              <#if it.effectiveDate??>${it.effectiveDate?string('yyyy-MM-dd')}</#if>
             </td>
             <td>
-              2013-07-01
+              <#if it.createDate??>${it.createDate?string('yyyy-MM-dd')}</#if>
             </td>
           </tr>
+          </#list>
           </tbody>
         </table>
       </div>

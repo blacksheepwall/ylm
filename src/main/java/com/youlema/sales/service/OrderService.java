@@ -59,7 +59,7 @@ public class OrderService {
     public SearchResult<OrderVo> queryOrders(OrderQueryCondition condition) {
         OrderBillResult billResult = orderFacadeService.queryOrderBillResult(condition);
 
-        List<OrderBillFdo> list = billResult.getList();
+        List<OrderBillFdo> list = billResult.getPageList();
         List<OrderVo> vos = new ArrayList<OrderVo>();
         for (OrderBillFdo orderBillFdo : list) {
             Long productId = orderBillFdo.getProductId();
@@ -224,23 +224,24 @@ public class OrderService {
         if (product == null || showProduct == null) {
             return null;
         }
-        
+
         List<SalesBargainFdo> bargainList = fdo.getSalesBargainList();
-        
+
         List<ContractItemVo> contractItemVos = new ArrayList<ContractItemVo>();
-        
-        for (SalesBargainFdo bargainFdo : bargainList) {
-            ContractItemVo item = new ContractItemVo();
-            item.setContractNo(bargainFdo.getBargainNo());
-            item.setCustId(bargainFdo.getOrderCustomId());
-            item.setId(bargainFdo.getSalesBargainId());
-            item.setMemo(bargainFdo.getMemo());
-            item.setOrderId(bargainFdo.getOrderId());
-            item.setSignDate(bargainFdo.getGmtSigned());
-            item.setSignPerson(bargainFdo.getBargainSignPerson());
-            contractItemVos.add(item);
+        if (bargainList != null) {
+            for (SalesBargainFdo bargainFdo : bargainList) {
+                ContractItemVo item = new ContractItemVo();
+                item.setContractNo(bargainFdo.getBargainNo());
+                item.setCustId(bargainFdo.getOrderCustomId());
+                item.setId(bargainFdo.getSalesBargainId());
+                item.setMemo(bargainFdo.getMemo());
+                item.setOrderId(bargainFdo.getOrderId());
+                item.setSignDate(bargainFdo.getGmtSigned());
+                item.setSignPerson(bargainFdo.getBargainSignPerson());
+                contractItemVos.add(item);
+            }
         }
-        
+
         OrderDetailVo vo = new OrderDetailVo();
         vo.setContractItems(contractItemVos);
         fromBillFdo2Vo(fdo, product, vo);
@@ -258,6 +259,7 @@ public class OrderService {
         vo.setLeaveDate(showProduct.getStartDate());
         vo.setNotPaid(fdo.getNoPayments());
         List<OrderCustomFdo> customerList = fdo.getOrderCustomBeanList();
+        customerList = customerList == null ? new ArrayList<OrderCustomFdo>(0) : customerList;
         List<CustomerVo> vos = new ArrayList<CustomerVo>(customerList.size());
         for (OrderCustomFdo orderCustomFdo : customerList) {
             CustomerVo customerVo = CustomerVo.fromFdo(orderCustomFdo);

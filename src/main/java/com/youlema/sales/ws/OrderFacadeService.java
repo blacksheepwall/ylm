@@ -17,9 +17,9 @@ import com.youlema.sales.service.OrderService.OrderQueryCondition;
 
 @Service
 public class OrderFacadeService {
-    @Resource
+    @Resource(name = "OrderBillFacade")
     private OrderBillFacade orderBillFacade;
-    @Resource
+    @Resource(name = "OrderCustomFacade")
     private OrderCustomFacade orderCustomFacade;
 
     public OrderBillResult queryOrderBillResult(OrderQueryCondition condition) {
@@ -35,8 +35,8 @@ public class OrderFacadeService {
         }
         return null;
     }
-    
-    public OrderBillResult getOrderBillResult(long orderId){
+
+    public OrderBillResult getOrderBillResult(long orderId) {
         OrderBillResult result = orderBillFacade.getById(orderId);
         return result;
     }
@@ -55,7 +55,7 @@ public class OrderFacadeService {
         queryFdo.setOrderStatus(orderStatus);
         queryFdo.setSearchKeyWords(condition.getQueryText());
         String contractStatus = condition.getContractStatus();
-        if(contractStatus != null){
+        if (contractStatus != null) {
             queryFdo.setSalesBargainStatus(true);
         }
         queryFdo.setOrderType(condition.getOrderType());
@@ -69,7 +69,7 @@ public class OrderFacadeService {
                 OrderCustomFdo customFdo = result.getOrderCustomFdo();
                 if (customFdo != null && !customFdo.getIsCanceled()) {
                     customFdo.setIsCanceled(true);
-//                     orderCustomFacade.update(customFdo);
+                    // orderCustomFacade.update(customFdo);
                 }
             }
         }

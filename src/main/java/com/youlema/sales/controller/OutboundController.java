@@ -28,6 +28,8 @@ import com.youlema.sales.service.ProductService.QueryCondition;
 public class OutboundController {
     @Resource
     private ProductService productService;
+    
+    private static final int PAGE_SIZE = 20;
 
     /**
      * 出境游首页
@@ -59,7 +61,6 @@ public class OutboundController {
             @RequestParam(value = "priceRange", required = false) String priceRange,
             @RequestParam(value = "traffic", required = false) String traffic,
             @RequestParam(value = "pageNo", required = false, defaultValue = "1") int pageNo,
-            @RequestParam(value = "pageSize", required = false, defaultValue = "20") int pageSize,
             HttpServletResponse response) throws IOException {
 
         ProductService.QueryCondition condition = new QueryCondition();
@@ -69,7 +70,7 @@ public class OutboundController {
         condition.setDays(days);
         condition.setPriceRange(priceRange);
         condition.setTraffic(traffic);
-        SearchResult<PlanItem> result = productService.queryPlan(condition, pageNo, pageSize);
+        SearchResult<PlanItem> result = productService.queryPlan(condition, pageNo, PAGE_SIZE);
         JsonUtils.writeToJson(result.getResultList(), response);
     }
 

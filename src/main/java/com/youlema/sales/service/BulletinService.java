@@ -7,8 +7,11 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.yolema.tbss.ext.facade.AttachmentFacade;
 import com.yolema.tbss.ext.facade.BulletinFacade;
+import com.yolema.tbss.ext.facade.fdo.sys.AttachmentFdo;
 import com.yolema.tbss.ext.facade.fdo.sys.BulletinFdo;
+import com.yolema.tbss.ext.facade.result.AttachmentResult;
 import com.yolema.tbss.ext.facade.result.BulletinResult;
 import com.youlema.sales.meta.Bulletin;
 import com.youlema.sales.meta.SearchResult;
@@ -22,8 +25,10 @@ import com.youlema.sales.utils.Vo;
  */
 @Service
 public class BulletinService {
-    @Resource(name="MockBulletinFacade")
+    @Resource(name="BulletinFacade")
     private BulletinFacade bulletinFacade;
+    @Resource
+    private AttachmentFacade attachmentFacade; 
 
     /**
      * 获取公告列表
@@ -34,11 +39,21 @@ public class BulletinService {
         BulletinFdo fdo = new BulletinFdo();
         fdo.setBulletinType("BUSINESS");
         BulletinResult result = bulletinFacade.queryPageList(fdo);
-        List<BulletinFdo> bulletinFdos = result.getBulletinFdos();
+        List<BulletinFdo> bulletinFdos = result.getBulletinFdoPageList();
         List<Bulletin> list = new ArrayList<Bulletin>();
         Vo<Bulletin> vo = new Vo<Bulletin>(Bulletin.class);
         for (BulletinFdo bulletinFdo : bulletinFdos) {
-            list.add(vo.inject(bulletinFdo));
+            Bulletin inject = vo.inject(bulletinFdo);
+            list.add(inject);
+            AttachmentResult img = attachmentFacade.getAllFileOrImg(bulletinFdo.getBulletinId(), bulletinFdo.getBulletinType());
+            if(img != null){
+                List<AttachmentFdo> attachmentFdos = img.getAttachmentFdos();
+                if(attachmentFdos.size()>0){
+                    AttachmentFdo attachmentFdo = attachmentFdos.get(0);
+                    inject.setAttachName(attachmentFdo.getName());
+                    inject.setAttachPath(attachmentFdo.getPath());
+                }
+            }
         }
         return new SearchResult<Bulletin>(list.size(), list);
     }
