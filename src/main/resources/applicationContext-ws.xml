@@ -59,4 +59,12 @@
 			value="http://183.129.158.179:8080/tbss/services/dictionary" />
 	</bean>
 
+	<bean id="TourPlanSearchFacade" class="com.yolema.tbss.ext.facade.TourPlanSearchFacade"
+		factory-bean="TourPlanSearchFacadeFactory" factory-method="create" />
+
+	<bean id="TourPlanSearchFacadeFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+		<property name="serviceClass" value="com.yolema.tbss.ext.facade.TourPlanSearchFacade" />
+		<property name="address"
+			value="http://183.129.158.179:8080/tbss/services/tourPlanSearch" />
+	</bean>
 </beans>

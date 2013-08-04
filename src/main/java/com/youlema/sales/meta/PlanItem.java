@@ -7,32 +7,26 @@ import java.util.List;
 
 import com.youlema.sales.utils.VoField;
 
-public class ProductItem {
-    @VoField("getProductId")
+public class PlanItem {
+    @VoField("getSpProductId")
     private long productId;
-    @VoField("getLineName")
+    @VoField("getBusinessName")
     private String title;
-    @VoField("getPromotionPrice")
+    @VoField("getMinPrice")
     private BigDecimal price;
-    @VoField("getStroePrice")
-    private BigDecimal storePrice;
-    @VoField("getGmtLeave")
-    private Date leaveDate;
-    @VoField("getLeaveCity")
+    @VoField("getLeaveCityName")
     private String leaveCity;
-    @VoField("getKeyword")
-    private String keywords;
-    @VoField("getLeaveTraffic")
+    @VoField("getLabels")
+    private String labels;
+    @VoField("getLeaveCityTrafficName")
     private String leaveTraffic;
-    @VoField("getReturnTraffic")
-    private String returnTraffic;
-    @VoField("getDays")
-    private int dayCount;
-    @VoField("getNight")
-    private int nightCount;
+    @VoField("getDaysDuring")
+    private String dayCount;
+    @VoField("getDaysNight")
+    private String nightCount;
     @VoField("getProductManagerRecommend")
     private String managerRecommend;
-    @VoField("getTopic")
+    @VoField("getLineTopic")
     private String topic;
 
     public String getTopic() {
@@ -61,28 +55,33 @@ public class ProductItem {
         this.managerRecommend = managerRecommend;
     }
 
-    public int getDayCount() {
+
+    public String getLabels() {
+        return labels;
+    }
+
+    public void setLabels(String labels) {
+        this.labels = labels;
+    }
+
+    public String getDayCount() {
         return dayCount;
     }
 
-    public void setDayCount(int dayCount) {
+    public void setDayCount(String dayCount) {
         this.dayCount = dayCount;
     }
 
-    public int getNightCount() {
+    public String getNightCount() {
         return nightCount;
     }
 
-    public void setNightCount(int nightCount) {
+    public void setNightCount(String nightCount) {
         this.nightCount = nightCount;
     }
 
-    public String getReturnTraffic() {
-        return returnTraffic;
-    }
-
-    public void setReturnTraffic(String returnTraffic) {
-        this.returnTraffic = returnTraffic;
+    public void setDateList(List<Date> dateList) {
+        this.dateList = dateList;
     }
 
     public String getLeaveTraffic() {
@@ -93,13 +92,6 @@ public class ProductItem {
         this.leaveTraffic = leaveTraffic;
     }
 
-    public String getKeywords() {
-        return keywords;
-    }
-
-    public void setKeywords(String keywords) {
-        this.keywords = keywords;
-    }
 
     public String getLeaveCity() {
         return leaveCity;
@@ -107,22 +99,6 @@ public class ProductItem {
 
     public void setLeaveCity(String leaveCity) {
         this.leaveCity = leaveCity;
-    }
-
-    public BigDecimal getStorePrice() {
-        return storePrice;
-    }
-
-    public void setStorePrice(BigDecimal storePrice) {
-        this.storePrice = storePrice;
-    }
-
-    public Date getLeaveDate() {
-        return leaveDate;
-    }
-
-    public void setLeaveDate(Date leaveDate) {
-        this.leaveDate = leaveDate;
     }
 
     public long getProductId() {

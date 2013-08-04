@@ -11,20 +11,25 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.yolema.tbss.ext.facade.TourPlanSearchFacade;
 import com.yolema.tbss.ext.facade.TourProductFacade;
+import com.yolema.tbss.ext.facade.fdo.plan.TourPlanSearchFdo;
 import com.yolema.tbss.ext.facade.fdo.product.ShowProductFdo;
+import com.yolema.tbss.ext.facade.result.PlanSearchResult;
 import com.yolema.tbss.ext.facade.result.ShowProductResult;
 
 @ContextConfiguration(locations = "file:src/test/resources/applicationContext-ws.xml")
 @RunWith(SpringJUnit4ClassRunner.class)
 public class WsTest extends TestCase {
     @Resource
-    TourProductFacade facade;
+    TourPlanSearchFacade facade;
 	@Test
 	public void testHello() throws Exception {
-	    ShowProductResult labelProduct = facade.queryIndexLabelProduct("热卖", 100);
-	    List<ShowProductFdo> fdos = labelProduct.getShowProductFdos();
-	    for (ShowProductFdo showProductFdo : fdos) {
+	    TourPlanSearchFdo fdo = new TourPlanSearchFdo();
+	    fdo.setProductMainTypeId("1");
+	    PlanSearchResult labelProduct = facade.searchPlan(null, fdo);
+	    List<TourPlanSearchFdo> fdos = labelProduct.getPageList();
+	    for (TourPlanSearchFdo showProductFdo : fdos) {
             System.out.println(showProductFdo.getLeaveCityTraffic());
         }
 	    

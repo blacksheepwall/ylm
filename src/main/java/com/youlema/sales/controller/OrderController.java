@@ -23,8 +23,8 @@ import com.youlema.sales.meta.OrderDetailVo;
 import com.youlema.sales.meta.OrderVo;
 import com.youlema.sales.meta.SearchResult;
 import com.youlema.sales.service.OrderService;
-import com.youlema.sales.service.UserService;
 import com.youlema.sales.service.OrderService.OrderQueryCondition;
+import com.youlema.sales.service.UserService;
 import com.youlema.sales.utils.Utils;
 
 @Controller

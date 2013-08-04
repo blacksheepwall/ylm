@@ -7,23 +7,21 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.apache.commons.lang.math.IntRange;
-import org.apache.commons.lang.math.NumberRange;
 import org.springframework.stereotype.Service;
 
+import com.yolema.tbss.ext.facade.TourPlanSearchFacade;
 import com.yolema.tbss.ext.facade.TourProductFacade;
 import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
-import com.yolema.tbss.ext.facade.fdo.product.SearchProductFdo;
+import com.yolema.tbss.ext.facade.fdo.plan.TourPlanSearchFdo;
 import com.yolema.tbss.ext.facade.fdo.product.ShowHomePageProductFdo;
 import com.yolema.tbss.ext.facade.fdo.product.ShowProductFdo;
-import com.yolema.tbss.ext.facade.result.ShowProductResult;
+import com.yolema.tbss.ext.facade.result.PlanSearchResult;
 import com.youlema.sales.meta.City;
 import com.youlema.sales.meta.HomePageProductItem;
+import com.youlema.sales.meta.PlanItem;
 import com.youlema.sales.meta.ProductInfo;
-import com.youlema.sales.meta.ProductItem;
 import com.youlema.sales.meta.Region;
 import com.youlema.sales.meta.SearchResult;
-import com.youlema.sales.utils.DateRange;
 import com.youlema.sales.utils.Vo;
 import com.youlema.sales.ws.ProductFacadeService;
 
@@ -33,6 +31,8 @@ public class ProductService {
     private ProductFacadeService facadeService;
     @Resource(name = "MockTourProductFacade")
     private TourProductFacade tourProductFacade;
+    @Resource(name = "MockTourPlanSearchFacade")
+    private TourPlanSearchFacade tourPlanSearchFacade;
 
     /**
      * 获取出发城市
@@ -214,39 +214,37 @@ public class ProductService {
         return inject;
     }
 
-    public SearchResult<ProductItem> query(QueryCondition condition, int pageNo, int pageSize) {
-        SearchProductFdo productFdo = new SearchProductFdo();
-        productFdo.setPageNum(pageNo);
-        productFdo.setPageSize(pageSize);
-        if (condition != null) {
-            productFdo.setProductMainTypeId((long) condition.getProductType());
-            productFdo.setKeyword(condition.getQueryText());
-            productFdo.setLeaveCity(condition.getLeaveCity());
-            productFdo.setTraffic(condition.getTraffic());
-            // TODO 查询的金额应该是区间
-            // productFdo.setPrice(price);
+    /**
+     * 散拼计划搜索
+     * 
+     * @param condition
+     * @param pageNo
+     * @param pageSize
+     * @return
+     */
+    public SearchResult<PlanItem> queryPlan(QueryCondition condition, int pageNo, int pageSize) {
+        TourPlanSearchFdo searchFdo = new TourPlanSearchFdo();
+        searchFdo.setPageNum(pageNo);
+        searchFdo.setPageSize(pageSize);
+
+        searchFdo.setProductMainTypeId(String.valueOf(condition.productType));
+        searchFdo.setLeaveCity(condition.leaveCity);
+        searchFdo.setLeaveCityTraffic(condition.traffic);
+        searchFdo.setDays(condition.days);
+        searchFdo.setPriceRange(condition.priceRange);
+
+        PlanSearchResult result = tourPlanSearchFacade.searchPlan(condition.getQueryText(), searchFdo);
+        List<TourPlanSearchFdo> productFdos = result.getPageList();
+        Vo<PlanItem> vo = new Vo<PlanItem>(PlanItem.class);
+        List<PlanItem> items1 = new ArrayList<PlanItem>();
+        for (TourPlanSearchFdo planFdo : productFdos) {
+            items1.add(vo.inject(planFdo));
         }
-        ShowProductResult result = tourProductFacade.queryProductList(productFdo, "");
-        List<ShowProductFdo> productFdos = result.getShowProductFdos();
-        Vo<ProductItem> vo = new Vo<ProductItem>(ProductItem.class);
-        List<ProductItem> items1 = new ArrayList<ProductItem>();
-        for (ShowProductFdo showProductFdo : productFdos) {
-            Long productId = showProductFdo.getProductId();
-            TourProductFdo pdtFdo = facadeService.getProduct(productId);
-            if (productFdo != null) {
-                ProductItem item = vo.inject(showProductFdo, pdtFdo);
-                items1.add(item);
-            }
-        }
-        return new SearchResult<ProductItem>(items1.size(), items1);
+        return new SearchResult<PlanItem>(items1.size(), items1);
     }
 
     public static class QueryCondition {
         private int productType;
-        
-        public int getProductType() {
-            return productType;
-        }
 
         public void setProductType(int productType) {
             this.productType = productType;
@@ -254,11 +252,27 @@ public class ProductService {
 
         private String queryText;
         private String leaveCity;
-        private IntRange dateCountRange;
-        private NumberRange priceRange;
+        private String days;
+        private String priceRange;
+
+        public String getDays() {
+            return days;
+        }
+
+        public void setDays(String days) {
+            this.days = days;
+        }
+
+        public String getPriceRange() {
+            return priceRange;
+        }
+
+        public void setPriceRange(String priceRange) {
+            this.priceRange = priceRange;
+        }
+
         private String traffic;
-        // TODO 不知道对应SearchProductFdo的哪个字段
-        private DateRange dateRange;
+
         // TODO 不知道对应SearchProductFdo的哪个字段
         private String lineType;
 
@@ -270,22 +284,6 @@ public class ProductService {
             this.queryText = queryText;
         }
 
-        public IntRange getDateCountRange() {
-            return dateCountRange;
-        }
-
-        public void setDateCountRange(IntRange dateCountRange) {
-            this.dateCountRange = dateCountRange;
-        }
-
-        public DateRange getDateRange() {
-            return dateRange;
-        }
-
-        public void setDateRange(DateRange dateRange) {
-            this.dateRange = dateRange;
-        }
-
         public String getLineType() {
             return lineType;
         }
@@ -294,24 +292,8 @@ public class ProductService {
             this.lineType = lineType;
         }
 
-        public String getLeaveCity() {
-            return leaveCity;
-        }
-
         public void setLeaveCity(String leaveCity) {
             this.leaveCity = leaveCity;
-        }
-
-        public NumberRange getPriceRange() {
-            return priceRange;
-        }
-
-        public void setPriceRange(NumberRange priceRange) {
-            this.priceRange = priceRange;
-        }
-
-        public String getTraffic() {
-            return traffic;
         }
 
         public void setTraffic(String traffic) {

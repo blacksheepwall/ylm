@@ -48,6 +48,24 @@
               <li class="active">
                 <a href="#">不限</a>
               </li>
+              <li class="">
+                <a href="#">杭州</a>
+              </li>
+              <li class="">
+                <a href="#">上海</a>
+              </li>
+              <li class="">
+                <a href="#">宁波</a>
+              </li>
+              <li class="">
+                <a href="#">温州</a>
+              </li>
+              <li class="">
+                <a href="#">南京</a>
+              </li>
+              <li class="">
+                <a href="#">台州</a>
+              </li>
               <#--<#list startCitys as st><li><a href="#">${st.cityName}</a></li></#list>-->
             </ul>
           </div>
@@ -56,6 +74,24 @@
             <ul class="nav nav-pills">
               <li class="active">
                 <a href="#">不限</a>
+              </li>
+              <li class="">
+                <a href="#">1天</a>
+              </li>
+              <li class="">
+                <a href="#">2天</a>
+              </li>
+              <li class="">
+                <a href="#">3天</a>
+              </li>
+              <li class="">
+                <a href="#">1-3天</a>
+              </li>
+              <li class="">
+                <a href="#">4-7天</a>
+              </li>
+              <li class="">
+                <a href="#">7天以上</a>
               </li>
               <#--<#list dates as dt><li><a href="#">${dt.stringValue}</a></li></#list>-->
             </ul>
@@ -66,6 +102,18 @@
               <li class="active">
                 <a href="#">不限</a>
               </li>
+              <li class="">
+                <a href="#">800以下</a>
+              </li>
+              <li class="">
+                <a href="#">800-1500</a>
+              </li>
+              <li class="">
+                <a href="#">1500-3000</a>
+              </li>
+              <li class="">
+                <a href="#">3000以上</a>
+              </li>
               <#--<#list prices as prc><li><a href="#">${prc.stringValue}</a></li></#list>-->
             </ul>
           </div>
@@ -74,6 +122,21 @@
             <ul class="nav nav-pills">
               <li class="active">
                 <a href="#">不限</a>
+              </li>
+              <li class="">
+                <a href="#">步行</a>
+              </li>
+              <li class="">
+                <a href="#">飞机</a>
+              </li>
+              <li class="">
+                <a href="#">火车</a>
+              </li>
+              <li class="">
+                <a href="#">汽车</a>
+              </li>
+              <li class="">
+                <a href="#">轮船</a>
               </li>
               <#--<#list traffics as tr><li><a href="#">${tr.stringValue}</a></li></#list>-->
             </ul>

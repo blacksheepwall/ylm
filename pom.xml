@@ -168,6 +168,17 @@
 			<artifactId>tbss-common-facade</artifactId>
 			<version>1.2.5-TBDS-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-core</artifactId>
+			<version>2.3.15.1</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>tools</artifactId>
+					<groupId>com.sun</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 	</dependencies>
 	<repositories>
 		<repository>
