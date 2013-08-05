@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +30,7 @@ public class InlandController {
     public String main(ModelMap modelMap) {
         ProductService.QueryCondition condition = new QueryCondition();
         // 1是国内游
+        condition.setQueryText("杭州");
         condition.setProductType(1);
         List<Region> regions = productService.listInlandRegions();
         SearchResult<PlanItem> result = productService.queryPlan(condition, 1, 20);
@@ -47,12 +49,16 @@ public class InlandController {
     @RequestMapping("/query")
     public void queryProductItems(@RequestParam(value = "leaveCity", required = false) String leaveCity,
             @RequestParam(value = "dateRange", required = false) String days,
+            @RequestParam(value = "queryText", required = false) String queryText,
             @RequestParam(value = "priceRange", required = false) String priceRange,
             @RequestParam(value = "traffic", required = false) String traffic,
             @RequestParam(value = "pageNo", required = false, defaultValue = "1") int pageNo,
             HttpServletResponse response) throws IOException {
 
         ProductService.QueryCondition condition = new QueryCondition();
+        if (StringUtils.isBlank(queryText)) {
+            condition.setQueryText("杭州");
+        }
         // 1是国内游
         condition.setProductType(1);
         condition.setLeaveCity(leaveCity);

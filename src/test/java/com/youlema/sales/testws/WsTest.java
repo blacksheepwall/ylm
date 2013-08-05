@@ -26,8 +26,9 @@ public class WsTest extends TestCase {
 	@Test
 	public void testHello() throws Exception {
 	    TourPlanSearchFdo fdo = new TourPlanSearchFdo();
-	    fdo.setProductMainTypeId("1");
-	    PlanSearchResult labelProduct = facade.searchPlan(null, fdo);
+	    fdo.setSearchType("spTourProduct");
+	    fdo.setProductMainTypeCode("GN");
+	    PlanSearchResult labelProduct = facade.searchPlan(new String("厦门".getBytes("UTF-8"),"GBK"), fdo);
 	    List<TourPlanSearchFdo> fdos = labelProduct.getPageList();
 	    for (TourPlanSearchFdo showProductFdo : fdos) {
             System.out.println(showProductFdo.getLeaveCityTraffic());

@@ -49,22 +49,22 @@
                 <a href="#">不限</a>
               </li>
               <li class="">
-                <a href="#">杭州</a>
+                <a href="leaveCity=330100">杭州</a>
               </li>
               <li class="">
-                <a href="#">上海</a>
+                <a href="leaveCity=310000">上海</a>
               </li>
               <li class="">
-                <a href="#">宁波</a>
+                <a href="leaveCity=330200">宁波</a>
               </li>
               <li class="">
-                <a href="#">温州</a>
+                <a href="leaveCity=330300">温州</a>
               </li>
               <li class="">
-                <a href="#">南京</a>
+                <a href="leaveCity=320100">南京</a>
               </li>
               <li class="">
-                <a href="#">台州</a>
+                <a href="leaveCity=331000">台州</a>
               </li>
               <#--<#list startCitys as st><li><a href="#">${st.cityName}</a></li></#list>-->
             </ul>
@@ -76,22 +76,22 @@
                 <a href="#">不限</a>
               </li>
               <li class="">
-                <a href="#">1天</a>
+                <a href="dateRange=1">1天</a>
               </li>
               <li class="">
-                <a href="#">2天</a>
+                <a href="dateRange=2">2天</a>
               </li>
               <li class="">
-                <a href="#">3天</a>
+                <a href="dateRange=3">3天</a>
               </li>
               <li class="">
-                <a href="#">1-3天</a>
+                <a href="dateRange=4">1-3天</a>
               </li>
               <li class="">
-                <a href="#">4-7天</a>
+                <a href="dateRange=5">4-7天</a>
               </li>
               <li class="">
-                <a href="#">7天以上</a>
+                <a href="dateRange=6">7天以上</a>
               </li>
               <#--<#list dates as dt><li><a href="#">${dt.stringValue}</a></li></#list>-->
             </ul>
@@ -103,16 +103,16 @@
                 <a href="#">不限</a>
               </li>
               <li class="">
-                <a href="#">800以下</a>
+                <a href="priceRange=1">800以下</a>
               </li>
               <li class="">
-                <a href="#">800-1500</a>
+                <a href="priceRange=2">800-1500</a>
               </li>
               <li class="">
-                <a href="#">1500-3000</a>
+                <a href="priceRange=3">1500-3000</a>
               </li>
               <li class="">
-                <a href="#">3000以上</a>
+                <a href="priceRange=4">3000以上</a>
               </li>
               <#--<#list prices as prc><li><a href="#">${prc.stringValue}</a></li></#list>-->
             </ul>
@@ -124,19 +124,19 @@
                 <a href="#">不限</a>
               </li>
               <li class="">
-                <a href="#">步行</a>
+                <a href="traffic=FOOT">步行</a>
               </li>
               <li class="">
-                <a href="#">飞机</a>
+                <a href="traffic=AIRPLANE">飞机</a>
               </li>
               <li class="">
-                <a href="#">火车</a>
+                <a href="traffic=TRAIN">火车</a>
               </li>
               <li class="">
-                <a href="#">汽车</a>
+                <a href="traffic=BUS">汽车</a>
               </li>
               <li class="">
-                <a href="#">轮船</a>
+                <a href="traffic=SHIP">轮船</a>
               </li>
               <#--<#list traffics as tr><li><a href="#">${tr.stringValue}</a></li></#list>-->
             </ul>

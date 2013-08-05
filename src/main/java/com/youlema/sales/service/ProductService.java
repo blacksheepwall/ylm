@@ -1,5 +1,6 @@
 package com.youlema.sales.service;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -227,13 +228,18 @@ public class ProductService {
         searchFdo.setPageNum(pageNo);
         searchFdo.setPageSize(pageSize);
 
-        searchFdo.setProductMainTypeId(String.valueOf(condition.productType));
+        if(condition.productType == 1){
+            searchFdo.setProductMainTypeCode("GN");
+        }else{
+            searchFdo.setProductMainTypeCode("JW");
+        }
+        searchFdo.setSearchType("spTourProduct");
         searchFdo.setLeaveCity(condition.leaveCity);
         searchFdo.setLeaveCityTraffic(condition.traffic);
         searchFdo.setDays(condition.days);
         searchFdo.setPriceRange(condition.priceRange);
 
-        PlanSearchResult result = tourPlanSearchFacade.searchPlan(condition.getQueryText(), searchFdo);
+        PlanSearchResult result = tourPlanSearchFacade.searchPlan(condition.queryText, searchFdo);
         List<TourPlanSearchFdo> productFdos = result.getPageList();
         Vo<PlanItem> vo = new Vo<PlanItem>(PlanItem.class);
         List<PlanItem> items1 = new ArrayList<PlanItem>();
@@ -276,12 +282,14 @@ public class ProductService {
         // TODO 不知道对应SearchProductFdo的哪个字段
         private String lineType;
 
-        public String getQueryText() {
-            return queryText;
-        }
 
         public void setQueryText(String queryText) {
-            this.queryText = queryText;
+            if (queryText != null) {
+                try {
+                    this.queryText = new String(queryText.getBytes("UTF-8"), "GBK");
+                } catch (UnsupportedEncodingException e) {
+                }
+            }
         }
 
         public String getLineType() {

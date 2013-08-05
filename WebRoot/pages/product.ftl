@@ -8,14 +8,14 @@
       <ul class="breadcrumb">
         <li><a href="/main/">首页</a> <span class="divider">/</span></li>
         <li><a href="/main/">出境线路</a> <span class="divider">/</span></li>
-        <li class="active">${pdt.title}</li>
+        <li class="active">${pdt.title!}</li>
       </ul>
       <div class="center">
         <div class="basic-info">
           <div class="title-group">
             <h2>
               <span class="product-label label label-warning">${pdt.keyword!}</span>
-              <span class="product-title">${pdt.title}</span>
+              <span class="product-title">${pdt.title!}</span>
               <span class="product-subtitle">（${pdt.subtitle!}）</span>
             </h2>
             <div class="product-num">产品编号：${pdt.pdtCode!}</div>
