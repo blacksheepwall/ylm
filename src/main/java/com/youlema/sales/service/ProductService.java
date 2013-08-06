@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -30,9 +31,9 @@ import com.youlema.sales.ws.ProductFacadeService;
 public class ProductService {
     @Resource
     private ProductFacadeService facadeService;
-    @Resource(name = "MockTourProductFacade")
+    @Resource(name = "TourProductFacade")
     private TourProductFacade tourProductFacade;
-    @Resource(name = "MockTourPlanSearchFacade")
+    @Resource(name = "TourPlanSearchFacade")
     private TourPlanSearchFacade tourPlanSearchFacade;
 
     /**
@@ -228,17 +229,20 @@ public class ProductService {
         searchFdo.setPageNum(pageNo);
         searchFdo.setPageSize(pageSize);
 
-        if(condition.productType == 1){
+        if (condition.productType == 1) {
             searchFdo.setProductMainTypeCode("GN");
-        }else{
-            searchFdo.setProductMainTypeCode("JW");
+        } else {
+            searchFdo.setProductMainTypeCode("CJ");
         }
         searchFdo.setSearchType("spTourProduct");
         searchFdo.setLeaveCity(condition.leaveCity);
         searchFdo.setLeaveCityTraffic(condition.traffic);
         searchFdo.setDays(condition.days);
         searchFdo.setPriceRange(condition.priceRange);
-
+        searchFdo.setMinStartDays(condition.startDate);
+        searchFdo.setMaxStartDays(condition.endDate);
+        searchFdo.setIsMinPrice(condition.priceOrderDesc);
+        
         PlanSearchResult result = tourPlanSearchFacade.searchPlan(condition.queryText, searchFdo);
         List<TourPlanSearchFdo> productFdos = result.getPageList();
         Vo<PlanItem> vo = new Vo<PlanItem>(PlanItem.class);
@@ -251,15 +255,32 @@ public class ProductService {
 
     public static class QueryCondition {
         private int productType;
-
-        public void setProductType(int productType) {
-            this.productType = productType;
-        }
-
         private String queryText;
         private String leaveCity;
         private String days;
         private String priceRange;
+        private Date startDate;
+        private String traffic;
+        // TODO 不知道对应SearchProductFdo的哪个字段
+        private String lineType;
+        private Date endDate;
+
+        private Boolean priceOrderDesc;
+        //TODO 开始时间排序条件字段不明
+        private Boolean startDateOrderDesc;
+        
+        
+        public void setPriceOrderDesc(Boolean priceOrderDesc) {
+            this.priceOrderDesc = priceOrderDesc;
+        }
+
+        public void setStartDateOrderDesc(Boolean startDateOrderDesc) {
+            this.startDateOrderDesc = startDateOrderDesc;
+        }
+
+        public void setProductType(int productType) {
+            this.productType = productType;
+        }
 
         public String getDays() {
             return days;
@@ -276,12 +297,6 @@ public class ProductService {
         public void setPriceRange(String priceRange) {
             this.priceRange = priceRange;
         }
-
-        private String traffic;
-
-        // TODO 不知道对应SearchProductFdo的哪个字段
-        private String lineType;
-
 
         public void setQueryText(String queryText) {
             if (queryText != null) {
@@ -306,6 +321,16 @@ public class ProductService {
 
         public void setTraffic(String traffic) {
             this.traffic = traffic;
+        }
+
+        public void setStartDate(Date parse) {
+            this.startDate = parse;
+
+        }
+
+        public void setEndDate(Date parse) {
+            this.endDate = parse;
+
         }
     }
 

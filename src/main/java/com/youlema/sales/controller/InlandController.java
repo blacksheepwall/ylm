@@ -1,6 +1,8 @@
 package com.youlema.sales.controller;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -53,11 +55,37 @@ public class InlandController {
             @RequestParam(value = "priceRange", required = false) String priceRange,
             @RequestParam(value = "traffic", required = false) String traffic,
             @RequestParam(value = "pageNo", required = false, defaultValue = "1") int pageNo,
+            @RequestParam(value = "startDate", required = false) String startDate,
+            @RequestParam(value = "endDate", required = false) String endDate,
+            @RequestParam(value = "priceOrder", required = false) String priceOrder,
+            @RequestParam(value = "startDateOrder", required = false) String startDateOrder,
             HttpServletResponse response) throws IOException {
 
         ProductService.QueryCondition condition = new QueryCondition();
         if (StringUtils.isBlank(queryText)) {
             condition.setQueryText("杭州");
+        }
+        if (StringUtils.isNotBlank(priceOrder)) {
+            condition.setPriceOrderDesc("desc".equalsIgnoreCase(priceOrder));
+        }
+        if (StringUtils.isNotBlank(startDateOrder)) {
+            condition.setStartDateOrderDesc("desc".equalsIgnoreCase(startDateOrder));
+        }
+
+        if (StringUtils.isNotBlank(startDate) || StringUtils.isNotBlank(endDate)) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            if (StringUtils.isNotBlank(startDate)) {
+                try {
+                    condition.setStartDate(dateFormat.parse(startDate));
+                } catch (ParseException e) {
+                }
+            }
+            if (StringUtils.isNotBlank(endDate)) {
+                try {
+                    condition.setEndDate(dateFormat.parse(endDate));
+                } catch (ParseException e) {
+                }
+            }
         }
         // 1是国内游
         condition.setProductType(1);
@@ -68,5 +96,4 @@ public class InlandController {
         SearchResult<PlanItem> result = productService.queryPlan(condition, pageNo, PAGE_SIZE);
         JsonUtils.writeToJson(result.getResultList(), response);
     }
-
 }

@@ -1,6 +1,8 @@
 package com.youlema.sales.controller;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -64,12 +66,37 @@ public class OutboundController {
             @RequestParam(value = "priceRange", required = false) String priceRange,
             @RequestParam(value = "traffic", required = false) String traffic,
             @RequestParam(value = "pageNo", required = false, defaultValue = "1") int pageNo,
-            HttpServletResponse response) throws IOException {
+            @RequestParam(value = "startDate", required = false) String startDate,
+            @RequestParam(value = "priceOrder", required = false) String priceOrder,
+            @RequestParam(value = "startDateOrder", required = false) String startDateOrder,
+            @RequestParam(value = "endDate", required = false) String endDate, HttpServletResponse response)
+            throws IOException {
 
         ProductService.QueryCondition condition = new QueryCondition();
         // 4是出境游
         if (StringUtils.isBlank(queryText)) {
             condition.setQueryText("杭州");
+        }
+        if (StringUtils.isNotBlank(priceOrder)) {
+            condition.setPriceOrderDesc("desc".equalsIgnoreCase(priceOrder));
+        }
+        if (StringUtils.isNotBlank(startDateOrder)) {
+            condition.setStartDateOrderDesc("desc".equalsIgnoreCase(startDateOrder));
+        }
+        if (StringUtils.isNotBlank(startDate) || StringUtils.isNotBlank(endDate)) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            if (StringUtils.isNotBlank(startDate)) {
+                try {
+                    condition.setStartDate(dateFormat.parse(startDate));
+                } catch (ParseException e) {
+                }
+            }
+            if (StringUtils.isNotBlank(endDate)) {
+                try {
+                    condition.setEndDate(dateFormat.parse(endDate));
+                } catch (ParseException e) {
+                }
+            }
         }
         condition.setProductType(4);
         condition.setLeaveCity(leaveCity);
