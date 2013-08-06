@@ -40,9 +40,9 @@
 
 .product .product-more {
   float: right;
-  width: 150px;
+  width: 165px;
   margin-bottom: -9999px;
-  padding-bottom: 9999px;
+  padding: 0 5px 9999px;
   border-left: 1px dashed #ccc;
 }
 

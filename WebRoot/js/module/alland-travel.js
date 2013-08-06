@@ -1,3 +1,4 @@
+var productType = productType;
 define(['./util', 'dateTimePicker', 'pagination'], function(Util) {
   'use strict';
   var mod = {}, $pagination = $('.pagination'),
@@ -5,26 +6,31 @@ define(['./util', 'dateTimePicker', 'pagination'], function(Util) {
     $endDate = $('#J_end_date'),
     $searchText = $('#J_search_text'),
     $searchBtn = $('#J_search_btn'),
-    $orderContainer = $('#J_order_container'),
-    orderRowTpl = Handlebars.compile($('#J_order_row').html()),
-    ajaxUrl = 'queryOrders';
+    $tab = $('#J_tab'),
+    $tabContent = $('#J_tab_content'),
+    $productContainer = $('#J_product_list'),
+    productRowTpl = Handlebars.compile($('#J_product_row').html()),
+    ajaxUrl = '/' + productType + '/query';
 
   function _initQueryConfig() {
     mod.queryConfig = {
       'beginScheduledTime': $.trim($startDate.val()),
       'endScheduledTime': $.trim($endDate.val()),
       'queryText': $.trim($searchText.val()),
-      'orderStatus': 1,
-      'contractStatus': 1,
-      'leaveStatus': 1,
-      'orderType': 1
+      'leaveCity': '',
+      'dateRange': '',
+      'priceRange': '',
+      'traffic': '',
+      'priceOrder': '',
+      'startDateOrder': '',
+      'page': 1
     };
   }
 
   function _initConditions() {
     $searchBtn.click(function() {
-      _queryOrderList({'data': mod.queryConfig});
-    });
+      _queryList({'data': mod.queryConfig});
+    })
     $('#J_condition .nav').on('click', 'a', function(e) {
       e.preventDefault();
       var $this = $(this),
@@ -33,27 +39,40 @@ define(['./util', 'dateTimePicker', 'pagination'], function(Util) {
         value = targetData[1] || '';
       $this.tab('show');
       mod.queryConfig[key] = value;
-      _queryOrderList({'data': mod.queryConfig});
+      _queryList({'data': mod.queryConfig});
+    });
+  }
+
+  function _initTabs() {
+    $('a', $tab).click(function(e) {
+      e.preventDefault();
+      var $this = $(this),
+        index = $tab.children().index($this.parent()),
+        $contents = $tabContent.children();
+      $this.tab('show');
+      $contents.hide();
+      $contents.eq(index).show();
     });
   }
 
   function _initPagination() {
     $pagination.jqPagination({
       paged: function(page) {
-        _queryOrderList({'page': page});
+        _queryList({'page': page});
       }
     });
   }
 
-  function _queryOrderList(options) {
-    var page = options.page || 1, data = $.extend(options.data, {'offset': (page - 1) * 20, 'limit': 20});
+  function _queryList(options) {
+    var page = options.page || 1,
+      data = $.extend(options.data, {'offset': (page - 1) * 20, 'limit': 20});
     Util.post({
       'url': ajaxUrl,
       'data': data,
       'done': function(data) {
         $pagination.jqPagination({'count': data.count});
-//        $pagination.jqPagination({'max_page': data.count});
-        $orderContainer.html(orderRowTpl(data));
+        $pagination.jqPagination({'max_page': data.count});
+        $productContainer.html(productRowTpl(data));
       }
     });
   }
@@ -62,8 +81,9 @@ define(['./util', 'dateTimePicker', 'pagination'], function(Util) {
     Util.enableDateTimePicker();
     _initQueryConfig();
     _initConditions();
+    _initTabs();
     _initPagination();
-    _queryOrderList({});
+    _queryList({});
   }
 
   _init();

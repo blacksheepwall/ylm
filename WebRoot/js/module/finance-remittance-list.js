@@ -3,20 +3,6 @@ define(['./util', 'dateTimePicker'], function(Util) {
   var $startDate = $('#J_start_date'),
     $endDate = $('#J_end_date');
 
-  function _initDateTimePicker() {
-    $('.date-box').datetimepicker({
-      language: 'zh-CN',
-      format: 'yyyy-mm-dd',
-      weekStart: 1,
-      todayBtn: 1,
-      autoclose: 1,
-      todayHighlight: 1,
-      minView: 2,
-      maxView: 3,
-      forceParse: 0
-    });
-  }
-
   function _queryList(options) {
     Util.post({
       'url': 'xxx',
@@ -28,7 +14,7 @@ define(['./util', 'dateTimePicker'], function(Util) {
   }
 
   function _init() {
-    _initDateTimePicker();
+    Util.enableDateTimePicker();
 //    _queryList({});
   }
 

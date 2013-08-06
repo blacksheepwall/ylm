@@ -43,12 +43,27 @@ define(function() {
     });
   }
 
+  function _initDateTimePicker() {
+    $('.date-box').datetimepicker({
+      language: 'zh-CN',
+      format: 'yyyy-mm-dd',
+      weekStart: 1,
+      todayBtn: 1,
+      autoclose: 1,
+      todayHighlight: 1,
+      minView: 2,
+      maxView: 3,
+      forceParse: 0
+    });
+  }
+
   return {
     get: _ajax,
     post: function(options) {
       options.type = 'post';
       _ajax(options);
     },
-    clearForm: _clearForm
+    clearForm: _clearForm,
+    enableDateTimePicker: _initDateTimePicker
   }
 });

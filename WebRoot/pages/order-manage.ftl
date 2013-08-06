@@ -26,47 +26,47 @@
                 <strong class="pull-left">订单状态：</strong>
                 <ul class="nav nav-pills">
                   <li class="active">
-                    <a href="#">不限</a>
+                    <a href="javascript:;" data-target="to,1">不限</a>
                   </li>
-                  <li><a href="#">待确认</a></li>
-                  <li><a href="#">候补</a></li>
-                  <li><a href="#">已确认</a></li>
-                  <li><a href="#">已取消</a></li>
+                  <li><a href="javascript:;" data-target="to,1">待确认</a></li>
+                  <li><a href="javascript:;" data-target="to,1">候补</a></li>
+                  <li><a href="javascript:;" data-target="to,1">已确认</a></li>
+                  <li><a href="javascript:;" data-target="to,1">已取消</a></li>
                 </ul>
               </div>
               <div class="con-row clearfix">
                 <strong class="pull-left">合同状态：</strong>
                 <ul class="nav nav-pills">
                   <li class="active">
-                    <a href="#">不限</a>
+                    <a href="javascript:;" data-target="to,1">不限</a>
                   </li>
-                  <li><a href="#">组团已寄</a></li>
-                  <li><a href="#">代理已签收</a></li>
-                  <li><a href="#">客户已签订</a></li>
-                  <li><a href="#">代理已回寄</a></li>
-                  <li><a href="#">组团已签收</a></li>
+                  <li><a href="javascript:;" data-target="to,1">组团已寄</a></li>
+                  <li><a href="javascript:;" data-target="to,1">代理已签收</a></li>
+                  <li><a href="javascript:;" data-target="to,1">客户已签订</a></li>
+                  <li><a href="javascript:;" data-target="to,1">代理已回寄</a></li>
+                  <li><a href="javascript:;" data-target="to,1">组团已签收</a></li>
                 </ul>
               </div>
               <div class="con-row clearfix">
                 <strong class="pull-left">出发状态：</strong>
                 <ul class="nav nav-pills">
                   <li class="active">
-                    <a href="#">所有</a>
+                    <a href="javascript:;" data-target="to,1">所有</a>
                   </li>
-                  <li><a href="#">三天内出发</a></li>
-                  <li><a href="#">已出发</a></li>
-                  <li><a href="#">已走完</a></li>
+                  <li><a href="javascript:;" data-target="to,1">三天内出发</a></li>
+                  <li><a href="javascript:;" data-target="to,1">已出发</a></li>
+                  <li><a href="javascript:;" data-target="to,1">已走完</a></li>
                 </ul>
               </div>
               <div class="con-row clearfix">
                 <strong class="pull-left">订单类型：</strong>
                 <ul class="nav nav-pills">
                   <li class="active">
-                    <a href="#">所有</a>
+                    <a href="javascript:;" data-target="to,1">所有</a>
                   </li>
-                  <li><a href="#">跟团游</a></li>
-                  <li><a href="#">整团</a></li>
-                  <li><a href="#">自由行</a></li>
+                  <li><a href="javascript:;" data-target="to,1">跟团游</a></li>
+                  <li><a href="javascript:;" data-target="to,1">整团</a></li>
+                  <li><a href="javascript:;" data-target="to,1">自由行</a></li>
                 </ul>
               </div>
             </div>
@@ -78,7 +78,7 @@
             <th>
               订单编号
             </th>
-            <th>
+            <th width="">
               类型
             </th>
             <th>

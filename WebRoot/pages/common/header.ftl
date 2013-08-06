@@ -33,10 +33,10 @@
                 <#--<li "main,news-detail,news".contains?page_name<#if page_name=="main"||page_name=="news-detail"||page_name=="news">class="active"</#if>>-->
                   <a href="/main/">首页</a>
                 </li>
-                <li <#if "outbound-travel"?contains(page_name)>class="active"</#if>>
+                <li <#if "chujingyou"?contains(page_name)>class="active"</#if>>
                   <a href="/chujingyou/">出境游</a>
                 </li>
-                <li <#if "product,inland-travel"?contains(page_name)>class="active"</#if>>
+                <li <#if "guoneiyou,product,inland-travel"?contains(page_name)>class="active"</#if>>
                   <a href="/guoneiyou/">国内游</a>
                 </li>
                 <li <#if "free-travel,free-travel-view"?contains(page_name)>class="active"</#if>>

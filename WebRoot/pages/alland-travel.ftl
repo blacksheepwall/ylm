@@ -1,5 +1,5 @@
 <#-- 国内游、出境游 -->
-<#assign page_name="outbound-travel"/>
+<#assign page_name="${productType}"/>
 <#include "common/module.ftl"/>
 <#escape x as x?html>
   <@html title="国内游、出境游">
@@ -36,8 +36,8 @@
             <input type="text" readonly class="input-small date-box"><strong> ~ </strong><input type="text" readonly class="input-small date-box">
           </div>
           <div class="input-append pull-left">
-            <input class="search-input" type="text" placeholder="产品名称、站点城市、游览景点">
-            <button class="btn btn-success" type="button"><i class="icon-search"></i> 搜索</button>
+            <input id="J_search_text" class="search-input" type="text" placeholder="产品名称、站点城市、游览景点">
+            <button id="J_search_btn" class="btn btn-success" type="button"><i class="icon-search"></i> 搜索</button>
             <button class="btn" type="button">高级查找</button>
           </div>
         </div>
@@ -46,25 +46,25 @@
             <strong class="pull-left">出发城市：</strong>
             <ul class="nav nav-pills">
               <li class="active">
-                <a href="#">不限</a>
+                <a href="javascript:;">不限</a>
               </li>
-              <li class="">
-                <a href="leaveCity=330100">杭州</a>
+              <li>
+                <a href="javascript:;" data-target="leaveCity,330100">杭州</a>
               </li>
-              <li class="">
-                <a href="leaveCity=310000">上海</a>
+              <li>
+                <a href="javascript:;" data-target="leaveCity,310000">上海</a>
               </li>
-              <li class="">
-                <a href="leaveCity=330200">宁波</a>
+              <li>
+                <a href="javascript:;" data-target="leaveCity,330200">宁波</a>
               </li>
-              <li class="">
-                <a href="leaveCity=330300">温州</a>
+              <li>
+                <a href="javascript:;" data-target="leaveCity,330300">温州</a>
               </li>
-              <li class="">
-                <a href="leaveCity=320100">南京</a>
+              <li>
+                <a href="javascript:;" data-target="leaveCity,320100">南京</a>
               </li>
-              <li class="">
-                <a href="leaveCity=331000">台州</a>
+              <li>
+                <a href="javascript:;" data-target="leaveCity,331000">台州</a>
               </li>
               <#--<#list startCitys as st><li><a href="#">${st.cityName}</a></li></#list>-->
             </ul>
@@ -73,25 +73,25 @@
             <strong class="pull-left">天数：</strong>
             <ul class="nav nav-pills">
               <li class="active">
-                <a href="#">不限</a>
+                <a href="javascript:;" data-target="dateRange">不限</a>
               </li>
-              <li class="">
-                <a href="dateRange=1">1天</a>
+              <li>
+                <a href="javascript:;" data-target="dateRange,1">1天</a>
               </li>
-              <li class="">
-                <a href="dateRange=2">2天</a>
+              <li>
+                <a href="javascript:;" data-target="dateRange,2">2天</a>
               </li>
-              <li class="">
-                <a href="dateRange=3">3天</a>
+              <li>
+                <a href="javascript:;" data-target="dateRange,3">3天</a>
               </li>
-              <li class="">
-                <a href="dateRange=4">1-3天</a>
+              <li>
+                <a href="javascript:;" data-target="dateRange,4">1-3天</a>
               </li>
-              <li class="">
-                <a href="dateRange=5">4-7天</a>
+              <li>
+                <a href="javascript:;" data-target="dateRange,5">4-7天</a>
               </li>
-              <li class="">
-                <a href="dateRange=6">7天以上</a>
+              <li>
+                <a href="javascript:;" data-target="dateRange,6">7天以上</a>
               </li>
               <#--<#list dates as dt><li><a href="#">${dt.stringValue}</a></li></#list>-->
             </ul>
@@ -100,19 +100,19 @@
             <strong class="pull-left">价格：</strong>
             <ul class="nav nav-pills">
               <li class="active">
-                <a href="#">不限</a>
+                <a href="javascript:;" data-target="priceRange">不限</a>
               </li>
-              <li class="">
-                <a href="priceRange=1">800以下</a>
+              <li>
+                <a href="javascript:;" data-target="priceRange,1">800以下</a>
               </li>
-              <li class="">
-                <a href="priceRange=2">800-1500</a>
+              <li>
+                <a href="javascript:;" data-target="priceRange,2">800-1500</a>
               </li>
-              <li class="">
-                <a href="priceRange=3">1500-3000</a>
+              <li>
+                <a href="javascript:;" data-target="priceRange,3">1500-3000</a>
               </li>
-              <li class="">
-                <a href="priceRange=4">3000以上</a>
+              <li>
+                <a href="javascript:;" data-target="priceRange,4">3000以上</a>
               </li>
               <#--<#list prices as prc><li><a href="#">${prc.stringValue}</a></li></#list>-->
             </ul>
@@ -121,22 +121,22 @@
             <strong class="pull-left">交通：</strong>
             <ul class="nav nav-pills">
               <li class="active">
-                <a href="#">不限</a>
+                <a href="javascript:;" data-target="traffic">不限</a>
               </li>
-              <li class="">
-                <a href="traffic=FOOT">步行</a>
+              <li>
+                <a href="javascript:;" data-target="traffic,FOOT">步行</a>
               </li>
-              <li class="">
-                <a href="traffic=AIRPLANE">飞机</a>
+              <li>
+                <a href="javascript:;" data-target="traffic,AIRPLANE">飞机</a>
               </li>
-              <li class="">
-                <a href="traffic=TRAIN">火车</a>
+              <li>
+                <a href="javascript:;" data-target="traffic,TRAIN">火车</a>
               </li>
-              <li class="">
-                <a href="traffic=BUS">汽车</a>
+              <li>
+                <a href="javascript:;" data-target="traffic,BUS">汽车</a>
               </li>
-              <li class="">
-                <a href="traffic=SHIP">轮船</a>
+              <li>
+                <a href="javascript:;" data-target="traffic,SHIP">轮船</a>
               </li>
               <#--<#list traffics as tr><li><a href="#">${tr.stringValue}</a></li></#list>-->
             </ul>
@@ -157,32 +157,32 @@
         <div id="J_tab_content">
           <div>
             <ul id="J_product_list">
-              <#list result.resultList as it>
-              <li>
-                <div class="product clearfix" style="display: block;">
-                  <div class="product-main">
-                    <div>
-                      <span class="label label-success">特价</span>
-                      <a class="title" href="/product/detail?id=${it.productId}" target="_blank"><strong>${it.title}</strong></a>
-                      <span class="text-warning">${it.nightCount}晚${it.dayCount}天</span>
-                      <div class="muted">${it.managerRecommend}</div>
-                      <@product_date_list></@product_date_list>
-                    </div>
-                  </div>
-                  <div class="product-more">
-                    <div class="text-center">
-                      <span class="label label-info">蜜月</span>
-                      <span class="label label-info">亲子</span>
-                      <span class="label label-info">度假</span>
-                      <div>${it.topic}</div>
-                    </div>
-                    <div class="product-price">
-                      <strong class="price-title">价格：</strong><span class="price-value">￥${it.price}起</span>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              </#list>
+              <#--<#list result.resultList as it>-->
+              <#--<li>-->
+                <#--<div class="product clearfix" style="display: block;">-->
+                  <#--<div class="product-main">-->
+                    <#--<div>-->
+                      <#--<span class="label label-success">特价</span>-->
+                      <#--<a class="title" href="/product/detail?id=${it.productId}" target="_blank"><strong>${it.title}</strong></a>-->
+                      <#--<span class="text-warning">${it.nightCount}晚${it.dayCount}天</span>-->
+                      <#--<div class="muted">${it.managerRecommend}</div>-->
+                      <#--<@product_date_list></@product_date_list>-->
+                    <#--</div>-->
+                  <#--</div>-->
+                  <#--<div class="product-more">-->
+                    <#--<div class="text-center">-->
+                      <#--<span class="label label-info">蜜月</span>-->
+                      <#--<span class="label label-info">亲子</span>-->
+                      <#--<span class="label label-info">度假</span>-->
+                      <#--<div>${it.topic}</div>-->
+                    <#--</div>-->
+                    <#--<div class="product-price">-->
+                      <#--<strong class="price-title">价格：</strong><span class="price-value">￥${it.price}起</span>-->
+                    <#--</div>-->
+                  <#--</div>-->
+                <#--</div>-->
+              <#--</li>-->
+              <#--</#list>-->
             </ul>
             <@pagination></@pagination>
           </div>
@@ -243,6 +243,40 @@
         </div>
       </div>
     </div>
+    <script>
+      productType = "${productType!''}";
+    </script>
+    <script id="J_product_row" type="text/tpl">
+      {{#each this}}
+      <li>
+        <div class="product clearfix">
+          <div class="product-main">
+            <div>
+              <span class="label label-success">特价</span>
+              <a class="title" href="/product/detail?id={{productId}}" target="_blank"><strong>{{title}}</strong></a>
+              <span class="text-warning">{{nightCount}}晚{{dayCount}}天</span>
+              <div class="muted">{{managerRecommend}}</div>
+              <@product_date_list></@product_date_list>
+            </div>
+          </div>
+          <div class="product-more">
+            <div class="text-center">
+              <span class="label label-info">蜜月</span>
+              <span class="label label-info">亲子</span>
+              <span class="label label-info">度假</span>
+              <div>{{topic}}</div>
+            </div>
+            <div class="product-price">
+              <strong class="price-title">价格：</strong><span class="price-value">￥{{price}}起</span>
+            </div>
+          </div>
+        </div>
+      </li>
+      {{/each}}
+      {{^each this}}
+        <li>没有数据</li>
+      {{/each}}
+    </script>
     </@body>
   </@html>
 </#escape>
