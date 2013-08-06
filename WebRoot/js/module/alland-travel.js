@@ -8,6 +8,7 @@ define(['./util', 'dateTimePicker', 'pagination'], function(Util) {
     $searchBtn = $('#J_search_btn'),
     $tab = $('#J_tab'),
     $tabContent = $('#J_tab_content'),
+    $sortContainer = $('#J_sort'),
     $productContainer = $('#J_product_list'),
     productRowTpl = Handlebars.compile($('#J_product_row').html()),
     ajaxUrl = '/' + productType + '/query';
@@ -55,6 +56,20 @@ define(['./util', 'dateTimePicker', 'pagination'], function(Util) {
     });
   }
 
+  // 是否支持多重排序
+  function _initSort() {
+    $sortContainer.on('click', 'a', function() {
+      var $this = $(this),
+        by = $this.data('by'),
+        desc = $this.data('desc'),
+        prefix = 'icon-arrow-';
+      $sortContainer.find('i').removeAttr('class');
+      mod.queryConfig[by] = desc ? (desc == 'desc' ? 'asc' : 'desc') : 'desc';
+      $this.data('desc', mod.queryConfig[by]).find('i').addClass(prefix + (mod.queryConfig[by] == 'desc' ? 'down' : 'up'));
+      _queryList({'data': mod.queryConfig});
+    });
+  }
+
   function _initPagination() {
     $pagination.jqPagination({
       paged: function(page) {
@@ -81,6 +96,7 @@ define(['./util', 'dateTimePicker', 'pagination'], function(Util) {
     _initQueryConfig();
     _initConditions();
     _initTabs();
+    _initSort();
     _initPagination();
     _queryList({});
   }

@@ -1,13 +1,18 @@
 <#-- 国内游、出境游 -->
 <#assign page_name="${productType}"/>
+<#if productType=="guoneiyou">
+  <#assign title="国内游">
+<#else>
+  <#assign title="出境游">
+</#if>
 <#include "common/module.ftl"/>
 <#escape x as x?html>
-  <@html title="国内游、出境游">
+  <@html title="${title}">
     <@body>
     <div class="inland-body main-body clearfix">
       <div>
         <div class="route-body clearfix">
-        <strong class="route-type">国内、出境线路：</strong>
+        <strong class="route-type">${title}线路：</strong>
         <ul class="route-list clearfix">
           <#list regions as rg>
           <#--${rg.name}-->
@@ -150,8 +155,8 @@
             <li><a href="#"><i class="icon-group"></i> 团队查看</a></li>
           </ul>
           <div id="J_sort" class="col-sort">
-            <a href="#"><i class="icon-arrow-up"></i> 出发日期</a>
-            <a href="#"><i class="icon-arrow-up"></i> 最低价格</a>
+            <a href="javascript:;" data-by="startDateOrder" data-desc=""><i></i> 出发日期</a>
+            <a href="javascript:;" data-by="priceOrder" data-desc=""><i></i> 最低价格</a>
           </div>
         </div>
         <div id="J_tab_content">
