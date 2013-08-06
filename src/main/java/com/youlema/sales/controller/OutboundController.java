@@ -45,7 +45,7 @@ public class OutboundController {
         condition.setQueryText("杭州");
         List<Region> regions = productService.listInlandRegions();
         SearchResult<PlanItem> result = productService.queryPlan(condition, 1, 20);
-        modelMap.put("productType", "outbound");
+        modelMap.put("productType", "chujingyou");
         modelMap.put("result", result);
         modelMap.put("regions", regions);
         return "alland-travel";

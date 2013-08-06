@@ -34,7 +34,7 @@ public class InlandController {
         condition.setProductType(1);
         List<Region> regions = productService.listInlandRegions();
         SearchResult<PlanItem> result = productService.queryPlan(condition, 1, 20);
-        modelMap.put("productType", "inland");
+        modelMap.put("productType", "guoneiyou");
         modelMap.put("result", result);
         modelMap.put("regions", regions);
         return "alland-travel";
