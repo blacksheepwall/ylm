@@ -1,6 +1,8 @@
 define(function() {
   'use strict';
-  var noop = $.noop();
+  var noop = $.noop(),
+    $startDate = $('#J_start_date'), // id必须为J_start_date
+    $endDate = $('#J_end_date');  //  id必须为J_end_date
 
   function _ajax(options) {
     var type = options.type || 'get',
@@ -18,7 +20,7 @@ define(function() {
         alert(result.desc || '');
       }
     }).fail(function(result) {
-        alert(result || '');
+        console && console.error && console.error(result || '');
       });
   }
 
@@ -57,6 +59,25 @@ define(function() {
     });
   }
 
+  function _validDateTimePicker() {
+    var start = +new Date($startDate.val()),
+      end = +new Date($endDate.val()),
+      result = false;
+    if (_.isNaN(start) && _.isNaN(end)) {
+      result = true;
+    } else {
+      if (!_.isNaN(start) && !_.isNaN(end)) {
+        if (start >= end) {
+          alert('开始日期不能晚于结束日期');
+          result = true;
+        }
+      } else {
+        alert('起止日期填写不完整');
+      }
+    }
+    return result;
+  }
+
   return {
     get: _ajax,
     post: function(options) {
@@ -64,6 +85,7 @@ define(function() {
       _ajax(options);
     },
     clearForm: _clearForm,
-    enableDateTimePicker: _initDateTimePicker
+    enableDateTimePicker: _initDateTimePicker,
+    validDateTimePicker: _validDateTimePicker
   }
 });

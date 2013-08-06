@@ -29,7 +29,7 @@ define(['./util', 'dateTimePicker', 'pagination'], function(Util) {
 
   function _initConditions() {
     $searchBtn.click(function() {
-      _queryList({'data': mod.queryConfig});
+      Util.validDateTimePicker() && _queryList({'data': mod.queryConfig});
     })
     $('#J_condition .nav').on('click', 'a', function(e) {
       e.preventDefault();
@@ -70,8 +70,7 @@ define(['./util', 'dateTimePicker', 'pagination'], function(Util) {
       'url': ajaxUrl,
       'data': data,
       'done': function(data) {
-        $pagination.jqPagination({'count': data.count});
-        $pagination.jqPagination({'max_page': data.count});
+        $pagination.jqPagination({'count': data.count || 0});
         $productContainer.html(productRowTpl(data));
       }
     });

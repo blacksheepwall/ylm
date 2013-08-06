@@ -75,34 +75,34 @@
         <table class="table table-bordered">
           <thead>
           <tr>
-            <th>
+            <th width="130">
               订单编号
             </th>
-            <th width="">
+            <th width="60">
               类型
             </th>
             <th>
               产品名称
             </th>
-            <th>
+            <th width="80">
               出团日期
             </th>
-            <th>
+            <th width="30">
               人数
             </th>
-            <th>
+            <th width="60">
               联系人
             </th>
-            <th>
+            <th width="80">
               预订时间
             </th>
-            <th>
+            <th width="80">
               订单状态
             </th>
-            <th>
+            <th width="80">
               合同状态
             </th>
-            <th>
+            <th width="100">
               操作
             </th>
           </tr>

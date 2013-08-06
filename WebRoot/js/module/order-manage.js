@@ -11,8 +11,8 @@ define(['./util', 'dateTimePicker', 'pagination'], function(Util) {
 
   function _initQueryConfig() {
     mod.queryConfig = {
-      'beginScheduledTime': $.trim($startDate.val()),
-      'endScheduledTime': $.trim($endDate.val()),
+      'beginTime': $.trim($startDate.val()),
+      'endTime': $.trim($endDate.val()),
       'queryText': $.trim($searchText.val()),
       'orderStatus': 1,
       'contractStatus': 1,
@@ -23,7 +23,7 @@ define(['./util', 'dateTimePicker', 'pagination'], function(Util) {
 
   function _initConditions() {
     $searchBtn.click(function() {
-      _queryOrderList({'data': mod.queryConfig});
+      Util.validDateTimePicker() && _queryOrderList({'data': mod.queryConfig});
     });
     $('#J_condition .nav').on('click', 'a', function(e) {
       e.preventDefault();
@@ -51,8 +51,7 @@ define(['./util', 'dateTimePicker', 'pagination'], function(Util) {
       'url': ajaxUrl,
       'data': data,
       'done': function(data) {
-        $pagination.jqPagination({'count': data.count});
-//        $pagination.jqPagination({'max_page': data.count});
+        $pagination.jqPagination({'count': data.count || 0});
         $orderContainer.html(orderRowTpl(data));
       }
     });
