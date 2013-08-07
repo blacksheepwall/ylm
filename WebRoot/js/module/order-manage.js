@@ -1,4 +1,4 @@
-define(['./util', 'dateTimePicker', 'pagination'], function(Util) {
+define(['./util', 'pagination'], function(Util) {
   'use strict';
   var mod = {}, $pagination = $('.pagination'),
     $startDate = $('#J_start_date'),

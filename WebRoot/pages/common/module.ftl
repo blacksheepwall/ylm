@@ -227,7 +227,7 @@
 <div class="<#--mod-body-->">
   <div class="clearfix">
     <div class="top-search form-horizontal">
-      <strong>关键字：</strong>
+      <#--<strong>关键字：</strong>-->
       <input class="search-input" type="text" placeholder="线路名称、途径城市、游览景点"><button class="btn btn-success" type="button"><i class="icon-search"></i> 搜索</button>
     </div>
     <ul class="top-search mod-condition mod-body form-horizontal">

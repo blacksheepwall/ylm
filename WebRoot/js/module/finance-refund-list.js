@@ -1,4 +1,4 @@
-define(['./util', 'dateTimePicker'], function(Util) {
+define(['./util'], function(Util) {
   'use strict';
   function _init() {
     $('#J_nav').on('click', 'a', function(e) {

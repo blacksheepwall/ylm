@@ -15,10 +15,10 @@
       <div class="row-fluid">
         <@group_tour_sidebar></@group_tour_sidebar>
         <div class="span10 form-horizontal">
-          <div class="mod-condition mod-body">
+          <div class="mod-condition">
             <strong>出发日期：</strong>
             <input type="text" readonly class="input-small date-box"><strong> ~ </strong><input type="text" readonly class="input-small date-box">
-            <strong class="keyword"> 关键字：</strong>
+            <#--<strong class="keyword"> 关键字：</strong>-->
             <input class="search-input" type="text" placeholder="线路名称、途径城市、游览景点">
             <button class="btn search-btn btn-success" type="button"><i class="icon-search"></i> 搜索</button>
           </div>
