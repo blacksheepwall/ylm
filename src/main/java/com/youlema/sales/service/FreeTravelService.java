@@ -54,7 +54,7 @@ public class FreeTravelService {
                 }
                 items.add(inject);
             }
-            return new SearchResult<FreeTravelProductItem>(items.size(), items);
+            return new SearchResult<FreeTravelProductItem>(1, items);
         }
         return new SearchResult<FreeTravelProductItem>(0, new ArrayList<FreeTravelProductItem>(0));
     }

@@ -101,7 +101,7 @@ public class MockTourProductFacade implements TourProductFacade {
 
     private ShowProductResult queryIndexLabelProduct(String arg0, Integer arg1) {
         ShowProductResult showProductResult = new ShowProductResult(true);
-        List<ShowProductFdo> showProductFdos = new ArrayList<ShowProductFdo>();
+        PageList<ShowProductFdo> showProductFdos = new PageList<ShowProductFdo>();
         for (int i = 0; i < 10; i++) {
             ShowProductFdo fdo = new ShowProductFdo();
 
@@ -119,7 +119,7 @@ public class MockTourProductFacade implements TourProductFacade {
             fdo.setReturnTraffic("灰机2");
             showProductFdos.add(fdo);
         }
-        showProductResult.setShowProductFdos(showProductFdos);
+        showProductResult.setPageList(showProductFdos);
         return showProductResult;
     }
 

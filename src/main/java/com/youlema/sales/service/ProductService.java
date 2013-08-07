@@ -15,25 +15,31 @@ import com.yolema.tbss.ext.facade.TourPlanSearchFacade;
 import com.yolema.tbss.ext.facade.TourProductFacade;
 import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
 import com.yolema.tbss.ext.facade.fdo.plan.TourPlanSearchFdo;
+import com.yolema.tbss.ext.facade.fdo.product.SearchProductFdo;
 import com.yolema.tbss.ext.facade.fdo.product.ShowHomePageProductFdo;
 import com.yolema.tbss.ext.facade.fdo.product.ShowProductFdo;
 import com.yolema.tbss.ext.facade.result.PlanSearchResult;
+import com.yolema.tbss.ext.facade.result.ShowProductResult;
+import com.yolema.tbss.ext.facade.result.TourProductResult;
 import com.youlema.sales.meta.City;
 import com.youlema.sales.meta.HomePageProductItem;
 import com.youlema.sales.meta.PlanItem;
 import com.youlema.sales.meta.ProductInfo;
+import com.youlema.sales.meta.ProductItem;
 import com.youlema.sales.meta.Region;
 import com.youlema.sales.meta.SearchResult;
 import com.youlema.sales.utils.Vo;
 import com.youlema.sales.ws.ProductFacadeService;
+import com.youlema.tools.jee.pages.PageList;
+import com.youlema.tools.jee.pages.PagingTools;
 
 @Service
 public class ProductService {
     @Resource
     private ProductFacadeService facadeService;
-    @Resource(name = "TourProductFacade")
+    @Resource(name = "MockTourProductFacade")
     private TourProductFacade tourProductFacade;
-    @Resource(name = "TourPlanSearchFacade")
+    @Resource(name = "MockTourPlanSearchFacade")
     private TourPlanSearchFacade tourPlanSearchFacade;
 
     /**
@@ -217,6 +223,32 @@ public class ProductService {
     }
 
     /**
+     * 查询产品列表，对应页面上的团队查看
+     * 
+     * @param condition
+     * @param pageNo
+     * @param pageSize
+     * @return
+     */
+    public SearchResult<ProductItem> queryProduct(QueryCondition condition, int pageNo, int pageSize) {
+        SearchProductFdo searchFdo = new SearchProductFdo();
+        searchFdo.setLeaveCity(condition.leaveCity);
+        ShowProductResult result = tourProductFacade.queryProductList(null, null);
+        PageList<ShowProductFdo> pageList = result.getPageList();
+        Vo<ProductItem> vo = new Vo<ProductItem>(ProductItem.class);
+        List<ProductItem> list = new ArrayList<ProductItem>();
+        for (ShowProductFdo fdo : pageList) {
+            TourProductResult productResult = tourProductFacade.getById(fdo.getProductId());
+            TourProductFdo productFdo = productResult.getTourProductBean();
+            ProductItem item = vo.inject(fdo, productFdo);
+            list.add(item);
+        }
+        PagingTools tools = pageList.getPageTools();
+        int pages = tools.getPages();
+        return new SearchResult<ProductItem>(pages, list);
+    }
+
+    /**
      * 散拼计划搜索
      * 
      * @param condition
@@ -242,7 +274,6 @@ public class ProductService {
         searchFdo.setMinStartDays(condition.startDate);
         searchFdo.setMaxStartDays(condition.endDate);
         searchFdo.setIsMinPrice(condition.priceOrderDesc);
-        
         PlanSearchResult result = tourPlanSearchFacade.searchPlan(condition.queryText, searchFdo);
         List<TourPlanSearchFdo> productFdos = result.getPageList();
         Vo<PlanItem> vo = new Vo<PlanItem>(PlanItem.class);
@@ -266,10 +297,9 @@ public class ProductService {
         private Date endDate;
 
         private Boolean priceOrderDesc;
-        //TODO 开始时间排序条件字段不明
+        // TODO 开始时间排序条件字段不明
         private Boolean startDateOrderDesc;
-        
-        
+
         public void setPriceOrderDesc(Boolean priceOrderDesc) {
             this.priceOrderDesc = priceOrderDesc;
         }
