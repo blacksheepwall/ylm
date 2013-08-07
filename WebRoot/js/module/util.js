@@ -1,9 +1,8 @@
-define(function() {
+define(['dateTimePicker'], function() {
   'use strict';
   var noop = $.noop(),
     $startDate = $('#J_start_date'), // id必须为J_start_date
     $endDate = $('#J_end_date');  //  id必须为J_end_date
-
   function _ajax(options) {
     var type = options.type || 'get',
       _options = {

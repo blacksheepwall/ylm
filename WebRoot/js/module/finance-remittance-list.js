@@ -1,4 +1,4 @@
-define(['./util', 'dateTimePicker'], function(Util) {
+define(['./util'], function(Util) {
   'use strict';
   var $startDate = $('#J_start_date'),
     $endDate = $('#J_end_date');

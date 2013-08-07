@@ -7,7 +7,7 @@
     <div class="free-travel main-body clearfix">
       <div class="condition">
         <div class="search-box form-horizontal">
-          <strong>关键字：</strong>
+          <#--<strong>关键字：</strong>-->
           <input class="search-input" type="text" placeholder="线路名称、途径城市、游览景点">
           <button class="btn btn-success" type="button"><i class="icon-search"></i> 搜索</button>
         </div>
@@ -102,6 +102,46 @@
         </div>
       </div>
     </div>
+    <script id="J_product_row" type="text/tpl">
+      {{#each this}}
+      <li>
+        <div class="product clearfix" style="display: block;">
+          <div class="product-main">
+            <div>
+              <span class="label label-success">【机票+酒店】</span>
+              <a class="title" href="/ziyouxing/detail/?id={{productId}}"><strong>{{it.title}}</strong></a>
+              <span class="text-warning">{{subtitle}}</span>
+              <div class="muted">{{productManagerRecommend}}</div>
+              <div>
+                天数：{{dayCount}}晚{{nightCount}}天
+                出发口岸(地)：{{leaveCity}}
+                主题：{{topic}}
+              </div>
+              <div class="product-date pull-left">
+                <strong>日期：</strong>
+                {{#each leaveDates}}
+                  <a href="javascript:;" class="date-value">{{date}}</a>
+                {{/each}}
+                <a href="javascript:;" class="date-more">更多 »</a>
+              </div>
+            </div>
+          </div>
+          <div class="product-more">
+            <div class="product-price">
+              <strong class="price-title">价格：</strong><span class="price-value">￥{{price}}起</span>
+            </div>
+            <div class="text-center">
+              <span class="label label-warning">促销</span>
+              <span class="label label-warning">尾单</span>
+            </div>
+            <div class="show-detail text-center">
+              <a class="btn btn-success btn-small" href="">查看详情</a>
+            </div>
+          </div>
+        </div>
+      </li>
+      {{/each}}
+    </script>
     </@body>
   </@html>
 </#escape>

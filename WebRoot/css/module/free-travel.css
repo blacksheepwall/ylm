@@ -2,6 +2,7 @@
 
 .search-input {
   width: 400px;
+  margin-left: 0;
 }
 
 .message-detail {
