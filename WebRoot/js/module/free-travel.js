@@ -1,28 +1,25 @@
-define(['./util', 'pagination'], function(Util) {
+define(['./util', 'moment', 'pagination'], function(Util, moment) {
   'use strict';
   var mod = {}, $pagination = $('.pagination'),
     $startDate = $('#J_start_date'),
     $endDate = $('#J_end_date'),
     $searchText = $('#J_search_text'),
     $searchBtn = $('#J_search_btn'),
-    $tab = $('#J_tab'),
-    $tabContent = $('#J_tab_content'),
-    $sortContainer = $('#J_sort'),
     $productContainer = $('#J_product_list'),
     productRowTpl = Handlebars.compile($('#J_product_row').html()),
-    ajaxUrl = '/query';
-
+    ajaxUrl = '/ziyouxing/query';
+  Handlebars.registerHelper('dateRenderer', function(date) {
+    return moment(date).format('ll');
+  });
   function _initQueryConfig() {
     mod.queryConfig = {
-      'beginScheduledTime': $.trim($startDate.val()),
-      'endScheduledTime': $.trim($endDate.val()),
+      'beginTime': $.trim($startDate.val()),
+      'endTime': $.trim($endDate.val()),
       'queryText': $.trim($searchText.val()),
       'leaveCity': '',
-      'dateRange': '',
-      'priceRange': '',
-      'traffic': '',
-      'priceOrder': '',
-      'startDateOrder': '',
+      'inlandLine': '',
+      'outboundLine': '',
+      'type': '',
       'page': 1
     };
   }
@@ -69,7 +66,7 @@ define(['./util', 'pagination'], function(Util) {
     _initQueryConfig();
     _initConditions();
     _initPagination();
-//    _queryList({});
+    _queryList({});
   }
 
   _init();
