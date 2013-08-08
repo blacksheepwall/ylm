@@ -1,6 +1,7 @@
 package com.youlema.sales.service;
 
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -18,9 +19,9 @@ import com.yolema.tbss.ext.facade.fdo.plan.TourPlanSearchFdo;
 import com.yolema.tbss.ext.facade.fdo.product.SearchProductFdo;
 import com.yolema.tbss.ext.facade.fdo.product.ShowHomePageProductFdo;
 import com.yolema.tbss.ext.facade.fdo.product.ShowProductFdo;
+import com.yolema.tbss.ext.facade.fdo.product.ShowProductPriceFdo;
 import com.yolema.tbss.ext.facade.result.PlanSearchResult;
 import com.yolema.tbss.ext.facade.result.ShowProductResult;
-import com.yolema.tbss.ext.facade.result.TourProductResult;
 import com.youlema.sales.meta.City;
 import com.youlema.sales.meta.HomePageProductItem;
 import com.youlema.sales.meta.PlanItem;
@@ -231,16 +232,33 @@ public class ProductService {
      * @return
      */
     public SearchResult<ProductItem> queryProduct(QueryCondition condition, int pageNo, int pageSize) {
-        SearchProductFdo searchFdo = new SearchProductFdo();
-        searchFdo.setLeaveCity(condition.leaveCity);
-        ShowProductResult result = tourProductFacade.queryProductList(null, null);
+        SearchProductFdo searchFdo = conditionToFdo(condition, pageNo, pageSize);
+        String order = "start_date_desc";
+        Boolean desc = condition.startDateOrderDesc;
+        if (desc != null) {
+            if (!desc) {
+                order = "start_date_asc";
+            }
+        }
+        desc = condition.priceOrderDesc;
+        if (desc != null) {
+            order = desc ? "price_desc" : "price_asc";
+        }
+        ShowProductResult result = tourProductFacade.queryProductList(searchFdo, order);
         PageList<ShowProductFdo> pageList = result.getPageList();
         Vo<ProductItem> vo = new Vo<ProductItem>(ProductItem.class);
         List<ProductItem> list = new ArrayList<ProductItem>();
         for (ShowProductFdo fdo : pageList) {
-            TourProductResult productResult = tourProductFacade.getById(fdo.getProductId());
-            TourProductFdo productFdo = productResult.getTourProductBean();
-            ProductItem item = vo.inject(fdo, productFdo);
+            List<ShowProductPriceFdo> showProductPriceFdos = fdo.getShowProductPriceFdos();
+            BigDecimal priceOfAgncy = new BigDecimal(0);
+            for (ShowProductPriceFdo showProductPriceFdo : showProductPriceFdos) {
+                BigDecimal price = showProductPriceFdo.getPriceOfAgency();
+                priceOfAgncy = priceOfAgncy.add(price);
+            }
+            ProductItem item = vo.inject(fdo);
+            int isGroup = fdo.getIsGroup();
+            item.setGrouped((isGroup == 1) ? "已成团" : "未成团");
+            item.setSettlePrice(priceOfAgncy);
             list.add(item);
         }
         PagingTools tools = pageList.getPageTools();
@@ -257,23 +275,7 @@ public class ProductService {
      * @return
      */
     public SearchResult<PlanItem> queryPlan(QueryCondition condition, int pageNo, int pageSize) {
-        TourPlanSearchFdo searchFdo = new TourPlanSearchFdo();
-        searchFdo.setPageNum(pageNo);
-        searchFdo.setPageSize(pageSize);
-
-        if (condition.productType == 1) {
-            searchFdo.setProductMainTypeCode("GN");
-        } else {
-            searchFdo.setProductMainTypeCode("CJ");
-        }
-        searchFdo.setSearchType("spTourProduct");
-        searchFdo.setLeaveCity(condition.leaveCity);
-        searchFdo.setLeaveCityTraffic(condition.traffic);
-        searchFdo.setDays(condition.days);
-        searchFdo.setPriceRange(condition.priceRange);
-        searchFdo.setMinStartDays(condition.startDate);
-        searchFdo.setMaxStartDays(condition.endDate);
-        searchFdo.setIsMinPrice(condition.priceOrderDesc);
+        SearchProductFdo searchFdo = conditionToFdo(condition, pageNo, pageSize);
         PlanSearchResult result = tourPlanSearchFacade.searchPlan(condition.queryText, searchFdo);
         List<TourPlanSearchFdo> productFdos = result.getPageList();
         Vo<PlanItem> vo = new Vo<PlanItem>(PlanItem.class);
@@ -282,6 +284,29 @@ public class ProductService {
             items1.add(vo.inject(planFdo));
         }
         return new SearchResult<PlanItem>(items1.size(), items1);
+    }
+
+    private SearchProductFdo conditionToFdo(QueryCondition condition, int pageNo, int pageSize) {
+        SearchProductFdo searchFdo = new SearchProductFdo();
+        searchFdo.setPageNum(pageNo);
+        searchFdo.setPageSize(pageSize);
+        if (condition.productType == 1) {
+            searchFdo.setProductMainTypeCode("GN");
+        } else {
+            searchFdo.setProductMainTypeCode("CJ");
+        }
+        searchFdo.setProductMinorTypeCode(condition.lineType);
+        searchFdo.setKeyword(condition.queryText);
+        searchFdo.setSearchType("spTourProduct");
+        searchFdo.setLeaveCity(condition.leaveCity);
+        searchFdo.setLeaveCityTraffic(condition.traffic);
+        searchFdo.setDays(condition.days);
+        searchFdo.setPriceRange(condition.priceRange);
+        searchFdo.setMinStartDays(condition.startDate);
+        searchFdo.setMaxStartDays(condition.endDate);
+        searchFdo.setIsMinPrice(condition.priceOrderDesc);
+        searchFdo.setIsNewStart(condition.startDateOrderDesc);
+        return searchFdo;
     }
 
     public static class QueryCondition {
@@ -295,9 +320,7 @@ public class ProductService {
         // TODO 不知道对应SearchProductFdo的哪个字段
         private String lineType;
         private Date endDate;
-
         private Boolean priceOrderDesc;
-        // TODO 开始时间排序条件字段不明
         private Boolean startDateOrderDesc;
 
         public void setPriceOrderDesc(Boolean priceOrderDesc) {

@@ -140,7 +140,12 @@ public class MockTourProductFacade implements TourProductFacade {
         }
         showProductResult.setShowHomePageProductFdos(showProductFdos);
         return showProductResult;
-        
+
+    }
+
+    @Override
+    public TourProductResult goAgentsBooking(Long arg0) {
+        throw new UnsupportedOperationException();
     }
 
 }

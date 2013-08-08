@@ -21,10 +21,8 @@ public class ProductItem {
 
     private String isGrouped;
     // TODO 门市价格在TourProductFdo中才可以取出
-    @VoField("getStroePrice")
+    @VoField("getPrice")
     private BigDecimal price;
-    // TODO 结算价格目前不清楚是否就是代理商价格
-    @VoField("getAgentsPrice")
     private BigDecimal settlePrice;
     @VoField("getBookNubmer")
     private int remainCount;

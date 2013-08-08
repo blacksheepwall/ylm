@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.yolema.tbss.ext.facade.OrderBillFacade;
+import com.yolema.tbss.ext.facade.fdo.agents.AgentsAccountFdo;
 import com.yolema.tbss.ext.facade.fdo.order.OrderBillFdo;
 import com.yolema.tbss.ext.facade.fdo.order.OrderCustomFdo;
 import com.yolema.tbss.ext.facade.fdo.order.SalesBargainFdo;
@@ -149,6 +150,12 @@ public class MockOrderBillFacade implements OrderBillFacade {
 
     @Override
     public OrderBillResult getOrderBillView(Long arg0) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public BaseResult agentsBooking(OrderBillFdo arg0, AgentsAccountFdo arg1) {
         // TODO Auto-generated method stub
         return null;
     }

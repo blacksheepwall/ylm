@@ -6,13 +6,14 @@ import org.springframework.stereotype.Service;
 
 import com.yolema.tbss.ext.facade.TourPlanSearchFacade;
 import com.yolema.tbss.ext.facade.fdo.plan.TourPlanSearchFdo;
+import com.yolema.tbss.ext.facade.fdo.product.SearchProductFdo;
 import com.yolema.tbss.ext.facade.result.PlanSearchResult;
 import com.youlema.tools.jee.pages.PageList;
 @Service("MockTourPlanSearchFacade")
 public class MockTourPlanSearchFacade implements TourPlanSearchFacade {
 
     @Override
-    public PlanSearchResult searchPlan(String arg0, TourPlanSearchFdo arg1) {
+    public PlanSearchResult searchPlan(String arg0, SearchProductFdo arg1) {
         PlanSearchResult result = new PlanSearchResult(true);
         PageList<TourPlanSearchFdo> fdos = new PageList<TourPlanSearchFdo>();
         for (int i = 0; i < 10; i++) {

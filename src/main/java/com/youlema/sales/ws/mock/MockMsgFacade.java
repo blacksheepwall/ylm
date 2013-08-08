@@ -157,4 +157,10 @@ public class MockMsgFacade implements MsgFacade {
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public MsgResult sendMsgAndSmS(String arg0, Long arg1, String arg2, String arg3) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
 }
