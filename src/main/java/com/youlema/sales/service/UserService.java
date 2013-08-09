@@ -36,7 +36,7 @@ public class UserService {
             AgentsAccount account = new AgentsAccount();
             account.setName("mockUser");
             account.setAccountLoginName(name);
-            account.setSex((short) 1);
+            account.setSex(true);
             account.setDepart("有关部门");
             account.setEmail("xxxx@xxxx.com");
             account.setQq("123456");

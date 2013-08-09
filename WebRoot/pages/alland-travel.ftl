@@ -14,13 +14,11 @@
         <div class="route-body clearfix">
         <strong class="route-type">${title}线路：</strong>
         <ul class="route-list clearfix">
-          <#list regions as rg>
           <#--${rg.name}-->
-            <#list rg.citys as city>
-              <li>
-                <a href="">${city.cityName}</a>
-              </li>
-            </#list>
+          <#list citys as city>
+            <li>
+              <a href="typeCode=${city.typeCode}">${city.productTypeName}</a>
+            </li>
           </#list>
         </ul>
       </div>

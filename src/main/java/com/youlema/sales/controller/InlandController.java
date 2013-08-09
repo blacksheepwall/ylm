@@ -14,17 +14,20 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.youlema.sales.mapper.meta.ProductType;
 import com.youlema.sales.meta.PlanItem;
-import com.youlema.sales.meta.Region;
 import com.youlema.sales.meta.SearchResult;
 import com.youlema.sales.service.ProductService;
 import com.youlema.sales.service.ProductService.QueryCondition;
+import com.youlema.sales.service.ProductTypeService;
 
 @Controller
 @RequestMapping("/guoneiyou")
 public class InlandController {
     @Resource
     private ProductService productService;
+    @Resource
+    private ProductTypeService productTypeService;
 
     private static final int PAGE_SIZE = 20;
 
@@ -34,11 +37,11 @@ public class InlandController {
         // 1是国内游
         condition.setQueryText("杭州");
         condition.setProductType(1);
-        List<Region> regions = productService.listInlandRegions();
+        List<ProductType> citys = productTypeService.listProductTypes();
         SearchResult<PlanItem> result = productService.queryPlan(condition, 1, 20);
         modelMap.put("productType", "guoneiyou");
         modelMap.put("result", result);
-        modelMap.put("regions", regions);
+        modelMap.put("citys", citys);
         return "alland-travel";
     }
 
@@ -56,6 +59,7 @@ public class InlandController {
             @RequestParam(value = "traffic", required = false) String traffic,
             @RequestParam(value = "pageNo", required = false, defaultValue = "1") int pageNo,
             @RequestParam(value = "startDate", required = false) String startDate,
+            @RequestParam(value = "typeCode", required = false) String typeCode,
             @RequestParam(value = "endDate", required = false) String endDate,
             @RequestParam(value = "priceOrder", required = false) String priceOrder,
             @RequestParam(value = "startDateOrder", required = false) String startDateOrder,
@@ -93,6 +97,7 @@ public class InlandController {
         condition.setDays(days);
         condition.setPriceRange(priceRange);
         condition.setTraffic(traffic);
+        condition.setLineType(typeCode);
         SearchResult<PlanItem> result = productService.queryPlan(condition, pageNo, PAGE_SIZE);
         JsonUtils.writeToJson(result.getResultList(), response);
     }

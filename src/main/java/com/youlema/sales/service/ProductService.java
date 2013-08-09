@@ -44,21 +44,6 @@ public class ProductService {
     private TourPlanSearchFacade tourPlanSearchFacade;
 
     /**
-     * 获取出发城市
-     * 
-     * @param destCity
-     * @return
-     */
-    public List<City> listStartCitys(City destCity) {
-        String[] ss = new String[] { "杭州", "上海", "宁波", "南京", "温州", "台州" };
-        List<City> list = new ArrayList<City>();
-        for (String cityName : ss) {
-            list.add(new City(cityName));
-        }
-        return list;
-    }
-
-    /**
      * 获取国内区域
      * 
      * @return

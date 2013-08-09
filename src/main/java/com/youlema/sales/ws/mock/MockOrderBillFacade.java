@@ -155,7 +155,7 @@ public class MockOrderBillFacade implements OrderBillFacade {
     }
 
     @Override
-    public BaseResult agentsBooking(OrderBillFdo arg0, AgentsAccountFdo arg1) {
+    public OrderBillResult agentsBooking(OrderBillFdo arg0, AgentsAccountFdo arg1) {
         // TODO Auto-generated method stub
         return null;
     }

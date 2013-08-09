@@ -14,11 +14,12 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.youlema.sales.mapper.meta.ProductType;
 import com.youlema.sales.meta.PlanItem;
-import com.youlema.sales.meta.Region;
 import com.youlema.sales.meta.SearchResult;
 import com.youlema.sales.service.ProductService;
 import com.youlema.sales.service.ProductService.QueryCondition;
+import com.youlema.sales.service.ProductTypeService;
 
 /**
  * 出境游
@@ -31,6 +32,8 @@ import com.youlema.sales.service.ProductService.QueryCondition;
 public class OutboundController {
     @Resource
     private ProductService productService;
+    @Resource
+    private ProductTypeService productTypeService;
 
     private static final int PAGE_SIZE = 20;
 
@@ -45,11 +48,11 @@ public class OutboundController {
         // 4是出境游
         condition.setProductType(4);
         condition.setQueryText("杭州");
-        List<Region> regions = productService.listInlandRegions();
+        List<ProductType> citys = productTypeService.listProductTypes();
         SearchResult<PlanItem> result = productService.queryPlan(condition, 1, 20);
         modelMap.put("productType", "chujingyou");
         modelMap.put("result", result);
-        modelMap.put("regions", regions);
+        modelMap.put("citys", citys);
         return "alland-travel";
     }
 
@@ -66,6 +69,7 @@ public class OutboundController {
             @RequestParam(value = "priceRange", required = false) String priceRange,
             @RequestParam(value = "traffic", required = false) String traffic,
             @RequestParam(value = "pageNo", required = false, defaultValue = "1") int pageNo,
+            @RequestParam(value = "typeCode", required = false) String typeCode,
             @RequestParam(value = "startDate", required = false) String startDate,
             @RequestParam(value = "priceOrder", required = false) String priceOrder,
             @RequestParam(value = "startDateOrder", required = false) String startDateOrder,
@@ -103,6 +107,7 @@ public class OutboundController {
         condition.setDays(days);
         condition.setPriceRange(priceRange);
         condition.setTraffic(traffic);
+        condition.setLineType(typeCode);
         SearchResult<PlanItem> result = productService.queryPlan(condition, pageNo, PAGE_SIZE);
         JsonUtils.writeToJson(result.getResultList(), response);
     }

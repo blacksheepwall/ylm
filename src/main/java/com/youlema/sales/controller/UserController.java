@@ -230,9 +230,9 @@ public class UserController {
         String mobile = ServletRequestUtils.getStringParameter(request, "mobile");
         String email = ServletRequestUtils.getStringParameter(request, "email");
         String qq = ServletRequestUtils.getStringParameter(request, "qq");
-        int sex = ServletRequestUtils.getIntParameter(request, "sex", 0);
+        boolean sex = ServletRequestUtils.getBooleanParameter(request, "sex", true);
         // String fax = ServletRequestUtils.getStringParameter(request, "fax");
-        account.setSex((short) sex);
+        account.setSex(sex);
         account.setName(userName);
         account.setDepart(depart);
         account.setTelphone(telphone);
