@@ -220,21 +220,22 @@
               <#list productResult.resultList as it >
               <tr>
                 <td>
-                  <a href="/product/detail?id=1" target="_blank">海南三亚双飞5日游YGNHD039PS130408A<尾单></a>
+                  <a href="/product/detail?id=${it.id}" target="_blank">${it.name}</a>
                 </td>
                 <td>
-                  04-08
+                  ${it.date?string('yyyy-MM-dd')}
                 </td>
                 <td>
-                  已成团
+                  ${it.isGrouped}
                 </td>
                 <td>
-                  6889.00
+                  ${it.price}
                 </td>
                 <td>
+                ${it.settlePrice}
                 </td>
                 <td>
-                  20
+                  ${it.remainCount}
                 </td>
                 <td>
                   <a href="/product/detail?id=1" target="_blank">预订</a>

@@ -51,7 +51,7 @@ public class ProductItem {
         this.date = date;
     }
 
-    public String isGrouped() {
+    public String getIsGrouped() {
         return isGrouped;
     }
 

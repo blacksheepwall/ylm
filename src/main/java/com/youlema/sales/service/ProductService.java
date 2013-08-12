@@ -36,9 +36,9 @@ import com.youlema.tools.jee.pages.PagingTools;
 public class ProductService {
     @Resource
     private ProductFacadeService facadeService;
-    @Resource(name = "TourProductFacade")
+    @Resource(name = "MockTourProductFacade")
     private TourProductFacade tourProductFacade;
-    @Resource(name = "TourPlanSearchFacade")
+    @Resource(name = "MockTourPlanSearchFacade")
     private TourPlanSearchFacade tourPlanSearchFacade;
 
     public List<Region> listOutlandRegions() {

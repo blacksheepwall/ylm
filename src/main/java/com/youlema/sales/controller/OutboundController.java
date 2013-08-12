@@ -94,7 +94,7 @@ public class OutboundController {
                 typeCode, startDate, priceOrder, startDateOrder, endDate);
 
         SearchResult<ProductItem> result = productService.queryProduct(condition, pageNo, PAGE_SIZE);
-        JsonUtils.writeToJson(result.getResultList(), response);
+        JsonUtils.writeToJson(result, response);
     }
 
     /**
@@ -120,7 +120,7 @@ public class OutboundController {
         ProductService.QueryCondition condition = toCondition(leaveCity, queryText, days, priceRange, traffic,
                 typeCode, startDate, priceOrder, startDateOrder, endDate);
         SearchResult<PlanItem> result = productService.queryPlan(condition, pageNo, PAGE_SIZE);
-        JsonUtils.writeToJson(result.getResultList(), response);
+        JsonUtils.writeToJson(result, response);
     }
 
     private ProductService.QueryCondition toCondition(String leaveCity, String queryText, String days,

@@ -12,6 +12,7 @@ import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
 import com.yolema.tbss.ext.facade.fdo.product.SearchProductFdo;
 import com.yolema.tbss.ext.facade.fdo.product.ShowHomePageProductFdo;
 import com.yolema.tbss.ext.facade.fdo.product.ShowProductFdo;
+import com.yolema.tbss.ext.facade.fdo.product.ShowProductPriceFdo;
 import com.yolema.tbss.ext.facade.result.ShowProductResult;
 import com.yolema.tbss.ext.facade.result.TourProductResult;
 import com.youlema.tools.jee.pages.PageList;
@@ -117,6 +118,12 @@ public class MockTourProductFacade implements TourProductFacade {
             fdo.setNight(1000);
             fdo.setKeyword(arg0);
             fdo.setReturnTraffic("灰机2");
+            List<ShowProductPriceFdo> fdos = new ArrayList<ShowProductPriceFdo>();
+            ShowProductPriceFdo pFdo = new ShowProductPriceFdo();
+            pFdo.setCustomType("adult_price");
+            pFdo.setAdultPrice(new BigDecimal("123456"));
+            fdos.add(pFdo);
+            fdo.setShowProductPriceFdos(fdos);
             showProductFdos.add(fdo);
         }
         showProductResult.setPageList(showProductFdos);
