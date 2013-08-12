@@ -11,9 +11,6 @@ define(['./util', 'pagination'], function(Util) {
 
   function _initQueryConfig() {
     mod.queryConfig = {
-      'beginTime': $.trim($startDate.val()),
-      'endTime': $.trim($endDate.val()),
-      'queryText': $.trim($searchText.val()),
       'orderStatus': 1,
       'contractStatus': 1,
       'leaveStatus': 1,
@@ -46,8 +43,15 @@ define(['./util', 'pagination'], function(Util) {
   }
 
   function _queryOrderList(options) {
-    var page = options.page || 1, data = $.extend(options.data, {'offset': (page - 1) * 20, 'limit': 20});
+    var page = options.page || 1, data = $.extend(options.data, {
+      'offset': (page - 1) * 20,
+      'limit': 20,
+      'beginTime': $.trim($startDate.val()),
+      'endTime': $.trim($endDate.val()),
+      'queryText': $.trim($searchText.val())
+    });
     Util.post({
+      'singleton': true,
       'url': ajaxUrl,
       'data': data,
       'done': function(data) {

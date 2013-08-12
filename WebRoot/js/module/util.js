@@ -1,17 +1,20 @@
 define(['dateTimePicker'], function() {
   'use strict';
-  var noop = $.noop(),
+  var mod = {},
+    noop = $.noop(),
     $startDate = $('#J_start_date'), // id必须为J_start_date
     $endDate = $('#J_end_date');  //  id必须为J_end_date
   function _ajax(options) {
     var type = options.type || 'get',
+      url = options.url,
       _options = {
         'type': type,
-        'url': options.url,
+        'url': url,
         'data': options.data,
         'dataType': 'json'
       };
-    $.ajax(_options).done(function(result) {
+    options.singleton && mod[url] && mod[url].abort();
+    mod[url] = $.ajax(_options).done(function(result) {
       if (result && result.status == 0) {
         var done = options.done || noop;
         done(result.data);
@@ -68,6 +71,7 @@ define(['dateTimePicker'], function() {
       if (!_.isNaN(start) && !_.isNaN(end)) {
         if (start >= end) {
           alert('开始日期不能晚于结束日期');
+        } else {
           result = true;
         }
       } else {

@@ -15,9 +15,6 @@ define(['./util', 'pagination'], function(Util) {
 
   function _initQueryConfig() {
     mod.queryConfig = {
-      'beginScheduledTime': $.trim($startDate.val()),
-      'endScheduledTime': $.trim($endDate.val()),
-      'queryText': $.trim($searchText.val()),
       'leaveCity': '',
       'dateRange': '',
       'priceRange': '',
@@ -80,13 +77,20 @@ define(['./util', 'pagination'], function(Util) {
 
   function _queryList(options) {
     var page = options.page || 1,
-      data = $.extend(options.data, {'offset': (page - 1) * 20, 'limit': 20});
+      data = $.extend(options.data, {
+        'offset': (page - 1) * 20,
+        'limit': 20,
+        'beginTime': $.trim($startDate.val()),
+        'endTime': $.trim($endDate.val()),
+        'queryText': $.trim($searchText.val())
+      });
     Util.post({
+      'singleton': true,
       'url': ajaxUrl,
       'data': data,
       'done': function(data) {
         $pagination.jqPagination({'count': data.count || 0});
-        $productContainer.html(productRowTpl(data));
+        $productContainer.html(productRowTpl(data.resultList));
       }
     });
   }

@@ -41,7 +41,7 @@
           <div class="input-append pull-left">
             <input id="J_search_text" class="search-input" type="text" placeholder="产品名称、站点城市、游览景点">
             <button id="J_search_btn" class="btn btn-success" type="button"><i class="icon-search"></i> 搜索</button>
-            <button class="btn" type="button">高级查找</button>
+            <#--<button class="btn" type="button">高级查找</button>-->
           </div>
         </div>
         <div id="J_condition" class="mod-body condition mod-condition">
@@ -217,7 +217,7 @@
               </tr>
               </thead>
               <tbody>
-              <#list pdtResult.resultList as it >
+              <#list productResult.resultList as it >
               <tr>
                 <td>
                   <a href="/product/detail?id=1" target="_blank">海南三亚双飞5日游YGNHD039PS130408A<尾单></a>

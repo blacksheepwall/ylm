@@ -50,8 +50,15 @@ define(['./util', 'moment', 'pagination'], function(Util, moment) {
 
   function _queryList(options) {
     var page = options.page || 1,
-      data = $.extend(options.data, {'offset': (page - 1) * 20, 'limit': 20});
+      data = $.extend(options.data, {
+        'offset': (page - 1) * 20,
+        'limit': 20,
+        'beginTime': $.trim($startDate.val()),
+        'endTime': $.trim($endDate.val()),
+        'queryText': $.trim($searchText.val())
+      });
     Util.post({
+      'singleton': true,
       'url': ajaxUrl,
       'data': data,
       'done': function(data) {
