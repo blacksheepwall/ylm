@@ -166,9 +166,9 @@
                   <#--<div class="product-main">-->
                     <#--<div>-->
                       <#--<span class="label label-success">特价</span>-->
-                      <#--<a class="title" href="/product/detail?id=${it.productId}" target="_blank"><strong>${it.title}</strong></a>-->
-                      <#--<span class="text-warning">${it.nightCount}晚${it.dayCount}天</span>-->
-                      <#--<div class="muted">${it.managerRecommend}</div>-->
+                      <#--<a class="title" href="/product/detail?id={{productId}" target="_blank"><strong>{{title}</strong></a>-->
+                      <#--<span class="text-warning">{{nightCount}晚{{dayCount}天</span>-->
+                      <#--<div class="muted">{{managerRecommend}</div>-->
                       <#--<@product_date_list></@product_date_list>-->
                     <#--</div>-->
                   <#--</div>-->
@@ -177,10 +177,10 @@
                       <#--<span class="label label-info">蜜月</span>-->
                       <#--<span class="label label-info">亲子</span>-->
                       <#--<span class="label label-info">度假</span>-->
-                      <#--<div>${it.topic}</div>-->
+                      <#--<div>{{topic}</div>-->
                     <#--</div>-->
                     <#--<div class="product-price">-->
-                      <#--<strong class="price-title">价格：</strong><span class="price-value">￥${it.price}起</span>-->
+                      <#--<strong class="price-title">价格：</strong><span class="price-value">￥{{price}起</span>-->
                     <#--</div>-->
                   <#--</div>-->
                 <#--</div>-->
@@ -196,53 +196,27 @@
                 <th>
                   产品
                 </th>
-                <th>
+                <th width="100">
                   日期
                 </th>
-                <th>
+                <th width="100">
                   成团
                 </th>
-                <th>
+                <th width="120">
                   门市价格
                 </th>
-                <th>
+                <th width="100">
                   结算价格
                 </th>
-                <th>
+                <th width="80">
                   剩余
                 </th>
-                <th>
+                <th width="80">
                   预订
                 </th>
               </tr>
               </thead>
-              <tbody>
-              <#list productResult.resultList as it >
-              <tr>
-                <td>
-                  <a href="/product/detail?id=${it.id}" target="_blank">${it.name}</a>
-                </td>
-                <td>
-                  ${it.date?string('yyyy-MM-dd')}
-                </td>
-                <td>
-                  ${it.isGrouped}
-                </td>
-                <td>
-                  ${it.price}
-                </td>
-                <td>
-                ${it.settlePrice}
-                </td>
-                <td>
-                  ${it.remainCount}
-                </td>
-                <td>
-                  <a href="/product/detail?id=${it.id}" target="_blank">预订</a>
-                </td>
-              </tr>
-              </#list>
-              </tbody>
+              <tbody id="J_group_list"></tbody>
             </table>
             <@pagination></@pagination>
           </div>
@@ -281,6 +255,66 @@
       {{/each}}
       {{^each this}}
         <li>没有数据</li>
+      {{/each}}
+    </script>
+    <script id="J_group_row" type="text/tpl">
+      {{#each this}}
+      <tr>
+        <td>
+          <a href="/product/detail?id={{id}}" target="_blank">{{name}}</a>
+        </td>
+        <td>
+          {{dateRenderer date}}
+        </td>
+        <td>
+          {{isGrouped}}
+        </td>
+        <td>
+          <div class="price-more">
+            {{price}} <a class="j-price" href="javascript:;">更多</a>
+            <div class="popover bottom" style="display: none;">
+              <div class="arrow"></div>
+              <div class="popover-content">
+                <table class="table table-striped table-condensed">
+                  <thead>
+                  <th>价格名称</th>
+                  <th>包含人数</th>
+                  <th>门市价格</th>
+                  <th>结算价格</th>
+                  <th>订金</th>
+                  <th>价格说明</th>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>成人价</td>
+                    <td>2800.00</td>
+                    <td>2600.00</td>
+                    <td>2000.00</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <#--<div class="popover-action">-->
+                <#--<a href="javascript:;" class="btn btn-small j-close">关闭</a>-->
+              <#--</div>-->
+            </div>
+          </div>
+        </td>
+        <td>
+          {{settlePrice}}
+        </td>
+        <td>
+          {{remainCount}}
+        </td>
+        <td>
+          <a href="/product/detail?id={{id}}" target="_blank">预订</a>
+        </td>
+      </tr>
+      {{/each}}
+      {{^each this}}
+      <tr colspan="7">没有数据</tr>
       {{/each}}
     </script>
     </@body>

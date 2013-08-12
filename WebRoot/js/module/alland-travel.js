@@ -1,7 +1,7 @@
 var productType = productType;
-define(['./util', 'pagination'], function(Util) {
+define(['./util', 'moment', 'pagination'], function(Util, moment) {
   'use strict';
-  var mod = {}, $pagination = $('.pagination'),
+  var mod = {'index': 0}, $pagination = $('.pagination'),
     $startDate = $('#J_start_date'),
     $endDate = $('#J_end_date'),
     $searchText = $('#J_search_text'),
@@ -10,9 +10,14 @@ define(['./util', 'pagination'], function(Util) {
     $tabContent = $('#J_tab_content'),
     $sortContainer = $('#J_sort'),
     $productContainer = $('#J_product_list'),
+    $groupContainer = $('#J_group_list'),
     productRowTpl = Handlebars.compile($('#J_product_row').html()),
-    ajaxUrl = '/' + productType + '/query';
-
+    groupRowTpl = Handlebars.compile($('#J_group_row').html()),
+    queryUrl = '/' + productType + '/query',
+    queryPdtsUrl = '/' + productType + '/queryPdts';
+  Handlebars.registerHelper('dateRenderer', function(date) {
+    return moment(date).format('ll');
+  });
   function _initQueryConfig() {
     mod.queryConfig = {
       'leaveCity': '',
@@ -45,11 +50,12 @@ define(['./util', 'pagination'], function(Util) {
     $('a', $tab).click(function(e) {
       e.preventDefault();
       var $this = $(this),
-        index = $tab.children().index($this.parent()),
         $contents = $tabContent.children();
+      mod.tabIndex = $tab.children().index($this.parent());
       $this.tab('show');
       $contents.hide();
-      $contents.eq(index).show();
+      $contents.eq(mod.tabIndex).show();
+      _queryList({});
     });
   }
 
@@ -86,11 +92,15 @@ define(['./util', 'pagination'], function(Util) {
       });
     Util.post({
       'singleton': true,
-      'url': ajaxUrl,
+      'url': mod.tabIndex ? queryPdtsUrl : queryUrl,
       'data': data,
       'done': function(data) {
         $pagination.jqPagination({'count': data.count || 0});
-        $productContainer.html(productRowTpl(data.resultList));
+        if (mod.tabIndex) {
+          $groupContainer.html(groupRowTpl(data.resultList));
+        } else {
+          $productContainer.html(productRowTpl(data.resultList));
+        }
       }
     });
   }

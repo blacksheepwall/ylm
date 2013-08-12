@@ -28,3 +28,18 @@
 .search-input {
   width: 345px;
 }
+
+.price-more {
+  position: relative;
+}
+
+.price-more .popover {
+  top: 18px;
+  left: -205px;
+  width: 500px;
+  max-width: 500px;
+}
+
+.price-more:hover .popover {
+  display: block !important;
+}
