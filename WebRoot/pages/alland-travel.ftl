@@ -238,7 +238,7 @@
                   ${it.remainCount}
                 </td>
                 <td>
-                  <a href="/product/detail?id=1" target="_blank">预订</a>
+                  <a href="/product/detail?id=${it.id}" target="_blank">预订</a>
                 </td>
               </tr>
               </#list>

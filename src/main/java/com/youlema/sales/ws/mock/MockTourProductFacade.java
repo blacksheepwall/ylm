@@ -121,7 +121,7 @@ public class MockTourProductFacade implements TourProductFacade {
             List<ShowProductPriceFdo> fdos = new ArrayList<ShowProductPriceFdo>();
             ShowProductPriceFdo pFdo = new ShowProductPriceFdo();
             pFdo.setCustomType("adult_price");
-            pFdo.setAdultPrice(new BigDecimal("123456"));
+            pFdo.setPriceOfAgency(new BigDecimal("123456"));
             fdos.add(pFdo);
             fdo.setShowProductPriceFdos(fdos);
             showProductFdos.add(fdo);
