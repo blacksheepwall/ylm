@@ -67,7 +67,7 @@ public class InlandController {
 
         ProductService.QueryCondition condition = new QueryCondition();
         if (StringUtils.isBlank(queryText)) {
-            condition.setQueryText("杭州");
+            condition.setQueryText("旅游");
         }
         if (StringUtils.isNotBlank(priceOrder)) {
             condition.setPriceOrderDesc("desc".equalsIgnoreCase(priceOrder));

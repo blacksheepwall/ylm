@@ -17,7 +17,7 @@
           <#--${rg.name}-->
           <#list citys as city>
             <li>
-              <a href="typeCode=${city.typeCode}">${city.productTypeName}</a>
+              <a href="typeCode=${city.typeCode!}">${city.productTypeName}</a>
             </li>
           </#list>
         </ul>
@@ -217,9 +217,10 @@
               </tr>
               </thead>
               <tbody>
+              <#list pdtResult.resultList as it>
               <tr>
                 <td>
-                  <a href="/product/detail?id=1" target="_blank">海南三亚双飞5日游YGNHD039PS130408A<尾单></a>
+                  <a href="/product/detail?id=${it.id}" target="_blank">${it.name}<尾单></a>
                 </td>
                 <td>
                   04-08

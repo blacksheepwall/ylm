@@ -2,21 +2,16 @@ package com.youlema.sales.service;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
 import com.yolema.tbss.ext.facade.TourPkgProductFacade;
-import com.yolema.tbss.ext.facade.fdo.pkgProduct.TourPkgDateFdo;
 import com.yolema.tbss.ext.facade.fdo.pkgProduct.TourPkgProductFdo;
-import com.yolema.tbss.ext.facade.result.TourPkgProductResult;
 import com.youlema.sales.meta.FreeTravelProductInfo;
 import com.youlema.sales.meta.FreeTravelProductItem;
 import com.youlema.sales.meta.SearchResult;
-import com.youlema.sales.utils.Vo;
-import com.youlema.tools.jee.pages.PageList;
 
 /**
  * 自由行Service
