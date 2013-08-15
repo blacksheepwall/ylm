@@ -62,8 +62,8 @@ public class ProductController {
             
 //            fdo.setName(name);
 //            fdo.set
-            JsonUtils.writeToJson(true, response);
         }
+        JsonUtils.writeToJson(true, response);
         
     }
 }
