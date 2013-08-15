@@ -13,7 +13,7 @@ import com.youlema.tools.jee.pages.PageList;
 public class MockTourPlanSearchFacade implements TourPlanSearchFacade {
 
     @Override
-    public PlanSearchResult searchPlan(String arg0, SearchProductFdo arg1) {
+    public PlanSearchResult searchPlan(SearchProductFdo arg0) {
         PlanSearchResult result = new PlanSearchResult(true);
         PageList<TourPlanSearchFdo> fdos = new PageList<TourPlanSearchFdo>();
         for (int i = 0; i < 10; i++) {

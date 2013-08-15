@@ -13,51 +13,28 @@ import com.yolema.tbss.ext.facade.result.TourPkgProductShowResult;
 public class MockTourPkgProductFacade implements TourPkgProductFacade {
 
     @Override
-    public TourPkgProductResult findTourPkgProductByIdAndStartDate(Long arg0, Date arg1) {
+    public TourPkgProductResult findTourPkgProductByIdAndStartDate(Long productId, Date date) {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public TourPkgProductShowResult showTourPkgProduct(Long arg0, Date arg1) {
+    public TourPkgProductResult goAgentsBooking(Long arg0) {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public TourPkgProductResult getById(Long arg0) {
+    public TourPkgProductResult searchPkgProduct(TourPkgProductFdo arg0) {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public TourPkgProductResult getPkgProductRoutes(Long arg0) {
+    public TourPkgProductShowResult showTourPkgProduct(Long productId, Date date) {
         // TODO Auto-generated method stub
         return null;
     }
 
-    @Override
-    public TourPkgProductResult getProductRouteItemById(Long arg0) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public TourPkgProductResult getRouteProjectRecommendById(Long arg0) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public TourPkgProductResult queryPageList(TourPkgProductFdo arg0) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public TourPkgProductResult tourPkgView(Long arg0) {
-        // TODO Auto-generated method stub
-        return null;
-    }
 
 }

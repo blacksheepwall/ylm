@@ -153,7 +153,7 @@ public class ProductService {
      */
     public SearchResult<PlanItem> queryPlan(QueryCondition condition, int pageNo, int pageSize) {
         SearchProductFdo searchFdo = conditionToFdo(condition, pageNo, pageSize);
-        PlanSearchResult result = tourPlanSearchFacade.searchPlan(condition.queryText, searchFdo);
+        PlanSearchResult result = tourPlanSearchFacade.searchPlan(searchFdo);
         List<TourPlanSearchFdo> productFdos = result.getPageList();
         Vo<PlanItem> vo = new Vo<PlanItem>(PlanItem.class);
         List<PlanItem> items1 = new ArrayList<PlanItem>();

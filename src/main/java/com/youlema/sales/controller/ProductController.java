@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -44,6 +45,9 @@ public class ProductController {
     @RequestMapping("/book")
     public void book(@RequestParam(value = "productId") long productId, HttpServletRequest request,
             HttpServletResponse response) {
-        
+        String[] customerList = ServletRequestUtils.getStringParameters(request, "customerList");
+        String[] planeTicketList = ServletRequestUtils.getStringParameters(request, "planeTicketList");
+        String[] hotelList = ServletRequestUtils.getStringParameters(request, "hotelList");
+        String[] extraInfo = ServletRequestUtils.getStringParameters(request, "extraInfo");
     }
 }
