@@ -1,5 +1,7 @@
 package com.youlema.sales.controller;
 
+import java.io.IOException;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.yolema.tbss.ext.facade.fdo.order.OrderCustomFdo;
 import com.youlema.sales.meta.BusinessType;
 import com.youlema.sales.meta.ProductInfo;
 import com.youlema.sales.service.OrderService;
@@ -44,10 +47,23 @@ public class ProductController {
     }
     @RequestMapping("/book")
     public void book(@RequestParam(value = "productId") long productId, HttpServletRequest request,
-            HttpServletResponse response) {
+            HttpServletResponse response) throws IOException {
         String[] customerList = ServletRequestUtils.getStringParameters(request, "customerList");
-        String[] planeTicketList = ServletRequestUtils.getStringParameters(request, "planeTicketList");
+        String[] planeTicketList = ServletRequestUtils.getStringParameters(request, "airTicketList");
         String[] hotelList = ServletRequestUtils.getStringParameters(request, "hotelList");
         String[] extraInfo = ServletRequestUtils.getStringParameters(request, "extraInfo");
+        
+        OrderCustomFdo fdo = new OrderCustomFdo();
+        for (int i = 0; i < customerList.length; i++) {
+            String name = customerList[i];
+            String planTicket = planeTicketList[i];
+            String hotel = hotelList[i];
+            String extra = extraInfo[i];
+            
+//            fdo.setName(name);
+//            fdo.set
+            JsonUtils.writeToJson(true, response);
+        }
+        
     }
 }
