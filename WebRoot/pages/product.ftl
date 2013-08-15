@@ -98,7 +98,7 @@
                 <div>成人价：${pdt.adultPrice!}元</div>
                 <div>儿童价：${pdt.childPrice!}元</div>
                 <div class="book-now">
-                  <a href="/main/product-book" class="btn btn-primary" type="button">立刻预订</a>
+                  <a href="/main/product-book?productId=${productId}" class="btn btn-primary" type="button">立刻预订</a>
                 </div>
               </div>
               <div class="plan">

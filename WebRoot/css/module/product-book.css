@@ -152,7 +152,7 @@
   font-weight: bold;
 }
 
-.step1 .edit-flight {
+.step1 .edit-info {
   margin-left: 10px;
 }
 
@@ -203,4 +203,46 @@
 
 .action .btn {
   margin-right: 10px;
+}
+
+.select-flight-modal {
+  width: 700px;
+}
+
+.select-flight-modal h3, .select-hotel-modal h3 {
+  font-size: 14px;
+}
+
+.select-flight-modal .flight-body {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px dotted #ccc;
+}
+
+.select-flight-modal .flight-info {
+  float: left;
+  width: 500px;
+}
+
+.select-flight-modal .flight-price {
+  float: right;
+  width: 150px;
+  text-align: center;
+}
+
+.select-flight-modal .flight-price .value {
+  color: #ff0000;
+  font-size: 14px;
+}
+
+.select-hotel-modal {
+  width: 800px;
+}
+
+.select-hotel-modal .hl-red {
+  color: #ff0000;
+}
+
+.select-hotel-modal select {
+  width: auto;
 }

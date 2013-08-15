@@ -49,7 +49,7 @@
                 </div>
                 <div class="form-item">
                   <h5 class="mod-sub-title">机票</h5>
-                  <h6><strong class="hl14 label label-success">推荐航班</strong><a class="edit-flight" href="javascript:;"><i class="icon-pencil"></i> 更改航班</a></h6>
+                  <h6><strong class="hl14 label label-success">推荐航班</strong><a id="J_edit_flight" class="edit-info" href="javascript:;"><i class="icon-pencil"></i> 更改航班</a></h6>
                   <table class="table table-bordered user-list">
                     <thead>
                     <tr>
@@ -114,7 +114,7 @@
                   <h5 class="mod-sub-title">酒店</h5>
                   <h6>
                     <span class="text-warning">香港</span>
-                    <strong class="hl14 label label-success">推荐酒店</strong><a class="edit-flight" href="javascript:;"><i class="icon-pencil"></i> 更改酒店</a>
+                    <strong class="hl14 label label-success">推荐酒店</strong><a id="J_edit_hotel" class="edit-info" href="javascript:;"><i class="icon-pencil"></i> 更改酒店</a>
                   </h6>
                   <table class="table table-bordered user-list">
                     <thead>
@@ -122,16 +122,16 @@
                       <th width="180">
                         酒店名称
                       </th>
-                      <th>
+                      <th width="60">
                         房型
                       </th>
-                      <th>
+                      <th width="40">
                         早餐
                       </th>
-                      <th>
+                      <th width="90">
                         床型
                       </th>
-                      <th>
+                      <th width="40">
                         宽带
                       </th>
                       <th width="100">
@@ -151,27 +151,25 @@
                     <tbody>
                     <tr>
                       <td>
-                        2013-08-29
+                        香港丽华大酒店
+                      </td>
+                      <td>
+                        标准间
+                      </td>
+                      <td>
+                        双早
+                      </td>
+                      <td>
+                        双床/大床
+                      </td>
+                      <td>
+                        收费
                       </td>
                       <td>
                         2013-08-29
                       </td>
                       <td>
-                        07:45
-                        杭州--萧山国际机场
-                      </td>
-                      <td>
-                        11:20
-                        香港--启德国际机场
-                      </td>
-                      <td>
-                        港龙航空
-                        KA937
-                      </td>
-                      <td>
-                      </td>
-                      <td>
-                        经济舱
+                        2013-09-01
                       </td>
                       <td>
                         3
@@ -459,6 +457,121 @@
         </div>
       </div>
     </div>
+    <#--航班选择-->
+    <div id="J_select_flight" class="modal hide select-flight-modal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>航班选择</h3>
+      </div>
+      <div class="modal-body">
+        <div class="flight-body clearfix">
+          <div class="flight-info">
+            <table>
+              <thead>
+              <th width="100"></th>
+              <th width="70"></th>
+              <th width="150"></th>
+              <th width="150"></th>
+              <th width="100"></th>
+              </thead>
+              <tr>
+                <td>2013-05-28</td>
+                <td>07:45</td>
+                <td>杭州/萧山国际机场</td>
+                <td>港龙航空/KA937</td>
+                <td>经济舱</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>07:45</td>
+                <td>杭州/萧山国际机场</td>
+                <td>港龙航空/KA937</td>
+                <td>经济舱</td>
+              </tr>
+            </table>
+          </div>
+          <div class="flight-price">
+            <p class="value">差价：￥300.00</p>
+            <button class="btn btn-success">选择</button>
+          </div>
+        </div>
+        <div class="flight-body clearfix">
+          <div class="flight-info">
+            <table>
+              <thead>
+              <th width="100"></th>
+              <th width="70"></th>
+              <th width="150"></th>
+              <th width="150"></th>
+              <th width="100"></th>
+              </thead>
+              <tr>
+                <td>2013-05-28</td>
+                <td>07:45</td>
+                <td>杭州/萧山国际机场</td>
+                <td>港龙航空/KA937</td>
+                <td>经济舱</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>07:45</td>
+                <td>杭州/萧山国际机场</td>
+                <td>港龙航空/KA937</td>
+                <td>经济舱</td>
+              </tr>
+            </table>
+          </div>
+          <div class="flight-price">
+            <p class="value">差价：￥300.00</p>
+            <button class="btn btn-success">选择</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <#--酒店选择-->
+    <div id="J_select_hotel" class="modal hide select-hotel-modal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>酒店选择</h3>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered">
+          <thead>
+          <th width="120">酒店名称</th>
+          <th width="90">房型</th>
+          <th width="50">早餐</th>
+          <th width="100">床型</th>
+          <th width="50">宽带</th>
+          <th width="70">差价</th>
+          <th width="80">数量</th>
+          <th width="160">备注</th>
+          <th width="60">选择</th>
+          </thead>
+          <tr>
+            <td>香港湾仔皇悦酒店</td>
+            <td>标准间</td>
+            <td>不含</td>
+            <td>双床/大床</td>
+            <td>收费</td>
+            <td class="hl-red">+100</td>
+            <td>
+              <select>
+                <option value="1间">1间</option>
+                <option value="2间">2间</option>
+                <option value="3间">3间</option>
+              </select>
+            </td>
+            <td></td>
+            <td>
+              <button class="btn btn-success">选择</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <script>
+      productId = '${productId!5000}';
+    </script>
     </@body>
   </@html>
 </#escape>
