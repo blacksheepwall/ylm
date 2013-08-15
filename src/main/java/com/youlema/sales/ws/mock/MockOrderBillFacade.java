@@ -32,23 +32,23 @@ public class MockOrderBillFacade implements OrderBillFacade {
         fdo.setOrderStatus("CONFIRMED");
         fdo.setMobile("13999999999");
         fdo.setSalesman("订单创建人甲");
-        
+
         List<SalesBargainFdo> list = new ArrayList<SalesBargainFdo>();
         for (int i = 0; i < 10; i++) {
             SalesBargainFdo bo = new SalesBargainFdo();
-            bo.setBargainNo("合同编号NO."+i);
-            bo.setBargainSignPerson("签订人"+i);
+            bo.setBargainNo("合同编号NO." + i);
+            bo.setBargainSignPerson("签订人" + i);
             bo.setGmtSigned(new Date());
-            bo.setMemo("合同备注"+i);
-            bo.setOrderCustomId(1111L+i);
+            bo.setMemo("合同备注" + i);
+            bo.setOrderCustomId(1111L + i);
             bo.setOrderId(id);
             bo.setSalesBargainId(99999L);
             list.add(bo);
         }
         fdo.setSalesBargainList(list);
-        
+
         ArrayList<OrderCustomFdo> orderCustomBeanList = new ArrayList<OrderCustomFdo>();
-        
+
         for (int i = 0; i < 10; i++) {
             OrderCustomFdo custFdo = new OrderCustomFdo();
             custFdo.setMoneyOfExpense(BigDecimal.TEN);
@@ -56,7 +56,7 @@ public class MockOrderBillFacade implements OrderBillFacade {
             custFdo.setCensusRegister("杭州");
             custFdo.setMemo("备注备注");
             custFdo.setMobile("13999999999");
-            custFdo.setName("游客姓名"+i);
+            custFdo.setName("游客姓名" + i);
             custFdo.setPinyin("pinyinpinyin");
             custFdo.setSex(true);
             custFdo.setIsCanceled(false);
@@ -67,7 +67,7 @@ public class MockOrderBillFacade implements OrderBillFacade {
             custFdo.setPidIssuePlace("萧山");
             orderCustomBeanList.add(custFdo);
         }
-        
+
         fdo.setOrderCustomBeanList(orderCustomBeanList);
         foBillFdos.add(fdo);
         result.setOrderBillBean(fdo);
@@ -79,7 +79,7 @@ public class MockOrderBillFacade implements OrderBillFacade {
     @Override
     public OrderBillResult getByTourProductId(Long id) {
         throw new UnsupportedOperationException();
-        
+
     }
 
     @Override
@@ -109,7 +109,7 @@ public class MockOrderBillFacade implements OrderBillFacade {
 
     @Override
     public OrderBillResult saveOrderCancel(OrderBillFdo orderBillFdo, String operator) {
-        //TODO 实现一个mock
+        // TODO 实现一个mock
         return null;
     }
 
@@ -141,23 +141,19 @@ public class MockOrderBillFacade implements OrderBillFacade {
         return result;
     }
 
-
     @Override
     public BaseResult refundReturnSuccess(Long arg0, BigDecimal arg1, String arg2, String arg3) {
-        // TODO Auto-generated method stub
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public OrderBillResult getOrderBillView(Long arg0) {
-        // TODO Auto-generated method stub
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
-    public OrderBillResult agentsBooking(OrderBillFdo arg0, AgentsAccountFdo arg1) {
-        // TODO Auto-generated method stub
-        return null;
+    public OrderBillResult agentsBooking(OrderBillFdo billFdo, AgentsAccountFdo arg1) {
+        throw new UnsupportedOperationException();
     }
 
 }

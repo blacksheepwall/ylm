@@ -9,7 +9,11 @@ import javax.annotation.Resource;
 import org.apache.commons.lang.time.DateUtils;
 import org.springframework.stereotype.Service;
 
+import com.yolema.tbss.ext.facade.OrderBillFacade;
+import com.yolema.tbss.ext.facade.OrderCustomFacade;
+import com.yolema.tbss.ext.facade.TourProductFacade;
 import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
+import com.yolema.tbss.ext.facade.fdo.agents.AgentsAccountFdo;
 import com.yolema.tbss.ext.facade.fdo.order.OrderBillFdo;
 import com.yolema.tbss.ext.facade.fdo.order.OrderCustomFdo;
 import com.yolema.tbss.ext.facade.fdo.order.SalesBargainFdo;
@@ -46,6 +50,13 @@ public class OrderService {
     private ProductFacadeService productFacadeService;
     @Resource
     private DictionaryFacadeService dictionaryFacadeService;
+
+    @Resource(name = "TourProductFacade")
+    private TourProductFacade tourProductFacade;
+    @Resource(name = "OrderCustomFacade")
+    private OrderCustomFacade orderCustomFacade;
+    @Resource(name = "OrderBillFacade")
+    private OrderBillFacade orderBillFacade;
 
     /**
      * 根据订单状态，合同状态，出发状态，订单类型四个条件查询
@@ -286,5 +297,20 @@ public class OrderService {
             return orderFacadeService.cancelOrder(orderId, cancelMemo, user.getAccount());
         }
         return bo;
+    }
+
+    /**
+     * 预定产品
+     * 
+     * @param productId
+     * @param custIdList
+     * @param agentsAcc
+     * @return
+     */
+    public boolean book(long productId, List<OrderCustomFdo> custIdList, AgentsAccountFdo agentsAcc) {
+        OrderBillFdo orderBillFdo = new OrderBillFdo();
+        orderBillFdo.setOrderCustomBeanList(custIdList);
+        OrderBillResult billResult = this.orderBillFacade.agentsBooking(orderBillFdo, agentsAcc);
+        return billResult.isSuccess();
     }
 }

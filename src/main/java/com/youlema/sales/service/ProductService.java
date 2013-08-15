@@ -78,6 +78,7 @@ public class ProductService {
         }
         return new SearchResult<HomePageProductItem>(result.getCount(), items1);
     }
+    
 
     /**
      * 根据Id获取散拼产品详细信息

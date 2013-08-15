@@ -20,7 +20,6 @@ public class ProductItem {
     private Date date;
 
     private String isGrouped;
-    // TODO 门市价格在TourProductFdo中才可以取出
     @VoField("getPrice")
     private BigDecimal price;
     private BigDecimal settlePrice;
