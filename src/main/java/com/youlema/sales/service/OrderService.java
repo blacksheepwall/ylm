@@ -1,5 +1,6 @@
 package com.youlema.sales.service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -23,6 +24,7 @@ import com.yolema.tbss.ext.facade.result.OrderBillResult;
 import com.youlema.sales.meta.ContractItemVo;
 import com.youlema.sales.meta.CustomerVo;
 import com.youlema.sales.meta.LeaveStatus;
+import com.youlema.sales.meta.OrderSubmitMeta;
 import com.youlema.sales.meta.OrderDetailVo;
 import com.youlema.sales.meta.OrderVo;
 import com.youlema.sales.meta.SearchResult;
@@ -44,6 +46,7 @@ import com.youlema.sales.ws.ProductFacadeService;
  */
 @Service
 public class OrderService {
+    private static final org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger(OrderService.class);
     @Resource
     private OrderFacadeService orderFacadeService;
     @Resource
@@ -299,18 +302,60 @@ public class OrderService {
         return bo;
     }
 
-    /**
-     * 预定产品
-     * 
-     * @param productId
-     * @param custIdList
-     * @param agentsAcc
-     * @return
-     */
-    public boolean book(long productId, List<OrderCustomFdo> custIdList, AgentsAccountFdo agentsAcc) {
-        OrderBillFdo orderBillFdo = new OrderBillFdo();
-        orderBillFdo.setOrderCustomBeanList(custIdList);
-        OrderBillResult billResult = this.orderBillFacade.agentsBooking(orderBillFdo, agentsAcc);
+    public boolean book(OrderSubmitMeta orderBean, AgentsAccountFdo agentsAcc) {
+        OrderBillFdo fdo = toBillFdo(orderBean);
+        OrderBillResult billResult = this.orderBillFacade.agentsBooking(fdo, agentsAcc);
         return billResult.isSuccess();
+    }
+
+    private OrderBillFdo toBillFdo(OrderSubmitMeta orderBean) {
+        OrderBillFdo billFdo = new OrderBillFdo();
+        billFdo.setMemo(orderBean.getMemo());
+        List<OrderSubmitMeta.CustomerVo> custList = orderBean.getCustList();
+        billFdo.setOrderCustomBeanList(toOrderCustomList(custList));
+        billFdo.setContactPerson(orderBean.getContacter());
+        billFdo.setMobile(orderBean.getContactMobile());
+        billFdo.setProductId(orderBean.getProductId());
+        return billFdo;
+    }
+
+    private List<OrderCustomFdo> toOrderCustomList(List<OrderSubmitMeta.CustomerVo> custList) {
+        List<OrderCustomFdo> list = new ArrayList<OrderCustomFdo>(custList.size());
+        for (OrderSubmitMeta.CustomerVo customerVo : custList) {
+            int countOfInsurance = customerVo.getCountOfInsurance();
+            int countOfPriceOfSingleRoom = customerVo.getCountOfPriceOfSingleRoom();
+            BigDecimal price = customerVo.getPrice();
+
+            BigDecimal sumPrice = BigDecimal.ZERO;
+            StringBuilder builder = new StringBuilder();
+
+            if (countOfInsurance > 0) {
+                BigDecimal insurance = customerVo.getInsurance();
+                BigDecimal multiply = insurance.multiply(new BigDecimal(countOfInsurance));
+                builder.append("保险 : ").append(insurance).append("*").append(String.valueOf(countOfInsurance))
+                        .append("=").append(multiply).append(";");
+                sumPrice = sumPrice.add(multiply);
+            }
+            if (countOfPriceOfSingleRoom > 0) {
+                BigDecimal priceOfSingleRoom = customerVo.getPriceOfSingleRoom();
+                BigDecimal multiply = priceOfSingleRoom.multiply(new BigDecimal(countOfPriceOfSingleRoom));
+                builder.append("单房差 : ").append(priceOfSingleRoom).append("*")
+                        .append(String.valueOf(countOfPriceOfSingleRoom)).append("=").append(multiply).append(";");
+                sumPrice = sumPrice.add(multiply);
+            }
+            LOGGER.info(builder.toString());
+            OrderCustomFdo cust = new OrderCustomFdo();
+            cust.setMoneyOfExpense(price);
+            cust.setExpenseMoney(sumPrice);
+            cust.setPidNo(customerVo.getIdentNo());
+            cust.setPid(customerVo.getIdentType());
+            cust.setMobile(customerVo.getMobile());
+            String name = customerVo.getName();
+            cust.setName(name);
+            int sex = customerVo.getSex();
+            cust.setSex(sex == 0);
+            list.add(cust);
+        }
+        return list;
     }
 }

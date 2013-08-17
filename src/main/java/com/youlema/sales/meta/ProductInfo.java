@@ -1,9 +1,7 @@
 package com.youlema.sales.meta;
 
 import java.math.BigDecimal;
-import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
 import com.youlema.sales.utils.VoField;
@@ -57,6 +55,26 @@ public class ProductInfo {
     private String imageUrl;
     @VoField("getTourProductFdos")
     private List<TourProductFdo> productFdos;
+    @VoField("getPriceOfSingleRoom")
+    private BigDecimal priceOfSingleRoom = BigDecimal.ZERO;
+    //TODO 保险单价未知
+    private BigDecimal bxPrice = BigDecimal.TEN;
+
+    public BigDecimal getBxPrice() {
+        return bxPrice;
+    }
+
+    public void setBxPrice(BigDecimal bxPrice) {
+        this.bxPrice = bxPrice;
+    }
+
+    public BigDecimal getPriceOfSingleRoom() {
+        return priceOfSingleRoom;
+    }
+
+    public void setPriceOfSingleRoom(BigDecimal priceOfSingleRoom) {
+        this.priceOfSingleRoom = priceOfSingleRoom;
+    }
 
     public List<TourProductFdo> getProductFdos() {
         return productFdos;

@@ -1,31 +1,33 @@
 package com.youlema.sales.controller;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.alibaba.fastjson.JSON;
 import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
-import com.yolema.tbss.ext.facade.fdo.order.OrderCustomFdo;
-import com.yolema.tbss.ext.facade.fdo.product.ShowProductFdo;
+import com.youlema.sales.mapper.meta.AgentsAccount;
 import com.youlema.sales.meta.BusinessType;
+import com.youlema.sales.meta.OrderSubmitMeta;
 import com.youlema.sales.meta.ProductInfo;
 import com.youlema.sales.service.OrderService;
 import com.youlema.sales.service.ProductService;
+import com.youlema.sales.service.UserService;
 
 /**
  * 散拼产品Controller
@@ -40,7 +42,10 @@ public class ProductController {
     private ProductService productService;
     @Resource
     private OrderService orderService;
-
+    @Resource
+    private UserService userService;
+    
+    
     /**
      * 产品详情页
      * 
@@ -68,7 +73,9 @@ public class ProductController {
         ProductInfo info = productService.getProductForBook(productId);
         modelMap.put("pdt", info);
 
-        List<TourProductFdo> productFdos = (List<TourProductFdo>) (info.getProductFdos() == null ? Collections.emptyList(): info.getProductFdos());
+        @SuppressWarnings("unchecked")
+        List<TourProductFdo> productFdos = (List<TourProductFdo>) (info.getProductFdos() == null ? Collections
+                .emptyList() : info.getProductFdos());
         Map<Long, String> dateMap = new HashMap<Long, String>();
 
         SimpleDateFormat format = new SimpleDateFormat("MM-dd EEE");
@@ -93,24 +100,27 @@ public class ProductController {
     }
 
     @RequestMapping("/book")
-    public void book(@RequestParam(value = "productId") long productId, HttpServletRequest request,
-            HttpServletResponse response) throws IOException {
-        String[] customerList = ServletRequestUtils.getStringParameters(request, "customerList");
-        String[] planeTicketList = ServletRequestUtils.getStringParameters(request, "airTicketList");
-        String[] hotelList = ServletRequestUtils.getStringParameters(request, "hotelList");
-        String[] extraInfo = ServletRequestUtils.getStringParameters(request, "extraInfo");
+    public void book(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        OrderCustomFdo fdo = new OrderCustomFdo();
-        for (int i = 0; i < customerList.length; i++) {
-            String name = customerList[i];
-            String planTicket = planeTicketList[i];
-            String hotel = hotelList[i];
-            String extra = extraInfo[i];
-
-            // fdo.setName(name);
-            // fdo.set
-        }
+        String jsonStr = readString(request);
+        OrderSubmitMeta orderBean = JSON.parseObject(jsonStr, OrderSubmitMeta.class);
+        AgentsAccount account = userService.getCurrentAccount();
+        orderService.book(orderBean, null);
         JsonUtils.writeToJson(true, response);
 
+    }
+
+    private static String readString(HttpServletRequest request) throws IOException {
+        ServletInputStream in = request.getInputStream();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(in,"utf-8"));
+        StringBuilder builder = new StringBuilder(500);
+        while (true) {
+            String string = reader.readLine();
+            if (string == null) {
+                break;
+            }
+            builder.append(string);
+        }
+        return builder.toString();
     }
 }

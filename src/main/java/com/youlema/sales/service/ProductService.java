@@ -97,7 +97,6 @@ public class ProductService {
         }
         Vo<ProductInfo> vo = new Vo<ProductInfo>(ProductInfo.class);
         ProductInfo inject = vo.inject(productFdo, pdtFdo);
-        inject.setProductFdos(pdtFdo.getTourProductFdos());
         return inject;
     }
 
@@ -113,7 +112,7 @@ public class ProductService {
             TourProductFdo productFdo = productResult.getTourProductBean();
 
             Vo<ProductInfo> vo = new Vo<ProductInfo>(ProductInfo.class);
-            ProductInfo info = vo.inject(productFdo, productResult);
+            ProductInfo info = vo.inject(productFdo);
             info.setAdultPrice(productFdo.getAuditPrice());
             return info;
         }
