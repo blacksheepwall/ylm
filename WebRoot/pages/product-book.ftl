@@ -27,7 +27,7 @@
             </li>
             <li class="clearfix">
               <div class="pull-left"><strong>成人价格：</strong> 0/${pdt.adultPrice}</div>
-              <div class="pull-left people-num"><strong>人数：</strong> <input type="text" id="J_adult_num" value="0"></div>
+              <div class="pull-left people-num"><strong>人数：</strong> <input type="text" id="J_adult_num" value="1"></div>
             </li>
             <li class="clearfix">
               <div class="pull-left"><strong>小孩价格：</strong> 0/${pdt.childPrice!'NaN'}</div>
@@ -36,7 +36,9 @@
             <li><strong>联系人：</strong> <input type="text" id="J_contact"> <strong> 手机号：</strong> <input type="text" id="J_phone"></li>
             <li><strong class="desc-name">订单备注：</strong> <textarea class="desc-value" id="J_desc"></textarea></li>
           </ul>
-          <button id="J_add_customer" class="btn btn-primary btn-small">填写游客信息</button>
+          <div class="add-customer">
+            <button id="J_add_customer" class="btn btn-primary btn-small">填写游客信息</button>
+          </div>
           <div class="order-info">
             <strong>游客名单：</strong>
             <table class="table table-bordered">
@@ -122,10 +124,10 @@
         </div>
       </div>
     </div>
-      <#macro customer_row type="">
-      <tr data-type="${type}">
+      <#macro customer_row isAdult=true>
+      <tr>
         <td>
-        ${type}
+          <span class="j-isadult" data-isAdult="<#if isAdult>true<#else>false</#if>"><#if isAdult>大人<#else>小孩</#if></span>
         </td>
         <td>
           <input type="text" class="name j-name">
@@ -153,7 +155,7 @@
         </td>
         <td>
           <div>
-            <strong>单房差：</strong>890.00
+            <strong>单房差：</strong>${pdt.priceOfSingleRoom!100}
             <select class="j-dfc">
               <option>0</option>
               <option>1</option>
@@ -172,16 +174,16 @@
       </tr>
       </#macro>
     <script id="J_adult_row" type="text/tpl">
-      <@customer_row type="大人"></@customer_row>
+      <@customer_row isAdult=true></@customer_row>
     </script>
     <script id="J_child_row" type="text/tpl">
-      <@customer_row type="小孩"></@customer_row>
+      <@customer_row isAdult=false></@customer_row>
     </script>
     <script id="J_customer_row_preview" type="text/tpl">
       {{#each list}}
       <tr>
         <td>
-          {{type}}
+          {{#isAdult}}大人{{/isAdult}}{{^isAdult}}小孩{{/isAdult}}
         </td>
         <td>
           {{name}}
@@ -190,7 +192,7 @@
           {{gender}}
         </td>
         <td>
-          {{idCardType}}{{idCardValue}}
+          {{idCardType}}：{{idCardValue}}
         </td>
         <td>
           {{phone}}
@@ -199,14 +201,17 @@
           {{price}}
         </td>
         <td>
-          {{#dfcValue}}单房差：{{.}}{{/dfcValue}}
-          {{#bxValue}}保险：{{.}}{{/bxValue}}
+          {{#dfcCount}}单房差：${pdt.priceOfSingleRoom!1000}*{{.}}{{/dfcCount}}
+          {{#bxCount}}保险：20*{{.}}{{/bxCount}}
         </td>
         <td>
           {{totalPrice}}
         </td>
       </tr>
       {{/each}}
+    </script>
+    <script>
+      id = '${pdt.productId}';
     </script>
     </@body>
   </@html>

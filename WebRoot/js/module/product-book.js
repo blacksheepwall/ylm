@@ -23,8 +23,7 @@ define(['./util'], function(Util) {
   var adultTpl = $('#J_adult_row').html(),
     childTpl = $('#J_child_row').html(),
     customerRowTpl = Handlebars.compile($('#J_customer_row_preview').html()),
-    saveUrl = '',
-    editUrl = '';
+    saveUrl = '';
 
   function _initNum() {
     $adultNum.add($childNum)
@@ -54,12 +53,16 @@ define(['./util'], function(Util) {
     }
   }
 
-  function _saveOrder(options) {
+  function _saveOrder() {
+    var data = _getOrderData();
     Util.post({
-      'url': saveUrl,
-      'data': options.data,
+      'url': '/product/book',
+      'data': $.toJSON({
+        'id': id,
+        'customerList': data.list
+      }),
       'done': function(data) {
-        console.log(data);
+        alert(data);
       }
     });
   }
@@ -79,27 +82,27 @@ define(['./util'], function(Util) {
     $customerCountPreview.text($childNum.val() + $adultNum.val());
     $totalCostPreview.text(_getTotalCost);
     $descPreview.text($desc.val());
-    $customerListPreview.html(customerRowTpl(_packOrderData()));
+    $customerListPreview.html(customerRowTpl(_getOrderData()));
   }
 
   function _getTotalCost() {
     return 10000;
   }
 
-  function _packOrderData() {
+  function _getOrderData() {
     var data = [];
     $customerList.children().each(function(i, c) {
       var $c = $(c);
       data.push({
-        'type': $c.data('type'),
+        'isAdult': $c.find('.j-isadult').data('isadult'),
         'name': $c.find('.j-name').val(),
         'gender': $c.find('.j-gender').val(),
         'idCardType': $c.find('.j-idcard-type').val(),
         'idCardValue': $c.find('.j-idcard-value').val(),
         'phone': $c.find('.j-phone').val(),
         'price': $c.find('.j-price').val(),
-        'dfcValue': $c.find('.j-dfc').val(),
-        'bxValue': $c.find('.j-bx').val()
+        'dfcCount': $c.find('.j-dfc').val(),
+        'bxCount': $c.find('.j-bx').val()
       });
     });
     return {'list': data};
@@ -112,6 +115,10 @@ define(['./util'], function(Util) {
     }
     if (_.isEmpty($.trim($phone.val()))) {
       alert('请填写联系手机号');
+      return false;
+    }
+    if (!$customerList.children().length) {
+      alert('请填写游客信息');
       return false;
     }
     return true;
