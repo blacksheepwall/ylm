@@ -100,6 +100,7 @@ define(['./util'], function(Util) {
       data.push({
         'isAdult': $c.find('.j-isadult').data('isadult'),
         'name': $c.find('.j-name').val(),
+        'isMale': $c.find('.j-gender').val() == '0',
         'gender': $c.find('.j-gender').val(),
         'idCardType': $c.find('.j-idcard-type').val(),
         'idCardValue': $c.find('.j-idcard-value').val(),

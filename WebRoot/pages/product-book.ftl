@@ -134,8 +134,8 @@
         </td>
         <td>
           <select class="j-gender">
-            <option>男</option>
-            <option>女</option>
+            <option value="0">男</option>
+            <option value="1">女</option>
           </select>
         </td>
         <td>
@@ -189,7 +189,7 @@
           {{name}}
         </td>
         <td>
-          {{gender}}
+          {{#isMale}}男{{/isMale}}{{^isMale}}女{{/isMale}}
         </td>
         <td>
           {{idCardType}}：{{idCardValue}}
