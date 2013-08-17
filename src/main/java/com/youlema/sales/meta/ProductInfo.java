@@ -11,6 +11,9 @@ import com.youlema.sales.utils.VoField;
  * 
  */
 public class ProductInfo {
+    @VoField("getProductId")
+    private long productId;
+
     @VoField("getLineName")
     private String title;
     @VoField("getSubtitle")
@@ -40,7 +43,6 @@ public class ProductInfo {
     private BigDecimal adultPrice;
     @VoField("getChildPrice")
     private BigDecimal childPrice;
-    // TODO 标签字段究竟是哪个
     @VoField("getKeyword")
     private String keyword;
     @VoField("getNumberOfPeoplePlan")
@@ -49,6 +51,14 @@ public class ProductInfo {
     private int bookNubmer;
     @VoField("getImgUrl")
     private String imageUrl;
+
+    public long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(long productId) {
+        this.productId = productId;
+    }
 
     public String getImageUrl() {
         return imageUrl;

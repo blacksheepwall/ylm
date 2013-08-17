@@ -52,9 +52,9 @@ public class ProductController {
      */
     @RequestMapping("/bookpage")
     public String showBookPage(@RequestParam(value = "id") long productId, ModelMap modelMap) {
-        ProductInfo info = productService.getProduct(productId);
+        ProductInfo info = productService.getProductForBook(productId);
         modelMap.put("pdt", info);
-        return "order-book";
+        return "product-book";
     }
 
     @RequestMapping("/line")

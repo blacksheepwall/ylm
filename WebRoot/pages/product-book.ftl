@@ -10,14 +10,14 @@
           <li><a href="/main/">首页</a> <span class="divider">/</span></li>
           <li><a href="/main/">跟团游</a> <span class="divider">/</span></li>
           <li><a href="/main/">出境线路</a> <span class="divider">/</span></li>
-          <li><a href="/main/">东航直飞巴厘岛5晚6日至尊逍遥之旅</a> <span class="divider">/</span></li>
+          <li><a href="/product/detail/?id=${pdt.productId}">${pdt.title}</a> <span class="divider">/</span></li>
           <li class="active">预订操作</li>
         </ul>
       </div>
       <div class="row-fluid">
         <div class="form-horizontal mod-body">
           <ul class="order-info clearfix">
-            <li><strong>线路名称：</strong> 东航直飞巴厘岛5晚6日至尊逍遥之旅</li>
+            <li><strong>线路名称：</strong>${pdt.title}</li>
             <li><strong>出发日期：</strong>
               <select class="date-select">
                 <option>5-13   周一  YCJIS58PA130513B  剩余8个</option>
@@ -27,11 +27,11 @@
               </select>
             </li>
             <li class="clearfix">
-              <div class="pull-left"><strong>成人价格：</strong> 5888.00/5580.00</div>
+              <div class="pull-left"><strong>成人价格：</strong> 0/${pdt.adultPrice}</div>
               <div class="pull-left people-num"><strong>人数：</strong> <input type="text"></div>
             </li>
             <li class="clearfix">
-              <div class="pull-left"><strong>小孩价格：</strong> 3888.00/3580.00</div>
+              <div class="pull-left"><strong>小孩价格：</strong> 0/${pdt.childPrice}</div>
               <div class="pull-left people-num"><strong>人数：</strong> <input type="text"></div>
             </li>
             <li><strong>联系人：</strong> <input type="text"></li>

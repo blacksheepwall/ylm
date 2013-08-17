@@ -21,6 +21,7 @@ import com.yolema.tbss.ext.facade.fdo.product.ShowProductFdo;
 import com.yolema.tbss.ext.facade.fdo.product.ShowProductPriceFdo;
 import com.yolema.tbss.ext.facade.result.PlanSearchResult;
 import com.yolema.tbss.ext.facade.result.ShowProductResult;
+import com.yolema.tbss.ext.facade.result.TourProductResult;
 import com.youlema.sales.meta.HomePageProductItem;
 import com.youlema.sales.meta.PlanItem;
 import com.youlema.sales.meta.ProductInfo;
@@ -78,7 +79,6 @@ public class ProductService {
         }
         return new SearchResult<HomePageProductItem>(result.getCount(), items1);
     }
-    
 
     /**
      * 根据Id获取散拼产品详细信息
@@ -95,6 +95,26 @@ public class ProductService {
         Vo<ProductInfo> vo = new Vo<ProductInfo>(ProductInfo.class);
         ProductInfo inject = vo.inject(productFdo, pdtFdo);
         return inject;
+    }
+
+    /**
+     * 进入订阅页面专用
+     * 
+     * @param productId
+     * @return
+     */
+    public ProductInfo getProductForBook(long productId) {
+        TourProductResult productResult = tourProductFacade.goAgentsBooking(productId);
+        if (productResult.isSuccess()) {
+            TourProductFdo productFdo = productResult.getTourProductBean();
+            
+            Vo<ProductInfo> vo = new Vo<ProductInfo>(ProductInfo.class);
+            ProductInfo info = vo.inject(productFdo);
+            info.setAdultPrice(productFdo.getAuditPrice());
+            return info;
+        }
+        return null;
+
     }
 
     /**
