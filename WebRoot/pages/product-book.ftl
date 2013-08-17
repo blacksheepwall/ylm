@@ -20,10 +20,10 @@
             <li><strong>线路名称：</strong>${pdt.title}</li>
             <li><strong>出发日期：</strong>
               <select class="date-select">
-                <option>5-13   周一  YCJIS58PA130513B  剩余8个</option>
-                <option>5-13   周一  YCJIS58PA130513B  剩余8个</option>
-                <option>5-13   周一  YCJIS58PA130513B  剩余8个</option>
-                <option>5-13   周一  YCJIS58PA130513B  剩余8个</option>
+              	<#list dateList as it>
+              	<option value="${it.key}">${it.value}</option>
+              	</#list>
+                
               </select>
             </li>
             <li class="clearfix">

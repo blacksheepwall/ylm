@@ -1,7 +1,11 @@
 package com.youlema.sales.meta;
 
 import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
+import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
 import com.youlema.sales.utils.VoField;
 
 /**
@@ -51,6 +55,16 @@ public class ProductInfo {
     private int bookNubmer;
     @VoField("getImgUrl")
     private String imageUrl;
+    @VoField("getTourProductFdos")
+    private List<TourProductFdo> productFdos;
+
+    public List<TourProductFdo> getProductFdos() {
+        return productFdos;
+    }
+
+    public void setProductFdos(List<TourProductFdo> productFdos) {
+        this.productFdos = productFdos;
+    }
 
     public long getProductId() {
         return productId;

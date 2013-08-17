@@ -88,12 +88,16 @@ public class ProductService {
      */
     public ProductInfo getProduct(long productId) {
         ShowProductFdo productFdo = facadeService.getShowProductFdo(productId);
-        TourProductFdo pdtFdo = facadeService.getProduct(productId);
+
+        TourProductResult result = tourProductFacade.getById(productId);
+        TourProductFdo pdtFdo = result.getTourProductBean();
+
         if (productFdo == null || pdtFdo == null) {
             return null;
         }
         Vo<ProductInfo> vo = new Vo<ProductInfo>(ProductInfo.class);
         ProductInfo inject = vo.inject(productFdo, pdtFdo);
+        inject.setProductFdos(pdtFdo.getTourProductFdos());
         return inject;
     }
 
@@ -107,9 +111,9 @@ public class ProductService {
         TourProductResult productResult = tourProductFacade.goAgentsBooking(productId);
         if (productResult.isSuccess()) {
             TourProductFdo productFdo = productResult.getTourProductBean();
-            
+
             Vo<ProductInfo> vo = new Vo<ProductInfo>(ProductInfo.class);
-            ProductInfo info = vo.inject(productFdo);
+            ProductInfo info = vo.inject(productFdo, productResult);
             info.setAdultPrice(productFdo.getAuditPrice());
             return info;
         }

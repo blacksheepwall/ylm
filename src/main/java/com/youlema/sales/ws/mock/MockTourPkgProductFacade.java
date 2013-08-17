@@ -36,11 +36,6 @@ public class MockTourPkgProductFacade implements TourPkgProductFacade {
         return null;
     }
 
-    @Override
-    public TourPkgProductResult findTourPkgProductById(Long arg0) {
-        // TODO Auto-generated method stub
-        return null;
-    }
 
 
 }
