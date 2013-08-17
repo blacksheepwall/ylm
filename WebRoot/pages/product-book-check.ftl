@@ -1,5 +1,5 @@
 <#-- 预订信息核对页 -->
-<#assign page_name="order-check"/>
+<#assign page_name="product-book-check"/>
 <#include "common/module.ftl"/>
 <#escape x as x?html>
   <@html title="预订信息核对">
