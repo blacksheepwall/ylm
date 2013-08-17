@@ -59,6 +59,10 @@ define(['./util'], function(Util) {
       'url': '/product/book',
       'data': $.toJSON({
         'id': id,
+        'startDate': $startDate.val(),
+        'name': $contact.val(),
+        'phone': $phone.val(),
+        'description': $desc.val(),
         'customerList': data.list
       }),
       'done': function(data) {
