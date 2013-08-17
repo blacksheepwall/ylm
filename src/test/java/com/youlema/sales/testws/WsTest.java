@@ -25,7 +25,7 @@ public class WsTest extends TestCase {
 
         SearchProductFdo searchFdo = new SearchProductFdo();
         searchFdo.setProductMainTypeCode("GN");
-	    PlanSearchResult plan = facade.searchPlan(null, searchFdo);
+	    PlanSearchResult plan = facade.searchPlan(searchFdo);
 	    PageList<TourPlanSearchFdo> pageList = plan.getPageList();
 	    System.out.println(pageList.size());
 	}
