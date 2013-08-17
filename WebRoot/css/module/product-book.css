@@ -1,248 +1,44 @@
-/*start*/
-.flow-steps {
-  height: 32px;
+.order-info li {
   margin-bottom: 10px;
 }
 
-.flow-steps .num2 li {
-  padding-right: 19px;
-  width: 461px;
+.order-info .people-num {
+  margin-left: 200px;
 }
 
-.flow-steps .num3 li {
-  padding-right: 19px;
-  width: 301px;
+.order-info .people-num input {
+  width: 30px;
 }
 
-.flow-steps .num4 li {
-  padding-right: 19px;
-  width: 226px;
+.order-info .desc-name {
+  vertical-align: top;
 }
 
-.flow-steps .num6 li {
-  padding-right: 19px;
-  width: 141px;
-}
-
-.flow-steps li {
-  float: left;
-  position: relative;
-  height: 32px;
-  line-height: 32px;
-  font-size: 16px;
-  font-weight: bold;
-  font-family: "microsoft yahei";
-  color: #fff;
-  background: url("../../img/flow-steps.png") no-repeat 100% 0 #c3c3c3;
-}
-
-.flow-steps li span {
-  display: block;
-  padding-left: 30px;
-}
-
-.flow-steps li.crt {
-  background-color: #4a8bcc;
-}
-
-.flow-steps li.prv {
-  background-position: right -32px;
-}
-
-.flow-steps li.crt .num {
-  color: #bce9bc;
-}
-
-.flow-steps li.crt .first {
-  background-color: #4a8bcc;
-  background-position: -14px -96px;
-}
-
-.flow-steps li .first {
-  background: url("../../img/flow-steps.png") no-repeat -14px -64px #c3c3c3;
-}
-
-.flow-steps li.last {
-  background: url("../../img/flow-steps.png") no-repeat right -128px #c3c3c3;
-}
-
-.flow-steps li.crt.last {
-  background-color: #4a8bcc;
-  background-position: right -160px;
-}
-
-.flow-steps li .num {
-  position: absolute;
-  left: 10px;
-  font-size: 25px;
-}
-
-/*end*/
-.product-name {
-  margin-bottom: 10px;
-  font-family: "microsoft yahei";
-  font-size: 14px;
-}
-
-.hl14 {
-  padding: 4px 10px;
-  font-size: 14px;
-}
-
-.mod-sub-title {
-  margin-top: 0;
-  padding-bottom: 4px;
-  font-size: 16px;
-  font-family: "microsoft yahei";
-  border-bottom: 1px dotted #ccc;
-}
-
-.form-item {
-  margin-bottom: 25px;
-}
-
-.form-item .detail-list li {
-  float: left;
-  width: 300px;
-  line-height: 24px;
-  margin-right: 20px;
-}
-
-.form-body .date-member {
-  margin-bottom: 10px;
-}
-
-.form-body .date-member li {
-  line-height: 24px;
-}
-
-.form-body .text-warning {
-  font-size: 14px;
-}
-
-.form-body select {
-  width: auto;
-}
-
-.form-body .pro-name {
-  position: relative;
-}
-
-.form-body .pro-name .popover.bottom {
-  margin-top: 25px;
-}
-
-.form-body .pro-name .popover.bottom .arrow {
-  left: 30px;
-}
-
-.book-side-info {
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px dotted #ccc;
-}
-
-.book-side-info li {
-  line-height: 24px;
-}
-
-.book-side-total {
-  color: red;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.step1 .edit-info {
-  margin-left: 10px;
-}
-
-.step2 .people li {
-  float: left;
-  width: 215px;
-  min-height: 35px;
-  margin: 0 10px 10px 0;
-}
-
-.step2 .people li input[type="text"] {
-  width: 135px;
-}
-
-.step2 .people .radio {
-  font-size: 12px;
-}
-
-.step2 .people .id-card {
-  width: 400px;
-}
-
-.step2 .people .id-card input[type="text"] {
-  width: 300px;
-}
-
-.step2 .people textarea {
-  width: 660px;
+.order-info .desc-value {
+  width: 600px;
   height: 100px;
 }
 
-.step2 .form-item {
-  padding: 4px 10px;
-  border: 1px solid #ccc;
-  /*border-top: 1px solid rgba(0, 0, 0, 0.1);*/
-  /*background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f9f9f9), to(#e4e4e4));*/
-}
-
-.step4 .success-title {
-  margin: 20px 0;
-  font-size: 20px;
-  font-family: "microsoft yahei";
-}
-
-.step4 .action {
-  margin: 20px 0;
-}
-
-.action .btn {
-  margin-right: 10px;
-}
-
-.select-flight-modal {
-  width: 700px;
-}
-
-.select-flight-modal h3, .select-hotel-modal h3 {
-  font-size: 14px;
-}
-
-.select-flight-modal .flight-body {
-  margin-bottom: 10px;
-  padding-bottom: 5px;
-  border-bottom: 1px dotted #ccc;
-}
-
-.select-flight-modal .flight-info {
-  float: left;
-  width: 500px;
-}
-
-.select-flight-modal .flight-price {
-  float: right;
-  width: 150px;
+.order-action {
   text-align: center;
 }
 
-.select-flight-modal .flight-price .value {
-  color: #ff0000;
-  font-size: 14px;
+.order-info select {
+  width: auto !important;
 }
 
-.select-hotel-modal {
-  width: 800px;
+.order-info .name {
+  width: 100px;
 }
 
-.select-hotel-modal .hl-red {
-  color: #ff0000;
+.order-info .idcard {
+  width: 150px;
 }
 
-.select-hotel-modal select {
-  width: auto;
+.order-info .phone {
+  width: 100px;
+}
+
+.order-info .price {
+  width: 100px;
 }

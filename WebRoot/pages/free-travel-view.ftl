@@ -104,7 +104,7 @@
               <div class="clearfix">
                 <div class="people-num">成人 <input type="text" value="1"></div>
                 <div class="people-num">小孩成人 <input type="text" value="0"></div>
-                <a href="/main/product-book" class="btn btn-primary" type="button">立刻预订</a>
+                <a href="/main/free-product-book?productId=1" class="btn btn-primary" type="button">立刻预订</a>
               </div>
             </div>
           </div>

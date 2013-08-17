@@ -241,10 +241,7 @@
           </div>
           <div class="product-more">
             <div class="text-center">
-              <span class="label label-info">蜜月</span>
-              <span class="label label-info">亲子</span>
-              <span class="label label-info">度假</span>
-              <div>{{topic}}</div>
+              <span>{{topic}}</span>
             </div>
             <div class="product-price">
               <strong class="price-title">价格：</strong><span class="price-value">￥{{price}}起</span>
