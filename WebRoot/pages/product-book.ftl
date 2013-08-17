@@ -27,13 +27,17 @@
             </li>
             <li class="clearfix">
               <div class="pull-left"><strong>成人价格：</strong> 0/${pdt.adultPrice}</div>
-              <div class="pull-left people-num"><strong>人数：</strong> <input type="text" id="J_adult_num" value="1"></div>
+              <div class="pull-left people-num"><strong>人数：</strong> <input type="text" id="J_adult_num" value="1">
+              </div>
             </li>
             <li class="clearfix">
               <div class="pull-left"><strong>小孩价格：</strong> 0/${pdt.childPrice!'NaN'}</div>
-              <div class="pull-left people-num"><strong>人数：</strong> <input type="text" id="J_child_num" value="0"></div>
+              <div class="pull-left people-num"><strong>人数：</strong> <input type="text" id="J_child_num" value="0">
+              </div>
             </li>
-            <li><strong>联系人：</strong> <input type="text" id="J_contact"> <strong> 手机号：</strong> <input type="text" id="J_phone"></li>
+            <li><strong>联系人：</strong> <input type="text" id="J_contact"> <strong> 手机号：</strong> <input type="text"
+                                                                                                       id="J_phone">
+            </li>
             <li><strong class="desc-name">订单备注：</strong> <textarea class="desc-value" id="J_desc"></textarea></li>
           </ul>
           <div class="add-customer">
@@ -127,7 +131,8 @@
       <#macro customer_row isAdult=true>
       <tr>
         <td>
-          <span class="j-isadult" data-isAdult="<#if isAdult>true<#else>false</#if>"><#if isAdult>大人<#else>小孩</#if></span>
+          <span class="j-isadult" data-isAdult="<#if isAdult>true<#else>false</#if>"><#if isAdult>大人<#else>
+            小孩</#if></span>
         </td>
         <td>
           <input type="text" class="name j-name">
@@ -139,13 +144,13 @@
           </select>
         </td>
         <td>
-          <select class="j-idcard-type">
-            <option>身份证</option>
-            <option>护照</option>
-            <option>港澳通行证</option>
-            <option>台湾通行证</option>
+          <select class="j-paper-type">
+            <option value="1">身份证</option>
+            <option value="2">护照</option>
+            <option value="3">港澳通行证</option>
+            <option value="4">台湾通行证</option>
           </select>
-          <input type="text" class="idcard j-idcard-value">
+          <input type="text" class="idcard j-paper-value">
         </td>
         <td>
           <input type="text" class="phone j-phone">
@@ -163,7 +168,7 @@
             </select>
           </div>
           <div>
-            <strong>保险：</strong>20.00
+            <strong>保险：</strong>${pdt.bxPrice!20}
             <select class="j-bx">
               <option>0</option>
               <option>1</option>
@@ -192,7 +197,7 @@
           {{#isMale}}男{{/isMale}}{{^isMale}}女{{/isMale}}
         </td>
         <td>
-          {{idCardType}}：{{idCardValue}}
+          {{paperName}}：{{paperValue}}
         </td>
         <td>
           {{phone}}
@@ -212,6 +217,8 @@
     </script>
     <script>
       id = '${pdt.productId}';
+      dfcPrice = '${pdt.priceOfSingleRoom!100}';
+      bxPrice = '${pdt.bxPrice!20}';
     </script>
     </@body>
   </@html>

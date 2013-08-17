@@ -81,6 +81,15 @@ define(['dateTimePicker'], function() {
     return result;
   }
 
+  function _getPaperType(type) {
+    return {
+      '1': '身份证',
+      '2': '护照',
+      '3': '港澳通行证',
+      '4': '台湾通行证'
+    }[type];
+  }
+
   return {
     get: _ajax,
     post: function(options) {
@@ -89,6 +98,7 @@ define(['dateTimePicker'], function() {
     },
     clearForm: _clearForm,
     enableDateTimePicker: _initDateTimePicker,
-    validDateTimePicker: _validDateTimePicker
+    validDateTimePicker: _validDateTimePicker,
+    paperType: _getPaperType
   }
 });

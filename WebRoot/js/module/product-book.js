@@ -102,12 +102,15 @@ define(['./util'], function(Util) {
         'name': $c.find('.j-name').val(),
         'isMale': $c.find('.j-gender').val() == '0',
         'gender': $c.find('.j-gender').val(),
-        'idCardType': $c.find('.j-idcard-type').val(),
-        'idCardValue': $c.find('.j-idcard-value').val(),
+        'paperType': $c.find('.j-paper-type').val(),
+        'paperName': Util.paperType($c.find('.j-paper-type').val()),
+        'paperValue': $c.find('.j-paper-value').val(),
         'phone': $c.find('.j-phone').val(),
         'price': $c.find('.j-price').val(),
         'dfcCount': $c.find('.j-dfc').val(),
-        'bxCount': $c.find('.j-bx').val()
+        'bxCount': $c.find('.j-bx').val(),
+        'dfcPrice': dfcPrice,
+        'bxPrice': bxPrice
       });
     });
     return {'list': data};
