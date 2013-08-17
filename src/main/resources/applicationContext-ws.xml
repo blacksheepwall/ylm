@@ -65,7 +65,7 @@
 	<bean id="TourPlanSearchFacadeFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
 		<property name="serviceClass" value="com.yolema.tbss.ext.facade.TourPlanSearchFacade" />
 		<property name="address"
-			value="http://183.129.158.179:8080/tbss/services/tourPlanSearch" />
+			value="http://183.129.158.179:8080/tbss/services/tourplansearch" />
 	</bean>
 	
 	
@@ -89,4 +89,15 @@
 		<property name="address"
 			value="http://183.129.158.179:8080/tbss/services/ordercustom" />
 	</bean>
+	
+
+	<bean id="TourPkgProductFacade" class="com.yolema.tbss.ext.facade.TourPkgProductFacade"
+		factory-bean="TourPkgProductFacadeFactory" factory-method="create" />
+
+	<bean id="TourPkgProductFacadeFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+		<property name="serviceClass" value="com.yolema.tbss.ext.facade.TourPkgProductFacade" />
+		<property name="address"
+			value="http://183.129.158.179:8080/tbss/services/tourpkgproduct" />
+	</bean>
+	
 </beans>

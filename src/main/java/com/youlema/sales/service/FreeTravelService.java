@@ -22,7 +22,7 @@ import com.youlema.sales.meta.SearchResult;
 @Service
 public class FreeTravelService {
 
-    @Resource(name="MockTourPkgProductFacade")
+    @Resource(name="TourPkgProductFacade")
     private TourPkgProductFacade tourPkgProductFacade;
     /**
      * 查询自由行产品列表

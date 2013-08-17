@@ -8,8 +8,8 @@ import java.util.List;
 import com.youlema.sales.utils.VoField;
 
 public class PlanItem {
-    @VoField("getSpProductId")
-    private long productId;
+    @VoField("getBusinessId")
+    private String productId;
     @VoField("getBusinessName")
     private String title;
     @VoField("getMinPrice")
@@ -101,11 +101,11 @@ public class PlanItem {
         this.leaveCity = leaveCity;
     }
 
-    public long getProductId() {
+    public String getProductId() {
         return productId;
     }
 
-    public void setProductId(long productId) {
+    public void setProductId(String productId) {
         this.productId = productId;
     }
 

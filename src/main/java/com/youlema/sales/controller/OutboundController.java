@@ -48,7 +48,6 @@ public class OutboundController {
         ProductService.QueryCondition condition = new QueryCondition();
         // 4是出境游
         condition.setProductType(4);
-        condition.setQueryText("杭州");
         List<ProductType> citys = productTypeService.listProductTypes();
         SearchResult<PlanItem> result = productService.queryPlan(condition, 1, 20);
         SearchResult<ProductItem> pdtResult = productService.queryProduct(condition, 1, 20);
@@ -128,9 +127,6 @@ public class OutboundController {
             String startDateOrder, String endDate) {
         ProductService.QueryCondition condition = new QueryCondition();
         // 4是出境游
-        if (StringUtils.isBlank(queryText)) {
-            condition.setQueryText("杭州");
-        }
         if (StringUtils.isNotBlank(priceOrder)) {
             condition.setPriceOrderDesc("desc".equalsIgnoreCase(priceOrder));
         }

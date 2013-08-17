@@ -16,7 +16,7 @@ import com.youlema.sales.meta.SearchResult;
 
 @Service
 public class ProductFacadeService {
-    @Resource(name = "MockTourProductFacade")
+    @Resource(name = "TourProductFacade")
     private TourProductFacade tourProductFacade;
 
     public TourProductFdo getProduct(long productId) {

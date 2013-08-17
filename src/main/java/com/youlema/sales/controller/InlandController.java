@@ -36,7 +36,6 @@ public class InlandController {
     public String main(ModelMap modelMap) {
         ProductService.QueryCondition condition = new QueryCondition();
         // 1是国内游
-        condition.setQueryText("杭州");
         condition.setProductType(1);
         List<ProductType> citys = productTypeService.listProductTypes();
         SearchResult<PlanItem> result = productService.queryPlan(condition, 1, 20);
@@ -116,9 +115,6 @@ public class InlandController {
             String priceRange, String traffic, String startDate, String typeCode, String endDate, String priceOrder,
             String startDateOrder) {
         ProductService.QueryCondition condition = new QueryCondition();
-        if (StringUtils.isBlank(queryText)) {
-            condition.setQueryText("旅游");
-        }
         if (StringUtils.isNotBlank(priceOrder)) {
             condition.setPriceOrderDesc("desc".equalsIgnoreCase(priceOrder));
         }
