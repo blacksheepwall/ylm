@@ -44,8 +44,7 @@ public class ProductController {
     private OrderService orderService;
     @Resource
     private UserService userService;
-    
-    
+
     /**
      * 产品详情页
      * 
@@ -101,18 +100,16 @@ public class ProductController {
 
     @RequestMapping("/book")
     public void book(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
         String jsonStr = readString(request);
         OrderSubmitMeta orderBean = JSON.parseObject(jsonStr, OrderSubmitMeta.class);
         AgentsAccount account = userService.getCurrentAccount();
-        orderService.book(orderBean, null);
-        JsonUtils.writeToJson(true, response);
-
+        String book = orderService.book(orderBean, account);
+        JsonUtils.writeToJson(book, response);
     }
 
     private static String readString(HttpServletRequest request) throws IOException {
         ServletInputStream in = request.getInputStream();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(in,"utf-8"));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(in, "utf-8"));
         StringBuilder builder = new StringBuilder(500);
         while (true) {
             String string = reader.readLine();

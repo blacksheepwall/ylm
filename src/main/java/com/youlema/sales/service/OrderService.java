@@ -7,6 +7,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import net.sf.cglib.beans.BeanCopier;
+
 import org.apache.commons.lang.time.DateUtils;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,7 @@ import com.yolema.tbss.ext.facade.fdo.order.SalesBargainFdo;
 import com.yolema.tbss.ext.facade.fdo.product.ShowProductFdo;
 import com.yolema.tbss.ext.facade.fdo.sys.DictionaryFdo;
 import com.yolema.tbss.ext.facade.result.OrderBillResult;
+import com.youlema.sales.mapper.meta.AgentsAccount;
 import com.youlema.sales.meta.ContractItemVo;
 import com.youlema.sales.meta.CustomerVo;
 import com.youlema.sales.meta.LeaveStatus;
@@ -302,10 +305,29 @@ public class OrderService {
         return bo;
     }
 
-    public boolean book(OrderSubmitMeta orderBean, AgentsAccountFdo agentsAcc) {
+    /**
+     * 预定订单
+     * 
+     * @param orderBean
+     * @param agentsAcc
+     * @return
+     */
+    public String book(OrderSubmitMeta orderBean, AgentsAccount agentsAcc) {
         OrderBillFdo fdo = toBillFdo(orderBean);
-        OrderBillResult billResult = this.orderBillFacade.agentsBooking(fdo, agentsAcc);
-        return billResult.isSuccess();
+        AgentsAccountFdo accFdo = toAccountFdo(agentsAcc);
+        OrderBillResult billResult = this.orderBillFacade.agentsBooking(fdo, accFdo);
+        boolean success = billResult.isSuccess();
+        if(success){
+            return "预定成功";
+        }
+        return billResult.getResultMsg();
+    }
+
+    private static AgentsAccountFdo toAccountFdo(AgentsAccount agentsAcc) {
+        AgentsAccountFdo fdo = new AgentsAccountFdo();
+        BeanCopier beanCopier = BeanCopier.create(AgentsAccount.class, AgentsAccountFdo.class, false);
+        beanCopier.copy(agentsAcc, fdo, null);
+        return fdo;
     }
 
     private OrderBillFdo toBillFdo(OrderSubmitMeta orderBean) {
