@@ -6,6 +6,7 @@
 <script src="/js/base/bootstrap.js"></script>
 <script src="/js/base/underscore.js"></script>
 <script src="/js/base/handlebars.js"></script>
+<script src="/js/base/messenger.js"></script>
 <script>
   tbds = {
     cfg: {

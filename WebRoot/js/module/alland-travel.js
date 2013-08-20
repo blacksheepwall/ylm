@@ -55,6 +55,7 @@ define(['./util', 'moment', 'pagination'], function(Util, moment) {
       $this.tab('show');
       $contents.hide();
       $contents.eq(mod.tabIndex).show();
+      $sortContainer.find('i').removeAttr('class');
       _queryList({});
     });
   }
@@ -94,6 +95,10 @@ define(['./util', 'moment', 'pagination'], function(Util, moment) {
       'singleton': true,
       'url': mod.tabIndex ? queryPdtsUrl : queryUrl,
       'data': data,
+      'beforeSend': function() {
+        $groupContainer.add($productContainer).empty();
+        $pagination.jqPagination({'count': 0});
+      },
       'done': function(data) {
         $pagination.jqPagination({'count': data.count || 0});
         if (mod.tabIndex) {

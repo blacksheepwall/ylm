@@ -311,7 +311,7 @@
       </tr>
       {{/each}}
       {{^each this}}
-      <tr colspan="7">没有数据</tr>
+      <tr><td colspan="7">没有数据</td></tr>
       {{/each}}
     </script>
     </@body>

@@ -45,12 +45,12 @@
               <li><strong>联系人：</strong> <a href="javascript:;">${order.contact}</a><#noescape ><@user_card_popover name="${order.contact}"></@user_card_popover></#noescape></li>
               <li><strong>联系电话：</strong>${order.contactMobile}</li>
               <li><strong>线路名称：</strong>${order.productName}</li>
-              <li><strong>团队编号：</strong>${order.teamNumber}</li>
+              <li><strong>团队编号：</strong>${order.teamNumber!0}</li>
               <li><strong>出发日期：</strong><#if order.leaveDate??>${order.leaveDate?string('yyyy-MM-dd')}</#if></li>
               <li>
-                <strong>产品经理：</strong> <a href="javascript:;">${order.productManager}</a><#noescape ><@user_card_popover name="${order.productManager}"></@user_card_popover></#noescape>
+                <strong>产品经理：</strong> <a href="javascript:;">${order.productManager!''}</a><#noescape ><@user_card_popover name="${order.productManager!''}"></@user_card_popover></#noescape>
               </li>
-              <li><strong>团队协调：</strong> <a href="javascript:;">${order.coordinator}</a><#noescape ><@user_card_popover name="${order.coordinator}"></@user_card_popover></#noescape></li>
+              <li><strong>团队协调：</strong> <a href="javascript:;">${order.coordinator!''}</a><#noescape ><@user_card_popover name="${order.coordinator!''}"></@user_card_popover></#noescape></li>
               <li><strong>预订人数：</strong>${order.subscribeCount}</li>
               <li><strong>订单状态：</strong>${order.status.value}</li>
               <li><strong>锁定状态：</strong>${order.lockStatus}</li>
