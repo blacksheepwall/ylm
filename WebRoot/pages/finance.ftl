@@ -17,17 +17,17 @@
           <div class="mod-body clearfix">
             <h5 class="mod-title">应付款</h5>
             <div class="control-group">
-              <label class="control-label">未付款总额： 10000.00</label>
-              <label class="control-label">账期内未付款： 80000.00</label>
-              <label class="control-label">账期外未付款： 20000.00</label>
+              <label class="control-label">未付款总额： ${finance.unpay}</label>
+              <label class="control-label">账期内未付款：  ${finance.unpayIndays}</label>
+              <label class="control-label">账期外未付款：  ${finance.unpayOutdays}</label>
             </div>
           </div>
           <div class="mod-body clearfix">
             <h5 class="mod-title">人数统计</h5>
             <div class="control-group">
-              <label class="control-label">累计收客人数：4320</label>
-              <label class="control-label">本年收客人数：4320</label>
-              <label class="control-label">往年收客人数：4320</label>
+              <label class="control-label">累计收客人数：${finance.totalCustCount}</label>
+              <label class="control-label">本年收客人数：${finance.custCountThisYear}</label>
+              <label class="control-label">往年收客人数：${finance.custCountFormerYear}</label>
             </div>
           </div>
           <div class="mod-body clearfix">
@@ -59,28 +59,31 @@
               </tr>
               </thead>
               <tbody>
+              <#list remitResult.resultList as it>
               <tr>
                 <td>
-                  1
+                  ${it.remitNo}
                 </td>
                 <td>
-                  1
+                  ${it.remitAmount}
                 </td>
                 <td>
-                  1
+                  ${it.remitMemo}
                 </td>
                 <td>
+                  <#if it.remitDate??>${it.remitDate?string('yyyy-MM-dd')}</#if>
                 </td>
                 <td>
-                  1
+                  ${it.status}
                 </td>
                 <td>
-                  1
+                  <#if it.checkDate??>${it.checkDate?string('yyyy-MM-dd')}</#if>
                 </td>
                 <td>
-                  1
+                  <a href="/finance/remit/detail/?id=${it.id}">查看</a>
                 </td>
               </tr>
+              </#list>
               </tbody>
             </table>
         </div>

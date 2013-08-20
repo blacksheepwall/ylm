@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration>
-	<classPathEntry location="D:/LIBS_HOME/JDBC_DRIVER/mysql.jar" />
+	<classPathEntry location="D:/libs/mysql-connector-java-5.1.21-bin.jar" />
 	<context id="context1">
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
 			connectionURL="jdbc:mysql://183.129.158.179:6080/tbss_test"
@@ -13,7 +13,7 @@
 		<javaClientGenerator targetPackage="com.youlema.sales.mapper"
 			targetProject="youlema-sales" type="XMLMAPPER" />
 
-		<table schema="tbss_test" tableName="PRODUCT_TYPE"
-			domainObjectName="ProductType" />
+		<table schema="tbss_test" tableName="AGENTS"
+			domainObjectName="Agents" />
 	</context>
 </generatorConfiguration>

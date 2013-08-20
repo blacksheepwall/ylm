@@ -9,6 +9,8 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.yolema.settlement.ext.facade.received.RemittanceFormFacade;
+import com.yolema.settlement.ext.facade.result.RemittanceFormBeanResult;
 import com.yolema.tbss.ext.facade.TourPlanSearchFacade;
 import com.yolema.tbss.ext.facade.fdo.plan.TourPlanSearchFdo;
 import com.yolema.tbss.ext.facade.fdo.product.SearchProductFdo;
@@ -20,13 +22,22 @@ import com.youlema.tools.jee.pages.PageList;
 public class WsTest extends TestCase {
     @Resource
     TourPlanSearchFacade facade;
-	@Test
-	public void testHello() throws Exception {
+    @Resource
+    RemittanceFormFacade remittanceFormFacade;
 
-        SearchProductFdo searchFdo = new SearchProductFdo();
-        searchFdo.setProductMainTypeCode("GN");
-	    PlanSearchResult plan = facade.searchPlan(searchFdo);
-	    PageList<TourPlanSearchFdo> pageList = plan.getPageList();
-	    System.out.println(pageList.size());
-	}
+    @Test
+    public void testHello2() throws Exception {
+        RemittanceFormBeanResult byId = remittanceFormFacade.getById(111L);
+        assertTrue(byId.isSuccess());
+    }
+
+    @Test
+    public void testHello() throws Exception {
+
+//        SearchProductFdo searchFdo = new SearchProductFdo();
+//        searchFdo.setProductMainTypeCode("GN");
+//        PlanSearchResult plan = facade.searchPlan(searchFdo);
+//        PageList<TourPlanSearchFdo> pageList = plan.getPageList();
+//        System.out.println(pageList.size());
+    }
 }

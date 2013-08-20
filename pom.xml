@@ -156,7 +156,6 @@
 			<groupId>com.yolema.tbss</groupId>
 			<artifactId>settlement-ext-facade</artifactId>
 			<version>1.2.5-TBDS-SNAPSHOT</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.youlema.tools</groupId>

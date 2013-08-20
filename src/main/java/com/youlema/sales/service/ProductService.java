@@ -110,7 +110,6 @@ public class ProductService {
         TourProductResult productResult = tourProductFacade.goAgentsBooking(productId);
         if (productResult.isSuccess()) {
             TourProductFdo productFdo = productResult.getTourProductBean();
-
             Vo<ProductInfo> vo = new Vo<ProductInfo>(ProductInfo.class);
             ProductInfo info = vo.inject(productFdo);
             info.setAdultPrice(productFdo.getAuditPrice());

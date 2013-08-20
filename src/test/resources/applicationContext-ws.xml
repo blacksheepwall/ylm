@@ -15,7 +15,7 @@
     http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 	<bean id="authHeader" class="com.yolema.common.ws.interceptor.AuthHeader">
-		<property name="content" value="${token}" />
+		<property name="content" value="youlema_WS_TOKEN" />
 	</bean>
 	<bean id="clientSoapAuth"
 		class="com.yolema.common.ws.interceptor.WebserviceAuthOutInterceptor">
@@ -86,4 +86,14 @@
 			value="http://183.129.158.179:8080/tbss/services/tourPlanSearch" />
 	</bean>
 
+	<bean id="RemittanceFormFacade"
+		class="com.yolema.settlement.ext.facade.received.RemittanceFormFacade"
+		factory-bean="RemittanceFormFacadeFactory" factory-method="create" />
+
+	<bean id="RemittanceFormFacadeFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+		<property name="serviceClass"
+			value="com.yolema.settlement.ext.facade.received.RemittanceFormFacade" />
+		<property name="address"
+			value="http://183.129.158.179:8080/tbss/services/remittanceform" />
+	</bean>
 </beans>

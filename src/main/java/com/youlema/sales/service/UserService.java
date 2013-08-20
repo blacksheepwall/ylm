@@ -10,6 +10,8 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Service;
 
 import com.youlema.sales.mapper.AgentsAccountMapper;
+import com.youlema.sales.mapper.AgentsMapper;
+import com.youlema.sales.mapper.meta.Agents;
 import com.youlema.sales.mapper.meta.AgentsAccount;
 import com.youlema.sales.mapper.meta.AgentsAccountExample;
 import com.youlema.sales.mapper.meta.AgentsAccountExample.Criteria;
@@ -21,6 +23,8 @@ import com.youlema.sales.meta.UserRole;
 public class UserService {
     @Resource
     private AgentsAccountMapper accountMapper;
+    @Resource
+    private AgentsMapper agentsMapper;
 
     public User getUser(String name, String password) {
         AgentsAccountExample example = new AgentsAccountExample();
@@ -53,14 +57,22 @@ public class UserService {
 
     public User getCurrentUser() {
         Subject subject = SecurityUtils.getSubject();
-        if(subject.getPrincipal() == null){
-        	return getUser("", "");
+        if (subject.getPrincipal() == null) {
+            return getUser("", "");
         }
         return (User) subject.getPrincipal();
     }
 
     public AgentsAccount getCurrentAccount() {
         return getCurrentUser().getAccount();
+    }
+
+    public Agents getCurrentAgents() {
+        AgentsAccount account = getCurrentAccount();
+        if (account == null) {
+            return null;
+        }
+        return this.agentsMapper.selectByPrimaryKey(account.getAgentsId());
     }
 
     public List<ATag> getShortcuts() {
@@ -80,8 +92,10 @@ public class UserService {
     public void updateAccount(AgentsAccount account) {
         this.accountMapper.updateByPrimaryKey(account);
     }
+
     /**
      * 更新密码
+     * 
      * @param agentsAccountId
      * @param newPass
      * @return
