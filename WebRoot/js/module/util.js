@@ -11,7 +11,8 @@ define(['dateTimePicker'], function() {
         'type': type,
         'url': url,
         'data': options.data,
-        'dataType': 'json'
+        'dataType': 'json',
+        'beforeSend': options.beforeSend
       };
     options.singleton && mod[url] && mod[url].abort();
     mod[url] = $.ajax(_options).done(function(result) {
@@ -22,7 +23,12 @@ define(['dateTimePicker'], function() {
         alert(result.desc || '');
       }
     }).fail(function(result) {
-        console && console.error && console.error(result || '');
+        $.globalMessenger().post({
+          message: JSON.stringify(result),
+          type: 'error'
+        });
+      }).always(function() {
+        $.globalMessenger().hideAll();
       });
   }
 
@@ -94,6 +100,11 @@ define(['dateTimePicker'], function() {
     get: _ajax,
     post: function(options) {
       options.type = 'post';
+      $.globalMessenger().post({
+        message: '数据加载中...',
+        showCloseButton: true,
+        auto: false
+      });
       _ajax(options);
     },
     clearForm: _clearForm,
