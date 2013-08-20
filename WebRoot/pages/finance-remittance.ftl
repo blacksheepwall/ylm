@@ -4,6 +4,7 @@
 <#escape x as x?html>
   <@html title="汇款查看">
     <@body class="finance-center">
+    <link rel="stylesheet" type="text/css" href="/js/base/jquery.jqGrid/css/ui.jqgrid.css" />
     <div class="main-body">
       <div class="row-fluid">
         <ul class="breadcrumb pull-left">

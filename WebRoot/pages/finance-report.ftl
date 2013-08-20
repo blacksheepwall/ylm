@@ -29,7 +29,7 @@
               <button class="btn btn-success btn-small" type="button"><i class="icon-search"></i> 确定</button>
               <button class="btn btn-small" type="button"><i class="icon-download"></i> 下载报表</button>
             </div>
-            <table class="table table-bordered">
+            <table class="tree-view table table-bordered">
               <thead>
               <tr>
                 <th>
@@ -54,7 +54,30 @@
               </thead>
               <tbody>
               <tr>
+                <td colspan="6">
+                  出境线路 <a id="J_chujing" href="javascript:;">展开</a>
+                  <a class="view-detail" href="/main/finance-year-report">查看</a>
+                </td>
+              </tr>
+              <tr>
                 <td>
+                  港澳台线路 <a id="J_gangaotai" href="javascript:;">展开</a>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                  <a href="/main/finance-year-report">查看</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  国内线路 <a id="J_guonei" href="javascript:;">展开</a>
                 </td>
                 <td>
                 </td>

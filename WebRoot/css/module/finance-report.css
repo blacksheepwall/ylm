@@ -1,1 +1,6 @@
 @import "finance-general-report.css";
+
+.tree-view .view-detail {
+  float: right;
+  margin-right: 44px;
+}

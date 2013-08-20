@@ -33,7 +33,9 @@
       'placeholder': 'base/jquery.placeholder',
       'marquee': 'base/marquee',
       'treetable': 'base/jquery.treetable',
-      'moment': 'base/moment'
+      'moment': 'base/moment',
+      'jstree': 'base/jstree/jquery.jstree',
+      'jqgrid': 'base/jqGrid/js/jquery.jqGrid.src'
     },
     urlArgs: 'v=' /*+ (+new Date()) */ + '${cfg_version_js}'
   });
