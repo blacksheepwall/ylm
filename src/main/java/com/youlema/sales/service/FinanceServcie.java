@@ -51,6 +51,20 @@ public class FinanceServcie {
     }
 
     /**
+     * 获取汇款单明细
+     * 
+     * @param id
+     * @return
+     */
+    public RemittanceFormFdo getRemittFdoById(long id) {
+        RemittanceFormBeanResult byId = remittanceFormFacade.getById(id);
+        if (byId.isSuccess()) {
+            return byId.getRemittanceFormFdo();
+        }
+        return null;
+    }
+
+    /**
      * 获取未核销汇款
      * 
      * @param agents
@@ -58,7 +72,7 @@ public class FinanceServcie {
      */
     public SearchResult<RemitItem> readUnsettleRemits(Agents agents) {
         RemittanceFormFdo fdo = new RemittanceFormFdo();
-        String agentsCode = agents == null ? "001" : agents.getAgentsCode();
+        String agentsCode = agents.getAgentsCode();
         fdo.setClaimDepart(agentsCode);
         fdo.setRemittanceStatus("2");
         RemittanceFormBeanResult result = remittanceFormFacade.queryAgentPageList(fdo);

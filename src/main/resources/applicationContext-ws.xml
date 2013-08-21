@@ -144,4 +144,21 @@
 		</property>
 	</bean>
 
+
+
+	<bean id="AgentsFacade" class="com.yolema.tbss.ext.facade.AgentsFacade"
+		factory-bean="AgentsFacadeFactory" factory-method="create">
+	</bean>
+
+	<bean id="AgentsFacadeFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+		<property name="serviceClass" value="com.yolema.tbss.ext.facade.AgentsFacade" />
+		<property name="address"
+			value="http://183.129.158.179:8080/tbss/services/agents" />
+		<property name="outInterceptors">
+			<ref bean="clientSoapAuth" />
+		</property>
+	</bean>
+
+
+
 </beans>

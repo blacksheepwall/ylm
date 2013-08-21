@@ -3,7 +3,6 @@ package com.youlema.sales.controller;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -20,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.alibaba.fastjson.JSON;
-import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
+import com.yolema.tbss.ext.facade.fdo.product.ProductCompareFdo;
 import com.youlema.sales.mapper.meta.AgentsAccount;
 import com.youlema.sales.meta.BusinessType;
 import com.youlema.sales.meta.OrderSubmitMeta;
@@ -73,18 +72,17 @@ public class ProductController {
         modelMap.put("pdt", info);
 
         @SuppressWarnings("unchecked")
-        List<TourProductFdo> productFdos = (List<TourProductFdo>) (info.getProductFdos() == null ? Collections
+        List<ProductCompareFdo> productFdos = (List<ProductCompareFdo>) (info.getProductFdos() == null ? Collections
                 .emptyList() : info.getProductFdos());
         Map<Long, String> dateMap = new HashMap<Long, String>();
 
-        SimpleDateFormat format = new SimpleDateFormat("MM-dd EEE");
-        for (TourProductFdo tourProductFdo : productFdos) {
+        for (ProductCompareFdo tourProductFdo : productFdos) {
             StringBuilder builder = new StringBuilder();
 
-            builder.append(format.format(tourProductFdo.getGmtLeave()));
+            builder.append(tourProductFdo.getTimeOfStart());
             builder.append(" ").append(tourProductFdo.getTourProductNo());
             builder.append(" 剩余");
-            builder.append(tourProductFdo.getNumberOfPeoplePlan()).append("人");
+            builder.append(tourProductFdo.getRemainQuantity()).append("人");
             dateMap.put(tourProductFdo.getProductId(), builder.toString());
         }
 

@@ -20,16 +20,16 @@
           <div class="mod-body">
             <h5 class="mod-title">汇款信息</h5>
             <ul class="remittance-info clearfix">
-              <li><strong>汇款单号：</strong> YSL13042410560353</li>
-              <li><strong>汇款日期：</strong> 2013-05-15</li>
-              <li><strong>汇款金额：</strong> 2000.00</li>
-              <li><strong>汇款账号：</strong> 123465678</li>
-              <li><strong>开户行：</strong> 中国银行</li>
-              <li><strong>账户名称：</strong> 绍兴天马旅行社</li>
-              <li><strong>汇款说明：</strong> </li>
-              <li><strong>登记人：</strong> 曾俊</li>
-              <li><strong>登记时间：</strong> 2013.07.03</li>
-              <li><strong>状态：</strong> 已核销</li>
+              <li><strong>汇款单号：</strong> ${(result.remittanceFormCode)!}</li>
+              <li><strong>汇款日期：</strong> <#if (result.gmtRemittance)??>${result.gmtRemittance?string('yyyy-MM-dd')}</#if></li>
+              <li><strong>汇款金额：</strong> ${(result.moneyOfRemittance)!}</li>
+              <li><strong>汇款账号：</strong> ${(result.payeeAccount)!}</li>
+              <li><strong>开户行：</strong> ${(result.payeeBank)!}</li>
+              <li><strong>账户名称：</strong> ${(result.payeeName)!}</li>
+              <li><strong>汇款说明：</strong> ${(result.memo)!}</li>
+              <li><strong>登记人：</strong> ${(result.creator)!}</li>
+              <li><strong>登记时间：</strong>  <#if (result.gmtCreate)??>${(result.gmtCreate)?string('yyyy-MM-dd')}</#if></li>
+              <li><strong>状态：</strong>${(result.remittanceStatus)!}</li>
               <li><strong>附件：</strong> 1、汇款单回单附件</li>
             </ul>
           </div>

@@ -11,9 +11,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.yolema.settlement.ext.facade.received.RemittanceFormFacade;
 import com.yolema.settlement.ext.facade.result.RemittanceFormBeanResult;
+import com.yolema.tbss.ext.facade.AgentsFacade;
 import com.yolema.tbss.ext.facade.TourPlanSearchFacade;
 import com.yolema.tbss.ext.facade.fdo.plan.TourPlanSearchFdo;
 import com.yolema.tbss.ext.facade.fdo.product.SearchProductFdo;
+import com.yolema.tbss.ext.facade.result.AgentsResult;
 import com.yolema.tbss.ext.facade.result.PlanSearchResult;
 import com.youlema.tools.jee.pages.PageList;
 
@@ -21,13 +23,11 @@ import com.youlema.tools.jee.pages.PageList;
 @RunWith(SpringJUnit4ClassRunner.class)
 public class WsTest extends TestCase {
     @Resource
-    TourPlanSearchFacade facade;
-    @Resource
-    RemittanceFormFacade remittanceFormFacade;
+    AgentsFacade facade;
 
     @Test
     public void testHello2() throws Exception {
-        RemittanceFormBeanResult byId = remittanceFormFacade.getById(111L);
+        AgentsResult byId = facade.getAgentsTotal(1L); 
         assertTrue(byId.isSuccess());
     }
 

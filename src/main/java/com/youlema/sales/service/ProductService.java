@@ -113,6 +113,7 @@ public class ProductService {
             Vo<ProductInfo> vo = new Vo<ProductInfo>(ProductInfo.class);
             ProductInfo info = vo.inject(productFdo);
             info.setAdultPrice(productFdo.getAuditPrice());
+            info.setProductFdos(productFdo.getProductCompareFdos());
             return info;
         }
         return null;
