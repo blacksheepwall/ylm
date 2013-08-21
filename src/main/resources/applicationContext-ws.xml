@@ -15,7 +15,7 @@
     http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 	<bean id="authHeader" class="com.yolema.common.ws.interceptor.AuthHeader">
-		<property name="content" value="youlema_WS_TOKEN" />
+		<property name="content" value="youlema_TBSS_TOKEN" />
 	</bean>
 	<bean id="clientSoapAuth"
 		class="com.yolema.common.ws.interceptor.WebserviceAuthOutInterceptor">
@@ -30,6 +30,9 @@
 		<property name="serviceClass" value="com.yolema.tbss.ext.facade.BulletinFacade" />
 		<property name="address"
 			value="http://183.129.158.179:8080/tbss/services/bulletin" />
+		<property name="outInterceptors">
+			<ref bean="clientSoapAuth" />
+		</property>
 	</bean>
 
 	<bean id="MsgFacade" class="com.yolema.tbss.ext.facade.MsgFacade"
@@ -39,6 +42,9 @@
 		<property name="serviceClass" value="com.yolema.tbss.ext.facade.MsgFacade" />
 		<property name="address"
 			value="http://183.129.158.179:8080/tbss/services/msg" />
+		<property name="outInterceptors">
+			<ref bean="clientSoapAuth" />
+		</property>
 	</bean>
 
 
@@ -49,6 +55,9 @@
 		<property name="serviceClass" value="com.yolema.tbss.ext.facade.TourProductFacade" />
 		<property name="address"
 			value="http://183.129.158.179:8080/tbss/services/tourproduct" />
+		<property name="outInterceptors">
+			<ref bean="clientSoapAuth" />
+		</property>
 	</bean>
 	<bean id="DictionaryFacade" class="com.yolema.tbss.ext.facade.DictionaryFacade"
 		factory-bean="DictionaryFacadeFactory" factory-method="create" />
@@ -57,6 +66,9 @@
 		<property name="serviceClass" value="com.yolema.tbss.ext.facade.DictionaryFacade" />
 		<property name="address"
 			value="http://183.129.158.179:8080/tbss/services/dictionary" />
+		<property name="outInterceptors">
+			<ref bean="clientSoapAuth" />
+		</property>
 	</bean>
 
 	<bean id="TourPlanSearchFacade" class="com.yolema.tbss.ext.facade.TourPlanSearchFacade"
@@ -67,6 +79,9 @@
 			value="com.yolema.tbss.ext.facade.TourPlanSearchFacade" />
 		<property name="address"
 			value="http://183.129.158.179:8080/tbss/services/tourplansearch" />
+		<property name="outInterceptors">
+			<ref bean="clientSoapAuth" />
+		</property>
 	</bean>
 
 
@@ -78,6 +93,9 @@
 		<property name="serviceClass" value="com.yolema.tbss.ext.facade.OrderBillFacade" />
 		<property name="address"
 			value="http://183.129.158.179:8080/tbss/services/orderbill" />
+		<property name="outInterceptors">
+			<ref bean="clientSoapAuth" />
+		</property>
 	</bean>
 
 
@@ -89,6 +107,9 @@
 		<property name="serviceClass" value="com.yolema.tbss.ext.facade.OrderCustomFacade" />
 		<property name="address"
 			value="http://183.129.158.179:8080/tbss/services/ordercustom" />
+		<property name="outInterceptors">
+			<ref bean="clientSoapAuth" />
+		</property>
 	</bean>
 
 
@@ -100,19 +121,27 @@
 			value="com.yolema.tbss.ext.facade.TourPkgProductFacade" />
 		<property name="address"
 			value="http://183.129.158.179:8080/tbss/services/tourpkgproduct" />
+		<property name="outInterceptors">
+			<ref bean="clientSoapAuth" />
+		</property>
 	</bean>
 
 
 
 
-	<bean id="RemittanceFormFacade" class="com.yolema.settlement.ext.facade.received.RemittanceFormFacade"
-		factory-bean="RemittanceFormFacadeFactory" factory-method="create" />
+	<bean id="RemittanceFormFacade"
+		class="com.yolema.settlement.ext.facade.received.RemittanceFormFacade"
+		factory-bean="RemittanceFormFacadeFactory" factory-method="create">
+	</bean>
 
 	<bean id="RemittanceFormFacadeFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
 		<property name="serviceClass"
 			value="com.yolema.settlement.ext.facade.received.RemittanceFormFacade" />
 		<property name="address"
 			value="http://183.129.158.179:8080/tbss/services/remittanceform" />
+		<property name="outInterceptors">
+			<ref bean="clientSoapAuth" />
+		</property>
 	</bean>
 
 </beans>
