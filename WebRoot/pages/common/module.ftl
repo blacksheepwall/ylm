@@ -46,21 +46,6 @@
 </body>
 </#macro>
 
-<#-- 通用页面内容主体 -->
-<#macro main_con class="" id="" sys_name_id="" sys_name_class="" sys_name="" sys_href="" hasLogo=true>
-<div class="main-con ${class}" <#if id!="">id="${id}"</#if>>
-<#-- 子服务内容主体 -->
-  <div class="main-wrapper">
-    <div class="main-inner">
-      <#nested>
-      <div class="main-above-cloud">
-        <div class="main-cloud"></div>
-      </div>
-    </div>
-  </div>
-</div>
-</#macro>
-
 <#macro manage_sidebar>
 <div class="span2">
   <ul class="nav nav-list manage-sidebar">

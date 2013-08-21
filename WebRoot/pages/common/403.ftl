@@ -1,13 +1,11 @@
-<#assign hide_nav=true/>
-<#include "../common/module.ftl"/>
+<#assign page_name="error-page"/>
+<#include "module.ftl"/>
 <#escape x as x?html>
-<@html>
-<@body>
-<@main_con>
-    <a href="${request.contextPath}/portal/views/index">
-        <img src="${request.contextPath}/static/images/common/403.png" alt="403" title="403"/>
-    </a>
-</@main_con>
-</@body>
-</@html>
+  <@html title="403">
+    <@body>
+    <div class="main-body">
+      <h2 class="error-title">403</h2>
+    </div>
+    </@body>
+  </@html>
 </#escape>

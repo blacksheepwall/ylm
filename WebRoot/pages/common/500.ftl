@@ -1,13 +1,11 @@
-<#assign hide_nav=true/>
-<#include "../common/module.ftl"/>
+<#assign page_name="error-page"/>
+<#include "module.ftl"/>
 <#escape x as x?html>
-<@html>
-<@body>
-<@main_con>
-    <a href="${request.contextPath}/main/">
-        <img src="${request.contextPath}/static/images/common/500.png" alt="500" title="500"/>
-    </a>
-</@main_con>
-</@body>
-</@html>
+  <@html title="500">
+    <@body>
+    <div class="main-body">
+      <h2 class="error-title">500</h2>
+    </div>
+    </@body>
+  </@html>
 </#escape>
