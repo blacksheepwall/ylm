@@ -35,8 +35,8 @@
               <div class="pull-left people-num"><strong>人数：</strong> <input type="text" id="J_child_num" value="0">
               </div>
             </li>
-            <li><strong>联系人：</strong> <input type="text" id="J_contact"> <strong> 手机号：</strong> <input type="text"
-                                                                                                       id="J_phone">
+            <li><strong>联系人：</strong> <input type="text" id="J_contact"> <strong> 联系方式：</strong> <input type="text"
+                                                                                                        id="J_phone">
             </li>
             <li><strong class="desc-name">订单备注：</strong> <textarea class="desc-value" id="J_desc"></textarea></li>
           </ul>

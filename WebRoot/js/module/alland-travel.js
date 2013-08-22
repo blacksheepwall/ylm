@@ -26,6 +26,7 @@ define(['./util', 'moment', 'pagination'], function(Util, moment) {
       'traffic': '',
       'priceOrder': '',
       'startDateOrder': '',
+      'typeCode': '',
       'page': 1
     };
   }
@@ -34,16 +35,19 @@ define(['./util', 'moment', 'pagination'], function(Util, moment) {
     $searchBtn.click(function() {
       Util.validDateTimePicker() && _queryList({'data': mod.queryConfig});
     })
-    $('#J_condition .nav').on('click', 'a', function(e) {
-      e.preventDefault();
-      var $this = $(this),
-        targetData = $this.data('target').split(','),
-        key = targetData[0],
-        value = targetData[1] || '';
-      $this.tab('show');
-      mod.queryConfig[key] = value;
-      _queryList({'data': mod.queryConfig});
-    });
+    $('#J_condition').on('click', '.nav a', _switchTabs);
+    $('#J_route_list').on('click', 'a', _switchTabs);
+  }
+
+  function _switchTabs(e) {
+    e.preventDefault();
+    var $this = $(this),
+      targetData = $this.data('target').split(','),
+      key = targetData[0],
+      value = targetData[1] || '';
+    $this.tab('show');
+    mod.queryConfig[key] = value;
+    _queryList({'data': mod.queryConfig});
   }
 
   function _initTabs() {

@@ -13,11 +13,11 @@
       <div>
         <div class="route-body clearfix">
         <strong class="route-type">${title}线路：</strong>
-        <ul class="route-list clearfix">
+        <ul id="J_route_list" class="route-list clearfix">
           <#--${rg.name}-->
           <#list citys as city>
             <li>
-              <a href="typeCode=${city.typeCode!}">${city.productTypeName}</a>
+              <a href="javascript:;" data-target="typeCode,${city.typeCode!}">${city.productTypeName}</a>
             </li>
           </#list>
         </ul>
@@ -88,13 +88,13 @@
                 <a href="javascript:;" data-target="dateRange,3">3天</a>
               </li>
               <li>
-                <a href="javascript:;" data-target="dateRange,4">1-3天</a>
+                <a href="javascript:;" data-target="dateRange,1_3">1-3天</a>
               </li>
               <li>
-                <a href="javascript:;" data-target="dateRange,5">4-7天</a>
+                <a href="javascript:;" data-target="dateRange,4_7">4-7天</a>
               </li>
               <li>
-                <a href="javascript:;" data-target="dateRange,6">7天以上</a>
+                <a href="javascript:;" data-target="dateRange,7_above">7天以上</a>
               </li>
               <#--<#list dates as dt><li><a href="#">${dt.stringValue}</a></li></#list>-->
             </ul>
@@ -106,16 +106,16 @@
                 <a href="javascript:;" data-target="priceRange">不限</a>
               </li>
               <li>
-                <a href="javascript:;" data-target="priceRange,1">800以下</a>
+                <a href="javascript:;" data-target="priceRange,800_BELOW">800以下</a>
               </li>
               <li>
-                <a href="javascript:;" data-target="priceRange,2">800-1500</a>
+                <a href="javascript:;" data-target="priceRange,800_1500">800-1500</a>
               </li>
               <li>
-                <a href="javascript:;" data-target="priceRange,3">1500-3000</a>
+                <a href="javascript:;" data-target="priceRange,1500_3000">1500-3000</a>
               </li>
               <li>
-                <a href="javascript:;" data-target="priceRange,4">3000以上</a>
+                <a href="javascript:;" data-target="priceRange,3000_ABOVE">3000以上</a>
               </li>
               <#--<#list prices as prc><li><a href="#">${prc.stringValue}</a></li></#list>-->
             </ul>

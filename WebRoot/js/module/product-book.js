@@ -82,7 +82,7 @@ define(['./util'], function(Util) {
   function _setPreviewForm() {
     $startDatePreview.text($startDate.val());
     $contactPreview.text($contact.val());
-    $phonePreview.text($phonePreview.val());
+    $phonePreview.text($phone.val());
     $customerCountPreview.text($childNum.val() + $adultNum.val());
     $totalCostPreview.text(_getTotalCost);
     $descPreview.text($desc.val());
