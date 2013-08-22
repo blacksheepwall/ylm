@@ -13,7 +13,7 @@
 		<javaClientGenerator targetPackage="com.youlema.sales.mapper"
 			targetProject="youlema-sales" type="XMLMAPPER" />
 
-		<table schema="tbss_test" tableName="AGENTS"
-			domainObjectName="Agents" />
+		<table schema="tbss_test" tableName="AGENTS_PRIVILEGE"
+			domainObjectName="AgentsRole" />
 	</context>
 </generatorConfiguration>

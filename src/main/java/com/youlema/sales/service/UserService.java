@@ -1,6 +1,7 @@
 package com.youlema.sales.service;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -11,13 +12,17 @@ import org.springframework.stereotype.Service;
 
 import com.youlema.sales.mapper.AgentsAccountMapper;
 import com.youlema.sales.mapper.AgentsMapper;
+import com.youlema.sales.mapper.AgentsRoleMapper;
+import com.youlema.sales.mapper.AssAgentsAccountRoleMapper;
 import com.youlema.sales.mapper.meta.Agents;
 import com.youlema.sales.mapper.meta.AgentsAccount;
 import com.youlema.sales.mapper.meta.AgentsAccountExample;
 import com.youlema.sales.mapper.meta.AgentsAccountExample.Criteria;
-import com.youlema.sales.meta.ATag;
+import com.youlema.sales.mapper.meta.AgentsRole;
+import com.youlema.sales.mapper.meta.AgentsRoleExample;
+import com.youlema.sales.mapper.meta.AssAgentsAccountRoleExample;
+import com.youlema.sales.mapper.meta.AssAgentsAccountRoleKey;
 import com.youlema.sales.meta.User;
-import com.youlema.sales.meta.UserRole;
 
 @Service
 public class UserService {
@@ -25,6 +30,10 @@ public class UserService {
     private AgentsAccountMapper accountMapper;
     @Resource
     private AgentsMapper agentsMapper;
+    @Resource
+    private AssAgentsAccountRoleMapper agentsAccountRoleMapper;
+    @Resource
+    private AgentsRoleMapper roleMapper;
 
     public User getUser(String name, String password) {
         AgentsAccountExample example = new AgentsAccountExample();
@@ -35,7 +44,13 @@ public class UserService {
         List<AgentsAccount> accounts = accountMapper.selectByExample(example);
         User user = new User();
         if (accounts.size() > 0) {
-            user.setAccount(accounts.get(0));
+            AgentsAccount account = accounts.get(0);
+            user.setAccount(account);
+            Agents agents = this.agentsMapper.selectByPrimaryKey(account.getAgentsId());
+            user.setAgents(agents);
+
+            List<AgentsRole> roles = getRoles(account.getAgentsAccountId());
+            user.setRoles(roles);
         } else {
             AgentsAccount account = new AgentsAccount();
             account.setName("mockUser");
@@ -49,10 +64,28 @@ public class UserService {
             account.setAgentsAccountId(0L);
             user.setAccount(account);
         }
-
+        user.setPass(password);
         user.setUserName(name);
-        user.setRole(UserRole.ADMIN);
         return user;
+    }
+
+    private List<AgentsRole> getRoles(Long agentsAccountId) {
+        AssAgentsAccountRoleExample example = new AssAgentsAccountRoleExample();
+        AssAgentsAccountRoleExample.Criteria criteria = example.createCriteria();
+        criteria.andAgentsAccountIdEqualTo(agentsAccountId);
+        List<AssAgentsAccountRoleKey> tempList = agentsAccountRoleMapper.selectByExample(example);
+        if (tempList.isEmpty()) {
+            return Collections.emptyList();
+        }
+
+        List<Long> ids = new ArrayList<Long>(tempList.size());
+        for (AssAgentsAccountRoleKey assAgentsAccountRoleKey : tempList) {
+            ids.add(assAgentsAccountRoleKey.getAgentsRoleId());
+        }
+        AgentsRoleExample agentsRoleExample = new AgentsRoleExample();
+        AgentsRoleExample.Criteria agentsCriteria = agentsRoleExample.createCriteria();
+        agentsCriteria.andAgentsPrivilegeIdIn(ids);
+        return roleMapper.selectByExample(agentsRoleExample);
     }
 
     public User getCurrentUser() {
@@ -68,20 +101,7 @@ public class UserService {
     }
 
     public Agents getCurrentAgents() {
-        AgentsAccount account = getCurrentAccount();
-        if (account == null) {
-            return null;
-        }
-        return this.agentsMapper.selectByPrimaryKey(account.getAgentsId());
-    }
-
-    public List<ATag> getShortcuts() {
-        ATag a1 = new ATag("出境跟团游", "/main/");
-        a1.setFocus(true);
-        ATag a2 = new ATag("国内跟团游", "/main/");
-        ATag a3 = new ATag("我的订单", "/main/");
-        ATag a4 = new ATag("整团预报", "/main/");
-        return Arrays.asList(a1, a2, a3, a4);
+        return getCurrentUser().getAgents();
     }
 
     /**

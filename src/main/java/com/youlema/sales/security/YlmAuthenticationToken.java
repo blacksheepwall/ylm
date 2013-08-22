@@ -23,7 +23,7 @@ public class YlmAuthenticationToken implements AuthenticationToken {
 
 	@Override
 	public Object getCredentials() {
-		return user.getRole();
+		return user.getPass();
 	}
 
 	private static final long serialVersionUID = 8316561687982045483L;

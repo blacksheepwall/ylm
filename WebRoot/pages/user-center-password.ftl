@@ -14,17 +14,17 @@
       </div>
       <div class="row-fluid">
         <@user_center_sidebar></@user_center_sidebar>
-        <form id="J_form" class="span10 form-horizontal manage-body mod-body">
+        <form id="J_form" action="/u/updatePass" method="post" class="span10 form-horizontal manage-body mod-body">
           <div class="control-group">
             <label class="control-label">原密码</label>
             <div class="controls">
-              <input type="text">
+              <input name="oldPass" type="text">
             </div>
           </div>
           <div class="control-group">
             <label class="control-label">新密码</label>
             <div class="controls">
-              <input type="text">
+              <input name="newPass" type="text">
             </div>
           </div>
           <div class="control-group">

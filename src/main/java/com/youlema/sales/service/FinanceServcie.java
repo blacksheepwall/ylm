@@ -29,7 +29,7 @@ import com.youlema.tools.jee.pages.PagingTools;
  */
 @Service
 public class FinanceServcie {
-    @Resource(name = "MockAgentsFacade")
+    @Resource(name = "AgentsFacade")
     private AgentsFacade agentsFacade;
     @Resource(name = "RemittanceFormFacade")
     private RemittanceFormFacade remittanceFormFacade;

@@ -40,6 +40,7 @@ import com.youlema.sales.utils.Utils;
 import com.youlema.sales.ws.DictionaryFacadeService;
 import com.youlema.sales.ws.OrderFacadeService;
 import com.youlema.sales.ws.ProductFacadeService;
+import com.youlema.tools.jee.pages.PageList;
 
 /**
  * 订单相关服务
@@ -63,6 +64,24 @@ public class OrderService {
     private OrderCustomFacade orderCustomFacade;
     @Resource(name = "OrderBillFacade")
     private OrderBillFacade orderBillFacade;
+
+    public SearchResult<OrderVo> getLastOrders(int count, User user) {
+        OrderBillFdo fdo = new OrderBillFdo();
+        fdo.setCreator(user.getAccount().getAccountLoginName());
+        OrderBillResult billResult = orderBillFacade.queryPageList(fdo);
+        if (billResult.isSuccess()) {
+            PageList<OrderBillFdo> pageList = billResult.getPageList();
+            ArrayList<OrderVo> vos = new ArrayList<OrderVo>();
+            for (OrderBillFdo orderBillFdo : pageList) {
+                TourProductFdo product = productFacadeService.getProduct(orderBillFdo.getProductId());
+                OrderVo vo = new OrderVo();
+                fromBillFdo2Vo(orderBillFdo, product, vo);
+                vos.add(vo);
+            }
+            return new SearchResult<OrderVo>(pageList.getPageTools().getPages(), vos);
+        }
+        return new SearchResult<OrderVo>(0, new ArrayList<OrderVo>());
+    }
 
     /**
      * 根据订单状态，合同状态，出发状态，订单类型四个条件查询
@@ -317,7 +336,7 @@ public class OrderService {
         AgentsAccountFdo accFdo = toAccountFdo(agentsAcc);
         OrderBillResult billResult = this.orderBillFacade.agentsBooking(fdo, accFdo);
         boolean success = billResult.isSuccess();
-        if(success){
+        if (success) {
             return "预定成功";
         }
         return billResult.getResultMsg();

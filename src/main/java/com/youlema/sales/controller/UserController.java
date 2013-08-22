@@ -1,6 +1,8 @@
 package com.youlema.sales.controller;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.List;
 
@@ -8,6 +10,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.grayrabbit.commons.util.MD5Util;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.ServletRequestBindingException;
@@ -19,10 +22,12 @@ import com.youlema.sales.mapper.meta.AgentsAccount;
 import com.youlema.sales.mapper.meta.AgentsFavorites;
 import com.youlema.sales.meta.BusinessType;
 import com.youlema.sales.meta.MessageItem;
+import com.youlema.sales.meta.OrderVo;
 import com.youlema.sales.meta.SearchResult;
 import com.youlema.sales.meta.User;
 import com.youlema.sales.service.FavoriteService;
 import com.youlema.sales.service.MsgService;
+import com.youlema.sales.service.OrderService;
 import com.youlema.sales.service.UserService;
 
 /**
@@ -40,6 +45,8 @@ public class UserController {
     private UserService userService;
     @Resource
     private MsgService msgService;
+    @Resource
+    private OrderService orderService;
 
     /**
      * 用户中心首页
@@ -47,7 +54,12 @@ public class UserController {
      * @return
      */
     @RequestMapping("")
-    public String main() {
+    public String main(ModelMap modelMap) {
+        User currentUser = userService.getCurrentUser();
+        SearchResult<MessageItem> msgList = msgService.getNewMsgList(currentUser);
+        modelMap.put("unreadMsg", msgList);
+        SearchResult<OrderVo> orderResult = orderService.getLastOrders(10, currentUser);
+        modelMap.put("orderResult", orderResult);
         return "user-center";
     }
 
@@ -294,5 +306,9 @@ public class UserController {
     public String userLog() {
         return "user-center-log";
     }
+    public static void main(String[] args) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 
+        String digest =MD5Util.encrypt("111");
+        System.out.println(digest);
+    }
 }

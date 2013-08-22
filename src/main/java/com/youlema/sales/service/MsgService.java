@@ -25,7 +25,7 @@ import com.youlema.tools.jee.pages.PageList;
  */
 @Service
 public class MsgService {
-    @Resource(name="MsgFacade")
+    @Resource(name = "MsgFacade")
     private MsgFacade msgFacade;
 
     /**
@@ -46,7 +46,7 @@ public class MsgService {
             MessageItem item = inboxFdo2MessageItem(msgInboxFdo);
             items.add(item);
         }
-        return new SearchResult<MessageItem>(msgResult.getNum(), items);
+        return new SearchResult<MessageItem>(pageList.getPageTools().getPages(), items);
     }
 
     /**
@@ -129,9 +129,27 @@ public class MsgService {
         return msgResult.isSuccess();
     }
 
+    public SearchResult<MessageItem> getNewMsgList(User user) {
+        MsgInboxFdo fdo = new MsgInboxFdo();
+        fdo.setIsRead(false);
+        String accountLoginName = user.getAccount().getAccountLoginName();
+        fdo.setMsgReceivedAccount(accountLoginName);
+        MsgResult msgResult = msgFacade.queryInboxMsg(fdo);
+        if (msgResult.isSuccess()) {
+            PageList<MsgInboxFdo> pageList = msgResult.getInboxPageList();
+            List<MessageItem> items = new ArrayList<MessageItem>();
+            for (MsgInboxFdo msgInboxFdo : pageList) {
+                MessageItem item = inboxFdo2MessageItem(msgInboxFdo);
+                items.add(item);
+            }
+            return new SearchResult<MessageItem>(pageList.getPageTools().getPages(), items);
+        }
+        return new SearchResult<MessageItem>(0, new ArrayList<MessageItem>(0));
+    }
+
     public int getNewMsgCount(User user) {
         MsgResult result = msgFacade.getUnreadNum(user.getAccount().getAccountLoginName());
-        if(result.isSuccess()){
+        if (result.isSuccess()) {
             return result.getNum();
         }
         return -1;

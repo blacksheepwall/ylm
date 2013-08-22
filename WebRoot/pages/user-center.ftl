@@ -22,15 +22,15 @@
               </a>
             </div>
             <div class="user-detail clearfix">
-              <label class="control-label"><strong>姓名</strong>：王伟</label>
-              <label class="control-label"><strong>固定电话</strong>：13913913911</label>
-              <label class="control-label"><strong>手机号码</strong>：13913913911</label>
-              <label class="control-label"><strong>传真号码</strong>：13913913911</label>
-              <label class="control-label"><strong>电子邮箱</strong>：13913913911</label>
-              <label class="control-label"><strong>QQ号码</strong>：13913913911</label>
-              <label class="control-label"><strong>登录账户</strong>：wangwei</label>
-              <label class="control-label"><strong>系统角色</strong>：系统管理员</label>
-              <label class="control-label"><strong>最近登录</strong>：2013年6月14日 22:18:27</label>
+              <label class="control-label"><strong>姓名</strong>：${user.account.name!}</label>
+              <label class="control-label"><strong>固定电话</strong>：${user.account.telphone!}</label>
+              <label class="control-label"><strong>手机号码</strong>：${user.account.mobile!}</label>
+              <label class="control-label"><strong>传真号码</strong>：${user.account.fax!}</label>
+              <label class="control-label"><strong>电子邮箱</strong>：${user.account.email!}</label>
+              <label class="control-label"><strong>QQ号码</strong>：${user.account.qq!}</label>
+              <label class="control-label"><strong>登录账户</strong>：${user.account.accountLoginName}</label>
+              <label class="control-label"><strong>系统角色</strong>：${(user.role.agentsPrivilegeName)!}</label>
+              <label class="control-label"><strong>最近登录</strong>：<#if user.account.gmtLastLoginTime??>${user.account.gmtLastLoginTime?string('yyyy年MM月dd HH:mm:ss')}</#if></label>
             </div>
             <div class="user-panel">
               <a href="/u/setup/">设置头像</a>
@@ -58,20 +58,22 @@
               </tr>
               </thead>
               <tbody>
+              <#list unreadMsg.resultList as it>
               <tr>
                 <td>
-                  1
+                  ${it_index+1}
                 </td>
                 <td>
-                  2
+                  ${it.title!}
                 </td>
                 <td>
-                  3
+                  ${it.sender!}
                 </td>
                 <td>
-                  4
+                  ${it.sender!}
                 </td>
               </tr>
+              </#list>
               </tbody>
             </table>
           </div>
@@ -107,32 +109,34 @@
               </tr>
               </thead>
               <tbody>
+              <#list orderResult.resultList as it>
               <tr>
                 <td>
-                  1
+                  ${it.orderNumber!}
                 </td>
                 <td>
-                  2
+                  ${(it.orderType.value)!}
                 </td>
                 <td>
-                  3
+                  ${(it.productName)!}
                 </td>
                 <td>
-                  4
+                  ${(it.scheduledTime)!}
                 </td>
                 <td>
-                  1
+                  ${(it.travellerCount)!}
                 </td>
                 <td>
-                  2
+                  ${(it.contact)!}
                 </td>
                 <td>
-                  3
+                  ${(it.scheduledTime)!}
                 </td>
                 <td>
-                  4
+                  ${(it.status.value)!}
                 </td>
               </tr>
+              </#list>
               </tbody>
             </table>
           </div>
