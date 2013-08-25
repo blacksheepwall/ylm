@@ -4,3 +4,28 @@
   float: right;
   margin-right: 44px;
 }
+
+.item-list li div {
+  float: left;
+}
+
+.item-list .item-type {
+  padding-left: 26px;
+  width: 180px;
+}
+
+.item-list .item-count {
+  width: 140px;
+}
+
+.item-list .item-number {
+  width: 80px;
+}
+
+.item-list .item-price {
+  width: 140px;
+}
+
+.item-list .item-amount {
+  width: 140px;
+}

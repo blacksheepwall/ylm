@@ -53,7 +53,7 @@
                 <td>
                 </td>
                 <td>
-                  <a href="/main/finance-year-report">查看</a>
+                  <a href="/main/finance-report?type=year">查看</a>
                 </td>
               </tr>
               <tr>
@@ -69,7 +69,7 @@
                 <td>
                 </td>
                 <td>
-                  <a href="/main/finance-year-report">查看</a>
+                  <a href="/main/finance-report?type=year">查看</a>
                 </td>
               </tr>
               <tr>
@@ -85,7 +85,7 @@
                 <td>
                 </td>
                 <td>
-                  <a href="/main/finance-year-report">查看</a>
+                  <a href="/main/finance-report?type=year">查看</a>
                 </td>
               </tr>
               <tr>
@@ -101,7 +101,7 @@
                 <td>
                 </td>
                 <td>
-                  <a href="/main/finance-year-report">查看</a>
+                  <a href="/main/finance-report?type=year">查看</a>
                 </td>
               </tr>
               </tbody>

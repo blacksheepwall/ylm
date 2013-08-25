@@ -1,15 +1,21 @@
 <#-- 年、月报表页 -->
 <#assign page_name="finance-report"/>
 <#include "common/module.ftl"/>
+<#assign type="${type!'year'}">
+<#if type=="year">
+  <#assign title="年报表">
+<#else>
+  <#assign title="月报表">
+</#if>
 <#escape x as x?html>
-  <@html title="年报表">
+  <@html title="${title}">
     <@body class="finance-center">
     <div class="main-body">
       <div class="row-fluid">
         <ul class="breadcrumb pull-left">
           <li><a href="/main/">首页</a> <span class="divider">/</span></li>
           <li><a href="/finance/">财务结算</a> <span class="divider">/</span></li>
-          <li class="active">年报表</li>
+          <li class="active">${title}</li>
         </ul>
       </div>
       <div class="row-fluid">
@@ -29,7 +35,7 @@
               <button class="btn btn-success btn-small" type="button"><i class="icon-search"></i> 确定</button>
               <button class="btn btn-small" type="button"><i class="icon-download"></i> 下载报表</button>
             </div>
-            <table class="tree-view table table-bordered">
+            <table id="J_table" class="tree-view table table-bordered">
               <thead>
               <tr>
                 <th>
@@ -55,40 +61,50 @@
               <tbody>
               <tr>
                 <td colspan="6">
-                  出境线路 <a id="J_chujing" href="javascript:;">展开</a>
-                  <a class="view-detail" href="/main/finance-year-report">查看</a>
+                  <div>
+                    出境线路 <a href="javascript:;" class="j-toggle">展开</a>
+                  </div>
+                  <#assign item_list>
+                    <ol class="item-list" style="display: none;">
+                      <li>
+                        <div class="item-type">美国</div>
+                        <div class="item-count">10</div>
+                        <div class="item-number">11</div>
+                        <div class="item-price">1000.00</div>
+                        <div class="item-amount">10000.00</div>
+                        <div class="item-detail"><a href="/main/finance-report-detail?type=${type}">查看</a></div>
+                      </li>
+                    </ol>
+                  </#assign>
+                  <#noescape>${item_list}</#noescape>
+                  <#noescape>${item_list}</#noescape>
+                  <#noescape>${item_list}</#noescape>
+                  <#noescape>${item_list}</#noescape>
+                  <#noescape>${item_list}</#noescape>
                 </td>
               </tr>
               <tr>
-                <td>
-                  港澳台线路 <a id="J_gangaotai" href="javascript:;">展开</a>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                  <a href="/main/finance-year-report">查看</a>
+                <td colspan="6">
+                  <div>
+                    港澳台线路 <a href="javascript:;" class="j-toggle">展开</a>
+                  </div>
+                  <#noescape>${item_list}</#noescape>
+                  <#noescape>${item_list}</#noescape>
+                  <#noescape>${item_list}</#noescape>
+                  <#noescape>${item_list}</#noescape>
+                  <#noescape>${item_list}</#noescape>
                 </td>
               </tr>
               <tr>
-                <td>
-                  国内线路 <a id="J_guonei" href="javascript:;">展开</a>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                  <a href="/main/finance-year-report">查看</a>
+                <td colspan="6">
+                  <div>
+                    国内线路 <a href="javascript:;" class="j-toggle">展开</a>
+                  </div>
+                  <#noescape>${item_list}</#noescape>
+                  <#noescape>${item_list}</#noescape>
+                  <#noescape>${item_list}</#noescape>
+                  <#noescape>${item_list}</#noescape>
+                  <#noescape>${item_list}</#noescape>
                 </td>
               </tr>
               </tbody>
