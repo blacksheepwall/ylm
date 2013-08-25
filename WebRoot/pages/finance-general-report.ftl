@@ -40,70 +40,28 @@
               </tr>
               </thead>
               <tbody>
+              <#list list as it>
               <tr>
                 <td class="year">
-                  2013
+                  ${it.yearOfStart}
                 </td>
                 <td>
+                ${it.orders}
                 </td>
                 <td>
+                ${it.numberOfPeople}
                 </td>
                 <td>
+                ${it.orderAmount}
                 </td>
                 <td>
+                ${it.settlementAmount}
                 </td>
                 <td>
                   <a href="/main/finance-report?type=year">查看</a>
                 </td>
               </tr>
-              <tr>
-                <td class="year">
-                  2012
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                  <a href="/main/finance-report?type=year">查看</a>
-                </td>
-              </tr>
-              <tr>
-                <td class="year">
-                  2011
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                  <a href="/main/finance-report?type=year">查看</a>
-                </td>
-              </tr>
-              <tr>
-                <td class="year">
-                  <strong>合计</strong>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                  <a href="/main/finance-report?type=year">查看</a>
-                </td>
-              </tr>
+              </#list>
               </tbody>
             </table>
           </div>
