@@ -58,7 +58,7 @@
                 ${it.settlementAmount}
                 </td>
                 <td>
-                  <a href="/main/finance-report?type=year">查看</a>
+                  <a href="/finance/report/?type=year">查看</a>
                 </td>
               </tr>
               </#list>

@@ -1,6 +1,7 @@
 package com.youlema.sales.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -12,8 +13,11 @@ import com.yolema.settlement.ext.facade.result.RemittanceFormBeanResult;
 import com.yolema.tbss.ext.facade.AgentsFacade;
 import com.yolema.tbss.ext.facade.fdo.agents.AgentsTotalFdo;
 import com.yolema.tbss.ext.facade.result.AgentsResult;
+import com.youlema.sales.mapper.AgentsTotalFactMapper;
 import com.youlema.sales.mapper.meta.Agents;
 import com.youlema.sales.mapper.meta.AgentsAccount;
+import com.youlema.sales.mapper.meta.AgentsTotalFact;
+import com.youlema.sales.mapper.meta.AgentsTotalFactExample;
 import com.youlema.sales.meta.FinanceMeta;
 import com.youlema.sales.meta.RemitItem;
 import com.youlema.sales.meta.SearchResult;
@@ -33,6 +37,8 @@ public class FinanceServcie {
     private AgentsFacade agentsFacade;
     @Resource(name = "RemittanceFormFacade")
     private RemittanceFormFacade remittanceFormFacade;
+    @Resource
+    private AgentsTotalFactMapper agentsTotalFactMapper;
 
     /**
      * 根据账号获取财务统计数据
@@ -91,4 +97,20 @@ public class FinanceServcie {
         return new SearchResult<RemitItem>(0, new ArrayList<RemitItem>(0));
 
     }
+
+    /**
+     * 读取总报表列表
+     * 
+     * @param agents
+     * @return
+     */
+    public List<AgentsTotalFact> readTotalFacts(Agents agents) {
+        AgentsTotalFactExample example = new AgentsTotalFactExample();
+        AgentsTotalFactExample.Criteria criteria = example.createCriteria();
+        criteria.andAgentsIdEqualTo(agents.getAgentsId());
+        example.setOrderByClause("YEAR_OF_START desc");
+        List<AgentsTotalFact> list = agentsTotalFactMapper.selectByExample(example);
+        return list;
+    }
+
 }

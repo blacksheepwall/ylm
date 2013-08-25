@@ -3,6 +3,7 @@ package com.youlema.sales.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.yolema.settlement.ext.facade.fdo.RemittanceFormFdo;
 import com.yolema.settlement.ext.facade.fdo.RemittanceOrderBillFdo;
+import com.youlema.sales.mapper.meta.Agents;
+import com.youlema.sales.mapper.meta.AgentsTotalFact;
 import com.youlema.sales.meta.FinanceMeta;
 import com.youlema.sales.meta.RemitItem;
 import com.youlema.sales.meta.SearchResult;
@@ -42,8 +45,10 @@ public class FinanceController {
 
         return "finance";
     }
+
     /**
      * 财务汇款明细
+     * 
      * @param id
      * @param modelMap
      * @return
@@ -59,4 +64,41 @@ public class FinanceController {
         modelMap.put("result", fdo);
         return "finance-remittance";
     }
+
+    /**
+     * 总报表
+     * 
+     * @return
+     */
+    @RequestMapping("/report/total")
+    public String reportTotal(ModelMap modelMap) {
+        Agents agents = userService.getCurrentAgents();
+        List<AgentsTotalFact> totalFacts = financeServcie.readTotalFacts(agents);
+        modelMap.put("list", totalFacts);
+        return "finance-general-report";
+    }
+
+    /**
+     * 下载总报表
+     * 
+     * @param response
+     */
+    @RequestMapping("/report/total/down")
+    public void downloadReportTotal(HttpServletResponse response) {
+
+    }
+
+    /**
+     * 年月报表
+     * 
+     * @param type
+     * @param modelMap
+     * @return
+     */
+    @RequestMapping("/report/")
+    public String report(@RequestParam("type") String type, ModelMap modelMap) {
+        modelMap.put("type", type);
+        return "finance-report";
+    }
+
 }

@@ -178,13 +178,13 @@
       <i class="icon-bar-chart"></i> 业务报表
     </li>
     <li <#if "finance-general-report"==page_name>class="active"</#if>>
-      <a href="/main/finance-general-report/">总报表<i class="icon-chevron-right"></i></a>
+      <a href="/finance/report/total/">总报表<i class="icon-chevron-right"></i></a>
     </li>
     <li <#if "finance-report"==page_name>class="active"</#if>>
-      <a href="/main/finance-report?type=month">月报表<i class="icon-chevron-right"></i></a>
+      <a href="/finance/report/?type=month">月报表<i class="icon-chevron-right"></i></a>
     </li>
     <li <#if "finance-report"==page_name>class="active"</#if>>
-      <a href="/main/finance-report?type=year">年报表<i class="icon-chevron-right"></i></a>
+      <a href="/finance/report/?type=year">年报表<i class="icon-chevron-right"></i></a>
     </li>
   </ul>
 </div>
