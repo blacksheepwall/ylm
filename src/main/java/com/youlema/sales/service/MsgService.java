@@ -148,6 +148,9 @@ public class MsgService {
     }
 
     public int getNewMsgCount(User user) {
+        if(user == null){
+            return 0;
+        }
         MsgResult result = msgFacade.getUnreadNum(user.getAccount().getAccountLoginName());
         if (result.isSuccess()) {
             return result.getNum();

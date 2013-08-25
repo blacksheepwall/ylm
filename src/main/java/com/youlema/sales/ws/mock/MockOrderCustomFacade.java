@@ -47,4 +47,10 @@ public class MockOrderCustomFacade implements OrderCustomFacade {
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public OrderCustomPkgResult queryByCustomIdAndPkgId(Long arg0, Long arg1) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
 }

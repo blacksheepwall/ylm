@@ -10,6 +10,9 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Service;
 
+import com.yolema.tbss.ext.facade.AgentsFacade;
+import com.yolema.tbss.ext.facade.fdo.agents.AgentsAccountFdo;
+import com.yolema.tbss.ext.facade.result.BaseResult;
 import com.youlema.sales.mapper.AgentsAccountMapper;
 import com.youlema.sales.mapper.AgentsMapper;
 import com.youlema.sales.mapper.AgentsRoleMapper;
@@ -34,14 +37,23 @@ public class UserService {
     private AssAgentsAccountRoleMapper agentsAccountRoleMapper;
     @Resource
     private AgentsRoleMapper roleMapper;
+    @Resource
+    private AgentsFacade agentsFacade;
 
     public User getUser(String name, String password) {
-        AgentsAccountExample example = new AgentsAccountExample();
-        Criteria criteria = example.createCriteria();
-        criteria.andAccountLoginNameEqualTo(name);
-        criteria.andAccountPasswordEqualTo(password);
-
-        List<AgentsAccount> accounts = accountMapper.selectByExample(example);
+        AgentsAccountFdo acctFdo = new AgentsAccountFdo();
+        acctFdo.setAccountLoginName(name);
+        acctFdo.setAccountPassword(password);
+        BaseResult result = agentsFacade.chickLogin(acctFdo);
+        List<AgentsAccount> accounts = new ArrayList<AgentsAccount>();
+        if (result.isSuccess()) {
+            AgentsAccountExample example = new AgentsAccountExample();
+            Criteria criteria = example.createCriteria();
+            criteria.andAccountLoginNameEqualTo(name);
+            accounts = accountMapper.selectByExample(example);
+        } else {
+            return null;
+        }
         User user = new User();
         if (accounts.size() > 0) {
             AgentsAccount account = accounts.get(0);
@@ -52,17 +64,7 @@ public class UserService {
             List<AgentsRole> roles = getRoles(account.getAgentsAccountId());
             user.setRoles(roles);
         } else {
-            AgentsAccount account = new AgentsAccount();
-            account.setName("mockUser");
-            account.setAccountLoginName("mockUser");
-            account.setSex(true);
-            account.setDepart("有关部门");
-            account.setEmail("xxxx@xxxx.com");
-            account.setQq("123456");
-            account.setTelphone("0571-22222222");
-            account.setMobile("13888888888");
-            account.setAgentsAccountId(0L);
-            user.setAccount(account);
+            return null;
         }
         user.setPass(password);
         user.setUserName(name);
