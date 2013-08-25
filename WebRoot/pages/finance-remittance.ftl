@@ -62,29 +62,31 @@
               </tr>
               </thead>
               <tbody>
+              <#list billFdos as it>
               <tr>
                 <td>
-                  <a href="/main/finance-verification">YN1305150326</a>
+                  <a href="/main/finance-verification"> ${(result.remittanceFormCode)!}</a>
                 </td>
                 <td>
-                  <a href="/order/info/?id=12345678" target="_blank">YSL13050310010390</a>
+                  <a href="/order/info/?id=${orderBillId!-1}" target="_blank">${it.bizOrderId!}</a>
                 </td>
                 <td>
-                  <a href="/main/product?id=1">【双城春色】石家庄-北京双飞六日游</a>
+                  ${it.lineName!}
                 </td>
                 <td>
-                  2013-05-07
+                  <#if it.gmtDayOfStart??>${it.gmtDayOfStart?string('yyyy-MM-dd')}</#if>
                 </td>
                 <td>
-                  3大1小
+                  ${it.numberOfAdults!0}大${it.numberOfChildren!0}小
                 </td>
                 <td>
-                  3000.00
+                  ${it.paymentAmount!}
                 </td>
                 <td>
-                  已收款
+                  ${it.billStatus!}
                 </td>
               </tr>
+              </#list>
               </tbody>
             </table>
           </div>
