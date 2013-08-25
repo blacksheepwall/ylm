@@ -1,9 +1,11 @@
 package com.youlema.sales.mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.youlema.sales.mapper.meta.AssAgentsAccountRoleExample;
 import com.youlema.sales.mapper.meta.AssAgentsAccountRoleKey;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
 public interface AssAgentsAccountRoleMapper {
     /**

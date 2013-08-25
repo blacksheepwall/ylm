@@ -8,7 +8,6 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.yolema.tbss.ext.facade.TourPkgProductFacade;
-import com.yolema.tbss.ext.facade.fdo.pkgProduct.TourPkgProductFdo;
 import com.youlema.sales.meta.FreeTravelProductInfo;
 import com.youlema.sales.meta.FreeTravelProductItem;
 import com.youlema.sales.meta.SearchResult;
@@ -30,27 +29,6 @@ public class FreeTravelService {
      * @return
      */
     public SearchResult<FreeTravelProductItem> queryFreeTravelProducts(FreeTravelProductQueryCondition queryCondition) {
-        TourPkgProductFdo fdo = new TourPkgProductFdo();
-        
-        //TODO queryCondition转换成查询fdo过程待实现
-        
-        
-//        TourPkgProductResult result = tourPkgProductFacade.queryPageList(fdo);
-//        if (result.isSuccess()) {
-//            PageList<TourPkgProductFdo> pageList = result.getTourPkgProductFdoPageList();
-//            List<FreeTravelProductItem> items = new ArrayList<FreeTravelProductItem>(pageList.size());
-//            Vo<FreeTravelProductItem> vo = new Vo<FreeTravelProductItem>(FreeTravelProductItem.class);
-//            for (TourPkgProductFdo tourPkgProductFdo : pageList) {
-//                FreeTravelProductItem inject = vo.inject(tourPkgProductFdo);
-//                List<TourPkgDateFdo> dateFdos = tourPkgProductFdo.getTourPkgDateFdos();
-//                for (TourPkgDateFdo tourPkgDateFdo : dateFdos) {
-//                    Date date = tourPkgDateFdo.getGmtDayOfStart();
-//                    inject.addLeaveDate(date);
-//                }
-//                items.add(inject);
-//            }
-//            return new SearchResult<FreeTravelProductItem>(1, items);
-//        }
         return new SearchResult<FreeTravelProductItem>(0, new ArrayList<FreeTravelProductItem>(0));
     }
     

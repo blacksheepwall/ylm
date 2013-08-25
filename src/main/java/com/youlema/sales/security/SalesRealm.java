@@ -9,7 +9,6 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 
-import com.youlema.sales.mapper.meta.AgentsRole;
 import com.youlema.sales.meta.User;
 
 public class SalesRealm extends AuthorizingRealm {

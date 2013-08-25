@@ -1,5 +1,7 @@
 package com.youlema.sales.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -13,11 +15,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.yolema.settlement.ext.facade.fdo.RemittanceFormFdo;
 import com.yolema.settlement.ext.facade.fdo.RemittanceOrderBillFdo;
 import com.youlema.sales.mapper.meta.Agents;
+import com.youlema.sales.mapper.meta.AgentsPaymentReportMeta;
 import com.youlema.sales.mapper.meta.AgentsTotalFact;
+import com.youlema.sales.mapper.meta.ProductType;
 import com.youlema.sales.meta.FinanceMeta;
 import com.youlema.sales.meta.RemitItem;
 import com.youlema.sales.meta.SearchResult;
 import com.youlema.sales.service.FinanceServcie;
+import com.youlema.sales.service.ProductTypeService;
 import com.youlema.sales.service.UserService;
 
 /**
@@ -33,6 +38,8 @@ public class FinanceController {
     private FinanceServcie financeServcie;
     @Resource
     private UserService userService;
+    @Resource
+    private ProductTypeService productTypeService;
 
     @RequestMapping("")
     public String main(ModelMap modelMap) {
@@ -98,6 +105,35 @@ public class FinanceController {
     @RequestMapping("/report/")
     public String report(@RequestParam("type") String type, ModelMap modelMap) {
         modelMap.put("type", type);
+        List<AgentsPaymentReportMeta> metas = financeServcie
+                .readReportMetas(userService.getCurrentAgents(), type, 2013);
+
+        List<AgentsPaymentReportMeta> metas1 = new ArrayList<AgentsPaymentReportMeta>();
+        List<AgentsPaymentReportMeta> metas2 = new ArrayList<AgentsPaymentReportMeta>();
+        List<AgentsPaymentReportMeta> metas3 = new ArrayList<AgentsPaymentReportMeta>();
+        List<ProductType> types = productTypeService.listProductTypes();
+        HashMap<String, String> typeMap = new HashMap<String, String>(types.size());
+        for (ProductType productType : types) {
+            typeMap.put(productType.getTypeCode(), productType.getProductTypeName());
+        }
+
+        for (AgentsPaymentReportMeta meta : metas) {
+            String mainTypeCode = meta.getMainTypeCode();
+            if ("GN".equalsIgnoreCase(mainTypeCode)) {
+                metas2.add(meta);
+            } else if ("GJ".equalsIgnoreCase(mainTypeCode)) {
+                metas1.add(meta);
+            } else {
+                metas3.add(meta);
+            }
+            String minorName = typeMap.get(meta.getMinorTypeCode());
+            if (minorName != null) {
+                meta.setMinorTypeCode(minorName);
+            }
+        }
+        modelMap.put("metas1", metas1);
+        modelMap.put("metas2", metas2);
+        modelMap.put("metas3", metas3);
         return "finance-report";
     }
 

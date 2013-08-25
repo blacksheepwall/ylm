@@ -1,9 +1,11 @@
 package com.youlema.sales.mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.youlema.sales.mapper.meta.AgentsTotalFact;
 import com.youlema.sales.mapper.meta.AgentsTotalFactExample;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
 public interface AgentsTotalFactMapper {
     /**

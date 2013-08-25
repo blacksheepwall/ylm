@@ -1,9 +1,11 @@
 package com.youlema.sales.mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.youlema.sales.mapper.meta.AgentsRole;
 import com.youlema.sales.mapper.meta.AgentsRoleExample;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
 public interface AgentsRoleMapper {
     /**

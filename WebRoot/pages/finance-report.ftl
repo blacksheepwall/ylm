@@ -64,23 +64,18 @@
                   <div>
                     出境线路 <a href="javascript:;" class="j-toggle">展开</a>
                   </div>
-                  <#assign item_list>
+                  <#list metas1 as it>
                     <ol class="item-list" style="display: none;">
                       <li>
-                        <div class="item-type">美国</div>
-                        <div class="item-count">10</div>
-                        <div class="item-number">11</div>
-                        <div class="item-price">1000.00</div>
-                        <div class="item-amount">10000.00</div>
+                        <div class="item-type">${it.minorTypeCode}</div>
+                        <div class="item-count">${it.orderCount}</div>
+                        <div class="item-number">${it.adultCount+it.childCount}</div>
+                        <div class="item-price">${it.orderAmount}</div>
+                        <div class="item-amount">${it.settlementAmount}</div>
                         <div class="item-detail"><a href="/main/finance-report-detail?type=${type}">查看</a></div>
                       </li>
                     </ol>
-                  </#assign>
-                  <#noescape>${item_list}</#noescape>
-                  <#noescape>${item_list}</#noescape>
-                  <#noescape>${item_list}</#noescape>
-                  <#noescape>${item_list}</#noescape>
-                  <#noescape>${item_list}</#noescape>
+                  </#list>
                 </td>
               </tr>
               <tr>
@@ -88,11 +83,18 @@
                   <div>
                     港澳台线路 <a href="javascript:;" class="j-toggle">展开</a>
                   </div>
-                  <#noescape>${item_list}</#noescape>
-                  <#noescape>${item_list}</#noescape>
-                  <#noescape>${item_list}</#noescape>
-                  <#noescape>${item_list}</#noescape>
-                  <#noescape>${item_list}</#noescape>
+                  <#list metas3 as it>
+                    <ol class="item-list" style="display: none;">
+                      <li>
+                        <div class="item-type">${it.minorTypeCode}</div>
+                        <div class="item-count">${it.orderCount}</div>
+                        <div class="item-number">${it.adultCount+it.childCount}</div>
+                        <div class="item-price">${it.orderAmount}</div>
+                        <div class="item-amount">${it.settlementAmount}</div>
+                        <div class="item-detail"><a href="/main/finance-report-detail?type=${type}">查看</a></div>
+                      </li>
+                    </ol>
+                  </#list>
                 </td>
               </tr>
               <tr>
@@ -100,11 +102,18 @@
                   <div>
                     国内线路 <a href="javascript:;" class="j-toggle">展开</a>
                   </div>
-                  <#noescape>${item_list}</#noescape>
-                  <#noescape>${item_list}</#noescape>
-                  <#noescape>${item_list}</#noescape>
-                  <#noescape>${item_list}</#noescape>
-                  <#noescape>${item_list}</#noescape>
+                  <#list metas2 as it>
+                    <ol class="item-list" style="display: none;">
+                      <li>
+                        <div class="item-type">${it.minorTypeCode}</div>
+                        <div class="item-count">${it.orderCount}</div>
+                        <div class="item-number">${it.adultCount+it.childCount}</div>
+                        <div class="item-price">${it.orderAmount}</div>
+                        <div class="item-amount">${it.settlementAmount}</div>
+                        <div class="item-detail"><a href="/main/finance-report-detail?type=${type}">查看</a></div>
+                      </li>
+                    </ol>
+                  </#list>
                 </td>
               </tr>
               </tbody>

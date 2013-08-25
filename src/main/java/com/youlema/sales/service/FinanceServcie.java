@@ -13,9 +13,11 @@ import com.yolema.settlement.ext.facade.result.RemittanceFormBeanResult;
 import com.yolema.tbss.ext.facade.AgentsFacade;
 import com.yolema.tbss.ext.facade.fdo.agents.AgentsTotalFdo;
 import com.yolema.tbss.ext.facade.result.AgentsResult;
+import com.youlema.sales.mapper.AgentsPaymentFactMapper;
 import com.youlema.sales.mapper.AgentsTotalFactMapper;
 import com.youlema.sales.mapper.meta.Agents;
 import com.youlema.sales.mapper.meta.AgentsAccount;
+import com.youlema.sales.mapper.meta.AgentsPaymentReportMeta;
 import com.youlema.sales.mapper.meta.AgentsTotalFact;
 import com.youlema.sales.mapper.meta.AgentsTotalFactExample;
 import com.youlema.sales.meta.FinanceMeta;
@@ -39,6 +41,8 @@ public class FinanceServcie {
     private RemittanceFormFacade remittanceFormFacade;
     @Resource
     private AgentsTotalFactMapper agentsTotalFactMapper;
+    @Resource
+    private AgentsPaymentFactMapper agentsPaymentFactMapper;
 
     /**
      * 根据账号获取财务统计数据
@@ -111,6 +115,13 @@ public class FinanceServcie {
         example.setOrderByClause("YEAR_OF_START desc");
         List<AgentsTotalFact> list = agentsTotalFactMapper.selectByExample(example);
         return list;
+    }
+
+    public List<AgentsPaymentReportMeta> readReportMetas(Agents agents, String type, int year) {
+        if ("year".equalsIgnoreCase(type)) {
+            return agentsPaymentFactMapper.queryYearReport(agents.getAgentsId(), year);
+        }
+        return agentsPaymentFactMapper.queryMonthReport(agents.getAgentsId(), year);
     }
 
 }
