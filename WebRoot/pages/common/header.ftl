@@ -66,7 +66,7 @@
                   </div>
                   <div class="info">
                     <div class="clearfix">
-                      <span class="pull-left"><i class="icon-user"></i>${user.userName!}(业务操作员) </span>
+                      <span class="username pull-left" title="${user.userName!}"><i class="icon-user"></i> ${user.userName!}(业务操作员) </span>
                       <a href="/logout" class="pull-right nav-signout"><i class="icon-signout"></i> 退出</a>
                     </div>
                     <div class="clearfix">

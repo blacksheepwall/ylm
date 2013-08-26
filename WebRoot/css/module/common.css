@@ -187,6 +187,13 @@ table thead label input[type="checkbox"] {
   width: 165px;
 }
 
+.nav-login .username {
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .nav-login .nav-signout, .nav-login .nav-message {
   cursor: pointer;
   color: #fff;

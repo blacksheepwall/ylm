@@ -180,10 +180,10 @@
     <li <#if "finance-general-report"==page_name>class="active"</#if>>
       <a href="/finance/report/total/">总报表<i class="icon-chevron-right"></i></a>
     </li>
-    <li <#if "finance-report"==page_name>class="active"</#if>>
+    <li <#if "finance-report"==page_name&&type??&&type=="month">class="active"</#if>>
       <a href="/finance/report/?type=month">月报表<i class="icon-chevron-right"></i></a>
     </li>
-    <li <#if "finance-report"==page_name>class="active"</#if>>
+    <li <#if "finance-report"==page_name&&type??&&type=="year">class="active"</#if>>
       <a href="/finance/report/?type=year">年报表<i class="icon-chevron-right"></i></a>
     </li>
   </ul>
