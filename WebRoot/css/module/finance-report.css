@@ -11,21 +11,21 @@
 
 .item-list .item-type {
   padding-left: 26px;
-  width: 180px;
+  width: 120px;
 }
 
 .item-list .item-count {
-  width: 140px;
+  width: 160px;
 }
 
 .item-list .item-number {
-  width: 80px;
+  width: 90px;
 }
 
 .item-list .item-price {
-  width: 140px;
+  width: 150px;
 }
 
 .item-list .item-amount {
-  width: 140px;
+  width: 150px;
 }

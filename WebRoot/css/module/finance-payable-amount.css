@@ -2,3 +2,20 @@
   cursor: pointer;
   color: #0088cc;
 }
+
+.item-list li div {
+  float: left;
+}
+
+.item-list .item-type {
+  padding-left: 26px;
+  width: 120px;
+}
+
+.item-list .item-total {
+  width: 160px;
+}
+
+.item-list .item-price {
+  width: 145px;
+}

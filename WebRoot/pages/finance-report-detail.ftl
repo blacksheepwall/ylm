@@ -31,10 +31,10 @@
             <table class="tree-view table table-bordered">
               <thead>
               <tr>
-                <th>
+                <th width="150">
                   订单编号
                 </th>
-                <th>
+                <th width="200">
                   产品信息
                 </th>
                 <th>

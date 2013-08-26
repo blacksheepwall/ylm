@@ -17,42 +17,32 @@
         <div class="span10">
           <div class="form-horizontal mod-body">
             <div class="control-group">
-              <span>线路类型</span>
+              <strong>线路类型：</strong>
               <select class="input-small">
-                <option selected="" value="出境线路">出境线路</option>
-                <option value="2013">2013</option>
-                <option value="2014">2014</option>
-                <option value="2015">2015</option>
-                <option value="2016">2016</option>
-                <option value="2017">2017</option>
+                <option value="出境线路">出境线路</option>
+                <option value="港澳台线路">港澳台线路</option>
+                <option value="国内线路">国内线路</option>
               </select>
               <select class="input-small">
                 <option selected="" value="东南亚">东南亚</option>
-                <option value="1月">1月</option>
-                <option value="2月">2月</option>
-                <option value="3月">3月</option>
-                <option value="4月">4月</option>
-                <option value="5月">5月</option>
-                <option value="6月">6月</option>
-                <option value="7月">7月</option>
-                <option value="8月">8月</option>
-                <option value="9月">9月</option>
-                <option value="10月">10月</option>
-                <option value="11月">11月</option>
-                <option value="12月">12月</option>
+                <option value="东南亚">东南亚</option>
+                <option value="东南亚">东南亚</option>
+                <option value="东南亚">东南亚</option>
+                <option value="东南亚">东南亚</option>
+                <option value="东南亚">东南亚</option>
               </select>
               <button class="btn btn-success btn-small">下载明细</button>
             </div>
             <table class="table table-bordered">
               <thead>
               <tr>
-                <th>
+                <th width="130">
                   订单编号
                 </th>
-                <th>
+                <th width="50">
                   人数
                 </th>
-                <th>
+                <th width="210">
                   产品信息
                 </th>
                 <th>

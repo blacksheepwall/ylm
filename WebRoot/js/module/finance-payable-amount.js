@@ -1,4 +1,3 @@
-define(['treetable'], function() {
+define(['./finance-report'], function() {
   'use strict';
-  $('J_table').treetable({expandable: true });
 });
