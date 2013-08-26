@@ -18,13 +18,13 @@
         <div class="span10">
           <div class="mod-body">
             <div class="condition form-horizontal">
-              <span><strong>线路类型</strong>：国内线路-海南三亚</span>
+              <span><strong>线路类型</strong>：${mainType}-${minorType!}</span>
               <span>
                 <strong>周期</strong>：
-                <#if type=="year">
-                  2013年
+                <#if month <= 0>
+                  ${year}年
                 <#else>
-                  2013年6月
+                 ${year}年${month}月
                 </#if></span>
               <button class="btn btn-small btn-success" type="button"><i class="icon-download"></i> 下载明细</button>
             </div>

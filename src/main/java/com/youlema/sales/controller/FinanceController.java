@@ -114,11 +114,7 @@ public class FinanceController {
         List<AgentsPaymentReportMeta> metas1 = new ArrayList<AgentsPaymentReportMeta>();
         List<AgentsPaymentReportMeta> metas2 = new ArrayList<AgentsPaymentReportMeta>();
         List<AgentsPaymentReportMeta> metas3 = new ArrayList<AgentsPaymentReportMeta>();
-        List<ProductType> types = productTypeService.listProductTypes();
-        HashMap<String, String> typeMap = new HashMap<String, String>(types.size());
-        for (ProductType productType : types) {
-            typeMap.put(productType.getTypeCode(), productType.getProductTypeName());
-        }
+        HashMap<String, String> typeMap = getTypesMap();
 
         for (AgentsPaymentReportMeta meta : metas) {
             String mainTypeCode = meta.getMainTypeCode();
@@ -140,11 +136,31 @@ public class FinanceController {
         return "finance-report";
     }
 
+    private HashMap<String, String> getTypesMap() {
+        List<ProductType> types = productTypeService.listProductTypes();
+        HashMap<String, String> typeMap = new HashMap<String, String>(types.size());
+        for (ProductType productType : types) {
+            typeMap.put(productType.getTypeCode(), productType.getProductTypeName());
+        }
+        return typeMap;
+    }
+
     @RequestMapping("/report/detail")
     public String reportDetail(@RequestParam("mainTypeCode") String mainTypeCode,
             @RequestParam("minorTypeCode") String minorTypeCode, @RequestParam("year") int year,
             @RequestParam(value = "month", required = false, defaultValue = "-1") int month, ModelMap modelMap) {
         List<AgentsPaymentFact> items = financeServcie.readReportDetail(mainTypeCode, minorTypeCode, year, month);
+        HashMap<String, String> map = getTypesMap();
+        modelMap.put("minorType", map.get(minorTypeCode));
+        String mainType = "港澳台线路";
+        if ("GN".equalsIgnoreCase(mainTypeCode)) {
+            mainType = "国内线路";
+        } else if ("GJ".equalsIgnoreCase(mainTypeCode)) {
+            mainType = "境外线路";
+        }
+        modelMap.put("year", year);
+        modelMap.put("month", month);
+        modelMap.put("mainType", mainType);
         modelMap.put("items", items);
         return "finance-report-detail";
     }
