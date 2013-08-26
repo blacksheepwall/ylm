@@ -38,54 +38,66 @@
               </tr>
               </thead>
               <tbody>
+              <#if statistic2??>
               <tr>
                 <td colspan="5">
                   <div>
                   出境线路 <a href="javascript:;" class="j-toggle">展开</a>
                   </div>
                   <ol class="item-list" style="display: none;">
+                  	<#list statistic2.getItems() as it>
                     <li>
-                      <div class="item-type">上海</div>
-                      <div class="item-price">100</div>
-                      <div class="item-price">100</div>
-                      <div class="item-total">100</div>
-                      <div class="item-detail"><a href="/main/finance-payable-detail/">查看</a></div>
+                      <div class="item-type">${it.minorType!'UNKNOW'}</div>
+                      <div class="item-price">${it.inPaymentDaysAmount}</div>
+                      <div class="item-price">${it.outPaymentDaysAmount}</div>
+                      <div class="item-total">${it.totalAmount}</div>
+                      <div class="item-detail"><a href="/finance/payment/detail/">查看</a></div>
                     </li>
+                    </#list>
                   </ol>
                 </td>
               </tr>
+              </#if>
+              <#if statistic3??>
               <tr>
                 <td colspan="5">
                   <div>
                   港澳台线路 <a href="javascript:;" class="j-toggle">展开</a>
                   </div>
                   <ol class="item-list" style="display: none;">
+                  	<#list statistic3.getItems() as it>
                     <li>
-                      <div class="item-type">上海</div>
-                      <div class="item-price">100</div>
-                      <div class="item-price">100</div>
-                      <div class="item-total">100</div>
-                      <div class="item-detail"><a href="/main/finance-payable-detail/">查看</a></div>
+                      <div class="item-type">${it.minorType!}</div>
+                      <div class="item-price">${it.inPaymentDaysAmount}</div>
+                      <div class="item-price">${it.outPaymentDaysAmount}</div>
+                      <div class="item-total">${it.totalAmount}</div>
+                      <div class="item-detail"><a href="/finance/payment/detail/">查看</a></div>
                     </li>
+                    </#list>
                   </ol>
                 </td>
               </tr>
+              </#if>
+              <#if statistic1??>
               <tr>
                 <td colspan="5">
                   <div>
                   国内线路 <a href="javascript:;" class="j-toggle">展开</a>
                   </div>
                   <ol class="item-list" style="display: none;">
+                  	<#list statistic1.getItems() as it>
                     <li>
-                      <div class="item-type">上海</div>
-                      <div class="item-price">100</div>
-                      <div class="item-price">100</div>
-                      <div class="item-total">100</div>
-                      <div class="item-detail"><a href="/main/finance-payable-detail/">查看</a></div>
+                      <div class="item-type">${it.minorType!}</div>
+                      <div class="item-price">${it.inPaymentDaysAmount}</div>
+                      <div class="item-price">${it.outPaymentDaysAmount}</div>
+                      <div class="item-total">${it.totalAmount}</div>
+                      <div class="item-detail"><a href="/finance/payment/detail/">查看</a></div>
                     </li>
+                    </#list>
                   </ol>
                 </td>
               </tr>
+              </#if>
               </tbody>
             </table>
           </div>

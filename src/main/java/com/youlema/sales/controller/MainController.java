@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.youlema.sales.meta.Bulletin;
 import com.youlema.sales.meta.HomePageProductItem;
 import com.youlema.sales.meta.SearchResult;
-import com.youlema.sales.service.AdService;
 import com.youlema.sales.service.BulletinService;
 import com.youlema.sales.service.ProductService;
 import com.youlema.sales.service.UserService;
@@ -19,8 +18,6 @@ import com.youlema.sales.service.UserService;
 @Controller
 @RequestMapping("/")
 public class MainController {
-    @Resource
-    private AdService adService;
     @Resource
     private UserService userService;
     @Resource

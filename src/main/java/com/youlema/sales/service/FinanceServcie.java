@@ -1,5 +1,6 @@
 package com.youlema.sales.service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -147,10 +148,12 @@ public class FinanceServcie {
      * @param year
      * @return
      */
-    public List<AgentsPaymentFact> readReportDetail(String mainTypeCode, String typeCode, int year, int month) {
+    public List<AgentsPaymentFact> readReportDetail(Agents agents, String mainTypeCode, String typeCode, int year,
+            int month) {
         AgentsPaymentFactExample example = new AgentsPaymentFactExample();
         AgentsPaymentFactExample.Criteria criteria = example.createCriteria();
         criteria.andYearOfStartEqualTo(year);
+        criteria.andAgentsIdEqualTo(agents.getAgentsId());
         if (month > 0) {
             criteria.andMonthOfStartEqualTo(month);
         }
@@ -164,6 +167,33 @@ public class FinanceServcie {
         BeanCopier copier = BeanCopier.create(AgentsPaymentFact.class, AgentsPaymentReportItem.class, false);
         List<AgentsPaymentFact> list = new ArrayList<AgentsPaymentFact>(selectByExample.size());
         for (AgentsPaymentFact fact : selectByExample) {
+            AgentsPaymentReportItem reportItem = new AgentsPaymentReportItem();
+            copier.copy(fact, reportItem, null);
+            list.add(reportItem);
+        }
+        return list;
+    }
+
+    public List<AgentsPaymentFact> getShowPaymentFact(Agents currentAgents) {
+        return getShowPaymentFact(currentAgents, null, null);
+    }
+
+    public List<AgentsPaymentFact> getShowPaymentFact(Agents currentAgents, String mainCode, String minorCode) {
+        AgentsPaymentFactExample example = new AgentsPaymentFactExample();
+        AgentsPaymentFactExample.Criteria criteria = example.createCriteria();
+        criteria.andAgentsIdEqualTo(currentAgents.getAgentsId());
+        criteria.andUnpaidAmountIsNotNull().andUnpaidAmountNotEqualTo(BigDecimal.ZERO);
+        if (StringUtils.isNotBlank(mainCode)) {
+            criteria.andMainTypeCodeEqualTo(mainCode);
+        }
+        if (StringUtils.isNotBlank(minorCode)) {
+            criteria.andMinorTypeCodeEqualTo(minorCode);
+        }
+
+        List<AgentsPaymentFact> srcList = agentsPaymentFactMapper.selectByExample(example);
+        List<AgentsPaymentFact> list = new ArrayList<AgentsPaymentFact>(srcList.size());
+        BeanCopier copier = BeanCopier.create(AgentsPaymentFact.class, AgentsPaymentReportItem.class, false);
+        for (AgentsPaymentFact fact : srcList) {
             AgentsPaymentReportItem reportItem = new AgentsPaymentReportItem();
             copier.copy(fact, reportItem, null);
             list.add(reportItem);

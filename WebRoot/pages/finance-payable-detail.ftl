@@ -19,17 +19,14 @@
             <div class="control-group">
               <strong>线路类型：</strong>
               <select class="input-small">
-                <option value="出境线路">出境线路</option>
-                <option value="港澳台线路">港澳台线路</option>
-                <option value="国内线路">国内线路</option>
+                <option value="CJ">出境线路</option>
+                <option value="GT">港澳台线路</option>
+                <option value="GN">国内线路</option>
               </select>
               <select class="input-small">
-                <option selected="" value="东南亚">东南亚</option>
-                <option value="东南亚">东南亚</option>
-                <option value="东南亚">东南亚</option>
-                <option value="东南亚">东南亚</option>
-                <option value="东南亚">东南亚</option>
-                <option value="东南亚">东南亚</option>
+              	<#list types as it>
+                <option selected="" value="${it.typeCode!}">${it.productTypeName}</option>
+                </#list>
               </select>
               <button class="btn btn-success btn-small">下载明细</button>
             </div>
@@ -63,32 +60,34 @@
               </tr>
               </thead>
               <tbody>
+              <#list list as it>
               <tr>
                 <td>
-                  <a href="/order/info/?id=12345678" target="_blank">YSL13042410560353</a>
+                  <a href="/order/info/?id=${it.orderBillId}" target="_blank">${it.orderCode}</a>
                 </td>
                 <td>
-                  3大1小
+                  ${it.totalAdult}大${it.totalChild}小
                 </td>
                 <td>
-                  <a href="/product/detail?id=1" target="_blank">东航直飞巴厘岛5晚6日至尊逍遥之旅</a>
+                  <a href="/product/detail?id=${it.productId}" target="_blank">${it.productName}</a>
                 </td>
                 <td>
-                  2013-03-11
+                  <#if it.gmtDayOfStart??>${it.gmtDayOfStart?string('yyyy-MM-dd')}</#if>
                 </td>
                 <td>
-                  1596.00
+                  ${it.orderAmount}
                 </td>
                 <td>
-                  1596.00
+                  ${it.paidAmount}
                 </td>
                 <td>
-                  1596.00
+                  ${it.unpaidAmount}
                 </td>
                 <td>
-                  23天
+                  ${it.paymentDays}天
                 </td>
               </tr>
+              </#list>
               </tbody>
             </table>
           </div>
