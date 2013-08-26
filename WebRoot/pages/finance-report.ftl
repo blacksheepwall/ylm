@@ -25,17 +25,21 @@
             <div class="condition form-horizontal">
               年份
               <select id="J_select_year" class="input-small">
-                <option selected="" value="2013">2013</option>
+                <option value="2005">2005</option>
+                <option value="2006">2006</option>
+                <option value="2007">2007</option>
+                <option value="2008">2008</option>
+                <option value="2009">2009</option>
+                <option value="2010">2010</option>
+                <option value="2011">2011</option>
+                <option value="2012">2012</option>
                 <option value="2013">2013</option>
                 <option value="2014">2014</option>
-                <option value="2015">2015</option>
-                <option value="2016">2016</option>
-                <option value="2017">2017</option>
               </select>
               <#if type=="month">
                 月份
                 <select id="J_select_month" class="input-small">
-                  <option value="1" selected="">1</option>
+                  <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
@@ -49,7 +53,7 @@
                   <option value="12">12</option>
                 </select>
               </#if>
-              <button class="btn btn-success btn-small" type="button"><i class="icon-search"></i> 确定</button>
+              <button class="btn btn-success btn-small" type="button" id="J_ok"><i class="icon-search"></i> 确定</button>
               <button class="btn btn-small" type="button"><i class="icon-download"></i> 下载报表</button>
             </div>
             <table id="J_table" class="tree-view table table-bordered">

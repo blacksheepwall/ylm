@@ -34,8 +34,9 @@
       'marquee': 'base/marquee',
       'treetable': 'base/jquery.treetable',
       'moment': 'base/moment',
-      'jstree': 'base/jstree/jquery.jstree',
-      'jqgrid': 'base/jqGrid/js/jquery.jqGrid.src'
+//      'jstree': 'base/jstree/jquery.jstree',
+//      'jqgrid': 'base/jqGrid/js/jquery.jqGrid.src'
+      'url': 'base/url'
     },
     urlArgs: 'v=' /*+ (+new Date()) */ + '${cfg_version_js}'
   });
