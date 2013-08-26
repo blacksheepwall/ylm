@@ -64,7 +64,11 @@
 		sum(order_Amount)ORDER_AMOUNT ,
 		sum(SETTLEMENT_AMOUNT)SETTLEMENT_AMOUNT,sum(UNPAID_AMOUNT)UNPAID_AMOUNT,sum(PAID_AMOUNT)PAID_AMOUNT
 		from AGENTS_PAYMENT_FACT where AGENTS_ID=#{agentsId} and YEAR_OF_START
-		= #{year} group by MINOR_TYPE_CODE
+		= #{year} 
+		<if test = "month > 0">
+			and MONTH_OF_START = #{month}
+		</if>
+		group by MINOR_TYPE_CODE
 		,YEAR_OF_START
 		,MONTH_OF_START,MAIN_TYPE_CODE;
 	</select>

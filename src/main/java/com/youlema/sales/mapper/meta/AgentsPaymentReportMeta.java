@@ -15,6 +15,11 @@ public class AgentsPaymentReportMeta {
     private BigDecimal settlementAmount;
     private BigDecimal paidAmount;
     private BigDecimal unpaidAmount;
+    private String minorTypeCodeName;
+
+    public String getMinorTypeCodeName() {
+        return minorTypeCodeName;
+    }
 
     public int getMonthOfStart() {
         return monthOfStart;
@@ -110,6 +115,10 @@ public class AgentsPaymentReportMeta {
 
     public void setSettlementAmount(BigDecimal settlementAmount) {
         this.settlementAmount = settlementAmount;
+    }
+
+    public void setMinorTypeCodeName(String minorName) {
+        this.minorTypeCodeName = minorName;
     }
 
 }

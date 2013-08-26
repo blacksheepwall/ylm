@@ -84,12 +84,12 @@
                   <#list metas1 as it>
                     <ol class="item-list" style="display: none;">
                       <li>
-                        <div class="item-type">${it.minorTypeCode}</div>
+                        <div class="item-type">${it.minorTypeCodeName!}</div>
                         <div class="item-count">${it.orderCount}</div>
                         <div class="item-number">${it.adultCount+it.childCount}</div>
                         <div class="item-price">${it.orderAmount}</div>
                         <div class="item-amount">${it.settlementAmount}</div>
-                        <div class="item-detail"><a href="/main/finance-report-detail?type=${type}">查看</a></div>
+                        <div class="item-detail"><a href="/finance/report/detail/?year=${it.yearOfStart}<#if type == 'month'>&month=${it.monthOfStart}</#if>&mainTypeCode=${it.mainTypeCode}&minorTypeCode=${it.minorTypeCode}">查看</a></div>
                       </li>
                     </ol>
                   </#list>
@@ -108,7 +108,7 @@
                         <div class="item-number">${it.adultCount+it.childCount}</div>
                         <div class="item-price">${it.orderAmount}</div>
                         <div class="item-amount">${it.settlementAmount}</div>
-                        <div class="item-detail"><a href="/main/finance-report-detail?type=${type}">查看</a></div>
+                        <div class="item-detail"><a href="/finance/report/detail/?year=${it.yearOfStart}<#if type == 'month'>&month=${it.monthOfStart}</#if>&mainTypeCode=${it.mainTypeCode}&minorTypeCode=${it.minorTypeCode}">查看</a></div>
                       </li>
                     </ol>
                   </#list>
@@ -127,7 +127,7 @@
                         <div class="item-number">${it.adultCount+it.childCount}</div>
                         <div class="item-price">${it.orderAmount}</div>
                         <div class="item-amount">${it.settlementAmount}</div>
-                        <div class="item-detail"><a href="/main/finance-report-detail?type=${type}">查看</a></div>
+                        <div class="item-detail"><a href="/finance/report/detail/?year=${it.yearOfStart}<#if type == 'month'>&month=${it.monthOfStart}</#if>&mainTypeCode=${it.mainTypeCode}&minorTypeCode=${it.minorTypeCode}">查看</a></div>
                       </li>
                     </ol>
                   </#list>

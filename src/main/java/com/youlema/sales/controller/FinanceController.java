@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.yolema.settlement.ext.facade.fdo.RemittanceFormFdo;
 import com.yolema.settlement.ext.facade.fdo.RemittanceOrderBillFdo;
 import com.youlema.sales.mapper.meta.Agents;
+import com.youlema.sales.mapper.meta.AgentsPaymentFact;
 import com.youlema.sales.mapper.meta.AgentsPaymentReportMeta;
 import com.youlema.sales.mapper.meta.AgentsTotalFact;
 import com.youlema.sales.mapper.meta.ProductType;
@@ -102,11 +103,13 @@ public class FinanceController {
      * @param modelMap
      * @return
      */
-    @RequestMapping("/report/")
-    public String report(@RequestParam("type") String type, ModelMap modelMap) {
+    @RequestMapping("/report")
+    public String report(@RequestParam("type") String type,
+            @RequestParam(value = "year", required = false, defaultValue = "2013") int year,
+            @RequestParam(value = "month", required = false, defaultValue = "-1") int month, ModelMap modelMap) {
         modelMap.put("type", type);
-        List<AgentsPaymentReportMeta> metas = financeServcie
-                .readReportMetas(userService.getCurrentAgents(), type, 2013);
+        List<AgentsPaymentReportMeta> metas = financeServcie.readReportMetas(userService.getCurrentAgents(), type,
+                year, month);
 
         List<AgentsPaymentReportMeta> metas1 = new ArrayList<AgentsPaymentReportMeta>();
         List<AgentsPaymentReportMeta> metas2 = new ArrayList<AgentsPaymentReportMeta>();
@@ -128,13 +131,42 @@ public class FinanceController {
             }
             String minorName = typeMap.get(meta.getMinorTypeCode());
             if (minorName != null) {
-                meta.setMinorTypeCode(minorName);
+                meta.setMinorTypeCodeName(minorName);
             }
         }
         modelMap.put("metas1", metas1);
         modelMap.put("metas2", metas2);
         modelMap.put("metas3", metas3);
         return "finance-report";
+    }
+
+    @RequestMapping("/report/detail")
+    public String reportDetail(@RequestParam("mainTypeCode") String mainTypeCode,
+            @RequestParam("minorTypeCode") String minorTypeCode, @RequestParam("year") int year,
+            @RequestParam(value = "month", required = false, defaultValue = "-1") int month, ModelMap modelMap) {
+        List<AgentsPaymentFact> items = financeServcie.readReportDetail(mainTypeCode, minorTypeCode, year, month);
+        modelMap.put("items", items);
+        return "finance-report-detail";
+    }
+
+    /**
+     * 交易信息应付款统计
+     * 
+     * @param modelMap
+     * @return
+     */
+    public String paymentMain(ModelMap modelMap) {
+        return "finance-payable-amount";
+    }
+
+    /**
+     * 交易信息应付款明细
+     * 
+     * @param modelMap
+     * @return
+     */
+    public String paymentDetail(ModelMap modelMap) {
+        return "finance-payable-detail";
     }
 
 }

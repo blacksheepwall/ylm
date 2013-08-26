@@ -58,28 +58,34 @@
               </tr>
               </thead>
               <tbody>
+              <#list items as it>
               <tr>
                 <td>
-                  <a href="javascript:;">YSL1305170948049</a>
+                  <a href="/order/info/?id=${it.orderBillId}"  target="_blank">${it.orderCode}</a>
                 </td>
                 <td>
-                  <a href="">昆大丽双飞6日游</a>
+                  <a href="/product/detail?id=${it.productId}" target="_blank">${it.productName}</a>
                 </td>
                 <td>
-                  2013-03-11
+                  <#if it.gmtDayOfStart??>${it.gmtDayOfStart?string('yyyy-MM-dd')}</#if>
                 </td>
                 <td>
-                  3
+                  ${it.totalAdult + it.totalChild}
                 </td>
                 <td>
+                	${it.orderAmount}
                 </td>
                 <td>
+                	${it.settlementAmount}
                 </td>
                 <td>
+                	${it.unpaidAmount}
                 </td>
                 <td>
+                	${it.paymentDays}
                 </td>
               </tr>
+              </#list>
               </tbody>
             </table>
           </div>

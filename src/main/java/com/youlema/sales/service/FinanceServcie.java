@@ -5,6 +5,9 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import net.sf.cglib.beans.BeanCopier;
+
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
 import com.yolema.settlement.ext.facade.fdo.RemittanceFormFdo;
@@ -17,6 +20,9 @@ import com.youlema.sales.mapper.AgentsPaymentFactMapper;
 import com.youlema.sales.mapper.AgentsTotalFactMapper;
 import com.youlema.sales.mapper.meta.Agents;
 import com.youlema.sales.mapper.meta.AgentsAccount;
+import com.youlema.sales.mapper.meta.AgentsPaymentFact;
+import com.youlema.sales.mapper.meta.AgentsPaymentFactExample;
+import com.youlema.sales.mapper.meta.AgentsPaymentReportItem;
 import com.youlema.sales.mapper.meta.AgentsPaymentReportMeta;
 import com.youlema.sales.mapper.meta.AgentsTotalFact;
 import com.youlema.sales.mapper.meta.AgentsTotalFactExample;
@@ -117,11 +123,51 @@ public class FinanceServcie {
         return list;
     }
 
-    public List<AgentsPaymentReportMeta> readReportMetas(Agents agents, String type, int year) {
+    /**
+     * 年月业务报表
+     * 
+     * @param agents
+     * @param type
+     * @param year
+     * @return
+     */
+    public List<AgentsPaymentReportMeta> readReportMetas(Agents agents, String type, int year, int month) {
         if ("year".equalsIgnoreCase(type)) {
             return agentsPaymentFactMapper.queryYearReport(agents.getAgentsId(), year);
         }
-        return agentsPaymentFactMapper.queryMonthReport(agents.getAgentsId(), year);
+        return agentsPaymentFactMapper.queryMonthReport(agents.getAgentsId(), year, month);
     }
 
+    /**
+     * 获取报表明细列表
+     * 
+     * @param type
+     * @param typeCode
+     * @param month
+     * @param year
+     * @return
+     */
+    public List<AgentsPaymentFact> readReportDetail(String mainTypeCode, String typeCode, int year, int month) {
+        AgentsPaymentFactExample example = new AgentsPaymentFactExample();
+        AgentsPaymentFactExample.Criteria criteria = example.createCriteria();
+        criteria.andYearOfStartEqualTo(year);
+        if (month > 0) {
+            criteria.andMonthOfStartEqualTo(month);
+        }
+        if (StringUtils.isNotBlank(mainTypeCode)) {
+            criteria.andMainTypeCodeEqualTo(mainTypeCode);
+        }
+        if (StringUtils.isNotBlank(typeCode)) {
+            criteria.andMinorTypeCodeEqualTo(typeCode);
+        }
+        List<AgentsPaymentFact> selectByExample = agentsPaymentFactMapper.selectByExample(example);
+        BeanCopier copier = BeanCopier.create(AgentsPaymentFact.class, AgentsPaymentReportItem.class, false);
+        List<AgentsPaymentFact> list = new ArrayList<AgentsPaymentFact>(selectByExample.size());
+        for (AgentsPaymentFact fact : selectByExample) {
+            AgentsPaymentReportItem reportItem = new AgentsPaymentReportItem();
+            copier.copy(fact, reportItem, null);
+            list.add(reportItem);
+        }
+        return list;
+    }
 }
