@@ -107,7 +107,7 @@
                   <#list metas3 as it>
                     <ol class="item-list" style="display: none;">
                       <li>
-                        <div class="item-type">${it.minorTypeCode}</div>
+                        <div class="item-type">${it.minorTypeCodeName}</div>
                         <div class="item-count">${it.orderCount}</div>
                         <div class="item-number">${it.adultCount+it.childCount}</div>
                         <div class="item-price">${it.orderAmount}</div>
@@ -126,7 +126,7 @@
                   <#list metas2 as it>
                     <ol class="item-list" style="display: none;">
                       <li>
-                        <div class="item-type">${it.minorTypeCode}</div>
+                        <div class="item-type">${it.minorTypeCodeName}</div>
                         <div class="item-count">${it.orderCount}</div>
                         <div class="item-number">${it.adultCount+it.childCount}</div>
                         <div class="item-price">${it.orderAmount}</div>
