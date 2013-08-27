@@ -1,0 +1,28 @@
+@import "group-common.css";
+
+.search-input {
+  width: 345px;
+}
+
+.price-more {
+  position: relative;
+}
+
+.price-more .popover {
+  top: 18px;
+  left: -205px;
+  width: 500px;
+  max-width: 500px;
+}
+
+.price-more:hover .popover {
+  display: block !important;
+}
+
+.col-sort {
+  text-align: right;
+}
+
+.col-sort a {
+  margin: 0 0 20px 10px;
+}

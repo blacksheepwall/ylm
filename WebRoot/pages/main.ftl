@@ -8,15 +8,15 @@
       <div class="clearfix">
         <div class="search-box">
           <#--<div class="search-title"><i class="icon-search"></i> 产品搜索</div>-->
-          <form class="form-search">
+          <form id="J_search_form" class="form-search">
             <select class="top-search">
               <option>杭州出发</option>
               <option>杭州出发</option>
               <option>杭州出发</option>
               <option>杭州出发</option>
             </select>
-            <input class="search-input" type="text">
-            <button class="btn search-btn btn-success" type="button"><i class="icon-search"></i> 搜索</button>
+            <input id="J_search_txt" class="search-input" type="text">
+            <button id="J_search_btn" class="btn search-btn btn-success" type="button"><i class="icon-search"></i> 搜索</button>
           </form>
           <#--<div class="search-title"><i class="icon-thumbs-up"></i> 当季热门</div>-->
           <#--<div class="city-list clearfix">-->

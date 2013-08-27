@@ -16,7 +16,7 @@
         <div class="span10 manage-body">
           <div class="user-info mod-body clearfix">
             <div class="user-avatar pull-left">
-              <a href="#">
+              <a href="javascript:;">
                 <img data-src="holder.js/80x80"
                      src="data:image/png;base64,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">
               </a>
@@ -82,13 +82,13 @@
             <table class="table table-hover table-bordered">
               <thead>
               <tr>
-                <th>
+                <th width="130">
                   订单编号
                 </th>
-                <th>
+                <th width="50">
                   类型
                 </th>
-                <th>
+                <th width="140">
                   产品名称
                 </th>
                 <th>
@@ -112,13 +112,13 @@
               <#list orderResult.resultList as it>
               <tr>
                 <td>
-                  ${it.orderNumber!}
+                  <a href="/order/info/?id=${it.orderId!}" target="_blank">${it.orderNumber!}</a>
                 </td>
                 <td>
                   ${(it.orderType.value)!}
                 </td>
                 <td>
-                  ${(it.productName)!}
+                  <a href="/product/detail/?id=${it.productId!}" target="_blank">${(it.productName)!}</a>
                 </td>
                 <td>
                   ${(it.scheduledTime)!}
