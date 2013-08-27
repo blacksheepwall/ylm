@@ -50,7 +50,7 @@
               <li>
                 <strong>产品经理：</strong> <a href="javascript:;">${order.productManager!''}</a><#noescape ><@user_card_popover name="${order.productManager!''}"></@user_card_popover></#noescape>
               </li>
-              <li><strong>团队协调：</strong> <a href="javascript:;">${order.coordinator!''}</a><#noescape ><@user_card_popover name="${order.coordinator!''}"></@user_card_popover></#noescape></li>
+              <li><strong>团队计调：</strong> <a href="javascript:;">${order.coordinator!''}</a><#noescape ><@user_card_popover name="${order.coordinator!''}"></@user_card_popover></#noescape></li>
               <li><strong>预订人数：</strong>${order.subscribeCount}</li>
               <li><strong>订单状态：</strong>${order.status.value}</li>
               <li><strong>锁定状态：</strong>${order.lockStatus}</li>

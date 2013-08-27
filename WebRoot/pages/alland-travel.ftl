@@ -17,7 +17,7 @@
           <#--${rg.name}-->
           <#list citys as city>
             <li>
-              <a href="javascript:;" data-target="typeCode,${city.typeCode!}">${city.productTypeName}</a>
+              <a href="javascript:;" data-target="typeCode,${city.typeCode!'0'}">${city.productTypeName}</a>
             </li>
           </#list>
         </ul>

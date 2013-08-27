@@ -16,7 +16,7 @@
         <@finance_sidebar></@finance_sidebar>
         <div class="span10">
           <div class="mod-body">
-            <button class="btn btn-success btn-small">下载报表</button>
+            <button class="btn btn-small"><i class="icon-download"></i> 下载报表</button>
             <table class="table table-bordered">
               <thead>
               <tr>

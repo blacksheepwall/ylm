@@ -23,10 +23,7 @@ define(['dateTimePicker'], function() {
         alert(result.desc || '');
       }
     }).fail(function(result) {
-        $.globalMessenger().post({
-          message: JSON.stringify(result),
-          type: 'error'
-        });
+        console && console.log(JSON.stringify(result));
       }).always(function() {
         $.globalMessenger().hideAll();
       });

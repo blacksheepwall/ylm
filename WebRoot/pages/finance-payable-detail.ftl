@@ -18,17 +18,18 @@
           <div class="form-horizontal mod-body">
             <div class="control-group">
               <strong>线路类型：</strong>
-              <select class="input-small">
+              <select id="J_route_type" class="input-small">
                 <option value="CJ">出境线路</option>
                 <option value="GT">港澳台线路</option>
                 <option value="GN">国内线路</option>
               </select>
-              <select class="input-small">
+              <select id="J_product_type" class="input-small">
               	<#list types as it>
                 <option selected="" value="${it.typeCode!}">${it.productTypeName}</option>
                 </#list>
               </select>
-              <button class="btn btn-success btn-small">下载明细</button>
+              <button id="J_ok" class="btn btn-small btn-success" type="button"><i class="icon-search"></i> 确定</button>
+              <button class="btn btn-small" type="button"><i class="icon-download"></i> 下载明细</button>
             </div>
             <table class="table table-bordered">
               <thead>

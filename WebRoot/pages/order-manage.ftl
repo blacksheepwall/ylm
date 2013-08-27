@@ -107,11 +107,7 @@
             </th>
           </tr>
           </thead>
-          <tbody id="J_order_container">
-          <tr>
-            <td colspan="10">订单加载中...</td>
-          </tr>
-          </tbody>
+          <tbody id="J_order_container"></tbody>
         </table>
         <@pagination></@pagination>
       </div>
@@ -126,7 +122,7 @@
           {{orderType.value}}
         </td>
         <td>
-          <a href="/product/detail/?id={{productId}}">{{productName}}</a>
+          <a href="/product/detail/?id={{productId}}" target="_blank">{{productName}}</a>
         </td>
         <td>
           {{beginDate}}
@@ -147,7 +143,7 @@
           {{contractStatus}}
         </td>
         <td>
-          <a href="/order/confirm/?id={{orderId}}">确认单</a> <a href="/order/download/?id={{orderId}}">出团通知</a>
+          <a href="/order/confirm/?id={{orderId}}" target="_blank">确认单</a> <a href="/order/download/?id={{orderId}}" target="_blank">出团通知</a>
         </td>
       </tr>
       {{/resultList}}

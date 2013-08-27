@@ -26,7 +26,7 @@
                 <#else>
                  ${year}年${month}月
                 </#if></span>
-              <button class="btn btn-small btn-success" type="button"><i class="icon-download"></i> 下载明细</button>
+              <button class="btn btn-small" type="button"><i class="icon-download"></i> 下载明细</button>
             </div>
             <table class="tree-view table table-bordered">
               <thead>
