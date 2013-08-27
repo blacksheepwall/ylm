@@ -84,7 +84,7 @@
             <th>
               产品名称
             </th>
-            <th width="80">
+            <th width="70">
               出团日期
             </th>
             <th width="30">
@@ -93,13 +93,13 @@
             <th width="60">
               联系人
             </th>
-            <th width="80">
+            <th width="70">
               预订时间
             </th>
-            <th width="80">
+            <th width="70">
               订单状态
             </th>
-            <th width="80">
+            <th width="70">
               合同状态
             </th>
             <th width="100">
