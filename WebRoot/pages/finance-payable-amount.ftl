@@ -51,7 +51,7 @@
                       <div class="item-price">${it.inPaymentDaysAmount}</div>
                       <div class="item-price">${it.outPaymentDaysAmount}</div>
                       <div class="item-total">${it.totalAmount}</div>
-                      <div class="item-detail"><a href="/finance/payment/detail/">查看</a></div>
+                      <div class="item-detail"><a href="/finance/payment/detail/?mainTypeCode=${it.mainTypeCode}&minorTypeCode=${it.minorTypeCode}">查看</a></div>
                     </li>
                     </#list>
                   </ol>
@@ -71,7 +71,7 @@
                       <div class="item-price">${it.inPaymentDaysAmount}</div>
                       <div class="item-price">${it.outPaymentDaysAmount}</div>
                       <div class="item-total">${it.totalAmount}</div>
-                      <div class="item-detail"><a href="/finance/payment/detail/">查看</a></div>
+                      <div class="item-detail"><a href="/finance/payment/detail/?mainTypeCode=${it.mainTypeCode}&minorTypeCode=${it.minorTypeCode}">查看</a></div>
                     </li>
                     </#list>
                   </ol>
@@ -91,7 +91,7 @@
                       <div class="item-price">${it.inPaymentDaysAmount}</div>
                       <div class="item-price">${it.outPaymentDaysAmount}</div>
                       <div class="item-total">${it.totalAmount}</div>
-                      <div class="item-detail"><a href="/finance/payment/detail/">查看</a></div>
+                      <div class="item-detail"><a href="/finance/payment/detail/?mainTypeCode=${it.mainTypeCode}&minorTypeCode=${it.minorTypeCode}">查看</a></div>
                     </li>
                     </#list>
                   </ol>

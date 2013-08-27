@@ -211,12 +211,14 @@ public class FinanceController {
      * @return
      */
     @RequestMapping("/payment/detail")
-    public String paymentDetail(@RequestParam(value = "mainCode", required = false) String mainTypeCode,
-            @RequestParam(value = "minorCode", required = false) String minorTypeCode, ModelMap modelMap) {
+    public String paymentDetail(@RequestParam(value = "mainTypeCode", required = false) String mainTypeCode,
+            @RequestParam(value = "minorTypeCode", required = false) String minorTypeCode, ModelMap modelMap) {
         List<AgentsPaymentFact> allList = financeServcie.getShowPaymentFact(userService.getCurrentAgents(),
                 mainTypeCode, minorTypeCode);
         List<ProductType> types = productTypeService.listProductTypes();
         modelMap.put("list", allList);
+        modelMap.put("minorTypeCode", minorTypeCode);
+        modelMap.put("mainTypeCode", mainTypeCode);
         modelMap.put("types", types);
         return "finance-payable-detail";
     }
