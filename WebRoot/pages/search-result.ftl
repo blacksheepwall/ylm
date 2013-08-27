@@ -1,50 +1,56 @@
-<#-- 国内游、出境游 -->
-<#assign page_name="${productType}"/>
-<#if productType=="guoneiyou">
-  <#assign title="国内游">
-<#else>
-  <#assign title="出境游">
-</#if>
+<#-- 搜索结果页 -->
+<#assign page_name="search-result"/>
 <#include "common/module.ftl"/>
 <#escape x as x?html>
-  <@html title="${title}">
+  <@html title="搜索结果">
     <@body>
     <div class="inland-body main-body clearfix">
-      <div>
-        <div class="route-body clearfix">
-        <strong class="route-type">${title}线路：</strong>
-        <ul id="J_route_list" class="route-list clearfix">
-          <#--${rg.name}-->
-          <#list citys as city>
-            <li>
-              <a href="javascript:;" data-target="typeCode,${city.typeCode!'0'}">${city.productTypeName}</a>
-            </li>
-          </#list>
+      <div class="row-fluid">
+        <ul class="breadcrumb pull-left">
+          <li><a href="/main/">首页</a> <span class="divider">/</span></li>
+          <li class="active"> 产品搜索结果</li>
         </ul>
       </div>
+      <div>
         <div class="clearfix">
           <div class="top-search pull-left form-horizontal">
-            <#--<strong>线路分类：</strong>-->
-            <#--<select>-->
-              <#--<option value="所有">所有</option>-->
-              <#--<option selected="" value="海南三亚">海南三亚</option>-->
-              <#--<option value="云南贵州">云南贵州</option>-->
-              <#--<option value="云南贵州">云南贵州</option>-->
-              <#--<option value="云南贵州">云南贵州</option>-->
-              <#--<option value="云南贵州">云南贵州</option>-->
-              <#--<option value="云南贵州">云南贵州</option>-->
-              <#--<option value="云南贵州">云南贵州</option>-->
-            <#--</select>-->
+            <strong class="route-type">线路类型：</strong>
+            <select id="J_route_type" class="input-small">
+              <option value="">所有</option>
+              <option value="CJ">出境线路</option>
+              <option value="GT">港澳台线路</option>
+              <option value="GN">国内线路</option>
+            </select>
+            <select id="J_product_type" class="input-small">
+              <option value="">所有</option>
+              <option value="CJ">河南</option>
+              <option value="GT">上海</option>
+              <option value="GN">杭州</option>
+            </select>
             <strong>出发日期：</strong>
-            <input id="J_start_date" type="text" readonly class="input-small date-box"><strong> ~ </strong><input id="J_end_date" type="text" readonly class="input-small date-box">
+            <input id="J_start_date" type="text" readonly class="input-small date-box"><strong> ~ </strong>
+            <input id="J_end_date" type="text" readonly class="input-small date-box">
           </div>
           <div class="input-append pull-left">
             <input id="J_search_text" class="search-input" type="text" placeholder="产品名称、站点城市、游览景点">
             <button id="J_search_btn" class="btn btn-success" type="button"><i class="icon-search"></i> 搜索</button>
-            <#--<button class="btn" type="button">高级查找</button>-->
           </div>
         </div>
         <div id="J_condition" class="mod-body condition mod-condition">
+          <div class="con-row clearfix">
+            <strong class="pull-left">类型：</strong>
+            <ul class="nav nav-pills">
+              <li class="active">
+                <a href="javascript:;">不限</a>
+              </li>
+              <li>
+                <a href="javascript:;" data-target="leaveCity,0">跟团游</a>
+              </li>
+              <li>
+                <a href="javascript:;" data-target="leaveCity,0">自由行</a>
+              </li>
+            </ul>
+          </div>
           <div class="con-row clearfix">
             <strong class="pull-left">出发城市：</strong>
             <ul class="nav nav-pills">
@@ -69,7 +75,7 @@
               <li>
                 <a href="javascript:;" data-target="leaveCity,331000">台州</a>
               </li>
-              <#--<#list startCitys as st><li><a href="#">${st.cityName}</a></li></#list>-->
+            <#--<#list startCitys as st><li><a href="#">${st.cityName}</a></li></#list>-->
             </ul>
           </div>
           <div class="con-row clearfix">
@@ -96,7 +102,6 @@
               <li>
                 <a href="javascript:;" data-target="dateRange,7_above">7天以上</a>
               </li>
-              <#--<#list dates as dt><li><a href="#">${dt.stringValue}</a></li></#list>-->
             </ul>
           </div>
           <div class="con-row clearfix">
@@ -117,7 +122,6 @@
               <li>
                 <a href="javascript:;" data-target="priceRange,3000_ABOVE">3000以上</a>
               </li>
-              <#--<#list prices as prc><li><a href="#">${prc.stringValue}</a></li></#list>-->
             </ul>
           </div>
           <div class="con-row clearfix">
@@ -141,91 +145,51 @@
               <li>
                 <a href="javascript:;" data-target="traffic,SHIP">轮船</a>
               </li>
-              <#--<#list traffics as tr><li><a href="#">${tr.stringValue}</a></li></#list>-->
             </ul>
           </div>
         </div>
-        <div class="nav-con">
-          <ul id="J_tab" class="nav nav-tabs">
-            <li class="active">
-              <a href="#"><i class="icon-calendar"></i> 计划查看</a>
-            </li>
-            <li><a href="#"><i class="icon-group"></i> 团队查看</a></li>
-          </ul>
-          <div id="J_sort" class="col-sort">
-            <a href="javascript:;" data-by="startDateOrder" data-desc=""><i></i> 出发日期</a>
-            <a href="javascript:;" data-by="priceOrder" data-desc=""><i></i> 最低价格</a>
-          </div>
+        <div id="J_sort" class="col-sort">
+          <a href="javascript:;" data-by="startDateOrder" data-desc=""><i></i> 出发日期</a>
+          <a href="javascript:;" data-by="priceOrder" data-desc=""><i></i> 最低价格</a>
         </div>
         <div id="J_tab_content">
           <div>
             <ul id="J_product_list">
-              <#--<#list result.resultList as it>-->
-              <#--<li>-->
-                <#--<div class="product clearfix" style="display: block;">-->
-                  <#--<div class="product-main">-->
-                    <#--<div>-->
-                      <#--<span class="label label-success">特价</span>-->
-                      <#--<a class="title" href="/product/detail?id={{productId}" target="_blank"><strong>{{title}</strong></a>-->
-                      <#--<span class="text-warning">{{nightCount}晚{{dayCount}天</span>-->
-                      <#--<div class="muted">{{managerRecommend}</div>-->
-                      <#--<@product_date_list></@product_date_list>-->
-                    <#--</div>-->
-                  <#--</div>-->
-                  <#--<div class="product-more">-->
-                    <#--<div class="text-center">-->
-                      <#--<span class="label label-info">蜜月</span>-->
-                      <#--<span class="label label-info">亲子</span>-->
-                      <#--<span class="label label-info">度假</span>-->
-                      <#--<div>{{topic}</div>-->
-                    <#--</div>-->
-                    <#--<div class="product-price">-->
-                      <#--<strong class="price-title">价格：</strong><span class="price-value">￥{{price}起</span>-->
-                    <#--</div>-->
-                  <#--</div>-->
-                <#--</div>-->
-              <#--</li>-->
-              <#--</#list>-->
+              <li>
+                <div class="product clearfix">
+                  <div class="product-main">
+                    <div>
+                      <span class="label label-success">特价</span>
+                      <a class="title" href="/product/detail?id=10435" target="_blank"><strong>肯尼亚五大国家公园10天</strong></a>
+                      <span class="text-warning">7晚10天</span>
+
+                      <div class="muted"></div>
+                      <div class="product-date pull-left">
+                        <strong>日期：</strong>
+                        <a href="javascript:;" class="date-value">2013.06.05</a>
+                        <a href="javascript:;" class="date-value">2013.06.05</a>
+                        <a href="javascript:;" class="date-value">2013.06.05</a>
+                        <a href="javascript:;" class="date-value">2013.06.05</a>
+                        <a href="javascript:;" class="date-more">更多 »</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-more">
+                    <div class="text-center">
+                      <span>园林,湖泊,亲子,摄影,探险,城市观光</span>
+                    </div>
+                    <div class="product-price">
+                      <strong class="price-title">价格：</strong><span class="price-value">￥21900起</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
             </ul>
-            <@pagination></@pagination>
-          </div>
-          <div style="display: none;">
-            <table class="table table-hover table-bordered">
-              <thead>
-              <tr>
-                <th>
-                  产品
-                </th>
-                <th width="100">
-                  日期
-                </th>
-                <th width="100">
-                  成团
-                </th>
-                <th width="120">
-                  门市价格
-                </th>
-                <th width="100">
-                  结算价格
-                </th>
-                <th width="80">
-                  剩余
-                </th>
-                <th width="80">
-                  预订
-                </th>
-              </tr>
-              </thead>
-              <tbody id="J_group_list"></tbody>
-            </table>
             <@pagination></@pagination>
           </div>
         </div>
       </div>
     </div>
-    <script>
-      productType = "${productType!''}";
-    </script>
     <script id="J_product_row" type="text/tpl">
       {{#each this}}
       <li>
@@ -235,6 +199,7 @@
               <span class="label label-success">特价</span>
               <a class="title" href="/product/detail?id={{productId}}" target="_blank"><strong>{{title}}</strong></a>
               <span class="text-warning">{{nightCount}}晚{{dayCount}}天</span>
+
               <div class="muted">{{managerRecommend}}</div>
               <@product_date_list></@product_date_list>
             </div>
@@ -251,7 +216,7 @@
       </li>
       {{/each}}
       {{^each this}}
-        <li>没有数据</li>
+      <li>没有数据</li>
       {{/each}}
     </script>
     <script id="J_group_row" type="text/tpl">
@@ -269,6 +234,7 @@
         <td>
           <div class="price-more">
             {{price}} <a class="j-price" href="javascript:;">更多</a>
+
             <div class="popover bottom" style="display: none;">
               <div class="arrow"></div>
               <div class="popover-content">
@@ -293,9 +259,9 @@
                   </tbody>
                 </table>
               </div>
-              <#--<div class="popover-action">-->
-                <#--<a href="javascript:;" class="btn btn-small j-close">关闭</a>-->
-              <#--</div>-->
+            <#--<div class="popover-action">-->
+            <#--<a href="javascript:;" class="btn btn-small j-close">关闭</a>-->
+            <#--</div>-->
             </div>
           </div>
         </td>
@@ -311,7 +277,9 @@
       </tr>
       {{/each}}
       {{^each this}}
-      <tr><td colspan="7">没有数据</td></tr>
+      <tr>
+        <td colspan="7">没有数据</td>
+      </tr>
       {{/each}}
     </script>
     </@body>
