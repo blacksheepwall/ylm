@@ -192,7 +192,7 @@ public class ProductService {
         searchFdo.setPageSize(pageSize);
         if (condition.productType == 1) {
             searchFdo.setProductMainTypeCode("GN");
-        } else {
+        } else if (condition.productType == 4) {
             searchFdo.setProductMainTypeCode("CJ");
         }
         searchFdo.setProductMinorTypeCode(condition.lineType);
@@ -217,7 +217,6 @@ public class ProductService {
         private String priceRange;
         private Date startDate;
         private String traffic;
-        // TODO 不知道对应SearchProductFdo的哪个字段
         private String lineType;
         private Date endDate;
         private Boolean priceOrderDesc;

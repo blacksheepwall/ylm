@@ -36,10 +36,8 @@ public class BulletinService {
      * @return
      */
     public SearchResult<Bulletin> getBulletinList() {
-        BulletinFdo fdo = new BulletinFdo();
-        fdo.setBulletinType("BUSINESS");
-        BulletinResult result = bulletinFacade.queryPageList(fdo);
-        List<BulletinFdo> bulletinFdos = result.getBulletinFdoPageList();
+        BulletinResult result =  bulletinFacade.queryBulletinList("business_Bulletin", 10);
+        List<BulletinFdo> bulletinFdos = result.getBulletinFdos();
         List<Bulletin> list = new ArrayList<Bulletin>();
         Vo<Bulletin> vo = new Vo<Bulletin>(Bulletin.class);
         for (BulletinFdo bulletinFdo : bulletinFdos) {
@@ -64,9 +62,7 @@ public class BulletinService {
      * @return
      */
     public SearchResult<Bulletin> getSystemBulletinList() {
-        BulletinFdo fdo = new BulletinFdo();
-        fdo.setBulletinType("SYSTEM");
-        BulletinResult result = bulletinFacade.queryPageList(fdo);
+        BulletinResult result =  bulletinFacade.queryBulletinList("system_Bulletin", 10);
         List<BulletinFdo> bulletinFdos = result.getBulletinFdos();
         List<Bulletin> list = new ArrayList<Bulletin>();
         Vo<Bulletin> vo = new Vo<Bulletin>(Bulletin.class);

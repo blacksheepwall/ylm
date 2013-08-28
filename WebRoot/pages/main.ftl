@@ -10,10 +10,12 @@
           <#--<div class="search-title"><i class="icon-search"></i> 产品搜索</div>-->
           <form id="J_search_form" class="form-search">
             <select class="top-search">
-              <option>杭州出发</option>
-              <option>杭州出发</option>
-              <option>杭州出发</option>
-              <option>杭州出发</option>
+              <option value='330100'>杭州出发</option>
+              <option value='310000'>上海出发</option>
+              <option value='330200'>宁波出发</option>
+              <option value='330300'>温州出发</option>
+              <option value='320100'>南京出发</option>
+              <option value='331000'>台州出发</option>
             </select>
             <input id="J_search_txt" class="search-input" type="text">
             <button id="J_search_btn" class="btn search-btn btn-success" type="button"><i class="icon-search"></i> 搜索</button>

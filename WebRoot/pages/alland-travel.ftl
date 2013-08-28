@@ -74,6 +74,8 @@
           </div>
           <div class="con-row clearfix">
             <strong class="pull-left">天数：</strong>
+            
+			<#if productType=="guoneiyou">
             <ul class="nav nav-pills">
               <li class="active">
                 <a href="javascript:;" data-target="dateRange">不限</a>
@@ -88,37 +90,78 @@
                 <a href="javascript:;" data-target="dateRange,3">3天</a>
               </li>
               <li>
-                <a href="javascript:;" data-target="dateRange,1_3">1-3天</a>
+                <a href="javascript:;" data-target="dateRange,4">1-3天</a>
               </li>
               <li>
-                <a href="javascript:;" data-target="dateRange,4_7">4-7天</a>
+                <a href="javascript:;" data-target="dateRange,5">4-7天</a>
               </li>
               <li>
-                <a href="javascript:;" data-target="dateRange,7_above">7天以上</a>
+                <a href="javascript:;" data-target="dateRange,6">7天以上</a>
               </li>
               <#--<#list dates as dt><li><a href="#">${dt.stringValue}</a></li></#list>-->
             </ul>
+            <#else>
+              <ul class="nav nav-pills">
+              <li class="active">
+                <a href="javascript:;" data-target="dateRange">不限</a>
+              </li>
+              <li>
+                <a href="javascript:;" data-target="dateRange,3">3天</a>
+              </li>
+              <li>
+                <a href="javascript:;" data-target="dateRange,7">4天</a>
+              </li>
+              <li>
+                <a href="javascript:;" data-target="dateRange,8">5天</a>
+              </li>
+              <li>
+                <a href="javascript:;" data-target="dateRange,9">3-5天</a>
+              </li>
+              <li>
+                <a href="javascript:;" data-target="dateRange,10">5天以上</a>
+              </li>
+              <#--<#list dates as dt><li><a href="#">${dt.stringValue}</a></li></#list>-->
+            </ul>
+            </#if>
           </div>
           <div class="con-row clearfix">
             <strong class="pull-left">价格：</strong>
+			<#if productType=="guoneiyou">
             <ul class="nav nav-pills">
               <li class="active">
                 <a href="javascript:;" data-target="priceRange">不限</a>
               </li>
               <li>
-                <a href="javascript:;" data-target="priceRange,800_BELOW">800以下</a>
+                <a href="javascript:;" data-target="priceRange,1">800以下</a>
               </li>
               <li>
-                <a href="javascript:;" data-target="priceRange,800_1500">800-1500</a>
+                <a href="javascript:;" data-target="priceRange,2">800-1500</a>
               </li>
               <li>
-                <a href="javascript:;" data-target="priceRange,1500_3000">1500-3000</a>
+                <a href="javascript:;" data-target="priceRange,3">1500-3000</a>
               </li>
               <li>
-                <a href="javascript:;" data-target="priceRange,3000_ABOVE">3000以上</a>
+                <a href="javascript:;" data-target="priceRange,4">3000以上</a>
               </li>
               <#--<#list prices as prc><li><a href="#">${prc.stringValue}</a></li></#list>-->
             </ul>
+            <#else>
+             <ul class="nav nav-pills">
+              <li class="active">
+                <a href="javascript:;" data-target="priceRange">不限</a>
+              </li>
+              <li>
+                <a href="javascript:;" data-target="priceRange,5">2000以下</a>
+              </li>
+              <li>
+                <a href="javascript:;" data-target="priceRange,6">2000-5000</a>
+              </li>
+              <li>
+                <a href="javascript:;" data-target="priceRange,7">5000以上</a>
+              </li>
+              <#--<#list prices as prc><li><a href="#">${prc.stringValue}</a></li></#list>-->
+            </ul>
+            </#if>
           </div>
           <div class="con-row clearfix">
             <strong class="pull-left">交通：</strong>

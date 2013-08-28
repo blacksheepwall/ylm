@@ -3,6 +3,8 @@ package com.youlema.sales.controller;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -13,6 +15,7 @@ import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,9 +27,12 @@ import com.youlema.sales.mapper.meta.AgentsAccount;
 import com.youlema.sales.meta.BusinessType;
 import com.youlema.sales.meta.OrderSubmitMeta;
 import com.youlema.sales.meta.ProductInfo;
+import com.youlema.sales.meta.ProductItem;
+import com.youlema.sales.meta.SearchResult;
 import com.youlema.sales.service.OrderService;
 import com.youlema.sales.service.ProductService;
 import com.youlema.sales.service.UserService;
+import com.youlema.sales.service.ProductService.QueryCondition;
 
 /**
  * 散拼产品Controller
@@ -43,6 +49,8 @@ public class ProductController {
     private OrderService orderService;
     @Resource
     private UserService userService;
+
+    private static final int PAGE_SIZE = 20;
 
     /**
      * 产品详情页
@@ -103,6 +111,80 @@ public class ProductController {
         AgentsAccount account = userService.getCurrentAccount();
         String book = orderService.book(orderBean, account);
         JsonUtils.writeToJson(book, response);
+    }
+
+    /**
+     * 查询产品/团队
+     * 
+     * @param leaveCity
+     * @param queryText
+     * @param days
+     * @param priceRange
+     * @param traffic
+     * @param pageNo
+     * @param typeCode
+     * @param startDate
+     * @param priceOrder
+     * @param startDateOrder
+     * @param endDate
+     * @param response
+     * @throws IOException
+     */
+    @RequestMapping("/query")
+    public void queryProducts(@RequestParam(value = "leaveCity", required = false) String leaveCity,
+            @RequestParam(value = "queryText", required = false) String queryText,
+            @RequestParam(value = "dateRange", required = false) String days,
+            @RequestParam(value = "priceRange", required = false) String priceRange,
+            @RequestParam(value = "traffic", required = false) String traffic,
+            @RequestParam(value = "pageNo", required = false, defaultValue = "1") int pageNo,
+            @RequestParam(value = "typeCode", required = false) String typeCode,
+            @RequestParam(value = "startDate", required = false) String startDate,
+            @RequestParam(value = "priceOrder", required = false) String priceOrder,
+            @RequestParam(value = "startDateOrder", required = false) String startDateOrder,
+            @RequestParam(value = "endDate", required = false) String endDate,
+            @RequestParam(value = "productType", required = false, defaultValue = "-1") int productType,
+            HttpServletResponse response) throws IOException {
+
+        ProductService.QueryCondition condition = toCondition(leaveCity, queryText, days, priceRange, traffic,
+                typeCode, startDate, priceOrder, startDateOrder, endDate);
+        condition.setProductType(productType);
+        SearchResult<ProductItem> result = productService.queryProduct(condition, pageNo, PAGE_SIZE);
+        JsonUtils.writeToJson(result, response);
+    }
+
+    private ProductService.QueryCondition toCondition(String leaveCity, String queryText, String days,
+            String priceRange, String traffic, String typeCode, String startDate, String priceOrder,
+            String startDateOrder, String endDate) {
+        ProductService.QueryCondition condition = new QueryCondition();
+        // 4是出境游
+        if (StringUtils.isNotBlank(priceOrder)) {
+            condition.setPriceOrderDesc("desc".equalsIgnoreCase(priceOrder));
+        }
+        if (StringUtils.isNotBlank(startDateOrder)) {
+            condition.setStartDateOrderDesc("desc".equalsIgnoreCase(startDateOrder));
+        }
+        if (StringUtils.isNotBlank(startDate) || StringUtils.isNotBlank(endDate)) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            if (StringUtils.isNotBlank(startDate)) {
+                try {
+                    condition.setStartDate(dateFormat.parse(startDate));
+                } catch (ParseException e) {
+                }
+            }
+            if (StringUtils.isNotBlank(endDate)) {
+                try {
+                    condition.setEndDate(dateFormat.parse(endDate));
+                } catch (ParseException e) {
+                }
+            }
+        }
+        // condition.setProductType(4);
+        condition.setLeaveCity(leaveCity);
+        condition.setDays(days);
+        condition.setPriceRange(priceRange);
+        condition.setTraffic(traffic);
+        condition.setLineType(typeCode);
+        return condition;
     }
 
     private static String readString(HttpServletRequest request) throws IOException {
