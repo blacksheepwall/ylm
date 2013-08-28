@@ -5,13 +5,17 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
 import com.yolema.tbss.ext.facade.AreaFacade;
+import com.yolema.tbss.ext.facade.DictionaryFacade;
 import com.yolema.tbss.ext.facade.TourPlanSearchFacade;
 import com.yolema.tbss.ext.facade.TourProductFacade;
 import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
@@ -20,6 +24,10 @@ import com.yolema.tbss.ext.facade.fdo.product.SearchProductFdo;
 import com.yolema.tbss.ext.facade.fdo.product.ShowHomePageProductFdo;
 import com.yolema.tbss.ext.facade.fdo.product.ShowProductFdo;
 import com.yolema.tbss.ext.facade.fdo.product.ShowProductPriceFdo;
+import com.yolema.tbss.ext.facade.fdo.sys.AreaFdo;
+import com.yolema.tbss.ext.facade.fdo.sys.DictionaryFdo;
+import com.yolema.tbss.ext.facade.result.AreaResult;
+import com.yolema.tbss.ext.facade.result.DictionaryResult;
 import com.yolema.tbss.ext.facade.result.PlanSearchResult;
 import com.yolema.tbss.ext.facade.result.ShowProductResult;
 import com.yolema.tbss.ext.facade.result.TourProductResult;
@@ -44,6 +52,8 @@ public class ProductService {
     private TourPlanSearchFacade tourPlanSearchFacade;
     @Resource(name = "AreaFacade")
     private AreaFacade areaFacade;
+    @Resource(name = "DictionaryFacade")
+    private DictionaryFacade dictionaryFacade;
 
     public List<Region> listOutlandRegions() {
         return Collections.emptyList();
@@ -72,13 +82,28 @@ public class ProductService {
         List<ShowHomePageProductFdo> resultList = result.getResultList();
         List<HomePageProductItem> items1 = new ArrayList<HomePageProductItem>();
         Vo<HomePageProductItem> vo = new Vo<HomePageProductItem>(HomePageProductItem.class);
-        for (ShowHomePageProductFdo fdo : resultList) {
-            Long productId = fdo.getProductId();
-            TourProductFdo productFdo = facadeService.getProduct(productId);
-            if (productFdo != null) {
-                HomePageProductItem item = vo.inject(productFdo, fdo);
-                items1.add(item);
+        DictionaryResult listByCode = dictionaryFacade.findListByCode("TRANSPORTATION");
+        Map<String, String> map = new HashMap<String, String>();
+        if (listByCode.isSuccess()) {
+            Set<DictionaryFdo> dictionarries = listByCode.getDictionarries();
+            for (DictionaryFdo dictionaryFdo : dictionarries) {
+                map.put(dictionaryFdo.getDictionaryKey(), dictionaryFdo.getDictionaryValue());
             }
+        }
+        for (ShowHomePageProductFdo fdo : resultList) {
+            HomePageProductItem item = vo.inject(fdo);
+            AreaResult areaResult = areaFacade.getByCode(item.getLeaveCity());
+            if (areaResult.isSuccess()) {
+                AreaFdo areaFdo = areaResult.getAreaFdo();
+                if (areaFdo != null) {
+                    item.setLeaveCityName(areaFdo.getAreaName());
+                }
+            }
+            String leaveName = map.get(item.getLeaveTraffic());
+            item.setLeaveTrafficName(leaveName);
+            String returnName = map.get(item.getReturnTraffic());
+            item.setReturnTrafficName(returnName);
+            items1.add(item);
         }
         return new SearchResult<HomePageProductItem>(result.getCount(), items1);
     }

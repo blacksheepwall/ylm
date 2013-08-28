@@ -20,22 +20,42 @@ public class HomePageProductItem {
     private Date leaveDate;
     @VoField("getLeaveCity")
     private String leaveCity;
-    @VoField("getLeavePort")
-    private String leavePort;
-    public String getLeavePort() {
-        return leavePort;
+    private String leaveCityName;
+
+    public String getLeaveCityName() {
+        return leaveCityName;
     }
 
-    public void setLeavePort(String leavePort) {
-        this.leavePort = leavePort;
+    public void setLeaveCityName(String leavePort) {
+        this.leaveCityName = leavePort;
     }
 
-    @VoField("getKeyword")
-    private String keywords;
     @VoField("getLeaveCityTraffic")
     private String leaveTraffic;
     @VoField("getReturnCityTraffic")
     private String returnTraffic;
+    
+    private String leaveTrafficName;
+    
+    private String returnTrafficName;
+    
+    
+    public String getLeaveTrafficName() {
+        return leaveTrafficName;
+    }
+
+    public void setLeaveTrafficName(String leaveTrafficName) {
+        this.leaveTrafficName = leaveTrafficName;
+    }
+
+    public String getReturnTrafficName() {
+        return returnTrafficName;
+    }
+
+    public void setReturnTrafficName(String returnTrafficName) {
+        this.returnTrafficName = returnTrafficName;
+    }
+
     @VoField("getDays")
     private int dayCount;
     @VoField("getNight")
@@ -101,14 +121,6 @@ public class HomePageProductItem {
 
     public void setLeaveTraffic(String leaveTraffic) {
         this.leaveTraffic = leaveTraffic;
-    }
-
-    public String getKeywords() {
-        return keywords;
-    }
-
-    public void setKeywords(String keywords) {
-        this.keywords = keywords;
     }
 
     public String getLeaveCity() {
