@@ -150,12 +150,19 @@ public class ProductController {
             @RequestParam(value = "priceOrder", required = false) String priceOrder,
             @RequestParam(value = "startDateOrder", required = false) String startDateOrder,
             @RequestParam(value = "endDate", required = false) String endDate,
-            @RequestParam(value = "productType", required = false, defaultValue = "-1") int productType,
+            @RequestParam(value = "productType", required = false, defaultValue = "-1") String productType,
             HttpServletResponse response) throws IOException {
 
         ProductService.QueryCondition condition = toCondition(leaveCity, queryText, days, priceRange, traffic,
                 typeCode, startDate, priceOrder, startDateOrder, endDate);
-        condition.setProductType(productType);
+        condition.setProductType(-1);
+        if("GN".equalsIgnoreCase(productType)){
+            condition.setProductType(1);
+        }else if("CJ".equalsIgnoreCase(productType)){
+            condition.setProductType(4);
+        }else if("GT".equalsIgnoreCase(productType)){
+            //港澳台不清楚在面处理
+        }
         SearchResult<ProductItem> result = productService.queryProduct(condition, pageNo, PAGE_SIZE);
         JsonUtils.writeToJson(result, response);
     }
