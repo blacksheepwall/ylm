@@ -90,7 +90,7 @@
                 <span class="price">${it.storePrice}</span>
               </div>
               <div>
-                <span class="start">出发口岸：${it.leaveCity}</span><span class="date">日期：${it.leaveDate?string('MM-dd')}</span><span
+                <span class="start">出发口岸：${it.leavePort!}</span><span class="date">日期：${it.leaveDate?string('MM-dd')}</span><span
                 class="origin-price">${it.price}起</span>
               </div>
             </li>
@@ -102,7 +102,7 @@
                 <span class="price">${it.storePrice}</span>
               </div>
               <div>
-                <span class="start">出发口岸：${it.leaveCity}</span>
+                <span class="start">出发口岸：${it.leavePort!}</span>
                 <span class="start">往返交通：${it.returnTraffic}</span>
                 <span class="date">发团日期：${it.leaveDate?string('MM-dd')}</span><span
                 class="origin-price">${it.price}起</span>
@@ -124,7 +124,7 @@
                 <span class="price">${it.storePrice}</span>
               </div>
               <div>
-                <span class="start">出发口岸：${it.leaveCity}</span><span class="date">日期：${it.leaveDate?string('MM-dd')}</span><span
+                <span class="start">出发口岸：${it.leavePort!}</span><span class="date">日期：${it.leaveDate?string('MM-dd')}</span><span
                 class="origin-price">${it.price}起</span>
               </div>
             </li>
@@ -136,7 +136,7 @@
                 <span class="price">${it.storePrice}</span>
               </div>
               <div>
-                <span class="start">出发口岸：${it.leaveCity}</span>
+                <span class="start">出发口岸：${it.leavePort!}</span>
                 <span class="start">往返交通：${it.returnTraffic}</span>
                 <span class="date">发团日期：${it.leaveDate?string('MM-dd')}</span><span
                 class="origin-price">${it.price}起</span>
@@ -160,7 +160,7 @@
                 <span class="price">${it.storePrice}</span>
               </div>
               <div>
-                <span class="start">出发口岸：${it.leaveCity}</span><span class="date">日期：${it.leaveDate?string('MM-dd')}</span><span
+                <span class="start">出发口岸：${it.leavePort!}</span><span class="date">日期：${it.leaveDate?string('MM-dd')}</span><span
                 class="origin-price">${it.price}起</span>
               </div>
             </li>
@@ -172,7 +172,7 @@
                 <span class="price">${it.storePrice}</span>
               </div>
               <div>
-                <span class="start">出发口岸：${it.leaveCity}</span>
+                <span class="start">出发口岸：${it.leavePort!}</span>
                 <span class="start">往返交通：${it.returnTraffic}</span>
                 <span class="date">发团日期：${it.leaveDate?string('MM-dd')}</span><span
                 class="origin-price">${it.price}起</span>

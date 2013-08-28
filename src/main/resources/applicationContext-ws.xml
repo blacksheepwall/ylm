@@ -161,4 +161,19 @@
 
 
 
+	<bean id="AreaFacade" class="com.yolema.tbss.ext.facade.AreaFacade"
+		factory-bean="AreaFacadeFactory" factory-method="create">
+	</bean>
+
+	<bean id="AreaFacadeFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+		<property name="serviceClass" value="com.yolema.tbss.ext.facade.AreaFacade" />
+		<property name="address"
+			value="http://183.129.158.179:8080/tbss/services/area" />
+		<property name="outInterceptors">
+			<ref bean="clientSoapAuth" />
+		</property>
+	</bean>
+
+
+
 </beans>

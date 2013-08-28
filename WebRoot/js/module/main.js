@@ -14,6 +14,6 @@ define(['marquee'], function() {
     return false;
   });
   $searchBtn.click(function() {
-    location.href = './search-result?value=' + $.trim($searchTxt.val());
+    location.href = '/product/searchResult?value=' + $.trim($searchTxt.val());
   });
 });

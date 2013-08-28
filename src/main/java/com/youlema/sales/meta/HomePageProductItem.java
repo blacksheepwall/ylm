@@ -20,6 +20,16 @@ public class HomePageProductItem {
     private Date leaveDate;
     @VoField("getLeaveCity")
     private String leaveCity;
+    @VoField("getLeavePort")
+    private String leavePort;
+    public String getLeavePort() {
+        return leavePort;
+    }
+
+    public void setLeavePort(String leavePort) {
+        this.leavePort = leavePort;
+    }
+
     @VoField("getKeyword")
     private String keywords;
     @VoField("getLeaveCityTraffic")

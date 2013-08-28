@@ -11,6 +11,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.yolema.tbss.ext.facade.AreaFacade;
 import com.yolema.tbss.ext.facade.TourPlanSearchFacade;
 import com.yolema.tbss.ext.facade.TourProductFacade;
 import com.yolema.tbss.ext.facade.fdo.TourProductFdo;
@@ -41,6 +42,8 @@ public class ProductService {
     private TourProductFacade tourProductFacade;
     @Resource(name = "TourPlanSearchFacade")
     private TourPlanSearchFacade tourPlanSearchFacade;
+    @Resource(name = "AreaFacade")
+    private AreaFacade areaFacade;
 
     public List<Region> listOutlandRegions() {
         return Collections.emptyList();

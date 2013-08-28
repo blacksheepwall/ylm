@@ -112,6 +112,14 @@ public class ProductController {
         String book = orderService.book(orderBean, account);
         JsonUtils.writeToJson(book, response);
     }
+    
+    @RequestMapping("/searchResult")
+    public String searchResult(@RequestParam(value = "queryText", required = false) String queryText,
+            @RequestParam(value = "leaveCity", required = false) String leaveCity, ModelMap modelMap) {
+        modelMap.put("queryText", queryText);
+        modelMap.put("leaveCity", leaveCity);
+        return "search-result";
+    }
 
     /**
      * 查询产品/团队
