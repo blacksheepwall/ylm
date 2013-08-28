@@ -53,7 +53,7 @@
           </div>
           <div class="con-row clearfix">
             <strong class="pull-left">出发城市：</strong>
-            <ul class="nav nav-pills">
+            <ul id="J_condition_leave_city" class="nav nav-pills">
               <li class="active">
                 <a href="javascript:;">不限</a>
               </li>
@@ -75,52 +75,45 @@
               <li>
                 <a href="javascript:;" data-target="leaveCity,331000">台州</a>
               </li>
-            <#--<#list startCitys as st><li><a href="#">${st.cityName}</a></li></#list>-->
             </ul>
           </div>
-          <div class="con-row clearfix">
+          <div id="J_condition_date" class="con-row clearfix">
             <strong class="pull-left">天数：</strong>
             <ul class="nav nav-pills">
               <li class="active">
                 <a href="javascript:;" data-target="dateRange">不限</a>
               </li>
               <li>
-                <a href="javascript:;" data-target="dateRange,1">1天</a>
-              </li>
-              <li>
-                <a href="javascript:;" data-target="dateRange,2">2天</a>
-              </li>
-              <li>
                 <a href="javascript:;" data-target="dateRange,3">3天</a>
               </li>
               <li>
-                <a href="javascript:;" data-target="dateRange,1_3">1-3天</a>
+                <a href="javascript:;" data-target="dateRange,7">4天</a>
               </li>
               <li>
-                <a href="javascript:;" data-target="dateRange,4_7">4-7天</a>
+                <a href="javascript:;" data-target="dateRange,8">5天</a>
               </li>
               <li>
-                <a href="javascript:;" data-target="dateRange,7_above">7天以上</a>
+                <a href="javascript:;" data-target="dateRange,9">3-5天</a>
+              </li>
+              <li>
+                <a href="javascript:;" data-target="dateRange,10">5天以上</a>
               </li>
             </ul>
           </div>
-          <div class="con-row clearfix">
+          <div id="J_condition_price" class="con-row clearfix">
             <strong class="pull-left">价格：</strong>
             <ul class="nav nav-pills">
               <li class="active">
                 <a href="javascript:;" data-target="priceRange">不限</a>
               </li>
               <li>
-                <a href="javascript:;" data-target="priceRange,800_BELOW">800以下</a>
+                <a href="javascript:;" data-target="priceRange,5">2000以下</a>
               </li>
               <li>
-                <a href="javascript:;" data-target="priceRange,800_1500">800-1500</a>
+                <a href="javascript:;" data-target="priceRange,6">2000-5000</a>
               </li>
               <li>
-                <a href="javascript:;" data-target="priceRange,1500_3000">1500-3000</a>
-              </li>
-              <li>
-                <a href="javascript:;" data-target="priceRange,3000_ABOVE">3000以上</a>
+                <a href="javascript:;" data-target="priceRange,7">5000以上</a>
               </li>
             </ul>
           </div>
@@ -154,37 +147,7 @@
         </div>
         <div id="J_tab_content">
           <div>
-            <ul id="J_product_list">
-              <li>
-                <div class="product clearfix">
-                  <div class="product-main">
-                    <div>
-                      <span class="label label-success">特价</span>
-                      <a class="title" href="/product/detail?id=10435" target="_blank"><strong>肯尼亚五大国家公园10天</strong></a>
-                      <span class="text-warning">7晚10天</span>
-
-                      <div class="muted"></div>
-                      <div class="product-date pull-left">
-                        <strong>日期：</strong>
-                        <a href="javascript:;" class="date-value">2013.06.05</a>
-                        <a href="javascript:;" class="date-value">2013.06.05</a>
-                        <a href="javascript:;" class="date-value">2013.06.05</a>
-                        <a href="javascript:;" class="date-value">2013.06.05</a>
-                        <a href="javascript:;" class="date-more">更多 »</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="product-more">
-                    <div class="text-center">
-                      <span>园林,湖泊,亲子,摄影,探险,城市观光</span>
-                    </div>
-                    <div class="product-price">
-                      <strong class="price-title">价格：</strong><span class="price-value">￥21900起</span>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
+            <ul id="J_product_list"></ul>
             <@pagination></@pagination>
           </div>
         </div>
@@ -219,69 +182,7 @@
       <li>没有数据</li>
       {{/each}}
     </script>
-    <script id="J_group_row" type="text/tpl">
-      {{#each this}}
-      <tr>
-        <td>
-          <a href="/product/detail?id={{id}}" target="_blank">{{name}}</a>
-        </td>
-        <td>
-          {{dateRenderer date}}
-        </td>
-        <td>
-          {{isGrouped}}
-        </td>
-        <td>
-          <div class="price-more">
-            {{price}} <a class="j-price" href="javascript:;">更多</a>
-
-            <div class="popover bottom" style="display: none;">
-              <div class="arrow"></div>
-              <div class="popover-content">
-                <table class="table table-striped table-condensed">
-                  <thead>
-                  <th>价格名称</th>
-                  <th>包含人数</th>
-                  <th>门市价格</th>
-                  <th>结算价格</th>
-                  <th>订金</th>
-                  <th>价格说明</th>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>成人价</td>
-                    <td>2800.00</td>
-                    <td>2600.00</td>
-                    <td>2000.00</td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-            <#--<div class="popover-action">-->
-            <#--<a href="javascript:;" class="btn btn-small j-close">关闭</a>-->
-            <#--</div>-->
-            </div>
-          </div>
-        </td>
-        <td>
-          {{settlePrice}}
-        </td>
-        <td>
-          {{remainCount}}
-        </td>
-        <td>
-          <a href="/product/detail?id={{id}}" target="_blank">预订</a>
-        </td>
-      </tr>
-      {{/each}}
-      {{^each this}}
-      <tr>
-        <td colspan="7">没有数据</td>
-      </tr>
-      {{/each}}
-    </script>
+      <#include "condition-common.ftl"/>
     </@body>
   </@html>
 </#escape>

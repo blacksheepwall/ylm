@@ -9,7 +9,7 @@
         <div class="search-box">
           <#--<div class="search-title"><i class="icon-search"></i> 产品搜索</div>-->
           <form id="J_search_form" class="form-search">
-            <select class="top-search">
+            <select id="J_leave_city" class="top-search">
               <option value='330100'>杭州出发</option>
               <option value='310000'>上海出发</option>
               <option value='330200'>宁波出发</option>
