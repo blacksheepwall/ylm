@@ -83,25 +83,34 @@ public class ProductService {
         List<HomePageProductItem> items1 = new ArrayList<HomePageProductItem>();
         Vo<HomePageProductItem> vo = new Vo<HomePageProductItem>(HomePageProductItem.class);
         DictionaryResult listByCode = dictionaryFacade.findListByCode("TRANSPORTATION");
-        Map<String, String> map = new HashMap<String, String>();
+        Map<String, String> trafficMap = new HashMap<String, String>();
         if (listByCode.isSuccess()) {
             Set<DictionaryFdo> dictionarries = listByCode.getDictionarries();
             for (DictionaryFdo dictionaryFdo : dictionarries) {
-                map.put(dictionaryFdo.getDictionaryKey(), dictionaryFdo.getDictionaryValue());
+                trafficMap.put(dictionaryFdo.getDictionaryKey(), dictionaryFdo.getDictionaryValue());
             }
         }
+
+        Map<String, String> areaMap = new HashMap<String, String>();
+
         for (ShowHomePageProductFdo fdo : resultList) {
             HomePageProductItem item = vo.inject(fdo);
-            AreaResult areaResult = areaFacade.getByCode(item.getLeaveCity());
-            if (areaResult.isSuccess()) {
-                AreaFdo areaFdo = areaResult.getAreaFdo();
-                if (areaFdo != null) {
-                    item.setLeaveCityName(areaFdo.getAreaName());
+            String leaveCity = item.getLeaveCity();
+            if (areaMap.containsKey(leaveCity)) {
+                item.setLeaveCityName(areaMap.get(leaveCity));
+            } else {
+                AreaResult areaResult = areaFacade.getByCode(leaveCity);
+                if (areaResult.isSuccess()) {
+                    AreaFdo areaFdo = areaResult.getAreaFdo();
+                    if (areaFdo != null) {
+                        item.setLeaveCityName(areaFdo.getAreaName());
+                        areaMap.put(leaveCity, item.getLeaveCityName());
+                    }
                 }
             }
-            String leaveName = map.get(item.getLeaveTraffic());
+            String leaveName = trafficMap.get(item.getLeaveTraffic());
             item.setLeaveTrafficName(leaveName);
-            String returnName = map.get(item.getReturnTraffic());
+            String returnName = trafficMap.get(item.getReturnTraffic());
             item.setReturnTrafficName(returnName);
             items1.add(item);
         }
