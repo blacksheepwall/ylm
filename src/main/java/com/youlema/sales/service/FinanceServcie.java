@@ -12,8 +12,11 @@ import net.sf.cglib.beans.BeanCopier;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
+import com.yolema.settlement.ext.facade.fdo.PaymentApplyFdo;
 import com.yolema.settlement.ext.facade.fdo.RemittanceFormFdo;
+import com.yolema.settlement.ext.facade.payment.PaymentApplyFacade;
 import com.yolema.settlement.ext.facade.received.RemittanceFormFacade;
+import com.yolema.settlement.ext.facade.result.PaymentApplyResult;
 import com.yolema.settlement.ext.facade.result.RemittanceFormBeanResult;
 import com.yolema.tbss.ext.facade.AgentsFacade;
 import com.yolema.tbss.ext.facade.fdo.agents.AgentsTotalFdo;
@@ -29,6 +32,7 @@ import com.youlema.sales.mapper.meta.AgentsPaymentReportMeta;
 import com.youlema.sales.mapper.meta.AgentsTotalFact;
 import com.youlema.sales.mapper.meta.AgentsTotalFactExample;
 import com.youlema.sales.meta.FinanceMeta;
+import com.youlema.sales.meta.RefundItem;
 import com.youlema.sales.meta.RemitItem;
 import com.youlema.sales.meta.SearchResult;
 import com.youlema.sales.utils.Vo;
@@ -51,6 +55,8 @@ public class FinanceServcie {
     private AgentsTotalFactMapper agentsTotalFactMapper;
     @Resource
     private AgentsPaymentFactMapper agentsPaymentFactMapper;
+    @Resource
+    private PaymentApplyFacade paymentApplyFacade;
 
     /**
      * 根据账号获取财务统计数据
@@ -209,14 +215,18 @@ public class FinanceServcie {
     /**
      * 查询汇款单列表
      * 
+     * @param agents
+     * 
      * @param beginDate
      * @param endDate
      * @param tickNo
      * @param status
      * @return
      */
-    public SearchResult<RemitItem> queryRemittList(Date beginDate, Date endDate, String tickNo, String status) {
+    public SearchResult<RemitItem> queryRemittList(Agents agents, Date beginDate, Date endDate, String tickNo,
+            String status) {
         RemittanceFormFdo queryFdo = new RemittanceFormFdo();
+        queryFdo.setClaimDepart(agents.getAgentsCode());
         if (StringUtils.isNotBlank(status)) {
             queryFdo.setRemittanceStatus(status);
         }
@@ -228,5 +238,28 @@ public class FinanceServcie {
             return toRemitItemResult(result);
         }
         return new SearchResult<RemitItem>(0, new ArrayList<RemitItem>(0));
+    }
+
+    /**
+     * 查询退款列表
+     * 
+     * @param agents
+     * @param status
+     * @return
+     */
+    public SearchResult<RefundItem> queryRefundList(Agents agents, String status) {
+        PaymentApplyResult applyResult = paymentApplyFacade
+                .getPaymentApplyListForAgents(agents.getAgentsCode(), status);
+        if (applyResult.isSuccess()) {
+            Vo<RefundItem> vo = new Vo<RefundItem>(RefundItem.class);
+            List<PaymentApplyFdo> list = applyResult.getPaymentApplyBeanList();
+            List<RefundItem> items = new ArrayList<RefundItem>(list.size());
+            for (PaymentApplyFdo applyFdo : list) {
+                RefundItem item = vo.inject(applyFdo);
+                items.add(item);
+            }
+            return new SearchResult<RefundItem>(1, items);
+        }
+        return new SearchResult<RefundItem>(0, new ArrayList<RefundItem>(0));
     }
 }

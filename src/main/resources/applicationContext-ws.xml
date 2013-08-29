@@ -172,4 +172,19 @@
 		</property>
 	</bean>
 
+
+	<bean id="PaymentApplyFacade" class="com.yolema.settlement.ext.facade.payment.PaymentApplyFacade"
+		factory-bean="PaymentApplyFacadeFactory" factory-method="create">
+	</bean>
+
+	<bean id="PaymentApplyFacadeFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+		<property name="serviceClass" value="com.yolema.settlement.ext.facade.payment.PaymentApplyFacade" />
+		<property name="address"
+			value="http://183.129.158.179:8080/tbss/services/paymentApplyFacade" />
+		<property name="outInterceptors">
+			<ref bean="clientSoapAuth" />
+		</property>
+	</bean>
+
+
 </beans>

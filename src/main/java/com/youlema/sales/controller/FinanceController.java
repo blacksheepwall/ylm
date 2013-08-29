@@ -26,6 +26,7 @@ import com.youlema.sales.mapper.meta.AgentsTotalFact;
 import com.youlema.sales.mapper.meta.ProductType;
 import com.youlema.sales.meta.FinanceMeta;
 import com.youlema.sales.meta.PaymentFactStatisticItem;
+import com.youlema.sales.meta.RefundItem;
 import com.youlema.sales.meta.RemitItem;
 import com.youlema.sales.meta.SearchResult;
 import com.youlema.sales.service.FinanceServcie;
@@ -202,8 +203,34 @@ public class FinanceController {
             throws IOException {
         Date beginDate = Utils.parseDate(beginDateStr, "yyyy-MM-dd");
         Date endDate = Utils.parseDate(endDateStr, "yyyy-MM-dd");
-        SearchResult<RemitItem> searchResult = financeServcie.queryRemittList(beginDate, endDate, tickNo, status);
+        SearchResult<RemitItem> searchResult = financeServcie.queryRemittList(userService.getCurrentAgents(),
+                beginDate, endDate, tickNo, status);
         JsonUtils.writeToJson(searchResult, response);
+    }
+
+    /**
+     * 退款列表
+     * 
+     * @return
+     */
+    @RequestMapping("/refund")
+    public String refund() {
+        return "finance-refund-list";
+    }
+
+    /**
+     * 退款单查询
+     * 
+     * @param status
+     * @param response
+     * @throws IOException
+     */
+    @RequestMapping("/refund/query")
+    public void refundQuery(@RequestParam(value = "status", required = false) String status,
+            HttpServletResponse response) throws IOException {
+        Agents agents = userService.getCurrentAgents();
+        SearchResult<RefundItem> result = financeServcie.queryRefundList(agents, status);
+        JsonUtils.writeToJson(result, response);
     }
 
     /**
