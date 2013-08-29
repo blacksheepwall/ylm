@@ -159,8 +159,6 @@
 		</property>
 	</bean>
 
-
-
 	<bean id="AreaFacade" class="com.yolema.tbss.ext.facade.AreaFacade"
 		factory-bean="AreaFacadeFactory" factory-method="create">
 	</bean>
@@ -173,7 +171,5 @@
 			<ref bean="clientSoapAuth" />
 		</property>
 	</bean>
-
-
 
 </beans>

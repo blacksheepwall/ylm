@@ -1,9 +1,11 @@
 package com.youlema.sales.controller;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -29,6 +31,7 @@ import com.youlema.sales.meta.SearchResult;
 import com.youlema.sales.service.FinanceServcie;
 import com.youlema.sales.service.ProductTypeService;
 import com.youlema.sales.service.UserService;
+import com.youlema.sales.utils.Utils;
 
 /**
  * 财务Controller
@@ -171,13 +174,46 @@ public class FinanceController {
     }
 
     /**
-     * 交易信息应付款统计
+     * 汇款列表
      * 
      * @param modelMap
      * @return
      */
     @RequestMapping("/payment")
     public String paymentMain(ModelMap modelMap) {
+        return "finance-remittance-list";
+    }
+
+    /**
+     * 查询汇款列表
+     * 
+     * @param beginDate
+     * @param endDate
+     * @param tickNo
+     * @param status
+     * @param response
+     * @throws IOException
+     */
+    @RequestMapping("/payment/query")
+    public void paymentQuery(@RequestParam(value = "beginDate", required = false) String beginDateStr,
+            @RequestParam(value = "endDate", required = false) String endDateStr,
+            @RequestParam(value = "ticketNo", required = false) String tickNo,
+            @RequestParam(value = "status", required = false) String status, HttpServletResponse response)
+            throws IOException {
+        Date beginDate = Utils.parseDate(beginDateStr, "yyyy-MM-dd");
+        Date endDate = Utils.parseDate(endDateStr, "yyyy-MM-dd");
+        SearchResult<RemitItem> searchResult = financeServcie.queryRemittList(beginDate, endDate, tickNo, status);
+        JsonUtils.writeToJson(searchResult, response);
+    }
+
+    /**
+     * 交易信息应付款统计
+     * 
+     * @param modelMap
+     * @return
+     */
+    @RequestMapping("/trade")
+    public String tradeMain(ModelMap modelMap) {
         List<AgentsPaymentFact> allList = financeServcie.getShowPaymentFact(userService.getCurrentAgents());
         HashMap<String, String> typesMap = getTypesMap();
         PaymentFactStatistic statistic1 = new PaymentFactStatistic("GJ", typesMap);
@@ -210,8 +246,8 @@ public class FinanceController {
      * @param modelMap
      * @return
      */
-    @RequestMapping("/payment/detail")
-    public String paymentDetail(@RequestParam(value = "mainTypeCode", required = false) String mainTypeCode,
+    @RequestMapping("/trade/detail")
+    public String tradeDetail(@RequestParam(value = "mainTypeCode", required = false) String mainTypeCode,
             @RequestParam(value = "minorTypeCode", required = false) String minorTypeCode, ModelMap modelMap) {
         List<AgentsPaymentFact> allList = financeServcie.getShowPaymentFact(userService.getCurrentAgents(),
                 mainTypeCode, minorTypeCode);

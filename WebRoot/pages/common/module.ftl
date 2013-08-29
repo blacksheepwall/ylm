@@ -157,10 +157,10 @@
       <i class="icon-shopping-cart"></i> 交易信息
     </li>
     <li <#if "finance-payable-amount"==page_name>class="active"</#if>>
-      <a href="/finance/payment/">应付款统计<i class="icon-chevron-right"></i></a>
+      <a href="/finance/trade/">应付款统计<i class="icon-chevron-right"></i></a>
     </li>
     <li <#if "finance-payable-detail"==page_name>class="active"</#if>>
-      <a href="/finance/payment/detail/">应付款明细<i class="icon-chevron-right"></i></a>
+      <a href="/finance/trade/detail/">应付款明细<i class="icon-chevron-right"></i></a>
     </li>
     <li class="nav-header">
       <i class="icon-credit-card"></i> 付款管理
@@ -169,7 +169,7 @@
       <a href="/main/finance-add-remittance/">新增汇款<i class="icon-chevron-right"></i></a>
     </li>
     <li <#if "finance-remittance-list"==page_name>class="active"</#if>>
-      <a href="/main/finance-remittance-list/">汇款列表<i class="icon-chevron-right"></i></a>
+      <a href="/finance/payment/">汇款列表<i class="icon-chevron-right"></i></a>
     </li>
     <li <#if "finance-refund-list"==page_name>class="active"</#if>>
       <a href="/main/finance-refund-list/">退款列表<i class="icon-chevron-right"></i></a>

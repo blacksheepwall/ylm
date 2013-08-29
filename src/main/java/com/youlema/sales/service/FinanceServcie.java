@@ -2,6 +2,7 @@ package com.youlema.sales.service;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -94,19 +95,23 @@ public class FinanceServcie {
         fdo.setRemittanceStatus("2");
         RemittanceFormBeanResult result = remittanceFormFacade.queryAgentPageList(fdo);
         if (result.isSuccess()) {
-            PageList<RemittanceFormFdo> pageList = result.getPageRemittanceList();
-            ArrayList<RemitItem> list = new ArrayList<RemitItem>();
-            Vo<RemitItem> vo = new Vo<RemitItem>(RemitItem.class);
-            for (RemittanceFormFdo remittanceFormFdo : pageList) {
-                RemitItem item = vo.inject(remittanceFormFdo);
-                list.add(item);
-            }
-            PagingTools tools = pageList.getPageTools();
-            int pages = tools.getPages();
-            return new SearchResult<RemitItem>(pages, list);
+            return toRemitItemResult(result);
         }
         return new SearchResult<RemitItem>(0, new ArrayList<RemitItem>(0));
 
+    }
+
+    private static SearchResult<RemitItem> toRemitItemResult(RemittanceFormBeanResult result) {
+        PageList<RemittanceFormFdo> pageList = result.getPageRemittanceList();
+        ArrayList<RemitItem> list = new ArrayList<RemitItem>();
+        Vo<RemitItem> vo = new Vo<RemitItem>(RemitItem.class);
+        for (RemittanceFormFdo remittanceFormFdo : pageList) {
+            RemitItem item = vo.inject(remittanceFormFdo);
+            list.add(item);
+        }
+        PagingTools tools = pageList.getPageTools();
+        int pages = tools.getPages();
+        return new SearchResult<RemitItem>(pages, list);
     }
 
     /**
@@ -199,5 +204,29 @@ public class FinanceServcie {
             list.add(reportItem);
         }
         return list;
+    }
+
+    /**
+     * 查询汇款单列表
+     * 
+     * @param beginDate
+     * @param endDate
+     * @param tickNo
+     * @param status
+     * @return
+     */
+    public SearchResult<RemitItem> queryRemittList(Date beginDate, Date endDate, String tickNo, String status) {
+        RemittanceFormFdo queryFdo = new RemittanceFormFdo();
+        if (StringUtils.isNotBlank(status)) {
+            queryFdo.setRemittanceStatus(status);
+        }
+        if (StringUtils.isNotBlank(tickNo)) {
+            queryFdo.setRemittanceFormCode(tickNo);
+        }
+        RemittanceFormBeanResult result = remittanceFormFacade.queryAgentPageList(queryFdo);
+        if (result.isSuccess()) {
+            return toRemitItemResult(result);
+        }
+        return new SearchResult<RemitItem>(0, new ArrayList<RemitItem>(0));
     }
 }
