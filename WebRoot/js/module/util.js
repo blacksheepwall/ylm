@@ -1,9 +1,13 @@
-define(['dateTimePicker'], function() {
+define(['dateTimePicker', 'moment'], function() {
   'use strict';
   var mod = {},
     noop = $.noop(),
     $startDate = $('#J_start_date'), // id必须为J_start_date
     $endDate = $('#J_end_date');  //  id必须为J_end_date
+  // 自动注册日期renderer
+  Handlebars.registerHelper('dateRenderer', function(date) {
+    return moment(date).format('ll');
+  });
   function _ajax(options) {
     var type = options.type || 'get',
       url = options.url,

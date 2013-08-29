@@ -15,9 +15,7 @@ define(['./util', 'moment', 'pagination'], function(Util, moment) {
     groupRowTpl = Handlebars.compile($('#J_group_row').html()),
     queryUrl = '/' + productType + '/query',
     queryPdtsUrl = '/' + productType + '/queryPdts';
-  Handlebars.registerHelper('dateRenderer', function(date) {
-    return moment(date).format('ll');
-  });
+
   function _initQueryConfig() {
     mod.queryConfig = {
       'leaveCity': '',

@@ -17,20 +17,24 @@
         <div class="span10">
           <div class="form-horizontal mod-body">
             <div class="condition">
-              <strong>汇款日期：</strong><input type="text" class="date-box input-small" readonly="">~<input type="text" class="date-box input-small" readonly="">
+              <strong>汇款日期：</strong>
+              <input type="text" id="J_start_date" class="date-box input-small" readonly="">
+              ~
+              <input type="text" id="J_end_date" class="date-box input-small" readonly="">
             </div>
             <div class="condition">
-              <strong>汇款单号：</strong><input type="text" class="input-small">
+              <strong>汇款单号：</strong><input id="J_ticket_no" type="text" class="input-small">
               <strong>状态：</strong>
-              <select class="input-small">
-                <option selected="" value="所有">所有</option>
-                <option value="未核销">未核销</option>
-                <option value="已核销">已核销</option>
-                <option value="已取消">已取消</option>
+              <select id="J_status" class="input-small">
+                <option value="">所有</option>
+                <option value="1">打开</option>
+                <option value="2">认领中</option>
+                <option value="5">已认领</option>
+                <option value="6">作废</option>
               </select>
             </div>
             <div class="condition">
-              <button class="btn btn-success search-btn" type="button"><i class="icon-search"></i> 查找</button>
+              <button id="J_search_btn" class="btn btn-success search-btn" type="button"><i class="icon-search"></i> 查找</button>
             </div>
           </div>
           <div class="mod-body">
@@ -38,7 +42,7 @@
             <table class="table table-bordered">
               <thead>
               <tr>
-                <th>
+                <th width="170">
                   汇款单号
                 </th>
                 <th>
@@ -58,30 +62,41 @@
                 </th>
               </tr>
               </thead>
-              <tbody>
-              <tr>
-                <td>
-                  <a href="/main/finance-remittance" target="_blank">YSL13042410560353</a>
-                </td>
-                <td></td>
-                <td>
-                  2013-05-03
-                </td>
-                <td>
-                  2013-03-11
-                </td>
-                <td>
-                </td>
-                <td>
-                  修改  删除
-                </td>
-              </tr>
-              </tbody>
+              <tbody id="J_remittance_list"></tbody>
             </table>
           </div>
         </div>
       </div>
     </div>
+    <script id="J_remittance_item_tpl" type="text/tpl">
+      {{#each this}}
+      <tr>
+        <td>
+          <a href="/finance/remit/detail?id={{id}}" target="_blank">{{remitNo}}</a>
+        </td>
+        <td>
+          {{remitAmount}}
+        </td>
+        <td>
+          {{dateRenderer remitDate}}
+        </td>
+        <td>
+          {{dateRenderer checkDate}}
+        </td>
+        <td>
+          {{statusRenderer status}}
+        </td>
+        <td>
+          <a href="/main/finance-add-remittance/">修改</a>&nbsp;<a class="j-remove" href="javascript:;">删除</a>
+        </td>
+      </tr>
+      {{/each}}
+      {{^each this}}
+      <tr>
+        <td colspan="6">没有数据</td>
+      </tr>
+      {{/each}}
+    </script>
     </@body>
   </@html>
 </#escape>
