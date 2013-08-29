@@ -272,16 +272,23 @@
         <div class="product clearfix">
           <div class="product-main">
             <div>
-              <span class="label label-success">特价</span>
+              <#--<span class="label label-success">特价</span>-->
               <a class="title" href="/product/detail?id={{productId}}" target="_blank"><strong>{{title}}</strong></a>
               <span class="text-warning">{{nightCount}}晚{{dayCount}}天</span>
               <div class="muted">{{managerRecommend}}</div>
-              <@product_date_list></@product_date_list>
+              <#--<@product_date_list></@product_date_list>-->
+              <div class="product-date pull-left">
+                <strong>日期：</strong>
+                {{#each dateList}}
+                <a href="javascript:;" class="date-value">{{.}}</a>
+                {{/each}}
+                <a href="javascript:;" class="date-more">更多 »</a>
+              </div>
             </div>
           </div>
           <div class="product-more">
             <div class="text-center">
-              <span>{{topic}}</span>
+              <span class="label label-info">{{labels}}</span>
             </div>
             <div class="product-price">
               <strong class="price-title">价格：</strong><span class="price-value">￥{{price}}起</span>

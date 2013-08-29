@@ -159,12 +159,11 @@
         <div class="product clearfix">
           <div class="product-main">
             <div>
-              <span class="label label-success">特价</span>
-              <a class="title" href="/product/detail?id={{productId}}" target="_blank"><strong>{{title}}</strong></a>
-              <span class="text-warning">{{nightCount}}晚{{dayCount}}天</span>
-
-              <div class="muted">{{managerRecommend}}</div>
-              <@product_date_list></@product_date_list>
+              <#--<span class="label label-success">特价</span>-->
+              <a class="title" href="/product/detail?id={{id}}" target="_blank"><strong>{{name}}</strong></a>
+              <span class="text-warning">{{isGrouped}}</span>
+              <#--<div class="muted">{{managerRecommend}}</div>-->
+              <#--<@product_date_list></@product_date_list>-->
             </div>
           </div>
           <div class="product-more">
