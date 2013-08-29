@@ -172,7 +172,7 @@
       <a href="/finance/payment/">汇款列表<i class="icon-chevron-right"></i></a>
     </li>
     <li <#if "finance-refund-list"==page_name>class="active"</#if>>
-      <a href="/main/finance-refund-list/">退款列表<i class="icon-chevron-right"></i></a>
+      <a href="/finance/refund/">退款列表<i class="icon-chevron-right"></i></a>
     </li>
     <li class="nav-header">
       <i class="icon-bar-chart"></i> 业务报表

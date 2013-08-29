@@ -9,7 +9,7 @@
         <ul class="breadcrumb pull-left">
           <li><a href="/main/">首页</a> <span class="divider">/</span></li>
           <li><a href="/finance/">财务结算</a> <span class="divider">/</span></li>
-          <li><a href="/main/finance-refund-list/">退款列表</a> <span class="divider">/</span></li>
+          <li><a href="/finance/refund/">退款列表</a> <span class="divider">/</span></li>
           <li class="active">退款查看</li>
         </ul>
       </div>
