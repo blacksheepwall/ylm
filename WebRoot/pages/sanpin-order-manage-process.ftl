@@ -1,5 +1,5 @@
 <#-- 订单操作页（散拼产品） -->
-<#assign page_name="sanping-order-manage-process"/>
+<#assign page_name="sanpin-order-manage-process"/>
 <#include "common/module.ftl"/>
 <#escape x as x?html>
   <@html title="订单操作">
