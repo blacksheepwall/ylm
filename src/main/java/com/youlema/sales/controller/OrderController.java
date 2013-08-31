@@ -40,7 +40,10 @@ public class OrderController {
         OrderDetailVo detailVo = orderService.getOrderById(orderId);
         modelMap.put("order", detailVo);
         modelMap.put("contracts", detailVo.getContractItems());
-        return "order-manage-process";
+        if("TOUR_ORDER".equalsIgnoreCase(detailVo.getOrderType().getKey())){
+            return "sanpin-order-manage-process";
+        }
+        return "free-travel-order-manage-process";
     }
 
     /**

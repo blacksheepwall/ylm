@@ -13,6 +13,7 @@ import com.yolema.tbss.ext.facade.fdo.order.OrderCustomFdo;
 import com.yolema.tbss.ext.facade.result.OrderBillResult;
 import com.yolema.tbss.ext.facade.result.OrderCustomResult;
 import com.youlema.sales.mapper.meta.AgentsAccount;
+import com.youlema.sales.service.UserService;
 import com.youlema.sales.service.OrderService.OrderQueryCondition;
 
 @Service
@@ -21,10 +22,12 @@ public class OrderFacadeService {
     private OrderBillFacade orderBillFacade;
     @Resource(name = "OrderCustomFacade")
     private OrderCustomFacade orderCustomFacade;
+    @Resource
+    private UserService userService;
 
     public OrderBillResult queryOrderBillResult(OrderQueryCondition condition) {
         OrderBillFdo queryFdo = toQueryOrderBillFdo(condition);
-
+        queryFdo.setEtpCode(userService.getCurrentAgents().getAgentsCode());
         return orderBillFacade.queryPageList(queryFdo);
     }
 

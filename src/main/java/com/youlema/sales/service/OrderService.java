@@ -68,6 +68,7 @@ public class OrderService {
     public SearchResult<OrderVo> getLastOrders(int count, User user) {
         OrderBillFdo fdo = new OrderBillFdo();
         fdo.setCreator(user.getAccount().getAccountLoginName());
+        fdo.setEtpCode(user.getAgents().getAgentsCode());
         OrderBillResult billResult = orderBillFacade.queryPageList(fdo);
         if (billResult.isSuccess()) {
             PageList<OrderBillFdo> pageList = billResult.getPageList();
@@ -281,7 +282,7 @@ public class OrderService {
         OrderDetailVo vo = new OrderDetailVo();
         vo.setContractItems(contractItemVos);
         fromBillFdo2Vo(fdo, product, vo);
-        vo.setCreateOperator(fdo.getSalesman());
+        vo.setCreateOperator(fdo.getCreator());
         vo.setCreateTime(fdo.getGmtCreate());
         vo.setLockStatus(fdo.getIsLocked() ? "锁定" : "未锁定");
         vo.setOrderMemo(fdo.getMemo());
@@ -290,7 +291,7 @@ public class OrderService {
         vo.setFinalPayDate(fdo.getGmtEndOfPayment());
         vo.setOrderPrice(fdo.getAmountPayable());
         vo.setPaidPrice(fdo.getAmountPaid());
-        vo.setProductManager(product.getProductManager());
+        vo.setProductManager(product.getProductAssistant());
         vo.setTeamNumber(showProduct.getProductNo());
         vo.setLeaveDate(showProduct.getStartDate());
         vo.setNotPaid(fdo.getNoPayments());

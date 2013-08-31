@@ -34,9 +34,16 @@ public class UploadController implements ServletContextAware {
     @Override
     public void setServletContext(ServletContext servletContext) {
     }
-
+    /**
+     * 
+     * @param name
+     * @param bussinessType
+     * @param bussinessId
+     * @param mFile
+     * @return
+     */
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public String handleFormUpload(@RequestParam("name") String name, String bussinessType, long bussinessId,
+    public String handleFormUpload(@RequestParam("name") String name, @RequestParam("bussinessType")String bussinessType, @RequestParam("businessId")long bussinessId,
             @RequestParam("file") CommonsMultipartFile mFile) {
         if (!mFile.isEmpty()) {
             File dir = new File(savePath);
@@ -48,8 +55,9 @@ public class UploadController implements ServletContextAware {
             try {
                 mFile.getFileItem().write(file);
             } catch (Exception e) {
-                // TODO 异常时返回异常消息
+                return "redirect:/err/404";
             }
+            
 
             attachmentFacade.uploadFile(file.getAbsolutePath(), filename, FileType.FILE, bussinessType, bussinessId,
                     userService.getCurrentAccount().getAccountLoginName());
