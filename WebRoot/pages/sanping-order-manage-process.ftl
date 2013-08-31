@@ -1,5 +1,5 @@
-<#-- 订单操作页 -->
-<#assign page_name="order-manage-process"/>
+<#-- 订单操作页（散拼产品） -->
+<#assign page_name="sanping-order-manage-process"/>
 <#include "common/module.ftl"/>
 <#escape x as x?html>
   <@html title="订单操作">
@@ -20,7 +20,7 @@
             <a class="btn btn btn-small" href="/main/order-confirm" target="_blank"><i class="icon-ok"></i> 确认单</a>
             <a class="btn btn btn-small" href="/main/order-group-preview" target="_blank"><i class="icon-info"></i> 出团通知</a>
             <button class="btn btn-warning btn-small" type="button"><i class="icon-pencil"></i> 修改联系人</button>
-            <a class="btn btn-danger btn-small" href="/order/cancel/?id=${order.orderId}"><i class="icon-remove"></i> 取消游客</a>
+            <a class="btn btn-danger btn-small" href="/order/cancel/?id=${order.orderId}"><i class="icon-remove"></i> 游客取消</a>
           </div>
           <div>
             <#macro user_card_popover dept="" name="" tel="" phone="">
@@ -67,10 +67,7 @@
           </div>
         </div>
         <ul id="J_tab" class="nav nav-tabs">
-          <li class="active">
-            <a href="#"><i class="icon-list"></i> 预订内容</a>
-          </li>
-          <li><a href="#"><i class="icon-group"></i> 游客名单</a></li>
+          <li class="active"><a href="#"><i class="icon-group"></i> 游客名单</a></li>
           <li><a href="#"><i class="icon-share-alt"></i> 收款退款</a></li>
           <li><a href="#"><i class="icon-pencil"></i> 处理信息</a></li>
         </ul>
