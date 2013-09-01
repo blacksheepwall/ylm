@@ -28,7 +28,7 @@
               class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
             <#--<a href="/main/" class="brand"><strong title="浙江中山国际旅行社分销系统">TBDS</strong></a>-->
             <div class="nav-collapse collapse navbar-responsive-collapse">
-              <ul class="nav">
+              <ul class="nav nav-menu-list">
                 <li <#if "main,news-detail,news"?contains(page_name)>class="active"</#if>>
                 <#--<li "main,news-detail,news".contains?page_name<#if page_name=="main"||page_name=="news-detail"||page_name=="news">class="active"</#if>>-->
                   <a href="/main/">首页</a>

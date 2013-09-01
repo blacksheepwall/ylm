@@ -58,20 +58,20 @@
           <ol id="J_news_list" class="news-list">
           	<#list systemBulletinResult.resultList as it>
             <li class="item">
-              <a class="link" href="/bulletin/info/?id=${it.id}" target="_blank">${it.title} <span class="date">${it.createDate?string('MM月dd日')}</span></a>
+              <a class="link" href="/bulletin/info/?id=${it.id}&type=system" target="_blank">${it.title} <span class="date">${it.createDate?string('MM月dd日')}</span></a>
             </li>
             </#list>
           </ol>
-          <a class="all-news" href="/bulletin" target="_blank">更多 »</a>
+          <a class="all-news" href="/bulletin?type=system" target="_blank">更多 »</a>
         </div>
       </div>
       <#--<div class="side-box">-->
       <div class="business-news mod-body">
         <h3 class="mod-title">
-          <i class="icon-volume-up"></i> 业务公告 <a class="all-news" href="/bulletin" target="_blank">所有公告 »</a></h3>
+          <i class="icon-volume-up"></i> 业务公告 <a class="all-news" href="/bulletin?type=business" target="_blank">所有公告 »</a></h3>
         <ol>
           <#list bulletinResult.resultList as bulletin>
-          <li><a class="link" href="/bulletin/info/?id=${bulletin.id}" target="_blank">${bulletin.title}</a> <span class="date">${bulletin.createDate?string('MM月dd日')}</span></li>
+          <li><a class="link" href="/bulletin/info/?id=${bulletin.id}&type=business" target="_blank">${bulletin.title}</a> <span class="date">${bulletin.createDate?string('MM月dd日')}</span></li>
           </#list>
         </ol>
       </div>

@@ -19,22 +19,22 @@
         <table class="table table-bordered">
           <thead>
           <tr>
-            <th>
+            <th width="60">
               序号
             </th>
             <th>
               公告标题
             </th>
-            <th>
+            <th width="100">
               附件
             </th>
-            <th>
+            <th width="100">
               标签
             </th>
-            <th>
+            <th width="80">
               有效期
             </th>
-            <th>
+            <th width="80">
               发布时间
             </th>
           </tr>

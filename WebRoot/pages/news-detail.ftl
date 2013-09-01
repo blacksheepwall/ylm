@@ -1,6 +1,7 @@
 <#-- 公告查看页 -->
 <#assign page_name="news-detail"/>
 <#include "common/module.ftl"/>
+<#assign type="${type!'system'}"/>
 <#escape x as x?html>
   <@html title="系统公告">
     <@body>
@@ -8,7 +9,7 @@
       <div class="row-fluid">
         <ul class="breadcrumb">
           <li><a href="/main/">首页</a> <span class="divider">/</span></li>
-          <li><a href="/bulletin/">系统公告列表</a> <span class="divider">/</span></li>
+          <li><a href="/bulletin?type=${type}"><#if type=="system">系统公告列表<#else>业务公告列表</#if></a> <span class="divider">/</span></li>
           <li class="active">公告查看</li>
         </ul>
         <div class="mod-body clearfix">
@@ -27,7 +28,7 @@
           <div class="clearfix row-fluid">
             <label class="control-label">
               <strong>公告内容：</strong>
-				${bulletin.content!}
+              <#noescape>${bulletin.content!}</#noescape>
             </label>
           </div>
         </div>

@@ -20,7 +20,7 @@
           <div class="control-group">
             <label class="control-label" for="password">密码</label>
             <div class="controls">
-              <input type="text" name="pass" id="password">
+              <input type="password" name="pass" id="password">
             </div>
           </div>
           <div class="control-group">
