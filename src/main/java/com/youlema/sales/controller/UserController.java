@@ -1,8 +1,6 @@
 package com.youlema.sales.controller;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.List;
 
@@ -10,7 +8,6 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.grayrabbit.commons.util.MD5Util;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.ServletRequestBindingException;
@@ -56,7 +53,7 @@ public class UserController {
     @RequestMapping("")
     public String main(ModelMap modelMap) {
         User currentUser = userService.getCurrentUser();
-        SearchResult<MessageItem> msgList = msgService.getNewMsgList(currentUser);
+        SearchResult<MessageItem> msgList = msgService.getNewMsgList(currentUser, 1);
         modelMap.put("unreadMsg", msgList);
         SearchResult<OrderVo> orderResult = orderService.getLastOrders(10, currentUser);
         modelMap.put("orderResult", orderResult);
@@ -69,7 +66,11 @@ public class UserController {
      * @return
      */
     @RequestMapping("/orders")
-    public String myOrder() {
+    public String myOrder(ModelMap modelMap,
+            @RequestParam(value = "page", required = false, defaultValue = "1") int page) {
+        User currentUser = userService.getCurrentUser();
+        SearchResult<OrderVo> orderResult = orderService.getOrderVosByUser(currentUser, page, 20);
+        modelMap.put("orderResult", orderResult);
         return "user-center-myorder";
     }
 
@@ -151,7 +152,10 @@ public class UserController {
      * @return
      */
     @RequestMapping("/unreadmsg")
-    public String unreadMessage() {
+    public String unreadMessage(ModelMap modelMap) {
+        User currentUser = userService.getCurrentUser();
+        SearchResult<MessageItem> msgList = msgService.getNewMsgList(currentUser, 1);
+        modelMap.put("unreadMsg", msgList);
         return "user-center-unread";
     }
 
@@ -192,8 +196,10 @@ public class UserController {
         modelMap.put("message", item);
         return "user-center-message";
     }
+
     /**
      * 回复消息
+     * 
      * @param id
      * @param content
      * @param title
@@ -201,12 +207,13 @@ public class UserController {
      * @throws IOException
      */
     @RequestMapping("/replymsg")
-    public void replyMsg(@RequestParam("id") long id, @RequestParam("content") String content,@RequestParam(value="title",required=false,defaultValue="")String title,
+    public void replyMsg(@RequestParam("id") long id, @RequestParam("content") String content,
+            @RequestParam(value = "title", required = false, defaultValue = "") String title,
             HttpServletResponse response) throws IOException {
         User user = userService.getCurrentUser();
-        if(msgService.reply(title, content, user, id)){
+        if (msgService.reply(title, content, user, id)) {
             JsonUtils.writeToJson("SUCCESS", response);
-        }else{
+        } else {
             JsonUtils.writeToErrJson("FAIL", "FAIL", response);
         }
     }
@@ -242,15 +249,16 @@ public class UserController {
         String mobile = ServletRequestUtils.getStringParameter(request, "mobile");
         String email = ServletRequestUtils.getStringParameter(request, "email");
         String qq = ServletRequestUtils.getStringParameter(request, "qq");
-        boolean sex = ServletRequestUtils.getBooleanParameter(request, "sex", true);
-        // String fax = ServletRequestUtils.getStringParameter(request, "fax");
-        account.setSex(sex);
+        int sex = ServletRequestUtils.getIntParameter(request, "sex");
+        String fax = ServletRequestUtils.getStringParameter(request, "fax");
+        account.setSex(sex != 0);
         account.setName(userName);
         account.setDepart(depart);
         account.setTelphone(telphone);
         account.setMobile(mobile);
         account.setEmail(email);
         account.setQq(qq);
+        account.setFax(fax);
         account.setGmtModify(new Date());
         userService.updateAccount(account);
         JsonUtils.writeToJson("SUCCESS", response);
@@ -263,6 +271,7 @@ public class UserController {
      */
     @RequestMapping("/changepass")
     public String changePassword() {
+        //TODO 更换密码
         return "user-center-password";
     }
 
@@ -294,6 +303,7 @@ public class UserController {
      */
     @RequestMapping("/shortcut")
     public String shortcutMenu() {
+        //TODO 快捷菜单设置页
         return "user-center-shortcut-menu";
     }
 
@@ -304,11 +314,8 @@ public class UserController {
      */
     @RequestMapping("/log")
     public String userLog() {
+        //TODO 用户登录日志
         return "user-center-log";
     }
-    public static void main(String[] args) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 
-        String digest =MD5Util.encrypt("111");
-        System.out.println(digest);
-    }
 }

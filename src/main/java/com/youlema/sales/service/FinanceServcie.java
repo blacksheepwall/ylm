@@ -109,6 +109,9 @@ public class FinanceServcie {
 
     private static SearchResult<RemitItem> toRemitItemResult(RemittanceFormBeanResult result) {
         PageList<RemittanceFormFdo> pageList = result.getPageRemittanceList();
+        if(pageList == null){
+            return new SearchResult<RemitItem>(0, new ArrayList<RemitItem>());
+        }
         ArrayList<RemitItem> list = new ArrayList<RemitItem>();
         Vo<RemitItem> vo = new Vo<RemitItem>(RemitItem.class);
         for (RemittanceFormFdo remittanceFormFdo : pageList) {

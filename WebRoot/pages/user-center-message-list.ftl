@@ -24,7 +24,7 @@
             </li>
           </ul>
           <div class="send-btn">
-            <a href="/main/user-center-send-message"><i class="icon-envelope-alt"></i> 发送消息</a>
+            <a href="/u/sendmsg"><i class="icon-envelope-alt"></i> 发送消息</a>
           </div>
           <div id="J_tab_content">
             <div style="display: block;">

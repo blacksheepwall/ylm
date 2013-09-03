@@ -129,7 +129,7 @@ public class MsgService {
         return msgResult.isSuccess();
     }
 
-    public SearchResult<MessageItem> getNewMsgList(User user) {
+    public SearchResult<MessageItem> getNewMsgList(User user , int page) {
         MsgInboxFdo fdo = new MsgInboxFdo();
         fdo.setIsRead(false);
         String accountLoginName = user.getAccount().getAccountLoginName();

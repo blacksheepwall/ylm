@@ -98,12 +98,12 @@
             <li>
               <div>
                 <a href="/product/detail/?id=${it.productId}" class="product-title">${it.title}</a>
-                <span class="muted">${it.leaveTrafficName}</span>
+                <span class="muted">${it.leaveTrafficName!}</span>
                 <span class="price">${it.storePrice}</span>
               </div>
               <div>
                 <span class="start">出发口岸：${it.leaveCityName!}</span>
-                <span class="start">往返交通：${it.leaveTrafficName}/${it.returnTrafficName!}</span>
+                <span class="start">往返交通：${it.leaveTrafficName!}/${it.returnTrafficName!}</span>
                 <span class="date">发团日期：${it.leaveDate?string('MM-dd')}</span><span
                 class="origin-price">${it.price}起</span>
               </div>
@@ -132,12 +132,12 @@
             <li>
               <div>
                 <a href="/product/detail/?id=${it.productId}" class="product-title">${it.title}</a>
-                <span class="muted">${it.leaveTrafficName}</span>
+                <span class="muted">${it.leaveTrafficName!}</span>
                 <span class="price">${it.storePrice}</span>
               </div>
               <div>
                 <span class="start">出发口岸：${it.leaveCityName!}</span>
-                <span class="start">往返交通：${it.leaveTrafficName}/${it.returnTrafficName!}</span>
+                <span class="start">往返交通：${it.leaveTrafficName!}/${it.returnTrafficName!}</span>
                 <span class="date">发团日期：${it.leaveDate?string('MM-dd')}</span><span
                 class="origin-price">${it.price}起</span>
               </div>
@@ -168,12 +168,12 @@
             <li>
               <div>
                 <a href="/product/detail/?id=${it.productId}" class="product-title">${it.title}</a>
-                <span class="muted">${it.leaveTrafficName}</span>
+                <span class="muted">${it.leaveTrafficName!}</span>
                 <span class="price">${it.storePrice}</span>
               </div>
               <div>
                 <span class="start">出发口岸：${it.leaveCityName!}</span>
-                <span class="start">往返交通：${it.leaveTrafficName}/${it.returnTrafficName!}</span>
+                <span class="start">往返交通：${it.leaveTrafficName!}/${it.returnTrafficName!}</span>
                 <span class="date">发团日期：${it.leaveDate?string('MM-dd')}</span><span
                 class="origin-price">${it.price}起</span>
               </div>

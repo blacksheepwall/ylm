@@ -64,11 +64,28 @@ public class OrderService {
     private OrderCustomFacade orderCustomFacade;
     @Resource(name = "OrderBillFacade")
     private OrderBillFacade orderBillFacade;
-
+    /**
+     * 获取指定条目的订单列表
+     * @param count
+     * @param user
+     * @return
+     */
     public SearchResult<OrderVo> getLastOrders(int count, User user) {
+        return getOrderVosByUser(user, 1, count);
+    }
+    /**
+     * 获取指定用户的订单列表
+     * @param user
+     * @param pageNum
+     * @param limit
+     * @return
+     */
+    public SearchResult<OrderVo> getOrderVosByUser(User user, int pageNum, int limit) {
         OrderBillFdo fdo = new OrderBillFdo();
         fdo.setCreator(user.getAccount().getAccountLoginName());
         fdo.setEtpCode(user.getAgents().getAgentsCode());
+        fdo.setPageNum(pageNum);
+        fdo.setPageSize(limit);
         OrderBillResult billResult = orderBillFacade.queryPageList(fdo);
         if (billResult.isSuccess()) {
             PageList<OrderBillFdo> pageList = billResult.getPageList();

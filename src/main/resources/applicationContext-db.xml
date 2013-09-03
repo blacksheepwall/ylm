@@ -36,7 +36,7 @@
 			<value>com.mysql.jdbc.Driver</value>
 		</property>
 		<property name="jdbcUrl">
-			<value>jdbc:mysql://183.129.158.179:6080/tbss_test</value>
+			<value>jdbc:mysql://183.129.158.179:6080/test_tbss</value>
 		</property>
 		<property name="user">
 			<value>tbds</value>

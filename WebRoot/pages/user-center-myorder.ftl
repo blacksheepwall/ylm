@@ -50,32 +50,34 @@
               </tr>
               </thead>
               <tbody>
+              <#list orderResult.resultList as it>
               <tr>
                 <td>
-                  1
+                  ${it.orderNumber}
                 </td>
                 <td>
-                  2
+                  ${it.orderType.value}
                 </td>
                 <td>
-                  3
+                  ${it.productName}
                 </td>
                 <td>
-                  4
+                  <#if it.beginDate??>${it.beginDate?string('yyyy-MM-dd')}</#if>
                 </td>
                 <td>
-                  1
+                  ${it.travellerCount}
                 </td>
                 <td>
-                  2
+                  ${it.contact}
                 </td>
                 <td>
-                  3
+                  <#if it.scheduledTime??>${it.scheduledTime?string('yyyy-MM-dd')}</#if>
                 </td>
                 <td>
-                  4
+                  ${it.status.value}
                 </td>
               </tr>
+              </#list>
               </tbody>
             </table>
           </div>

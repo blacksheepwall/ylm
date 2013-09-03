@@ -40,7 +40,7 @@ public class OrderFacadeService {
     }
 
     public OrderBillResult getOrderBillResult(long orderId) {
-        OrderBillResult result = orderBillFacade.getById(orderId);
+        OrderBillResult result = orderBillFacade.getOrderBillView(orderId);
         return result;
     }
 

@@ -43,6 +43,7 @@
 				/index* = anon
 				/login/* = anon
 				/err/** = anon
+				/u/changepass* = anon
 				/** = authc
 			</value>
 		</property>

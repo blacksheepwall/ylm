@@ -41,26 +41,29 @@
               </tr>
               </thead>
               <tbody>
+              <#list unreadMsg.resultList as it>
               <tr>
                 <td>
+                ${it_index+1}
                 </td>
                 <td>
-                  <a href="/main/user-center-message/">收款通知</a>
+                  <a href="/u/msginfo/?id=${it.id}">${it.title}</a>
                 </td>
                 <td>
                   预览  下载
                 </td>
                 <td>
-                  2013年6月14日 23:22:42
+                  ${it.sender}
                 </td>
                 <td>
-                  2013年6月14日 23:22:42
+                  ${it.sendTime?string('yyyy-MM-dd')}
                 </td>
                 <td>
-                  <a href=""><i class="icon-eye-open"></i> 查看 </a>
+                  <a href="/u/msginfo/?id=${it.id}"><i class="icon-eye-open"></i> 查看 </a>
                   <a href=""><i class="icon-reply"></i> 回复 </a>
                 </td>
               </tr>
+              </#list>
               </tbody>
             </table>
           </div>

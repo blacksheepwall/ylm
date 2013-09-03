@@ -38,10 +38,10 @@
             <label class="control-label">性别</label>
             <div class="controls">
               <label class="radio inline">
-                <input type="radio" name="sex" value="0" <#if account.sex == 0>checked</#if>>男
+                <input type="radio" name="sex" value="0" <#if account.sex>checked</#if>>男
               </label>
               <label class="radio inline">
-                <input type="radio" name="sex" value="1" <#if account.sex != 0>checked</#if>>女
+                <input type="radio" name="sex" value="1" <#if !account.sex>checked</#if>>女
               </label>
             </div>
           </div>
