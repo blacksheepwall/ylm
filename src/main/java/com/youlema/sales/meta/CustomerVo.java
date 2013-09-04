@@ -34,8 +34,38 @@ public class CustomerVo {
 	private String memo;
 
 	private long customerId;
+	
+	private long orderId;
+	
+	private String productName;
+	
+	private String orderNum;
 
-	public String getStatus() {
+	public String getOrderNum() {
+        return orderNum;
+    }
+
+    public void setOrderNum(String orderNum) {
+        this.orderNum = orderNum;
+    }
+
+    public long getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(long orderId) {
+        this.orderId = orderId;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getStatus() {
 		return status;
 	}
 
@@ -193,8 +223,11 @@ public class CustomerVo {
 		vo.mobile = fdo.getMobile();
 		vo.name = fdo.getName();
 		vo.pinyin = fdo.getPinyin();
+		vo.orderNum = fdo.getBizOrderId();
 		vo.sex = fdo.getSex() ? "男" : "女";
 		vo.status = fdo.getIsCanceled() ? "已取消" : "正常";
+		vo.productName = fdo.getProductName();
+		vo.orderId = fdo.getOrderId();
 		Certificate certificate = new Certificate(fdo.getPid());
 		certificate.birthday = fdo.getBirthday();
 		certificate.certificateNumber = fdo.getPidNo();

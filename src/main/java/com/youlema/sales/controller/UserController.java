@@ -20,10 +20,12 @@ import com.youlema.sales.mapper.meta.AgentsAccount;
 import com.youlema.sales.mapper.meta.AgentsFavorites;
 import com.youlema.sales.mapper.meta.AgentsPaymentReportMeta;
 import com.youlema.sales.meta.BusinessType;
+import com.youlema.sales.meta.CustomerVo;
 import com.youlema.sales.meta.MessageItem;
 import com.youlema.sales.meta.OrderVo;
 import com.youlema.sales.meta.SearchResult;
 import com.youlema.sales.meta.User;
+import com.youlema.sales.service.CustService;
 import com.youlema.sales.service.FavoriteService;
 import com.youlema.sales.service.FinanceServcie;
 import com.youlema.sales.service.MsgService;
@@ -49,6 +51,8 @@ public class UserController {
     private OrderService orderService;
     @Resource
     private FinanceServcie financeServcie;
+    @Resource
+    private CustService custService;
 
     /**
      * 用户中心首页
@@ -97,7 +101,9 @@ public class UserController {
      * @return
      */
     @RequestMapping("/guests")
-    public String guests() {
+    public String guests(ModelMap modelMap) {
+        SearchResult<CustomerVo> vos = custService.getCustomerVos(userService.getCurrentUser(), 1);
+        modelMap.put("custList", vos);
         return "user-center-guest-list";
     }
 
@@ -174,8 +180,22 @@ public class UserController {
     @RequestMapping("/sendmsg")
     public String sendMessage(ModelMap modelMap) {
         List<YlmEmployFdo> emploee = userService.getEmploee();
-        modelMap.put("emploee", emploee);
+        modelMap.put("employee", emploee);
         return "user-center-send-message";
+    }
+
+    /**
+     * 读取雇员列表
+     * 
+     * @param response
+     * @throws IOException
+     */
+    @RequestMapping("/readEmployee")
+    public void readEmployee(HttpServletResponse response) throws IOException {
+        List<YlmEmployFdo> emploee = userService.getEmploee();
+
+        JsonUtils.writeToJson(new SearchResult<YlmEmployFdo>(1, emploee), response);
+
     }
 
     /**
@@ -280,7 +300,7 @@ public class UserController {
      */
     @RequestMapping("/changepass")
     public String changePassword() {
-        //TODO 更换密码
+        // TODO 更换密码
         return "user-center-password";
     }
 
@@ -312,7 +332,7 @@ public class UserController {
      */
     @RequestMapping("/shortcut")
     public String shortcutMenu() {
-        //TODO 快捷菜单设置页
+        // TODO 快捷菜单设置页
         return "user-center-shortcut-menu";
     }
 
@@ -323,7 +343,7 @@ public class UserController {
      */
     @RequestMapping("/log")
     public String userLog() {
-        //TODO 用户登录日志
+        // TODO 用户登录日志
         return "user-center-log";
     }
 

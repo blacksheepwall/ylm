@@ -49,31 +49,34 @@
               </tr>
               </thead>
               <tbody>
+              <#list custList.resultList as it>
               <tr>
                 <td>
-                  1
+                  ${it_index+1}
                 </td>
                 <td>
-                  林展科
+                  ${it.name}
                 </td>
                 <td>
-                  男
+                  ${it.sex}
                 </td>
                 <td>
-                  330103195304060410
+                  ${it.certificate.certificateNumber}
                 </td>
                 <td>
+               	  ${it.mobile}
                 </td>
                 <td>
-                  <a href="">YSL13042410560353</a>
+                  <a href="">${it.orderNum}</a>
                 </td>
                 <td>
-                  <a href="/product/detail/">【双城春色】石家庄-北京双飞六日游</a>
+                  <a href="/product/detail/">${it.productName}</a>
                 </td>
                 <td>
                   有效
                 </td>
               </tr>
+              </#list>
               </tbody>
             </table>
           </div>
