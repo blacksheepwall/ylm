@@ -135,16 +135,17 @@ public class UserService {
         account.setAccountPassword(newPass);
         return this.accountMapper.updateByPrimaryKey(account) > 0;
     }
-    
+
     /**
      * 获取用户列表
+     * 
      * @return
      */
-    public List<YlmEmployFdo> getEmploee(){
+    public List<YlmEmployFdo> getEmploee() {
         YlmEmployResult result = employFacade.getYlmEmployList(null);
-        if(result.isSuccess()){
+        if (result.isSuccess()) {
             List<YlmEmployFdo> list = result.getYlmEmployFdoList();
-            return list;
+            return list == null ? new ArrayList<YlmEmployFdo>(0) : list;
         }
         return Collections.emptyList();
     }
