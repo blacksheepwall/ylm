@@ -137,15 +137,18 @@
     <li <#if "user-center-log"==page_name>class="active"</#if>>
       <a href="/u/log/">登录日志<i class="icon-chevron-right"></i></a>
     </li>
-    <li>
-      <a href="#">短信模板<i class="icon-chevron-right"></i></a>
+    <#--<li>-->
+      <#--<a href="#">短信模板<i class="icon-chevron-right"></i></a>-->
+    <#--</li>-->
+    <li <#if "user-center-short-message-setup"==page_name>class="active"</#if>>
+      <a href="/main/user-center-short-message-setup">短信设置<i class="icon-chevron-right"></i></a>
     </li>
-    <li>
+    <li <#if "user-center-send-short-message"==page_name>class="active"</#if>>
       <a href="/main/user-center-send-short-message">发送短信<i class="icon-chevron-right"></i></a>
     </li>
-    <li>
-      <a href="#">发送记录<i class="icon-chevron-right"></i></a>
-    </li>
+    <#--<li>-->
+      <#--<a href="#">发送记录<i class="icon-chevron-right"></i></a>-->
+    <#--</li>-->
   </ul>
 </div>
 </#macro>

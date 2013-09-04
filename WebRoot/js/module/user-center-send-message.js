@@ -6,4 +6,7 @@ define(['./util'], function(Util) {
     Util.clearForm($form);
     return false;
   });
+  $form.on('submit', function() {
+    return false;
+  });
 });

@@ -1,7 +1,7 @@
 define(['./util'], function(Util) {
   'use strict';
   var $number = $('#J_number'),
-    $content = $('#J_content'),
+    $key = $('#J_key'),
     $form = $('#J_form'),
     $resetForm = $('#J_reset_form'),
     $okBtn = $('#J_ok_btn');
