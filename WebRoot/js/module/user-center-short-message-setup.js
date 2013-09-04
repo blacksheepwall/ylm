@@ -1,7 +1,10 @@
 define(['./util'], function(Util) {
   'use strict';
-  var $resetForm = $('#J_reset_form'),
-    $form = $('#J_form');
+  var $number = $('#J_number'),
+    $key = $('#J_key'),
+    $form = $('#J_form'),
+    $resetForm = $('#J_reset_form'),
+    $okBtn = $('#J_ok_btn');
   $resetForm.click(function() {
     Util.clearForm($form);
     return false;
