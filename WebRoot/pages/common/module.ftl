@@ -141,7 +141,7 @@
       <a href="#">短信模板<i class="icon-chevron-right"></i></a>
     </li>
     <li>
-      <a href="#">发送短信<i class="icon-chevron-right"></i></a>
+      <a href="/main/user-center-send-short-message">发送短信<i class="icon-chevron-right"></i></a>
     </li>
     <li>
       <a href="#">发送记录<i class="icon-chevron-right"></i></a>
