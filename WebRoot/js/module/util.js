@@ -101,12 +101,12 @@ define(['dateTimePicker', 'moment'], function() {
     get: _ajax,
     post: function(options) {
       options.type = 'post';
+      _ajax(options);
       $.globalMessenger().post({
         message: '数据加载中...',
         showCloseButton: true,
         auto: false
       });
-      _ajax(options);
     },
     clearForm: _clearForm,
     enableDateTimePicker: _initDateTimePicker,

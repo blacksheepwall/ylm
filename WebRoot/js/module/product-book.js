@@ -26,7 +26,7 @@ define(['./util'], function(Util) {
     saveUrl = '';
 
   function _initNum() {
-    $adultNum.add($childNum)
+    $adultNum.add($childNum).add($phone)
       .on('input propertychange', _numberChanged)
       .on('keyup',function() {  // keyup 事件处理
         $(this).val($(this).val().replace(/\D/g, ''));

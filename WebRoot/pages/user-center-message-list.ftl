@@ -31,25 +31,25 @@
               <table class="table table-hover table-bordered">
                 <thead>
                 <tr>
-                  <th>
+                  <th width="60">
                     <label><input id="J_check_all_inbox" type="checkbox" value="全选">全选</label>
                   </th>
-                  <th>
+                  <th width="100">
                     序号
                   </th>
                   <th>
                     标题
                   </th>
-                  <th>
+                  <th width="120">
                     附件
                   </th>
-                  <th>
+                  <th width="80">
                     发送人
                   </th>
-                  <th>
+                  <th width="80">
                     发送时间
                   </th>
-                  <th>
+                  <th width="120">
                     操作
                   </th>
                 </tr>
@@ -64,14 +64,14 @@
                     ${it_index + 1}
                   </td>
                   <td>
-                    <a href="/u/msginfo/?id=${it.id}">${it.title}</a>
+                    <a href="/u/msginfo/?id=${it.id}">${it.title!''}</a>
                   </td>
                   <td>
                     <a href="/u/msginfo/?id=${it.id}"><i class="icon-search"></i> 预览</a>
                     <a href="javascript:;"><i class="icon-download-alt"></i> 下载</a>
                   </td>
                   <td>
-                    ${it.sender}
+                    ${it.sender!''}
                   </td>
                   <td>
                     ${it.sendTime?string('yyyy-MM-dd')}
@@ -90,25 +90,25 @@
               <table class="table table-hover table-bordered" style="display: none;">
                 <thead>
                 <tr>
-                  <th>
+                  <th width="60">
                     <label><input id="J_check_all_outbox" type="checkbox" value="全选">全选</label>
                   </th>
-                  <th>
+                  <th width="100">
                     序号
                   </th>
                   <th>
                     标题
                   </th>
-                  <th>
+                  <th width="120">
                     附件
                   </th>
-                  <th>
+                  <th width="80">
                     发送人
                   </th>
-                  <th>
+                  <th width="80">
                     发送时间
                   </th>
-                  <th>
+                  <th width="120">
                     操作
                   </th>
                 </tr>
@@ -123,7 +123,7 @@
                     ${it_index + 1}
                     </td>
                     <td>
-                      <a href="/u/msginfo/?id=${it.id}">${it.title}</a>
+                      <a href="/u/msginfo/?id=${it.id}">${it.title!''}</a>
                     </td>
                     <td>
                       <a href="javascript:;"><i class="icon-search"></i> 预览</a>

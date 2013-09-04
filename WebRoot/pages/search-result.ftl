@@ -55,7 +55,7 @@
             <strong class="pull-left">出发城市：</strong>
             <ul id="J_condition_leave_city" class="nav nav-pills">
               <li class="active">
-                <a href="javascript:;">不限</a>
+                <a href="javascript:;" data-target="leaveCity">不限</a>
               </li>
               <li>
                 <a href="javascript:;" data-target="leaveCity,330100">杭州</a>
