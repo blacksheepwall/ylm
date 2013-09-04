@@ -31,8 +31,8 @@ import com.youlema.sales.meta.ProductItem;
 import com.youlema.sales.meta.SearchResult;
 import com.youlema.sales.service.OrderService;
 import com.youlema.sales.service.ProductService;
-import com.youlema.sales.service.UserService;
 import com.youlema.sales.service.ProductService.QueryCondition;
+import com.youlema.sales.service.UserService;
 
 /**
  * 散拼产品Controller

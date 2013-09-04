@@ -102,5 +102,5 @@ public interface AgentsPaymentFactMapper {
     List<AgentsPaymentReportMeta> queryMonthReport(@Param("agentsId") long agentsId, @Param("year") int year,
             @Param("month") int month);
 
-    List<AgentsPaymentReportMeta> queryYearReport(@Param("agentsId") long agentsId, @Param("year") int year);
+    List<AgentsPaymentReportMeta> queryYearReport(@Param("agentsId") long agentsId, @Param("year") int year , @Param("user")String loginUser);
 }

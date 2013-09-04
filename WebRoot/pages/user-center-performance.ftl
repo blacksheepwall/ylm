@@ -44,26 +44,28 @@
               </tr>
               </thead>
               <tbody>
+              <#list metas as it>
               <tr>
                 <td>
-                  1
+                  ${it.minorTypeCodeName}
                 </td>
                 <td>
-                  2
+                  ${it.orderCount}
                 </td>
                 <td>
-                  3
+                  ${it.adultCount+it.childCount}
                 </td>
                 <td>
-                  4
+                  ${it.orderAmount}
                 </td>
                 <td>
-                  1
+                  ${it.settlementAmount}
                 </td>
                 <td>
                   2
                 </td>
               </tr>
+              </#list>
               </tbody>
             </table>
           </div>

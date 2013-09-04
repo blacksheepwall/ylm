@@ -32,6 +32,8 @@
 		<result column="YEAR_OF_START" property="yearOfStart" jdbcType="INTEGER" />
 		<result column="MONTH_OF_START" property="monthOfStart"
 			jdbcType="INTEGER" />
+		<result column="RECEPTION_PERSONNEL" property="receptionPersonnel"
+			jdbcType="VARCHAR" />
 	</resultMap>
 
 	<resultMap id="ReportResultMap"
@@ -64,8 +66,8 @@
 		sum(order_Amount)ORDER_AMOUNT ,
 		sum(SETTLEMENT_AMOUNT)SETTLEMENT_AMOUNT,sum(UNPAID_AMOUNT)UNPAID_AMOUNT,sum(PAID_AMOUNT)PAID_AMOUNT
 		from AGENTS_PAYMENT_FACT where AGENTS_ID=#{agentsId} and YEAR_OF_START
-		= #{year} 
-		<if test = "month > 0">
+		= #{year}
+		<if test="month > 0">
 			and MONTH_OF_START = #{month}
 		</if>
 		group by MINOR_TYPE_CODE
@@ -81,8 +83,14 @@
 		TOTAL_ADULT,sum(total_Child)TOTAL_CHILD ,
 		sum(order_Amount)ORDER_AMOUNT ,
 		sum(SETTLEMENT_AMOUNT)SETTLEMENT_AMOUNT,sum(UNPAID_AMOUNT)UNPAID_AMOUNT,sum(PAID_AMOUNT)PAID_AMOUNT
-		from AGENTS_PAYMENT_FACT where AGENTS_ID=#{agentsId} and YEAR_OF_START
-		= #{year} group by MINOR_TYPE_CODE
+		from AGENTS_PAYMENT_FACT where AGENTS_ID=#{agentsId} 
+		<if test="year > 0">
+			and YEAR_OF_START	= #{year}
+		</if>
+		<if test="user != null">
+			and RECEPTION_PERSONNEL = #{user}
+		</if>
+		group by MINOR_TYPE_CODE
 		,YEAR_OF_START , MAIN_TYPE_CODE;
 	</select>
 

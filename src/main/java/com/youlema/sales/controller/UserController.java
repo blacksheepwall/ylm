@@ -15,14 +15,17 @@ import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.yolema.tbss.ext.facade.fdo.sys.YlmEmployFdo;
 import com.youlema.sales.mapper.meta.AgentsAccount;
 import com.youlema.sales.mapper.meta.AgentsFavorites;
+import com.youlema.sales.mapper.meta.AgentsPaymentReportMeta;
 import com.youlema.sales.meta.BusinessType;
 import com.youlema.sales.meta.MessageItem;
 import com.youlema.sales.meta.OrderVo;
 import com.youlema.sales.meta.SearchResult;
 import com.youlema.sales.meta.User;
 import com.youlema.sales.service.FavoriteService;
+import com.youlema.sales.service.FinanceServcie;
 import com.youlema.sales.service.MsgService;
 import com.youlema.sales.service.OrderService;
 import com.youlema.sales.service.UserService;
@@ -44,6 +47,8 @@ public class UserController {
     private MsgService msgService;
     @Resource
     private OrderService orderService;
+    @Resource
+    private FinanceServcie financeServcie;
 
     /**
      * 用户中心首页
@@ -81,6 +86,8 @@ public class UserController {
      */
     @RequestMapping("/performance")
     public String performance(ModelMap modelMap) {
+        List<AgentsPaymentReportMeta> metas = financeServcie.readReportMetas(userService.getCurrentUser(), -1);
+        modelMap.put("metas", metas);
         return "user-center-performance";
     }
 
@@ -165,7 +172,9 @@ public class UserController {
      * @return
      */
     @RequestMapping("/sendmsg")
-    public String sendMessage() {
+    public String sendMessage(ModelMap modelMap) {
+        List<YlmEmployFdo> emploee = userService.getEmploee();
+        modelMap.put("emploee", emploee);
         return "user-center-send-message";
     }
 

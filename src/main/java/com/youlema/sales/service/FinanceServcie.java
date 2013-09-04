@@ -3,6 +3,7 @@ package com.youlema.sales.service;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -31,10 +32,12 @@ import com.youlema.sales.mapper.meta.AgentsPaymentReportItem;
 import com.youlema.sales.mapper.meta.AgentsPaymentReportMeta;
 import com.youlema.sales.mapper.meta.AgentsTotalFact;
 import com.youlema.sales.mapper.meta.AgentsTotalFactExample;
+import com.youlema.sales.mapper.meta.ProductType;
 import com.youlema.sales.meta.FinanceMeta;
 import com.youlema.sales.meta.RefundItem;
 import com.youlema.sales.meta.RemitItem;
 import com.youlema.sales.meta.SearchResult;
+import com.youlema.sales.meta.User;
 import com.youlema.sales.utils.Vo;
 import com.youlema.tools.jee.pages.PageList;
 import com.youlema.tools.jee.pages.PagingTools;
@@ -57,6 +60,8 @@ public class FinanceServcie {
     private AgentsPaymentFactMapper agentsPaymentFactMapper;
     @Resource
     private PaymentApplyFacade paymentApplyFacade;
+    @Resource
+    private ProductTypeService productTypeService;
 
     /**
      * 根据账号获取财务统计数据
@@ -109,7 +114,7 @@ public class FinanceServcie {
 
     private static SearchResult<RemitItem> toRemitItemResult(RemittanceFormBeanResult result) {
         PageList<RemittanceFormFdo> pageList = result.getPageRemittanceList();
-        if(pageList == null){
+        if (pageList == null) {
             return new SearchResult<RemitItem>(0, new ArrayList<RemitItem>());
         }
         ArrayList<RemitItem> list = new ArrayList<RemitItem>();
@@ -148,11 +153,34 @@ public class FinanceServcie {
      */
     public List<AgentsPaymentReportMeta> readReportMetas(Agents agents, String type, int year, int month) {
         if ("year".equalsIgnoreCase(type)) {
-            return agentsPaymentFactMapper.queryYearReport(agents.getAgentsId(), year);
+            return agentsPaymentFactMapper.queryYearReport(agents.getAgentsId(), year, null);
         }
         return agentsPaymentFactMapper.queryMonthReport(agents.getAgentsId(), year, month);
     }
+    /**
+     * 获取某业务员的业务报表
+     * @param user
+     * @param year
+     * @return
+     */
+    public List<AgentsPaymentReportMeta> readReportMetas(User user, int year) {
+        List<AgentsPaymentReportMeta> queryYearReport = agentsPaymentFactMapper.queryYearReport(user.getAgents().getAgentsId(), year, user.getUserName());
+        HashMap<String, String> typesMap = getTypesMap() ;
+        for (AgentsPaymentReportMeta meta : queryYearReport) {
+            String string = typesMap.get(meta.getMinorTypeCode());
+            meta.setMinorTypeCodeName(string);
+        }
+        return queryYearReport;
+    }
 
+    private HashMap<String, String> getTypesMap() {
+        List<ProductType> types = productTypeService.listProductTypes();
+        HashMap<String, String> typeMap = new HashMap<String, String>(types.size());
+        for (ProductType productType : types) {
+            typeMap.put(productType.getTypeCode(), productType.getProductTypeName());
+        }
+        return typeMap;
+    }
     /**
      * 获取报表明细列表
      * 

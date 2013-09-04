@@ -179,6 +179,11 @@ public class AgentsPaymentFactExample {
             return (Criteria) this;
         }
 
+        public Criteria andReceptionPersonnelEqualTo(Long value) {
+            addCriterion("RECEPTION_PERSONNEL =", value, "receptionPersonnel");
+            return (Criteria) this;
+        }
+
         public Criteria andAgentsPaymentFactIdNotEqualTo(Long value) {
             addCriterion("AGENTS_PAYMENT_FACT_ID <>", value, "agentsPaymentFactId");
             return (Criteria) this;

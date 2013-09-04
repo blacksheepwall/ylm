@@ -202,4 +202,16 @@
 		</property>
 	</bean>
 
+	<bean id="YlmEmployFacade" class="com.yolema.tbss.ext.facade.YlmEmployFacade"
+		factory-bean="YlmEmployFacadeFactory" factory-method="create">
+	</bean>
+
+	<bean id="YlmEmployFacadeFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+		<property name="serviceClass" value="com.yolema.tbss.ext.facade.YlmEmployFacade" />
+		<property name="address"
+			value="http://183.129.158.179:8080/tbss/services/ylmemploy" />
+		<property name="outInterceptors">
+			<ref bean="clientSoapAuth" />
+		</property>
+	</bean>
 </beans>

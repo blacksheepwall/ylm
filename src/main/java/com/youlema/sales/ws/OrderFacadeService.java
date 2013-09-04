@@ -13,8 +13,8 @@ import com.yolema.tbss.ext.facade.fdo.order.OrderCustomFdo;
 import com.yolema.tbss.ext.facade.result.OrderBillResult;
 import com.yolema.tbss.ext.facade.result.OrderCustomResult;
 import com.youlema.sales.mapper.meta.AgentsAccount;
-import com.youlema.sales.service.UserService;
 import com.youlema.sales.service.OrderService.OrderQueryCondition;
+import com.youlema.sales.service.UserService;
 
 @Service
 public class OrderFacadeService {

@@ -11,8 +11,11 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Service;
 
 import com.yolema.tbss.ext.facade.AgentsFacade;
+import com.yolema.tbss.ext.facade.YlmEmployFacade;
 import com.yolema.tbss.ext.facade.fdo.agents.AgentsAccountFdo;
+import com.yolema.tbss.ext.facade.fdo.sys.YlmEmployFdo;
 import com.yolema.tbss.ext.facade.result.BaseResult;
+import com.yolema.tbss.ext.facade.result.YlmEmployResult;
 import com.youlema.sales.mapper.AgentsAccountMapper;
 import com.youlema.sales.mapper.AgentsMapper;
 import com.youlema.sales.mapper.AgentsRoleMapper;
@@ -39,6 +42,8 @@ public class UserService {
     private AgentsRoleMapper roleMapper;
     @Resource
     private AgentsFacade agentsFacade;
+    @Resource
+    private YlmEmployFacade employFacade;
 
     public User getUser(String name, String password) {
         AgentsAccountFdo acctFdo = new AgentsAccountFdo();
@@ -129,5 +134,18 @@ public class UserService {
         }
         account.setAccountPassword(newPass);
         return this.accountMapper.updateByPrimaryKey(account) > 0;
+    }
+    
+    /**
+     * 获取用户列表
+     * @return
+     */
+    public List<YlmEmployFdo> getEmploee(){
+        YlmEmployResult result = employFacade.getYlmEmployList(null);
+        if(result.isSuccess()){
+            List<YlmEmployFdo> list = result.getYlmEmployFdoList();
+            return list;
+        }
+        return Collections.emptyList();
     }
 }
