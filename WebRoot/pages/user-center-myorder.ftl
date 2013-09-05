@@ -17,34 +17,34 @@
         <div class="span10 manage-body">
           <div class="mod-body clearfix">
             <form class="form-search">
-              <input class="search-input" type="text">
-              <button class="btn btn-success search-btn" type="button">查找</button>
+              <input id="J_name" class="search-input" type="text">
+              <button id="J_search_btn" class="btn btn-success search-btn" type="button">查找</button>
             </form>
             <table class="table table-hover table-bordered">
               <thead>
               <tr>
-                <th>
+                <th width="80">
                   订单编号
                 </th>
-                <th>
+                <th width="50">
                   类型
                 </th>
                 <th>
                   产品名称
                 </th>
-                <th>
+                <th width="90">
                   出团日期
                 </th>
-                <th>
+                <th width="60">
                   人数
                 </th>
-                <th>
+                <th width="60">
                   联系人
                 </th>
-                <th>
+                <th width="90">
                   预订时间
                 </th>
-                <th>
+                <th width="80">
                   订单状态
                 </th>
               </tr>
@@ -78,6 +78,11 @@
                 </td>
               </tr>
               </#list>
+                <#if orderResult.resultList?size==0>
+                <tr>
+                  <td colspan="8">还没有数据</td>
+                </tr>
+                </#if>
               </tbody>
             </table>
           </div>

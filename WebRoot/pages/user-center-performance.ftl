@@ -17,28 +17,30 @@
         <div class="span10 manage-body">
           <div class="mod-body clearfix">
             <div class="pull-left condition">
-              起止日期 <input type="text" class="input-small"> ~ <input type="text" class="input-small">
-              <button class="btn btn-success search-btn" type="button">确定</button>
+              起止日期 <input id="J_start_date" type="text" class="date-box input-small">
+              ~
+              <input id="J_end_date" type="text" class="date-box input-small">
+              <button id="J_search_btn" class="btn btn-success search-btn" type="button">确定</button>
             </div>
             <table class="table table-hover table-bordered">
               <thead>
               <tr>
-                <th>
+                <th width="80">
                   线路类型
                 </th>
-                <th>
+                <th width="80">
                   订单数量
                 </th>
-                <th>
+                <th width="80">
                   人数
                 </th>
-                <th>
+                <th width="120">
                   营业金额额
                 </th>
-                <th>
+                <th width="120">
                   结算金额
                 </th>
-                <th>
+                <th width="100">
                   明细查看
                 </th>
               </tr>
@@ -66,6 +68,11 @@
                 </td>
               </tr>
               </#list>
+              <#if metas??&&metas?size==0>
+              <tr>
+                <td colspan="6">还没有数据</td>
+              </tr>
+              </#if>
               </tbody>
             </table>
           </div>

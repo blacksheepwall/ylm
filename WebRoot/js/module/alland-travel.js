@@ -32,7 +32,7 @@ define(['./util', 'moment', 'pagination'], function(Util, moment) {
   function _initConditions() {
     $searchBtn.click(function() {
       Util.validDateTimePicker() && _queryList({'data': mod.queryConfig});
-    })
+    });
     $('#J_condition').on('click', '.nav a', _switchTabs);
     $('#J_route_list').on('click', 'a', _switchTabs);
   }

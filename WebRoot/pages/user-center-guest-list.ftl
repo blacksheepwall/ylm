@@ -17,33 +17,33 @@
         <div class="span10 manage-body">
           <div class="mod-body clearfix">
             <div class="pull-left condition">
-              游客姓名 <input type="text" class="input-small"> <button class="btn btn-success search-btn" type="button">查找</button>
+              游客姓名 <input id="J_name" type="text" class="input-small"> <button id="J_search_btn" class="btn btn-success search-btn" type="button">查找</button>
             </div>
             <table class="table table-hover table-bordered">
               <thead>
               <tr>
-                <th>
+                <th width="60">
                   序号
                 </th>
-                <th>
+                <th width="60">
                   姓名
                 </th>
-                <th>
+                <th width="60">
                   性别
                 </th>
-                <th>
+                <th width="120">
                   证件号码
                 </th>
-                <th>
+                <th width="80">
                   联系电话
                 </th>
-                <th>
+                <th width="80">
                   订单编号
                 </th>
                 <th>
                   预订产品名称
                 </th>
-                <th>
+                <th width="80">
                   状态
                 </th>
               </tr>
@@ -77,6 +77,11 @@
                 </td>
               </tr>
               </#list>
+              <#if custList??&&custList.resultList?size==0>
+              <tr>
+                <td colspan="8">还没有数据</td>
+              </tr>
+              </#if>
               </tbody>
             </table>
           </div>

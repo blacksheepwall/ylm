@@ -20,22 +20,22 @@
             <table class="table table-hover table-bordered">
               <thead>
               <tr>
-                <th>
+                <th width="80">
                   序号
                 </th>
                 <th>
                   标题
                 </th>
-                <th>
+                <th width="80">
                   附件
                 </th>
-                <th>
+                <th width="80">
                   发送人
                 </th>
-                <th>
+                <th width="120">
                   发送时间
                 </th>
-                <th>
+                <th width="80">
                   操作
                 </th>
               </tr>
@@ -50,7 +50,7 @@
                   <a href="/u/msginfo/?id=${it.id}">${it.title}</a>
                 </td>
                 <td>
-                  预览  下载
+                  <a href="">预览</a>&nbsp;<a href="">下载</a>
                 </td>
                 <td>
                   ${it.sender}
@@ -64,6 +64,11 @@
                 </td>
               </tr>
               </#list>
+              <#if unreadMsg.resultList?size==0>
+              <tr>
+                <td colspan="6">还没有数据</td>
+              </tr>
+              </#if>
               </tbody>
             </table>
           </div>

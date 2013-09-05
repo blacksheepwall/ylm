@@ -23,19 +23,19 @@
                 <th>
                   产品名称
                 </th>
-                <th>
+                <th width="80">
                   类型
                 </th>
-                <th>
+                <th width="80">
                   天数
                 </th>
-                <th>
+                <th width="80">
                   价格
                 </th>
-                <th>
+                <th width="80">
                   出团日期
                 </th>
-                <th>
+                <th width="80">
                   取消收藏
                 </th>
               </tr>
@@ -56,13 +56,17 @@
                   3888.00起
                 </td>
                 <td>
-                  2013-6-12、6-18、6-22、7-3
                 </td>
                 <td>
                   <a href="/u/removeFavorite/?fid=${it.agentsFavoritesId}">取消收藏</a>
                 </td>
               </tr>
               </#list>
+              <#if favoriteList??&&favoriteList?size==0>
+              <tr>
+                <td colspan="6">还没有数据</td>
+              </tr>
+              </#if>
               </tbody>
             </table>
           </div>

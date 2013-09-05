@@ -19,16 +19,16 @@
             <table class="table table-hover table-bordered">
               <thead>
               <tr>
-                <th>
+                <th width="100">
                   登录账户
                 </th>
-                <th>
+                <th width="200">
                   登录情况
                 </th>
-                <th>
+                <th width="100">
                   登录IP
                 </th>
-                <th>
+                <th width="100">
                   登录时间
                 </th>
               </tr>
