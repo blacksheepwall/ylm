@@ -22,57 +22,112 @@
               <input id="J_end_date" type="text" class="date-box input-small" readonly="">
               <button id="J_search_btn" class="btn btn-success search-btn" type="button">确定</button>
             </div>
-            <table class="table table-hover table-bordered">
+            <table id="J_table" class="table table-hover table-bordered">
               <thead>
               <tr>
-                <th width="80">
+                <th>
                   线路类型
                 </th>
-                <th width="80">
+                <th>
                   订单数量
                 </th>
-                <th width="80">
+                <th>
                   人数
                 </th>
-                <th width="120">
+                <th width="150">
                   营业金额额
                 </th>
-                <th width="120">
+                <th>
                   结算金额
                 </th>
-                <th width="100">
+                <th width="80">
                   明细查看
                 </th>
               </tr>
               </thead>
               <tbody>
-              <#list metas as it>
               <tr>
-                <td>
-                  ${it.minorTypeCodeName}
-                </td>
-                <td>
-                  ${it.orderCount}
-                </td>
-                <td>
-                  ${it.adultCount+it.childCount}
-                </td>
-                <td>
-                  ${it.orderAmount}
-                </td>
-                <td>
-                  ${it.settlementAmount}
-                </td>
-                <td>
-                  <a href="">2</a>
-                </td>
+              <td colspan="6">
+                <div>
+                  出境线路 <a href="javascript:;" class="j-toggle">展开</a>
+                </div>
+                <#assign metas1=[{'minorTypeCodeName':'1'}]/>
+                <#list metas1 as it>
+                  <ol class="item-list" style="display: none;">
+                    <li>
+                      <div class="item-type">${it.minorTypeCodeName!}</div>
+                      <div class="item-count">${it.minorTypeCodeName}</div>
+                      <div class="item-number">${it.minorTypeCodeName}</div>
+                      <div class="item-price">${it.minorTypeCodeName}</div>
+                      <div class="item-amount">${it.minorTypeCodeName}</div>
+                      <div class="item-detail"><a href="/finance/report/?type=month" target="_blank">查看</a></div>
+                    </li>
+                  </ol>
+                </#list>
+              </td>
               </tr>
-              </#list>
-              <#if metas??&&metas?size==0>
               <tr>
-                <td colspan="6">还没有数据</td>
+              <td colspan="6">
+                <div>
+                  港澳台线路 <a href="javascript:;" class="j-toggle">展开</a>
+                </div>
+                <#assign metas1=[{'minorTypeCodeName':'1'}]/>
+                <#list metas1 as it>
+                  <ol class="item-list" style="display: none;">
+                    <li>
+                      <div class="item-type">${it.minorTypeCodeName!}</div>
+                      <div class="item-count">${it.minorTypeCodeName}</div>
+                      <div class="item-number">${it.minorTypeCodeName}</div>
+                      <div class="item-price">${it.minorTypeCodeName}</div>
+                      <div class="item-amount">${it.minorTypeCodeName}</div>
+                      <div class="item-detail"><a href="/finance/report/?type=month" target="_blank">查看</a></div>
+                    </li>
+                  </ol>
+                </#list>
+              </td>
               </tr>
-              </#if>
+              <tr>
+              <td colspan="6">
+                <div>
+                  国内线路 <a href="javascript:;" class="j-toggle">展开</a>
+                </div>
+                <#assign metas1=[{'minorTypeCodeName':'1'}]/>
+                <#list metas1 as it>
+                  <ol class="item-list" style="display: none;">
+                    <li>
+                      <div class="item-type">${it.minorTypeCodeName!}</div>
+                      <div class="item-count">${it.minorTypeCodeName}</div>
+                      <div class="item-number">${it.minorTypeCodeName}</div>
+                      <div class="item-price">${it.minorTypeCodeName}</div>
+                      <div class="item-amount">${it.minorTypeCodeName}</div>
+                      <div class="item-detail"><a href="/finance/report/?type=month" target="_blank">查看</a></div>
+                    </li>
+                  </ol>
+                </#list>
+              </td>
+              </tr>
+              <#--<#list metas as it>-->
+              <#--<tr>-->
+                <#--<td>-->
+                  <#--${it.minorTypeCodeName}-->
+                <#--</td>-->
+                <#--<td>-->
+                  <#--${it.orderCount}-->
+                <#--</td>-->
+                <#--<td>-->
+                  <#--${it.adultCount+it.childCount}-->
+                <#--</td>-->
+                <#--<td>-->
+                  <#--${it.orderAmount}-->
+                <#--</td>-->
+                <#--<td>-->
+                  <#--${it.settlementAmount}-->
+                <#--</td>-->
+                <#--<td>-->
+                  <#--<a href="">2</a>-->
+                <#--</td>-->
+              <#--</tr>-->
+              <#--</#list>-->
               </tbody>
             </table>
           </div>

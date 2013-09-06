@@ -1,4 +1,4 @@
-define(['./util'], function(Util) {
+define(['./util', './finance-report'], function(Util) {
   'use strict';
   var $searchBtn = $('#J_search_btn'),
     $startDate = $('#J_start_date'),
