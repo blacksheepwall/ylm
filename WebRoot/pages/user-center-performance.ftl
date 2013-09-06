@@ -17,9 +17,9 @@
         <div class="span10 manage-body">
           <div class="mod-body clearfix">
             <div class="pull-left condition">
-              起止日期 <input id="J_start_date" type="text" class="date-box input-small">
+              起止日期 <input id="J_start_date" type="text" class="date-box input-small" readonly="">
               ~
-              <input id="J_end_date" type="text" class="date-box input-small">
+              <input id="J_end_date" type="text" class="date-box input-small" readonly="">
               <button id="J_search_btn" class="btn btn-success search-btn" type="button">确定</button>
             </div>
             <table class="table table-hover table-bordered">
@@ -64,7 +64,7 @@
                   ${it.settlementAmount}
                 </td>
                 <td>
-                  2
+                  <a href="">2</a>
                 </td>
               </tr>
               </#list>
