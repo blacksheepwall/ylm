@@ -2,6 +2,7 @@ package com.youlema.sales.service;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -65,7 +66,8 @@ public class UserService {
             user.setAccount(account);
             Agents agents = this.agentsMapper.selectByPrimaryKey(account.getAgentsId());
             user.setAgents(agents);
-
+            account.setGmtLastLoginTime(new Date());
+            accountMapper.updateByPrimaryKey(account);
             List<AgentsRole> roles = getRoles(account.getAgentsAccountId());
             user.setRoles(roles);
         } else {
@@ -98,7 +100,7 @@ public class UserService {
     public User getCurrentUser() {
         Subject subject = SecurityUtils.getSubject();
         if (subject.getPrincipal() == null) {
-            return getUser("", "");
+            return null;
         }
         return (User) subject.getPrincipal();
     }

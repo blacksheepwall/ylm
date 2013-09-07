@@ -31,6 +31,7 @@ import com.youlema.sales.service.FinanceServcie;
 import com.youlema.sales.service.MsgService;
 import com.youlema.sales.service.OrderService;
 import com.youlema.sales.service.UserService;
+import com.youlema.sales.utils.Utils;
 
 /**
  * 用户中心
@@ -66,6 +67,8 @@ public class UserController {
         modelMap.put("unreadMsg", msgList);
         SearchResult<OrderVo> orderResult = orderService.getLastOrders(10, currentUser);
         modelMap.put("orderResult", orderResult);
+        List<AgentsFavorites> favoriteList = favoriteService.getFavoriteList(currentUser.getAccountId());
+        modelMap.put("favoriteResult", new SearchResult<AgentsFavorites>(1, favoriteList));
         return "user-center";
     }
 
@@ -78,9 +81,23 @@ public class UserController {
     public String myOrder(ModelMap modelMap,
             @RequestParam(value = "page", required = false, defaultValue = "1") int page) {
         User currentUser = userService.getCurrentUser();
-        SearchResult<OrderVo> orderResult = orderService.getOrderVosByUser(currentUser, page, 20);
+        SearchResult<OrderVo> orderResult = orderService.getOrderVosByUser(currentUser, null, page, 20);
         modelMap.put("orderResult", orderResult);
         return "user-center-myorder";
+    }
+    /**
+     * 用户中心订单列表页查询
+     * @param queryText
+     * @param page
+     * @param response
+     * @throws IOException
+     */
+    @RequestMapping("/orders/query")
+    public void queryOrders(@RequestParam(value = "queryText", required = false) String queryText,
+            @RequestParam(value = "page", required = false, defaultValue = "1") int page, HttpServletResponse response) throws IOException {
+        User currentUser = userService.getCurrentUser();
+        SearchResult<OrderVo> orderResult = orderService.getOrderVosByUser(currentUser, queryText, page, 20);
+        JsonUtils.writeToJson(orderResult, response);
     }
 
     /**
@@ -90,9 +107,30 @@ public class UserController {
      */
     @RequestMapping("/performance")
     public String performance(ModelMap modelMap) {
-        List<AgentsPaymentReportMeta> metas = financeServcie.readReportMetas(userService.getCurrentUser(), -1);
+        List<AgentsPaymentReportMeta> metas = financeServcie.readReportMetas(userService.getCurrentUser(), null, null);
         modelMap.put("metas", metas);
         return "user-center-performance";
+    }
+
+    /**
+     * 业绩汇总查询接口
+     * 
+     * @param beginDateStr
+     * @param endDateStr
+     * @param response
+     * @throws IOException
+     */
+    @RequestMapping("/performance/query")
+    public void queryPerformance(@RequestParam(value = "beginDate", required = false) String beginDateStr,
+            @RequestParam(value = "endDate", required = false) String endDateStr, HttpServletResponse response)
+            throws IOException {
+        Date beginDate = Utils.parseDate(beginDateStr, "yyyy-MM-dd");
+        Date endDate = Utils.parseDate(endDateStr, "yyyy-MM-dd");
+
+        List<AgentsPaymentReportMeta> list = financeServcie.readReportMetas(userService.getCurrentUser(), beginDate,
+                endDate);
+
+        JsonUtils.writeToJson(new SearchResult<AgentsPaymentReportMeta>(1, list), response);
     }
 
     /**

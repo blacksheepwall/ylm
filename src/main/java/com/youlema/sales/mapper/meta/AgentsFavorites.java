@@ -3,6 +3,7 @@ package com.youlema.sales.mapper.meta;
 import java.util.Date;
 
 import com.youlema.sales.meta.BusinessType;
+import com.youlema.sales.meta.ProductInfo;
 
 public class AgentsFavorites {
 
@@ -146,6 +147,16 @@ public class AgentsFavorites {
     }
 
     private TourLine tourLine;
+    
+    private ProductInfo product;
+
+    public ProductInfo getProduct() {
+        return product;
+    }
+
+    public void setProduct(ProductInfo product) {
+        this.product = product;
+    }
 
     public TourLine getTourLine() {
         return tourLine;

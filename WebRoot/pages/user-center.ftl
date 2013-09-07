@@ -163,23 +163,45 @@
               </tr>
               </thead>
               <tbody>
+              <#list favoriteResult.resultList as it>
+              <#if it.businessType == LINE>
               <tr>
                 <td>
-                  1
+                  ${it.tourLine.lineName}
                 </td>
                 <td>
-                  2
+                  ${it.tourLine.lineType}
                 </td>
                 <td>
-                  3
+                   ${it.tourLine.daysDuring+it.tourLine.daysNight}
                 </td>
                 <td>
-                  4
+                  --
                 </td>
                 <td>
-                  1
+                  --
                 </td>
               </tr>
+              <#elseif it.businessType == PRODUCT>
+               <tr>
+                <td>
+                  ${it.product.title}
+                </td>
+                <td>
+                  ${it.product.pdtType}
+                </td>
+                <td>
+                   ${it.product.daysDuring+it.product.daysNight}
+                </td>
+                <td>
+                  ${it.product.price}
+                </td>
+                <td>
+                  <#if it.product.gmtLeave??>${it.product.gmtLeave?string('yyyy-MM-dd')}</#if>
+                </td>
+              </tr>
+              </#if>
+              </#list>
               </tbody>
             </table>
           </div>

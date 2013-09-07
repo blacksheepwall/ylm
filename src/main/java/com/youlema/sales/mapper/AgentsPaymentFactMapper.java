@@ -1,5 +1,6 @@
 package com.youlema.sales.mapper;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -102,5 +103,9 @@ public interface AgentsPaymentFactMapper {
     List<AgentsPaymentReportMeta> queryMonthReport(@Param("agentsId") long agentsId, @Param("year") int year,
             @Param("month") int month);
 
-    List<AgentsPaymentReportMeta> queryYearReport(@Param("agentsId") long agentsId, @Param("year") int year , @Param("user")String loginUser);
+    List<AgentsPaymentReportMeta> queryYearReport(@Param("agentsId") long agentsId, @Param("year") int year,
+            @Param("user") String loginUser);
+
+    List<AgentsPaymentReportMeta> queryReport(@Param("agentsId") long agentsId, @Param("begin")Date begin, @Param("end")Date end,
+            @Param("user") String loginUser);
 }

@@ -157,15 +157,18 @@ public class FinanceServcie {
         }
         return agentsPaymentFactMapper.queryMonthReport(agents.getAgentsId(), year, month);
     }
+
     /**
      * 获取某业务员的业务报表
+     * 
      * @param user
      * @param year
      * @return
      */
-    public List<AgentsPaymentReportMeta> readReportMetas(User user, int year) {
-        List<AgentsPaymentReportMeta> queryYearReport = agentsPaymentFactMapper.queryYearReport(user.getAgents().getAgentsId(), year, user.getUserName());
-        HashMap<String, String> typesMap = getTypesMap() ;
+    public List<AgentsPaymentReportMeta> readReportMetas(User user, Date begin, Date end) {
+        List<AgentsPaymentReportMeta> queryYearReport = agentsPaymentFactMapper.queryReport(user.getAgents()
+                .getAgentsId(), begin, end, user.getUserName());
+        HashMap<String, String> typesMap = getTypesMap();
         for (AgentsPaymentReportMeta meta : queryYearReport) {
             String string = typesMap.get(meta.getMinorTypeCode());
             meta.setMinorTypeCodeName(string);
@@ -181,6 +184,7 @@ public class FinanceServcie {
         }
         return typeMap;
     }
+
     /**
      * 获取报表明细列表
      * 

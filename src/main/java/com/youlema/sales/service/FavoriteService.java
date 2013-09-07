@@ -13,6 +13,7 @@ import com.youlema.sales.mapper.TourLineMapper;
 import com.youlema.sales.mapper.meta.AgentsFavorites;
 import com.youlema.sales.mapper.meta.TourLine;
 import com.youlema.sales.meta.BusinessType;
+import com.youlema.sales.meta.ProductInfo;
 
 /**
  * 收藏Service
@@ -26,6 +27,8 @@ public class FavoriteService {
     private AgentsFavoritesMapper favoritesMapper;
     @Resource
     private TourLineMapper tourLineMapper;
+    @Resource
+    private ProductService productService;
 
     private static final org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger(FavoriteService.class);
 
@@ -49,7 +52,12 @@ public class FavoriteService {
                     agentsFavorites.setTourLine(line);
                 }
             } else {
-                // TODO 产品表暂时没有
+                ProductInfo product = productService.getProduct(businessId);
+                if (product == null) {
+                    iterator.remove();
+                } else {
+                    agentsFavorites.setProduct(product);
+                }
             }
         }
         return list;
@@ -64,19 +72,30 @@ public class FavoriteService {
      * @return
      */
     public boolean addFavorite(long userId, BusinessType type, long id) {
+        AgentsFavorites favorites = new AgentsFavorites();
+        favorites.setAgentsAccountId(userId);
+        favorites.setGmtOfFavorites(new Date());
         if (type == BusinessType.LINE) {
             TourLine line = tourLineMapper.selectByPrimaryKey(id);
             if (line == null) {
                 LOGGER.warn("addFavorite , 线路未找到 , ID={}", id);
                 return false;
             }
-            AgentsFavorites favorites = new AgentsFavorites();
             favorites.setBusinessType(type.name());
-            favorites.setAgentsAccountId(userId);
             favorites.setBusinessId(line.getTourLineId());
-            favorites.setGmtOfFavorites(new Date());
             return this.favoritesMapper.insert(favorites) > 0;
         }
+        if (type == BusinessType.PRODUCT) {
+            ProductInfo product = productService.getProduct(id);
+            if (product == null) {
+                LOGGER.warn("addFavorite , 产品未找到, ID={}", id);
+                return false;
+            }
+            favorites.setBusinessType(type.name());
+            favorites.setBusinessId(product.getProductId());
+            return this.favoritesMapper.insert(favorites) > 0;
+        }
+        LOGGER.warn("addFavorite , Type 不可识别 ,Type = {}", type.name());
         return false;
     }
 

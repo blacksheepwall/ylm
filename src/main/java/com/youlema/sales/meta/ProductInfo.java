@@ -1,6 +1,7 @@
 package com.youlema.sales.meta;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 import com.yolema.tbss.ext.facade.fdo.product.ProductCompareFdo;
@@ -57,8 +58,40 @@ public class ProductInfo {
     private List<ProductCompareFdo> productFdos;
     @VoField("getPriceOfSingleRoom")
     private BigDecimal priceOfSingleRoom = BigDecimal.ZERO;
+    @VoField("getGmtLeave")
+    private Date leaveDate;
+
     // TODO 保险单价未知
     private BigDecimal bxPrice = BigDecimal.TEN;
+    @VoField("getDaysNight")
+    private int daysNight;
+
+    @VoField("getDaysDuring")
+    private int daysDuring;
+
+    public Date getLeaveDate() {
+        return leaveDate;
+    }
+
+    public void setLeaveDate(Date leaveDate) {
+        this.leaveDate = leaveDate;
+    }
+
+    public int getDaysNight() {
+        return daysNight;
+    }
+
+    public void setDaysNight(int daysNight) {
+        this.daysNight = daysNight;
+    }
+
+    public int getDaysDuring() {
+        return daysDuring;
+    }
+
+    public void setDaysDuring(int daysDuring) {
+        this.daysDuring = daysDuring;
+    }
 
     public BigDecimal getBxPrice() {
         return bxPrice;

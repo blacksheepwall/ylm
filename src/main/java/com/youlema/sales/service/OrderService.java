@@ -9,6 +9,7 @@ import javax.annotation.Resource;
 
 import net.sf.cglib.beans.BeanCopier;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.time.DateUtils;
 import org.springframework.stereotype.Service;
 
@@ -64,24 +65,31 @@ public class OrderService {
     private OrderCustomFacade orderCustomFacade;
     @Resource(name = "OrderBillFacade")
     private OrderBillFacade orderBillFacade;
+
     /**
      * 获取指定条目的订单列表
+     * 
      * @param count
      * @param user
      * @return
      */
     public SearchResult<OrderVo> getLastOrders(int count, User user) {
-        return getOrderVosByUser(user, 1, count);
+        return getOrderVosByUser(user, null, 1, count);
     }
+
     /**
      * 获取指定用户的订单列表
+     * 
      * @param user
      * @param pageNum
      * @param limit
      * @return
      */
-    public SearchResult<OrderVo> getOrderVosByUser(User user, int pageNum, int limit) {
+    public SearchResult<OrderVo> getOrderVosByUser(User user, String queryText, int pageNum, int limit) {
         OrderBillFdo fdo = new OrderBillFdo();
+        if (StringUtils.isNotBlank(queryText)) {
+            fdo.setKeyword(queryText);
+        }
         fdo.setCreator(user.getAccount().getAccountLoginName());
         fdo.setEtpCode(user.getAgents().getAgentsCode());
         fdo.setPageNum(pageNum);
