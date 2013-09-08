@@ -31,7 +31,7 @@
           </div>
           <div class="control-group">
             <div class="controls">
-              <label class="checkbox">
+              <label class="checkbox" style="font-size: 12px;">
                 <input type="checkbox">记住账户
                 <a class="forgot-password" href="./get-password/">忘记密码</a>
               </label>
@@ -39,8 +39,8 @@
           </div>
           <p class="muted text-center">建议浏览器：Internet Explorer8.0 、Google Chrome</p>
           <div class="modal-footer">
-            <button id="login" class="btn btn-primary">登录</button>
-            <button class="btn" data-dismiss="modal" aria-hidden="true">重置</button>
+            <button class="btn btn-primary">登录</button>
+            <button id="J_reset" class="btn" data-dismiss="modal" aria-hidden="true">重置</button>
           </div>
         </form>
       </div>
