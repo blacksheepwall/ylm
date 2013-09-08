@@ -327,7 +327,7 @@ public class OrderService {
             CustomerVo customerVo = CustomerVo.fromFdo(orderCustomFdo);
             vos.add(customerVo);
         }
-        vo.setSubscribeCount(vos.size());
+        vo.setSubscribeCount(fdo.getAuditCount()+fdo.getChildCount());
         vo.setCustomers(new SearchResult<CustomerVo>(vos.size(), vos));
         return vo;
     }
